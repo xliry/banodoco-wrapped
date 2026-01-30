@@ -128,35 +128,6 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
         </ResponsiveContainer>
       </motion.div>
 
-      {/* Milestone labels below chart */}
-      <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mt-4 sm:mt-6">
-        {milestones.map((m, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.12, type: 'spring', stiffness: 200 }}
-            className="flex items-center gap-2 text-xs sm:text-sm"
-          >
-            <div className="w-2.5 h-2.5 bg-cyan-500 rounded-full" />
-            <span className="text-gray-400 font-medium">{m.label}</span>
-            <span className="text-gray-600">({formatYAxis(m.count)})</span>
-          </motion.div>
-        ))}
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
-        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="mt-10 sm:mt-16 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] border border-white/5 text-center"
-      >
-        <p className="text-base sm:text-xl italic text-gray-300 max-w-2xl mx-auto">
-          "It took us 370 days to reach 100K, but just <span className="text-cyan-400 font-bold">177 days</span> to reach our last 250K. That's a 2x acceleration!"
-        </p>
-      </motion.div>
     </section>
   );
 };

@@ -9,7 +9,6 @@ import Heatmap from './components/Heatmap';
 import FunStats from './components/FunStats';
 import MillionthMessage from './components/MillionthMessage';
 import CommunitySection from './components/CommunitySection';
-import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import { useDiscordData } from './useDiscordData';
 
@@ -75,8 +74,6 @@ const App: React.FC = () => {
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <MillionthMessage message={data.millionthMessage} />
-
-        <Footer />
       </main>
 
       {/* Dynamic Background Elements */}

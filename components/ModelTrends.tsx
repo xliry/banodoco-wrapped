@@ -475,23 +475,6 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
           </AreaChart>
         </ResponsiveContainer>
       </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, x: -30, filter: 'blur(4px)' }}
-        whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mt-6 sm:mt-8 flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-cyan-500/5 border border-cyan-500/10"
-      >
-        <div className="text-xl sm:text-2xl mt-1">💡</div>
-        <div>
-          <h4 className="font-bold text-cyan-400 text-sm sm:text-base">Insight</h4>
-          <p className="text-gray-300 text-sm sm:text-base">
-            Stable Diffusion dominated early discussions, but Flux quickly captured the community's attention in mid-2024.
-            Now Wan and newer video models are taking an increasing share of the conversation.
-          </p>
-        </div>
-      </motion.div>
     </section>
   );
 };

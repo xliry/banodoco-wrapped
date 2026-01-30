@@ -10,6 +10,7 @@ interface ArticleCardProps {
   variant: 'mobile' | 'desktop';
   scrollRoot?: HTMLElement | null;
   isActive?: boolean;
+  shouldPreload?: boolean;
   fullWidth?: boolean;
   snapToCenter?: boolean;
 }
@@ -97,7 +98,7 @@ const LightboxModal: React.FC<{ gen: TopGeneration; onClose: () => void }> = ({ 
 };
 
 const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
-  ({ month, generations, variant, scrollRoot, isActive = false, fullWidth = false, snapToCenter = false }, ref) => {
+  ({ month, generations, variant, scrollRoot, isActive = false, shouldPreload = false, fullWidth = false, snapToCenter = false }, ref) => {
     const internalRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -126,18 +127,49 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       return () => observer.disconnect();
     }, [scrollRoot]);
 
-    // Reset video state when switching featured or when card becomes inactive
+    // Reset video state only when switching to a different featured item
     useEffect(() => {
       setProgress(0);
       setMediaLoaded(false);
-    }, [featuredIndex, isActive]);
+    }, [featuredIndex]);
+
+    // Check if video is already loaded when becoming active (handles preloaded videos)
+    useEffect(() => {
+      if (isActive && featured?.mediaType === 'video' && videoRef.current) {
+        const video = videoRef.current;
+        // readyState >= 2 means HAVE_CURRENT_DATA or better
+        if (video.readyState >= 2) {
+          setMediaLoaded(true);
+        }
+      }
+    }, [isActive, featured?.mediaType]);
 
     // Explicitly play video when active and loaded (more reliable than autoPlay attribute)
     useEffect(() => {
-      if (isActive && mediaLoaded && featured?.mediaType === 'video' && videoRef.current) {
-        videoRef.current.play().catch(() => {});
-      }
-    }, [isActive, mediaLoaded, featured?.mediaType]);
+      if (!isActive || !mediaLoaded || featured?.mediaType !== 'video') return;
+
+      const video = videoRef.current;
+      if (!video) return;
+
+      let attempts = 0;
+      const maxAttempts = 5;
+      const retryDelay = 150;
+      let cancelled = false;
+
+      const tryPlay = () => {
+        if (cancelled) return;
+        video.play().catch(() => {
+          attempts++;
+          if (attempts < maxAttempts && !cancelled) {
+            setTimeout(tryPlay, retryDelay);
+          }
+        });
+      };
+
+      tryPlay();
+
+      return () => { cancelled = true; };
+    }, [isActive, mediaLoaded, featured?.mediaType, featuredIndex]);
 
     const handleTimeUpdate = useCallback(() => {
       const video = videoRef.current;
@@ -222,9 +254,9 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
               {featured.mediaType === 'video' ? (
                 <video
                   ref={videoRef}
-                  src={isActive ? featured.mediaUrl : undefined}
-                  preload={isActive ? 'auto' : 'none'}
-                  autoPlay
+                  src={(isActive || shouldPreload) ? featured.mediaUrl : undefined}
+                  preload={isActive ? 'auto' : shouldPreload ? 'metadata' : 'none'}
+                  autoPlay={isActive}
                   muted
                   loop
                   playsInline

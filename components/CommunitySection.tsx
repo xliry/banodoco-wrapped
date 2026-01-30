@@ -260,6 +260,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
                   generations={gens}
                   variant="mobile"
                   isActive={idx === activeTopicIndex}
+                  shouldPreload={idx === activeTopicIndex + 1}
                   fullWidth
                 />
               ))}
@@ -370,6 +371,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
                   variant="desktop"
                   scrollRoot={scrollRoot}
                   isActive={idx === activeTopicIndex}
+                  shouldPreload={idx === activeTopicIndex + 1}
                   snapToCenter={idx !== 0 && idx !== grouped.length - 1}
                 />
               ))}
