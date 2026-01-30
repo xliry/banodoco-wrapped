@@ -23,13 +23,28 @@ const formatDate = (dateStr: string) => {
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
+  const value = payload[0].value;
+  const isMillion = value >= 1000000;
+
   return (
-    <div className="bg-[#1a1a1a] border border-white/10 px-4 py-3 rounded-xl shadow-2xl">
-      <p className="text-xs text-gray-400 mb-1">{formatDate(label)}</p>
-      <p className="text-sm font-bold text-white">{payload[0].value.toLocaleString()} posts</p>
+    <div className={`px-4 py-3 rounded-xl shadow-2xl border ${isMillion ? 'bg-gradient-to-br from-yellow-900/90 to-amber-900/90 border-yellow-500/50' : 'bg-[#1a1a1a] border-white/10'}`}>
+      {isMillion ? (
+        <>
+          <p className="text-sm font-bold text-yellow-300 mb-1">🎉 We hit 1 million posts!</p>
+          <p className="text-xs text-yellow-100/70">{new Date(label).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+        </>
+      ) : (
+        <>
+          <p className="text-xs text-gray-400 mb-1">{formatDate(label)}</p>
+          <p className="text-sm font-bold text-white">{value.toLocaleString()} posts</p>
+        </>
+      )}
     </div>
   );
 };
+
+// Clean Y-axis ticks
+const Y_TICKS = [0, 200000, 400000, 600000, 800000, 1000000];
 
 const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) => {
   const chartRef = useRef<HTMLDivElement>(null);
@@ -74,19 +89,34 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
     return cumulativeMessages[closestIdx];
   }, [cumulativeMessages]);
 
-  // Trigger celebration when animation completes
+  // Trigger celebration when animation completes - sparkles from the gold marker
   useEffect(() => {
-    if (animationComplete && !hasCelebrated) {
+    if (animationComplete && !hasCelebrated && chartRef.current) {
       setHasCelebrated(true);
-      // Mini celebration burst
-      confetti({
-        particleCount: 80,
-        spread: 60,
-        origin: { y: 0.4, x: 0.85 },
-        colors: ['#FFD700', '#FFA500', '#06B6D4', '#FFFFFF'],
-        startVelocity: 25,
-        gravity: 1.2,
-      });
+
+      // Get chart position to calculate sparkle origin
+      const rect = chartRef.current.getBoundingClientRect();
+      const originX = (rect.right - 40) / window.innerWidth; // Near right edge of chart
+      const originY = (rect.top + 60) / window.innerHeight; // Near top of chart (where 1M is)
+
+      // Sparkle burst from the gold marker
+      const burst = () => {
+        confetti({
+          particleCount: 30,
+          spread: 50,
+          origin: { x: originX, y: originY },
+          colors: ['#FFD700', '#FFA500', '#FFEC8B', '#FFFFFF'],
+          startVelocity: 20,
+          gravity: 0.8,
+          scalar: 0.8,
+          ticks: 100,
+        });
+      };
+
+      // Multiple small bursts for sparkle effect
+      burst();
+      setTimeout(burst, 150);
+      setTimeout(burst, 300);
     }
   }, [animationComplete, hasCelebrated]);
 
@@ -141,7 +171,8 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
               tickLine={false}
               tickFormatter={formatYAxis}
               width={45}
-              domain={[0, 'auto']}
+              domain={[0, 1050000]}
+              ticks={Y_TICKS}
             />
             <Tooltip content={<CustomTooltip />} />
             <Area
@@ -156,20 +187,8 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
               animationEasing="ease-out"
               onAnimationEnd={() => setAnimationComplete(true)}
             />
-            {/* Regular milestone dots */}
-            {milestonePoints.filter(m => !m.isMillionth).map((m, idx) => (
-              <ReferenceDot
-                key={idx}
-                x={m.dataDate}
-                y={m.dataCumulative}
-                r={6}
-                fill="#fff"
-                stroke="#06B6D4"
-                strokeWidth={2}
-              />
-            ))}
-            {/* Gold 1M milestone marker */}
-            {millionPoint && (
+            {/* Gold 1M milestone marker - only shows after animation completes */}
+            {animationComplete && millionPoint && (
               <ReferenceDot
                 x={millionPoint.date}
                 y={millionPoint.cumulative}
@@ -177,9 +196,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
                 fill="#FFD700"
                 stroke="#FFA500"
                 strokeWidth={3}
-              >
-                <animate attributeName="r" values="8;12;8" dur="1.5s" repeatCount="indefinite" />
-              </ReferenceDot>
+              />
             )}
           </AreaChart>
         </ResponsiveContainer>
