@@ -1,8 +1,46 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MillionthMessage as MillionthMessageType } from '../types';
-import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+import confetti from 'canvas-confetti';
+
+const CLAUDE_CODE_INSTRUCTIONS = `Your goal is to answer questons based on the below Discord. Dig into the messages based on user queries.
+
+Discord DB Tables
+=================
+discord_messages: message_id, author_id, channel_id, content, created_at, reference_id
+discord_members:  member_id, username, global_name, server_nick
+discord_channels: channel_id, channel_name
+
+Joins: messages.author_id → members.member_id | messages.channel_id → channels.channel_id
+Note: IDs are numeric in JSON (jq: .author_id == 123, not "123")
+
+API_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVqbHd1dmtyeGx2b3N3d2tlcmRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjczNzcyMzcsImV4cCI6MjA4MjczNzIzN30.XSTztghf_6a_bpR62wZdoA4S4oafJFDMoPQDRR4dT08'
+BASE='https://ujlwuvkrxlvoswwkerdf.supabase.co/rest/v1'
+
+curl -s "$BASE/discord_messages?select=content,author_id&limit=10" -H "apikey: $API_KEY" | jq
+curl -s "$BASE/discord_members?member_id=eq.123456789" -H "apikey: $API_KEY" | jq
+curl -s "$BASE/discord_messages?content=ilike.*keyword*&limit=20" -H "apikey: $API_KEY" | jq
+curl -s "$BASE/discord_messages?limit=1000&offset=1000" -H "apikey: $API_KEY" | jq  # page 2
+
+Filters: eq, neq, gt, lt, ilike, is.null, not.is.null, in.(a,b,c)
+         reference_id=not.is.null ✓   not.reference_id=is.null ✗
+
+Tips: Max 1000 rows (use offset=N to page) • ~100 IDs per in.() query • Parallelize with &
+      -H "Prefer: count=exact" → X-Total-Count header • Aggregation is client-side
+
+Refresh Discord Media URLs
+==========================
+Discord CDN URLs expire. To refresh a message's attachment URLs:
+
+curl -X POST 'https://ujlwuvkrxlvoswwkerdf.supabase.co/functions/v1/refresh-media-urls' \\
+  -H "Authorization: Bearer $API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"message_id": "1465702490467995718"}'
+
+Returns: { "success": true, "attachments": [...], "urls_updated": 1 }
+
+Note: message_id must be a STRING (quoted) to preserve precision for Discord's large IDs.`;
 
 interface MillionthMessageProps {
   message: MillionthMessageType;
@@ -11,6 +49,17 @@ interface MillionthMessageProps {
 const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.5 });
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyInstructions = async () => {
+    try {
+      await navigator.clipboard.writeText(CLAUDE_CODE_INSTRUCTIONS);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
   useEffect(() => {
     if (isInView) {
@@ -92,7 +141,7 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
   };
 
   return (
-    <section ref={containerRef} className="py-32 sm:py-64 flex flex-col items-center justify-center text-center px-2">
+    <section ref={containerRef} className="pt-32 pb-16 sm:pt-64 sm:pb-24 flex flex-col items-center justify-center text-center px-2">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
@@ -149,6 +198,35 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
 
         {/* Glow Effect */}
         <div className="absolute inset-0 bg-cyan-400/5 blur-3xl rounded-full pointer-events-none -z-10" />
+      </motion.div>
+
+      {/* Footer */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="mt-20 sm:mt-32 space-y-3 sm:space-y-4"
+      >
+        <div className="flex flex-wrap justify-center gap-1.5 items-center text-sm sm:text-base text-gray-400 font-medium">
+          Made with <span className="text-red-500">&#9829;</span> by the <span className="text-white font-bold">Banodoco</span> community
+        </div>
+
+        <div className="text-xs text-gray-500">
+          <p>
+            Play with this data in Claude Code.{' '}
+            <button
+              onClick={handleCopyInstructions}
+              className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2 transition-colors"
+            >
+              {copied ? 'Copied!' : 'Copy instructions here'}
+            </button>
+          </p>
+        </div>
+
+        <p className="text-[9px] sm:text-[10px] text-gray-600 uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+          © 2025 BANODOCO DISCORD • ALL RIGHTS RESERVED
+        </p>
       </motion.div>
     </section>
   );
