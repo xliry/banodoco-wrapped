@@ -102,7 +102,6 @@ const LightboxModal: React.FC<{ gen: TopGeneration; onClose: () => void }> = ({ 
               controls
               autoPlay
               loop
-              muted
             />
           ) : (
             <img

@@ -1,5 +1,7 @@
 
 import React, { forwardRef, useRef, useEffect, useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { TopGeneration } from '../types';
 
 interface ArticleCardProps {
@@ -18,14 +20,91 @@ const formatMonth = (monthStr: string) => {
   return d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 };
 
+const LightboxModal: React.FC<{ gen: TopGeneration; onClose: () => void }> = ({ gen, onClose }) => {
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleEsc);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
+
+  return createPortal(
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 sm:p-8"
+      onClick={onClose}
+    >
+      {/* Close button - top right corner */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.95, opacity: 0 }}
+        className="max-w-5xl w-full flex flex-col items-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Media */}
+        <div className="w-full flex items-center justify-center">
+          {gen.mediaType === 'video' ? (
+            <video
+              src={gen.mediaUrl}
+              className="max-w-full max-h-[75vh] rounded-lg"
+              controls
+              autoPlay
+              loop
+            />
+          ) : (
+            <img
+              src={gen.mediaUrl}
+              alt={gen.content || 'Community generation'}
+              className="max-w-full max-h-[75vh] rounded-lg object-contain"
+            />
+          )}
+        </div>
+
+        {/* Info bar below media */}
+        <div className="mt-4 flex items-center gap-3 text-white/80">
+          {gen.avatarUrl ? (
+            <img src={gen.avatarUrl} alt="" className="w-8 h-8 rounded-full object-cover" />
+          ) : (
+            <div className="w-8 h-8 rounded-full bg-cyan-500/30 flex items-center justify-center text-sm font-bold text-white">
+              {gen.author.charAt(0)}
+            </div>
+          )}
+          <span className="font-medium">@{gen.author}</span>
+          <span className="text-white/40">#{gen.channel}</span>
+          <span className="text-cyan-400 font-bold ml-auto">{gen.reaction_count} reactions</span>
+        </div>
+      </motion.div>
+    </motion.div>,
+    document.body
+  );
+};
+
 const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
   ({ month, generations, variant, scrollRoot, isActive = false, fullWidth = false, snapToCenter = false }, ref) => {
     const internalRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVisible, setIsVisible] = useState(false);
-    const [isHovering, setIsHovering] = useState(false);
     const [progress, setProgress] = useState(0);
     const [featuredIndex, setFeaturedIndex] = useState(0);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [mediaLoaded, setMediaLoaded] = useState(false);
 
     const featured = generations[featuredIndex];
     const isDesktop = variant === 'desktop';
@@ -47,11 +126,18 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       return () => observer.disconnect();
     }, [scrollRoot]);
 
-    // Reset video state when switching featured
+    // Reset video state when switching featured or when card becomes inactive
     useEffect(() => {
       setProgress(0);
-      setIsHovering(false);
-    }, [featuredIndex]);
+      setMediaLoaded(false);
+    }, [featuredIndex, isActive]);
+
+    // Explicitly play video when active and loaded (more reliable than autoPlay attribute)
+    useEffect(() => {
+      if (isActive && mediaLoaded && featured?.mediaType === 'video' && videoRef.current) {
+        videoRef.current.play().catch(() => {});
+      }
+    }, [isActive, mediaLoaded, featured?.mediaType]);
 
     const handleTimeUpdate = useCallback(() => {
       const video = videoRef.current;
@@ -60,19 +146,8 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       }
     }, []);
 
-    const handleMouseEnter = useCallback(() => {
-      setIsHovering(true);
-      videoRef.current?.play().catch(() => {});
-    }, []);
-
-    const handleMouseLeave = useCallback(() => {
-      setIsHovering(false);
-      const v = videoRef.current;
-      if (v) {
-        v.pause();
-        v.currentTime = 0;
-        setProgress(0);
-      }
+    const handleMediaClick = useCallback(() => {
+      setLightboxOpen(true);
     }, []);
 
     if (!featured) return null;
@@ -133,30 +208,40 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
             {/* Media column */}
             <div
               className={`relative rounded-lg overflow-hidden bg-white/5 ${isDesktop ? 'aspect-square' : 'aspect-video'} group cursor-pointer`}
-              onMouseEnter={featured.mediaType === 'video' ? handleMouseEnter : undefined}
-              onMouseLeave={featured.mediaType === 'video' ? handleMouseLeave : undefined}
+              onClick={handleMediaClick}
             >
-              {/* Loading spinner */}
-              <div className="absolute inset-0 flex items-center justify-center bg-white/5 z-0">
+              {/* Loading spinner - hidden when media loads */}
+              <div
+                className={`absolute inset-0 flex items-center justify-center bg-white/5 z-0 transition-opacity duration-300 ${
+                  mediaLoaded ? 'opacity-0' : 'opacity-100'
+                }`}
+              >
                 <div className="w-8 h-8 border-2 border-white/10 border-t-white/40 rounded-full animate-spin" />
               </div>
 
               {featured.mediaType === 'video' ? (
                 <video
                   ref={videoRef}
-                  src={isVisible ? featured.mediaUrl : undefined}
-                  preload={isVisible ? 'metadata' : 'none'}
+                  src={isActive ? featured.mediaUrl : undefined}
+                  preload={isActive ? 'auto' : 'none'}
+                  autoPlay
                   muted
                   loop
                   playsInline
                   onTimeUpdate={handleTimeUpdate}
-                  className="relative z-10 w-full h-full object-cover"
+                  onLoadedData={() => setMediaLoaded(true)}
+                  className={`relative z-10 w-full h-full object-cover transition-opacity duration-300 ${
+                    mediaLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
                 />
               ) : (
                 <img
                   src={isVisible ? featured.mediaUrl : undefined}
                   alt={featured.content || 'Community generation'}
-                  className="relative z-10 w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  onLoad={() => setMediaLoaded(true)}
+                  className={`relative z-10 w-full h-full object-cover hover:scale-105 transition-all duration-700 ${
+                    mediaLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
                 />
               )}
 
@@ -177,27 +262,12 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
                 </div>
               )}
 
-              {/* Play button overlay */}
-              {featured.mediaType === 'video' && (
-                <div
-                  className={`absolute inset-0 flex items-center justify-center z-20 pointer-events-none transition-opacity duration-300 ${
-                    isHovering ? 'opacity-0' : 'opacity-100'
-                  }`}
-                >
-                  <div className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center border border-white/20">
-                    <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-              )}
-
               {/* Progress bar */}
               {featured.mediaType === 'video' && (
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-30">
                   <div
-                    className="h-full bg-emerald-400 transition-all duration-300"
-                    style={{ width: isHovering ? `${progress}%` : '0%' }}
+                    className="h-full bg-emerald-400 transition-all duration-100"
+                    style={{ width: `${progress}%` }}
                   />
                 </div>
               )}
@@ -218,7 +288,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
 
           {/* Thumbnail strip */}
           {generations.length > 1 && (
-            <div className="flex gap-2 overflow-x-auto scrollbar-hide py-1 mt-4">
+            <div className="flex gap-2 overflow-x-auto scrollbar-hide py-1 px-1 -mx-1 mt-4">
               {generations.map((gen, i) => (
                 <button
                   key={gen.message_id}
@@ -249,15 +319,12 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
           )}
         </div>
 
-        {/* Footer */}
-        <div className="px-4 py-3 md:px-6 md:py-4 border-t border-white/10 bg-white/[0.02] mt-auto">
-          <span className="text-sm text-white/60 flex items-center gap-2 w-fit">
-            Watch full month
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </span>
-        </div>
+        {/* Lightbox */}
+        <AnimatePresence>
+          {lightboxOpen && (
+            <LightboxModal gen={featured} onClose={() => setLightboxOpen(false)} />
+          )}
+        </AnimatePresence>
       </div>
     );
   }

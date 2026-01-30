@@ -181,15 +181,13 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
   }, [grouped.length]);
 
   // Wheel capture: redirect scroll to the right column so the page "locks" on this section
+  // Only captures when hovering over the right column, not the left heading area
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
+    const col = scrollColumnRef.current;
+    if (!col) return;
 
     const handler = (e: WheelEvent) => {
       if (window.innerWidth < 1280) return;
-
-      const col = scrollColumnRef.current;
-      if (!col) return;
 
       // Disable snap during active scrolling to prevent jitter
       col.style.scrollSnapType = 'none';
@@ -208,9 +206,9 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
       }
     };
 
-    section.addEventListener('wheel', handler, { passive: false });
+    col.addEventListener('wheel', handler, { passive: false });
     return () => {
-      section.removeEventListener('wheel', handler);
+      col.removeEventListener('wheel', handler);
       if (snapTimerRef.current) clearTimeout(snapTimerRef.current);
     };
   }, []);
@@ -225,7 +223,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
       style={{ contain: 'layout style paint' }}
     >
       {/* Mobile / Tablet layout — horizontal snap scroll */}
-      <div className="xl:hidden h-full px-6 md:px-16 flex flex-col pt-20 pb-20">
+      <div className="xl:hidden h-full px-8 md:px-20 flex flex-col pt-20 pb-20">
         <div className="mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
             <span className="text-sky-400">🎨</span> Top Generations Over Time
@@ -247,11 +245,11 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
         </div>
 
         {/* Horizontal scroll container with gradient fades */}
-        <div className="-mx-6 md:-mx-16">
-          <div className="relative">
+        <div className="-ml-10 -mr-8 md:-ml-24 md:-mr-20 overflow-visible">
+          <div className="relative overflow-visible">
             <div
               ref={mobileScrollRef}
-              className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory px-6 md:px-16 pb-4 scrollbar-hide"
+              className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory pl-10 pr-8 md:pl-24 md:pr-20 pt-2 pb-4 scrollbar-hide"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {grouped.map(([month, gens], idx) => (
@@ -269,7 +267,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
 
             {/* Left edge gradient fade */}
             <div
-              className="pointer-events-none absolute inset-y-0 left-0 w-10 md:w-16 z-10"
+              className="pointer-events-none absolute inset-y-0 left-0 w-14 md:w-24 z-10"
               style={{
                 background: 'linear-gradient(to right, rgba(12, 20, 32, 0.95) 0%, rgba(12, 20, 32, 0) 100%)',
                 opacity: leftGradientOpacity,
@@ -277,7 +275,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
             />
             {/* Right edge gradient fade */}
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 w-10 md:w-16 z-10"
+              className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-20 z-10"
               style={{
                 background: 'linear-gradient(to left, rgba(12, 20, 32, 0.95) 0%, rgba(12, 20, 32, 0) 100%)',
                 opacity: rightGradientOpacity,
@@ -294,7 +292,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
                   const card = mobileCardRefs.current[idx];
                   if (card && mobileScrollRef.current) {
                     mobileScrollRef.current.scrollTo({
-                      left: card.offsetLeft - 24,
+                      left: card.offsetLeft - 40, // matches pl-10 (40px)
                       behavior: 'smooth',
                     });
                   }
