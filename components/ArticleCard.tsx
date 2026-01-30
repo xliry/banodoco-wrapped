@@ -146,29 +146,16 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
     }, [featuredIndex]);
 
 
-    // Control video loading/unloading based on shouldPlayVideo
+    // Log video mount/unmount
     useEffect(() => {
-      const video = videoRef.current;
-      if (!video || featured?.mediaType !== 'video') return;
-
-      if (shouldPlayVideo) {
-        // Load and play
-        console.log(`[VideoDebug][${month}][${variant}] Loading video`);
-        video.src = featured.mediaUrl;
-        video.load();
-        video.play()
-          .then(() => console.log(`[VideoDebug][${month}][${variant}] Playing`))
-          .catch((err) => console.log(`[VideoDebug][${month}][${variant}] Play failed: ${err.message}`));
-      } else {
-        // Unload completely
-        console.log(`[VideoDebug][${month}][${variant}] Unloading video`);
-        video.pause();
-        video.src = '';
-        video.load(); // Reset the video element
-        setMediaLoaded(false);
-        setProgress(0);
+      if (featured?.mediaType === 'video') {
+        if (shouldPlayVideo) {
+          console.log(`[VideoDebug][${month}][${variant}] Video MOUNTED`);
+        } else {
+          console.log(`[VideoDebug][${month}][${variant}] Video UNMOUNTED`);
+        }
       }
-    }, [shouldPlayVideo, featured?.mediaUrl, featured?.mediaType, month, variant]);
+    }, [shouldPlayVideo, featured?.mediaType, month, variant]);
 
     const handleTimeUpdate = useCallback(() => {
       const video = videoRef.current;
@@ -251,18 +238,29 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
               </div>
 
               {featured.mediaType === 'video' ? (
-                // Always render video element, control via ref
-                <video
-                  ref={videoRef}
-                  muted
-                  loop
-                  playsInline
-                  onTimeUpdate={handleTimeUpdate}
-                  onLoadedData={() => setMediaLoaded(true)}
-                  className={`relative z-10 w-full h-full object-cover transition-opacity duration-300 ${
-                    shouldPlayVideo && mediaLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
-                />
+                // Only render video when active - unmount completely otherwise
+                shouldPlayVideo ? (
+                  <video
+                    ref={videoRef}
+                    src={featured.mediaUrl}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    onTimeUpdate={handleTimeUpdate}
+                    onLoadedData={() => setMediaLoaded(true)}
+                    className={`relative z-10 w-full h-full object-cover transition-opacity duration-300 ${
+                      mediaLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                ) : (
+                  // Placeholder when not active
+                  <div className="relative z-10 w-full h-full bg-white/5 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-white/20" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                )
               ) : (
                 <img
                   src={isVisible ? featured.mediaUrl : undefined}
@@ -312,6 +310,15 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
                   VIDEO
                 </div>
               )}
+
+              {/* Hover overlay with play button */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -323,28 +330,29 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
                   key={gen.message_id}
                   onClick={(e) => {
                     e.stopPropagation();
-                    console.log(`[VideoDebug] Thumbnail clicked: ${i}`);
                     setFeaturedIndex(i);
                   }}
-                  className={`shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-md overflow-hidden transition-all ${
+                  className={`relative shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden transition-all ${
                     i === featuredIndex
                       ? 'ring-2 ring-emerald-400'
                       : 'ring-1 ring-white/10 hover:ring-emerald-400/50'
                   }`}
                 >
-                  {gen.mediaType === 'video' ? (
-                    <div className="w-full h-full bg-white/10 flex items-center justify-center">
-                      <svg className="w-3 h-3 text-white/60" fill="currentColor" viewBox="0 0 24 24">
+                  {/* Profile picture as background */}
+                  {gen.avatarUrl ? (
+                    <img src={gen.avatarUrl} alt="" className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full bg-cyan-500/30 flex items-center justify-center text-sm md:text-base font-bold text-white">
+                      {gen.author.charAt(0)}
+                    </div>
+                  )}
+                  {/* Play button overlay for videos */}
+                  {gen.mediaType === 'video' && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                      <svg className="w-4 h-4 md:w-5 md:h-5 text-white/90" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
-                  ) : (
-                    <img
-                      src={isVisible ? gen.mediaUrl : undefined}
-                      alt=""
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
                   )}
                 </button>
               ))}
