@@ -25,7 +25,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
           <span className="text-sky-500">🎲</span> Random Fun Facts
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base">The weird and wonderful data of 1 million messages.</p>
+        <p className="text-gray-400 text-sm sm:text-base">The weird and wonderful data of 1 million posts.</p>
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[160px] sm:auto-rows-[200px]">

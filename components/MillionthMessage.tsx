@@ -141,25 +141,88 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
   };
 
   return (
-    <section ref={containerRef} className="pt-32 pb-16 sm:pt-64 sm:pb-24 flex flex-col items-center justify-center text-center px-2">
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, type: "spring" }}
-        className="mb-10 sm:mb-16"
-      >
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter mb-3 sm:mb-4 text-white">
-          THE <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-teal-500">1,000,000th</span> MESSAGE
-        </h2>
-        <p className="text-gray-400 font-medium text-sm sm:text-base">History was made on January 15, 2025.</p>
-      </motion.div>
+    <div className="h-[300svh] sm:h-[300svh]" style={{ scrollSnapAlign: 'start' }}>
+      {/* Dramatic intro - "And you know..." */}
+      <section className="h-[100svh] flex items-center justify-center sticky top-0">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-400 text-center px-4"
+        >
+          And you know
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.3 }}
+          >.</motion.span>
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.9, duration: 0.3 }}
+          >.</motion.span>
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.2, duration: 0.3 }}
+          >.</motion.span>
+        </motion.h2>
+      </section>
 
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="w-full max-w-2xl bg-[#1e1f22] rounded-xl sm:rounded-2xl p-4 sm:p-8 border border-white/10 text-left shadow-2xl relative"
-      >
+      {/* Dramatic intro - "The millionth post is..." */}
+      <section className="h-[100svh] flex items-center justify-center sticky top-0 bg-[#0c0c0c]">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-5xl md:text-6xl font-bold text-white text-center px-4"
+        >
+          The <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-teal-500">millionth post</span> is
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.3 }}
+          >.</motion.span>
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.9, duration: 0.3 }}
+          >.</motion.span>
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.2, duration: 0.3 }}
+          >.</motion.span>
+        </motion.h2>
+      </section>
+
+      {/* The actual millionth post */}
+      <section ref={containerRef} className="min-h-[100svh] flex flex-col items-center justify-center text-center px-4 py-8 sticky top-0 bg-[#0c0c0c]">
+        <motion.p
+          initial={{ scale: 0.3, opacity: 0, y: 50 }}
+          whileInView={{ scale: 1, opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, type: "spring", stiffness: 300, damping: 15 }}
+          className="mb-4 sm:mb-6 text-sm sm:text-base font-bold tracking-widest uppercase text-gray-500"
+        >
+          THE <span className="text-cyan-400">1,000,000th</span> POST
+        </motion.p>
+
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0, y: 100 }}
+          whileInView={{ scale: 1, opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ delay: 0.2, duration: 0.7, type: "spring", stiffness: 250, damping: 18 }}
+          className="w-full max-w-2xl bg-[#1e1f22] rounded-xl sm:rounded-2xl p-4 sm:p-8 border border-white/10 text-left shadow-2xl relative"
+        >
         <div className="flex gap-3 sm:gap-4 items-start">
           {message.avatarUrl ? (
             <img
@@ -200,35 +263,53 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
         <div className="absolute inset-0 bg-cyan-400/5 blur-3xl rounded-full pointer-events-none -z-10" />
       </motion.div>
 
-      {/* Footer */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="mt-20 sm:mt-32 space-y-3 sm:space-y-4"
-      >
-        <div className="flex flex-wrap justify-center gap-1.5 items-center text-sm sm:text-base text-gray-400 font-medium">
-          Made with <span className="text-red-500">&#9829;</span> by the <span className="text-white font-bold">Banodoco</span> community
-        </div>
+        {/* Footer - Made with heart */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-6 sm:mt-8"
+        >
+          <div className="flex flex-wrap justify-center gap-1.5 items-center text-xs sm:text-sm text-gray-400 font-medium">
+            Made with <span className="text-red-500">&#9829;</span> by the <span className="text-white font-bold">Banodoco</span> community
+          </div>
+        </motion.div>
 
-        <div className="text-xs text-gray-500">
-          <p>
-            Play with this data in Claude Code.{' '}
-            <button
-              onClick={handleCopyInstructions}
-              className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2 transition-colors"
-            >
-              {copied ? 'Copied!' : 'Copy instructions here'}
-            </button>
+        {/* Claude Code CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 1 }}
+          className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-cyan-500/10 to-teal-500/10 rounded-lg border border-cyan-500/20"
+        >
+          <p className="text-xs sm:text-sm text-white font-medium mb-1">
+            🔍 Want to explore this data yourself?
           </p>
-        </div>
+          <p className="text-[10px] sm:text-xs text-gray-400 mb-2">
+            Play with the full Discord dataset in Claude Code.
+          </p>
+          <button
+            onClick={handleCopyInstructions}
+            className="px-3 py-1.5 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-md transition-colors text-xs"
+          >
+            {copied ? '✓ Copied!' : 'Copy Claude Code Instructions'}
+          </button>
+        </motion.div>
 
-        <p className="text-[9px] sm:text-[10px] text-gray-600 uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+        {/* Copyright */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="mt-4 text-[8px] sm:text-[9px] text-gray-600 uppercase tracking-[0.15em] sm:tracking-[0.2em]"
+        >
           © 2025 BANODOCO DISCORD • ALL RIGHTS RESERVED
-        </p>
-      </motion.div>
-    </section>
+        </motion.p>
+      </section>
+    </div>
   );
 };
 

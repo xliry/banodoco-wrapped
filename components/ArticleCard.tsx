@@ -88,7 +88,6 @@ const LightboxModal: React.FC<{ gen: TopGeneration; onClose: () => void }> = ({ 
           )}
           <span className="font-medium">@{gen.author}</span>
           <span className="text-white/40">#{gen.channel}</span>
-          <span className="text-cyan-400 font-bold ml-auto">{gen.reaction_count} reactions</span>
         </div>
       </motion.div>
     </motion.div>,
@@ -190,9 +189,8 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
         className={`bg-white/5 backdrop-blur-md rounded-xl md:rounded-2xl overflow-hidden border transition-colors duration-500 hover:border-white/20 h-full flex flex-col ${activeClasses} ${fullWidthClasses} ${snapClasses}`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 md:px-6 md:py-4 border-b border-white/10">
+        <div className="px-4 py-3 md:px-6 md:py-4 border-b border-white/10">
           <span className="text-sm font-semibold text-white">{formatMonth(month)}</span>
-          <span className="text-[11px] text-white/40 font-medium">{generations.length} top posts</span>
         </div>
 
         {/* Body */}
@@ -210,7 +208,6 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
                     </div>
                   )}
                   <span className="text-white text-sm font-medium truncate">{featured.author}</span>
-                  <span className="text-cyan-400 text-xs font-bold ml-auto">{featured.reaction_count} reactions</span>
                 </div>
                 {featured.content && (
                   <p className="text-sm text-white/60 leading-relaxed mb-4 line-clamp-4">
@@ -284,7 +281,6 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
                       </div>
                     )}
                     <span className="text-white text-xs font-medium truncate">{featured.author}</span>
-                    <span className="ml-auto text-cyan-400 text-xs font-bold">{featured.reaction_count}</span>
                   </div>
                 </div>
               )}
@@ -298,11 +294,6 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
                   />
                 </div>
               )}
-
-              {/* Reaction badge */}
-              <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm rounded-full px-2 py-0.5 text-[10px] font-bold text-cyan-400 z-20">
-                {featured.reaction_count}
-              </div>
 
               {/* Media type badge */}
               {featured.mediaType === 'video' && (

@@ -39,18 +39,18 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
   };
 
   return (
-    <section className="py-16 sm:py-32">
+    <section className="py-10 sm:py-16">
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="mb-8 sm:mb-12"
+        className="mb-4 sm:mb-6"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
+        <h2 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
           <span className="text-teal-500">🕐</span> When Does Banodoco Come Alive?
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base">Our peak hours across the globe.</p>
+        <p className="text-gray-400 text-xs sm:text-sm">Our peak hours across the globe.</p>
       </motion.div>
 
       <motion.div
@@ -58,7 +58,7 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
         whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="bg-[#1a1a1a] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/5 overflow-x-auto shadow-2xl">
+        className="bg-[#1a1a1a] p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-white/5 overflow-x-auto shadow-xl">
         <div className="min-w-[480px] sm:min-w-[600px]">
           {/* Header */}
           <div className="grid grid-cols-[50px_1fr] sm:grid-cols-[80px_1fr] mb-3 sm:mb-4">
@@ -108,7 +108,7 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-center mt-8 sm:mt-12 text-sm sm:text-base text-gray-400 font-medium italic"
+        className="text-center mt-4 sm:mt-6 text-xs sm:text-sm text-gray-400 font-medium italic"
       >
         🌙 "Peak activity: <span className="text-cyan-400 font-bold">3PM–6PM UTC</span> on weekdays"
       </motion.p>

@@ -25,7 +25,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return (
     <div className="bg-[#1a1a1a] border border-white/10 px-4 py-3 rounded-xl shadow-2xl">
       <p className="text-xs text-gray-400 mb-1">{formatDate(label)}</p>
-      <p className="text-sm font-bold text-white">{payload[0].value.toLocaleString()} messages</p>
+      <p className="text-sm font-bold text-white">{payload[0].value.toLocaleString()} posts</p>
     </div>
   );
 };
@@ -65,7 +65,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
           <span className="text-cyan-500">📈</span> Our Art Journey
         </h2>
         <p className="text-gray-400 max-w-xl text-sm sm:text-base">
-          From zero to one million — watch the community grow message by message.
+          From zero to one million — watch the community grow post by post.
         </p>
       </motion.div>
 
