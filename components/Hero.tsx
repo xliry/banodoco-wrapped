@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="space-y-2 sm:space-y-3 relative z-10 pointer-events-none"
+        className="space-y-2 sm:space-y-3 relative z-10 pointer-events-none -mt-16 sm:-mt-20"
       >
         <div className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm font-medium text-cyan-400 backdrop-blur-sm">
           Celebrating
