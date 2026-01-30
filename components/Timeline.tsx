@@ -46,7 +46,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 // Clean Y-axis ticks
 const Y_TICKS = [0, 200000, 400000, 600000, 800000, 1000000];
 
-const ANIMATION_DURATION = 4; // seconds
+const ANIMATION_DURATION = 2.5; // seconds
 
 const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) => {
   const chartRef = useRef<HTMLDivElement>(null);
