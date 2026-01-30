@@ -49,6 +49,11 @@ async function fetchImageAsBase64(url) {
   let buf = Buffer.from(await res.arrayBuffer());
   let mime = res.headers.get('content-type') || 'image/png';
 
+  // Discord CDN may return error pages instead of images
+  if (!mime.startsWith('image/')) {
+    throw new Error(`Not an image (${mime}) — URL may be expired`);
+  }
+
   // Gemini doesn't support image/gif — convert to PNG via sharp
   if (mime.includes('gif')) {
     if (!sharp) throw new Error('GIF needs sharp: run "npm i -D sharp"');
@@ -88,6 +93,10 @@ async function askGemini(base64, mime) {
   try {
     return JSON.parse(cleaned);
   } catch {
+    // Gemini sometimes truncates output — detect from raw text
+    if (raw.includes('"is_screenshot": true') || raw.includes('"is_screenshot":true')) {
+      return { is_screenshot: true, reason: 'detected from truncated response' };
+    }
     console.warn('  Could not parse response:', raw.substring(0, 120));
     return { is_screenshot: false, reason: 'parse_error' };
   }
