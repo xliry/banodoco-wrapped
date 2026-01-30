@@ -161,14 +161,6 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
                   transition={{ duration: ANIMATION_DURATION, ease: 'easeOut' }}
                 />
               </clipPath>
-              {/* Glow filter for gold marker */}
-              <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
             </defs>
             <XAxis
               dataKey="date"
@@ -205,29 +197,18 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
               fill="url(#cumulativeGrad)"
               clipPath="url(#revealClip)"
               isAnimationActive={false}
+              activeDot={{ r: 6, fill: '#06B6D4', stroke: '#fff', strokeWidth: 2 }}
             />
             {/* Gold 1M milestone marker - only shows after animation completes */}
             {animationComplete && millionPoint && (
-              <>
-                {/* Glow behind marker */}
-                <ReferenceDot
-                  x={millionPoint.date}
-                  y={990000}
-                  r={20}
-                  fill="#FFD700"
-                  fillOpacity={0.3}
-                  stroke="none"
-                />
-                {/* Main marker */}
-                <ReferenceDot
-                  x={millionPoint.date}
-                  y={990000}
-                  r={10}
-                  fill="#FFD700"
-                  stroke="#FFA500"
-                  strokeWidth={3}
-                />
-              </>
+              <ReferenceDot
+                x={millionPoint.date}
+                y={990000}
+                r={10}
+                fill="#FFD700"
+                stroke="#FFA500"
+                strokeWidth={3}
+              />
             )}
           </AreaChart>
         </ResponsiveContainer>
