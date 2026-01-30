@@ -121,6 +121,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       const observer = new IntersectionObserver(
         ([entry]) => {
           const dominated = entry.intersectionRatio > 0.6;
+          console.log(`[VideoDebug][${month}] ratio: ${entry.intersectionRatio.toFixed(2)}, shouldPlay: ${dominated}`);
           setShouldPlayVideo(dominated);
 
           // Also set isVisible for lazy loading images (one-time, lower threshold)
@@ -136,7 +137,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       );
       observer.observe(node);
       return () => observer.disconnect();
-    }, [scrollRoot]);
+    }, [scrollRoot, month]);
 
     // Reset video state only when switching to a different featured item
     useEffect(() => {
@@ -145,12 +146,21 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
     }, [featuredIndex]);
 
 
+    // Log when shouldPlayVideo changes
+    useEffect(() => {
+      if (featured?.mediaType === 'video') {
+        console.log(`[VideoDebug][${month}] shouldPlayVideo: ${shouldPlayVideo}`);
+      }
+    }, [shouldPlayVideo, month, featured?.mediaType]);
+
     // Explicitly play video when dominating viewport and loaded (backup for autoPlay)
     useEffect(() => {
       if (!shouldPlayVideo || !mediaLoaded || featured?.mediaType !== 'video') return;
 
       const video = videoRef.current;
       if (!video) return;
+
+      console.log(`[VideoDebug][${month}] Attempting play`);
 
       let attempts = 0;
       const maxAttempts = 5;
@@ -159,18 +169,24 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
 
       const tryPlay = () => {
         if (cancelled) return;
-        video.play().catch(() => {
-          attempts++;
-          if (attempts < maxAttempts && !cancelled) {
-            setTimeout(tryPlay, retryDelay);
-          }
-        });
+        video.play()
+          .then(() => console.log(`[VideoDebug][${month}] Playing`))
+          .catch((err) => {
+            console.log(`[VideoDebug][${month}] Play failed: ${err.message}`);
+            attempts++;
+            if (attempts < maxAttempts && !cancelled) {
+              setTimeout(tryPlay, retryDelay);
+            }
+          });
       };
 
       tryPlay();
 
-      return () => { cancelled = true; };
-    }, [shouldPlayVideo, mediaLoaded, featured?.mediaType, featuredIndex]);
+      return () => {
+        cancelled = true;
+        console.log(`[VideoDebug][${month}] Cleanup`);
+      };
+    }, [shouldPlayVideo, mediaLoaded, featured?.mediaType, featuredIndex, month]);
 
     const handleTimeUpdate = useCallback(() => {
       const video = videoRef.current;
