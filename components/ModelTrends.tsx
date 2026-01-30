@@ -140,7 +140,7 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
           </div>
         )}
 
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <AreaChart data={displayData} margin={{ top: 5, right: 5, left: -10, bottom: 5 }}>
             <defs>
               {Object.entries(MODEL_COLORS).map(([key, { stroke }]) => (

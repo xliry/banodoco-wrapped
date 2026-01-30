@@ -50,7 +50,7 @@ const MediaItem: React.FC<{ gen: TopGeneration; onClick: () => void }> = ({ gen,
                 <img src={gen.avatarUrl} alt="" className="w-5 h-5 rounded-full object-cover" />
               ) : (
                 <div className="w-5 h-5 rounded-full bg-cyan-500/30 flex items-center justify-center text-[8px] font-bold text-white">
-                  {gen.author.charAt(0)}
+                  {String(gen.author).charAt(0)}
                 </div>
               )}
               <span className="text-white text-xs font-medium truncate">{gen.author}</span>

@@ -70,7 +70,7 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
                     className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-2xl sm:text-3xl group-hover:scale-110 transition-transform shadow-xl ${user.avatarUrl ? 'hidden' : ''}`}
                     style={{ backgroundColor: color + '33', border: `2px solid ${color}` }}
                   >
-                    {user.username.charAt(0)}
+                    {String(user.username).charAt(0)}
                   </div>
                   <div className="absolute -top-2 -right-2 text-xl sm:text-2xl">{medal}</div>
                 </div>

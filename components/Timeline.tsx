@@ -76,7 +76,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
         transition={{ duration: 0.7, ease: 'easeOut' }}
         className="h-[300px] sm:h-[420px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden"
       >
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <AreaChart data={cumulativeMessages} margin={{ top: 10, right: 10, left: -5, bottom: 5 }}>
             <defs>
               <linearGradient id="cumulativeGrad" x1="0" y1="0" x2="0" y2="1">

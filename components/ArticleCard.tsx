@@ -97,7 +97,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ month, generations, variant, 
                   <img src={featured.avatarUrl} alt="" className="w-6 h-6 rounded-full object-cover" />
                 ) : (
                   <div className="w-6 h-6 rounded-full bg-cyan-500/30 flex items-center justify-center text-[9px] font-bold text-white">
-                    {featured.author.charAt(0)}
+                    {String(featured.author).charAt(0)}
                   </div>
                 )}
                 <span className="text-white text-sm font-medium truncate">{featured.author}</span>
@@ -152,7 +152,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ month, generations, variant, 
                     <img src={featured.avatarUrl} alt="" className="w-5 h-5 rounded-full object-cover" />
                   ) : (
                     <div className="w-5 h-5 rounded-full bg-cyan-500/30 flex items-center justify-center text-[8px] font-bold text-white">
-                      {featured.author.charAt(0)}
+                      {String(featured.author).charAt(0)}
                     </div>
                   )}
                   <span className="text-white text-xs font-medium truncate">{featured.author}</span>
