@@ -201,7 +201,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
             {animationComplete && millionPoint && (
               <ReferenceDot
                 x={millionPoint.date}
-                y={millionPoint.cumulative - 10000}
+                y={990000}
                 r={10}
                 fill="#FFD700"
                 stroke="#FFA500"
