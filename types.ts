@@ -48,6 +48,16 @@ export interface MillionthMessage {
   timestamp: string;
 }
 
+export interface SpriteCoords {
+  x: number;
+  y: number;
+}
+
+export interface GridItemData {
+  id: number;
+  coords: SpriteCoords;
+}
+
 export interface AppData {
   totalMessages: number;
   totalMembers: number;
