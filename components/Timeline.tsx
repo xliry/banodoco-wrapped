@@ -1,8 +1,9 @@
 
-import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot } from 'recharts';
 import { Milestone, CumulativeDataPoint } from '../types';
+import confetti from 'canvas-confetti';
 
 interface TimelineProps {
   milestones: Milestone[];
@@ -31,6 +32,11 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) => {
+  const chartRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(chartRef, { once: true, amount: 0.5 });
+  const [animationComplete, setAnimationComplete] = useState(false);
+  const [hasCelebrated, setHasCelebrated] = useState(false);
+
   // Find milestone points in cumulative data for ReferenceDots
   const milestonePoints = useMemo(() => {
     return milestones.map(m => {
@@ -48,9 +54,41 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
         ...m,
         dataDate: cumulativeMessages[closestIdx]?.date ?? m.date,
         dataCumulative: cumulativeMessages[closestIdx]?.cumulative ?? m.count,
+        isMillionth: m.count >= 1000000,
       };
     });
   }, [milestones, cumulativeMessages]);
+
+  // Find the 1M milestone point
+  const millionPoint = useMemo(() => {
+    // Find the data point closest to 1M
+    let closestIdx = 0;
+    let closestDist = Infinity;
+    for (let i = 0; i < cumulativeMessages.length; i++) {
+      const dist = Math.abs(cumulativeMessages[i].cumulative - 1000000);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIdx = i;
+      }
+    }
+    return cumulativeMessages[closestIdx];
+  }, [cumulativeMessages]);
+
+  // Trigger celebration when animation completes
+  useEffect(() => {
+    if (animationComplete && !hasCelebrated) {
+      setHasCelebrated(true);
+      // Mini celebration burst
+      confetti({
+        particleCount: 80,
+        spread: 60,
+        origin: { y: 0.4, x: 0.85 },
+        colors: ['#FFD700', '#FFA500', '#06B6D4', '#FFFFFF'],
+        startVelocity: 25,
+        gravity: 1.2,
+      });
+    }
+  }, [animationComplete, hasCelebrated]);
 
   return (
     <section>
@@ -70,6 +108,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
       </motion.div>
 
       <motion.div
+        ref={chartRef}
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -112,8 +151,13 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
               strokeWidth={2.5}
               fillOpacity={1}
               fill="url(#cumulativeGrad)"
+              isAnimationActive={isInView}
+              animationDuration={3000}
+              animationEasing="ease-out"
+              onAnimationEnd={() => setAnimationComplete(true)}
             />
-            {milestonePoints.map((m, idx) => (
+            {/* Regular milestone dots */}
+            {milestonePoints.filter(m => !m.isMillionth).map((m, idx) => (
               <ReferenceDot
                 key={idx}
                 x={m.dataDate}
@@ -124,6 +168,19 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
                 strokeWidth={2}
               />
             ))}
+            {/* Gold 1M milestone marker */}
+            {millionPoint && (
+              <ReferenceDot
+                x={millionPoint.date}
+                y={millionPoint.cumulative}
+                r={10}
+                fill="#FFD700"
+                stroke="#FFA500"
+                strokeWidth={3}
+              >
+                <animate attributeName="r" values="8;12;8" dur="1.5s" repeatCount="indefinite" />
+              </ReferenceDot>
+            )}
           </AreaChart>
         </ResponsiveContainer>
       </motion.div>
