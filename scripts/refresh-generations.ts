@@ -103,7 +103,7 @@ async function main() {
         topGenerations.push({
           month,
           message_id: post.message_id,
-          author: memberMap.get(post.author_id) || post.author_id,
+          author: memberMap.get(post.author_id) || String(post.author_id),
           avatarUrl: avatarMap.get(post.author_id) || '',
           channel: channelMap.get(post.channel_id) || post.channel_id,
           created_at: post.created_at,

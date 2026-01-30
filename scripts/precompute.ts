@@ -269,7 +269,7 @@ async function main() {
   const endDate = lastMsg.data[0]?.created_at?.slice(0, 10) ?? '2025-01-28';
   const mMsg = millionthMsg.data[0];
   const millionthMessage = mMsg ? {
-    author: memberMap.get(mMsg.author_id) || mMsg.author_id,
+    author: memberMap.get(mMsg.author_id) || String(mMsg.author_id),
     channel: channelMap.get(mMsg.channel_id) || mMsg.channel_id,
     content: mMsg.content,
     timestamp: mMsg.created_at,
@@ -575,7 +575,7 @@ async function main() {
         topGenerations.push({
           month,
           message_id: post.message_id,
-          author: memberMap.get(post.author_id) || post.author_id,
+          author: memberMap.get(post.author_id) || String(post.author_id),
           avatarUrl: memberAvatarMap.get(post.author_id) || '',
           channel: channelMap.get(post.channel_id) || post.channel_id,
           created_at: post.created_at,
