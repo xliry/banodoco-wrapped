@@ -1,0 +1,496 @@
+{
+  "totalMessages": 1047705,
+  "totalMembers": 6629,
+  "totalChannels": 228,
+  "dateRange": {
+    "start": "2023-08-08",
+    "end": "2026-01-30"
+  },
+  "milestones": [
+    {
+      "count": 100000,
+      "date": "2023-12-04",
+      "daysFromStart": 118,
+      "label": "The First 100K"
+    },
+    {
+      "count": 250000,
+      "date": "2024-07-02",
+      "daysFromStart": 329,
+      "label": "Scaling Up"
+    },
+    {
+      "count": 500000,
+      "date": "2025-03-17",
+      "daysFromStart": 587,
+      "label": "Halfway There!"
+    },
+    {
+      "count": 750000,
+      "date": "2025-08-15",
+      "daysFromStart": 738,
+      "label": "Exponential Growth"
+    },
+    {
+      "count": 1000000,
+      "date": "2026-01-09",
+      "daysFromStart": 885,
+      "label": "THE MILLION!"
+    }
+  ],
+  "topContributors": [
+    {
+      "rank": 1,
+      "username": "Kijai",
+      "messages": 103556,
+      "avatar": "#7C3AED"
+    },
+    {
+      "rank": 2,
+      "username": "Draken",
+      "messages": 62016,
+      "avatar": "#10B981"
+    },
+    {
+      "rank": 3,
+      "username": "Cubey",
+      "messages": 21939,
+      "avatar": "#F59E0B"
+    },
+    {
+      "rank": 4,
+      "username": "mel",
+      "messages": 18268,
+      "avatar": "#EF4444"
+    },
+    {
+      "rank": 5,
+      "username": "Juampab12",
+      "messages": 17780,
+      "avatar": "#3B82F6"
+    }
+  ],
+  "awards": {
+    "mostHelpful": {
+      "username": "Kijai",
+      "count": 23725,
+      "metric": "helpful replies"
+    },
+    "mostThankful": {
+      "username": "PhoenixRisen",
+      "count": 688,
+      "metric": "thank yous"
+    },
+    "nightOwl": {
+      "username": "GWX-Reloaded",
+      "avgTime": "3:03 AM",
+      "timezone": "UTC"
+    },
+    "earlyBird": {
+      "username": "the_darkwatarus_museum",
+      "avgTime": "5:50 AM",
+      "timezone": "UTC"
+    }
+  },
+  "modelTrends": [
+    {
+      "month": "2023-08",
+      "sd": 34,
+      "flux": 0,
+      "wan": 65,
+      "comfy": 460,
+      "animatediff": 250
+    },
+    {
+      "month": "2023-09",
+      "sd": 166,
+      "flux": 0,
+      "wan": 22,
+      "comfy": 2116,
+      "animatediff": 136
+    },
+    {
+      "month": "2023-10",
+      "sd": 746,
+      "flux": 1,
+      "wan": 240,
+      "comfy": 2230,
+      "animatediff": 120
+    },
+    {
+      "month": "2023-11",
+      "sd": 885,
+      "flux": 1,
+      "wan": 1141,
+      "comfy": 3120,
+      "animatediff": 632
+    },
+    {
+      "month": "2023-12",
+      "sd": 479,
+      "flux": 2,
+      "wan": 751,
+      "comfy": 1820,
+      "animatediff": 653
+    },
+    {
+      "month": "2024-01",
+      "sd": 184,
+      "flux": 2,
+      "wan": 1047,
+      "comfy": 2544,
+      "animatediff": 487
+    },
+    {
+      "month": "2024-02",
+      "sd": 159,
+      "flux": 3,
+      "wan": 280,
+      "comfy": 1590,
+      "animatediff": 159
+    },
+    {
+      "month": "2024-03",
+      "sd": 178,
+      "flux": 0,
+      "wan": 314,
+      "comfy": 1493,
+      "animatediff": 111
+    },
+    {
+      "month": "2024-04",
+      "sd": 91,
+      "flux": 0,
+      "wan": 376,
+      "comfy": 1128,
+      "animatediff": 181
+    },
+    {
+      "month": "2024-05",
+      "sd": 87,
+      "flux": 0,
+      "wan": 423,
+      "comfy": 807,
+      "animatediff": 196
+    },
+    {
+      "month": "2024-06",
+      "sd": 260,
+      "flux": 0,
+      "wan": 521,
+      "comfy": 766,
+      "animatediff": 247
+    },
+    {
+      "month": "2024-07",
+      "sd": 165,
+      "flux": 0,
+      "wan": 554,
+      "comfy": 912,
+      "animatediff": 175
+    },
+    {
+      "month": "2024-08",
+      "sd": 263,
+      "flux": 2279,
+      "wan": 829,
+      "comfy": 1432,
+      "animatediff": 151
+    },
+    {
+      "month": "2024-09",
+      "sd": 54,
+      "flux": 843,
+      "wan": 328,
+      "comfy": 962,
+      "animatediff": 69
+    },
+    {
+      "month": "2024-10",
+      "sd": 58,
+      "flux": 484,
+      "wan": 246,
+      "comfy": 920,
+      "animatediff": 67
+    },
+    {
+      "month": "2024-11",
+      "sd": 102,
+      "flux": 634,
+      "wan": 748,
+      "comfy": 984,
+      "animatediff": 91
+    },
+    {
+      "month": "2024-12",
+      "sd": 109,
+      "flux": 520,
+      "wan": 1011,
+      "comfy": 1550,
+      "animatediff": 79
+    },
+    {
+      "month": "2025-01",
+      "sd": 134,
+      "flux": 346,
+      "wan": 1232,
+      "comfy": 1429,
+      "animatediff": 50
+    },
+    {
+      "month": "2025-02",
+      "sd": 185,
+      "flux": 630,
+      "wan": 889,
+      "comfy": 2875,
+      "animatediff": 150
+    },
+    {
+      "month": "2025-03",
+      "sd": 390,
+      "flux": 633,
+      "wan": 2992,
+      "comfy": 2286,
+      "animatediff": 194
+    },
+    {
+      "month": "2025-04",
+      "sd": 199,
+      "flux": 439,
+      "wan": 4724,
+      "comfy": 2460,
+      "animatediff": 82
+    },
+    {
+      "month": "2025-05",
+      "sd": 56,
+      "flux": 524,
+      "wan": 1063,
+      "comfy": 3062,
+      "animatediff": 63
+    },
+    {
+      "month": "2025-06",
+      "sd": 17,
+      "flux": 145,
+      "wan": 7176,
+      "comfy": 1049,
+      "animatediff": 62
+    },
+    {
+      "month": "2025-07",
+      "sd": 60,
+      "flux": 133,
+      "wan": 5246,
+      "comfy": 955,
+      "animatediff": 58
+    },
+    {
+      "month": "2025-08",
+      "sd": 18,
+      "flux": 501,
+      "wan": 4464,
+      "comfy": 1630,
+      "animatediff": 56
+    },
+    {
+      "month": "2025-09",
+      "sd": 108,
+      "flux": 280,
+      "wan": 3685,
+      "comfy": 2189,
+      "animatediff": 44
+    },
+    {
+      "month": "2025-10",
+      "sd": 96,
+      "flux": 262,
+      "wan": 4587,
+      "comfy": 3036,
+      "animatediff": 80
+    },
+    {
+      "month": "2025-11",
+      "sd": 116,
+      "flux": 919,
+      "wan": 3202,
+      "comfy": 3958,
+      "animatediff": 52
+    },
+    {
+      "month": "2025-12",
+      "sd": 164,
+      "flux": 189,
+      "wan": 2387,
+      "comfy": 2848,
+      "animatediff": 68
+    },
+    {
+      "month": "2026-01",
+      "sd": 144,
+      "flux": 217,
+      "wan": 2630,
+      "comfy": 5949,
+      "animatediff": 139
+    }
+  ],
+  "activityHeatmap": [
+    {
+      "hour": 0,
+      "data": [
+        12821,
+        13701,
+        16475,
+        14749,
+        14349,
+        13202,
+        12183
+      ]
+    },
+    {
+      "hour": 3,
+      "data": [
+        9704,
+        10779,
+        12296,
+        12169,
+        11076,
+        8856,
+        7603
+      ]
+    },
+    {
+      "hour": 6,
+      "data": [
+        11854,
+        13305,
+        14037,
+        14085,
+        15169,
+        10220,
+        10013
+      ]
+    },
+    {
+      "hour": 9,
+      "data": [
+        14596,
+        18026,
+        18605,
+        16792,
+        18621,
+        13374,
+        13696
+      ]
+    },
+    {
+      "hour": 12,
+      "data": [
+        19289,
+        23116,
+        22983,
+        21575,
+        21598,
+        17337,
+        16240
+      ]
+    },
+    {
+      "hour": 15,
+      "data": [
+        26504,
+        30851,
+        29232,
+        29044,
+        26392,
+        24260,
+        22491
+      ]
+    },
+    {
+      "hour": 18,
+      "data": [
+        28848,
+        29565,
+        27559,
+        29313,
+        27406,
+        23748,
+        23605
+      ]
+    },
+    {
+      "hour": 21,
+      "data": [
+        22492,
+        24653,
+        23230,
+        22436,
+        22830,
+        19087,
+        19665
+      ]
+    }
+  ],
+  "channelStats": [
+    {
+      "name": "#wan_chatter",
+      "messages": 243341,
+      "percentage": 23
+    },
+    {
+      "name": "#comfyui",
+      "messages": 142738,
+      "percentage": 14
+    },
+    {
+      "name": "#hunyuanvideo",
+      "messages": 62149,
+      "percentage": 6
+    },
+    {
+      "name": "#chatter",
+      "messages": 59590,
+      "percentage": 6
+    },
+    {
+      "name": "#nsfw",
+      "messages": 53628,
+      "percentage": 5
+    },
+    {
+      "name": "Other",
+      "messages": 486259,
+      "percentage": 46
+    }
+  ],
+  "funStats": {
+    "longestMessage": {
+      "chars": 2599,
+      "username": "Fill"
+    },
+    "mostRepliedThread": {
+      "replies": 14,
+      "topic": "Most discussed thread"
+    },
+    "busiestDay": {
+      "date": "2025-07-28",
+      "messages": 5752,
+      "reason": "Peak activity day"
+    },
+    "mostUsedEmoji": {
+      "emoji": "😄",
+      "count": 55
+    },
+    "mostUsedWord": {
+      "word": "using",
+      "count": 436
+    }
+  },
+  "millionthMessage": {
+    "author": "firefly",
+    "channel": "#chatter",
+    "content": "<id:customize> and search for ltx\nbut <#1457981813120176138> <#1309520535012638740> there's a bunch",
+    "timestamp": "2026-01-09T00:40:59.784+00:00"
+  }
+}

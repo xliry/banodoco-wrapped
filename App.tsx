@@ -10,12 +10,8 @@ import FunStats from './components/FunStats';
 import ChannelBreakdown from './components/ChannelBreakdown';
 import MillionthMessage from './components/MillionthMessage';
 import Footer from './components/Footer';
-import LoadingScreen, { FloatingProgress } from './components/LoadingScreen';
+import LoadingScreen from './components/LoadingScreen';
 import { useDiscordData } from './useDiscordData';
-
-const SectionShimmer: React.FC<{ height?: string }> = ({ height = 'h-64' }) => (
-  <div className={`w-full ${height} rounded-2xl bg-white/5 animate-pulse`} />
-);
 
 const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -27,20 +23,10 @@ const App: React.FC = () => {
 
   const { data, progress, isLoading, isPhase1Done, refresh } = useDiscordData();
 
-  const phase2Done = !isLoading || ['phase3', 'phase4', 'done'].includes(progress.phase);
-  const phase3Done = !isLoading || ['phase4', 'done'].includes(progress.phase);
-  const phase4Done = !isLoading || progress.phase === 'done';
-
   return (
     <div className="relative min-h-screen bg-[#0f0f0f] selection:bg-purple-500/30">
-      {/* Full-screen loading until Phase 1 completes */}
+      {/* Loading screen until data.json is fetched */}
       <LoadingScreen progress={progress} visible={!isPhase1Done} />
-
-      {/* Floating progress indicator after Phase 1 */}
-      <FloatingProgress
-        progress={progress}
-        visible={isPhase1Done && isLoading}
-      />
 
       {/* Scroll Progress Bar */}
       <motion.div
@@ -61,66 +47,26 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* Refresh button (when cached data is shown) */}
-      {progress.phase === 'done' && (
-        <button
-          onClick={refresh}
-          className="fixed top-4 right-4 z-50 text-white/30 hover:text-white/60 text-xs bg-white/5 hover:bg-white/10 rounded-lg px-3 py-1.5 transition-colors backdrop-blur-xl border border-white/10"
-        >
-          Refresh Data
-        </button>
-      )}
-
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Phase 1: Always show Hero + MillionthMessage once Phase 1 is done */}
         <Hero
           totalMessages={data.totalMessages}
           dateRange={data.dateRange}
         />
 
-        {/* Phase 2 sections: show shimmer until Phase 2 completes */}
-        {phase2Done ? (
-          <Timeline milestones={data.milestones} />
-        ) : (
-          <SectionShimmer height="h-48" />
-        )}
+        <Timeline milestones={data.milestones} />
 
-        {phase2Done ? (
-          <HallOfFame
-            topContributors={data.topContributors}
-            awards={data.awards}
-          />
-        ) : (
-          <SectionShimmer height="h-96" />
-        )}
+        <HallOfFame
+          topContributors={data.topContributors}
+          awards={data.awards}
+        />
 
-        {/* Phase 3 section */}
-        {phase3Done ? (
-          <ModelTrends data={data.modelTrends} />
-        ) : (
-          <SectionShimmer height="h-80" />
-        )}
+        <ModelTrends data={data.modelTrends} />
 
-        {/* Phase 2 sections */}
-        {phase2Done ? (
-          <Heatmap activityData={data.activityHeatmap} />
-        ) : (
-          <SectionShimmer height="h-72" />
-        )}
+        <Heatmap activityData={data.activityHeatmap} />
 
-        {/* Phase 4 section */}
-        {phase4Done ? (
-          <FunStats stats={data.funStats} />
-        ) : (
-          <SectionShimmer height="h-64" />
-        )}
+        <FunStats stats={data.funStats} />
 
-        {/* Phase 2 section */}
-        {phase2Done ? (
-          <ChannelBreakdown stats={data.channelStats} />
-        ) : (
-          <SectionShimmer height="h-72" />
-        )}
+        <ChannelBreakdown stats={data.channelStats} />
 
         <MillionthMessage message={data.millionthMessage} />
 
