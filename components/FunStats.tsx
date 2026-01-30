@@ -34,7 +34,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
           className="sm:col-span-2 bg-gradient-to-br from-cyan-900/20 to-sky-900/20"
           label="The Novel Writer"
           value={stats.longestMessage.chars.toLocaleString()}
-          suffix="characters in one message"
+          suffix="characters in one post"
           sub={`By @${stats.longestMessage.username}`}
           icon="📝"
           index={0}
@@ -45,7 +45,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
           className="bg-teal-500/10"
           label="Busiest Day"
           value={stats.busiestDay.messages.toString()}
-          suffix="messages"
+          suffix="posts"
           sub={stats.busiestDay.reason}
           icon="🔥"
           index={1}

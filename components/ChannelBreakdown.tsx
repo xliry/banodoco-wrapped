@@ -29,7 +29,7 @@ const ChannelBreakdown: React.FC<ChannelBreakdownProps> = ({ stats }) => {
             <div className="flex justify-between items-end gap-2">
               <span className="text-white font-bold font-mono text-sm sm:text-base truncate">{channel.name}</span>
               <span className="text-gray-500 text-xs sm:text-sm font-medium whitespace-nowrap">
-                {channel.messages.toLocaleString()} msgs • <span className="text-white">{channel.percentage}%</span>
+                {channel.messages.toLocaleString()} posts • <span className="text-white">{channel.percentage}%</span>
               </span>
             </div>
             <div className="h-3 sm:h-4 bg-white/5 rounded-full overflow-hidden">

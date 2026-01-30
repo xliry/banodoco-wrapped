@@ -29,7 +29,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ progress, visible }) => {
               <h1 className="text-3xl sm:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-400 bg-clip-text text-transparent">
                 Banodoco
               </h1>
-              <p className="text-white/50 mt-2 text-base sm:text-lg">1M Messages Wrapped</p>
+              <p className="text-white/50 mt-2 text-base sm:text-lg">1M Posts Wrapped</p>
             </motion.div>
 
             {/* Pulsing dots */}

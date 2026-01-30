@@ -83,7 +83,7 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
                       className={`h-7 sm:h-10 rounded sm:rounded-lg ${getIntensityClass(val)} transition-colors cursor-default relative group`}
                     >
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-white text-[#0f0f0f] text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none z-20">
-                        {val.toLocaleString()} msgs
+                        {val.toLocaleString()} posts
                       </div>
                     </motion.div>
                   ))}

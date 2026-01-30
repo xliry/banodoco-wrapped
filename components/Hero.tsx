@@ -43,7 +43,7 @@ const Hero: React.FC<HeroProps> = ({ totalMessages, dateRange }) => {
         <h1 className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter leading-none">
           <span className="block text-white drop-shadow-lg">🎉 {count.toLocaleString()} 🎉</span>
           <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">
-            MESSAGES
+            POSTS
           </span>
         </h1>
 

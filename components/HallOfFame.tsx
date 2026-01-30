@@ -75,7 +75,7 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
                   <div className="absolute -top-1 -right-1 text-base sm:text-lg">{medal}</div>
                 </div>
                 <p className="font-bold text-white text-sm sm:text-base">{user.username}</p>
-                <p className="text-[10px] sm:text-xs text-gray-500 font-mono">{(user.messages / 1000).toFixed(1)}K msgs</p>
+                <p className="text-[10px] sm:text-xs text-gray-500 font-mono">{(user.messages / 1000).toFixed(1)}K posts</p>
               </div>
               <div
                 className={`w-full ${heightClass} rounded-t-xl flex items-center justify-center bg-gradient-to-t from-[#1a1a1a] to-white/5 border-t border-x border-white/10`}
@@ -121,7 +121,7 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
           icon={<Star className="text-blue-400" />}
           title="All-Nighter"
           user={awards.allNighter.username}
-          metric={`${awards.allNighter.count} late night msgs`}
+          metric={`${awards.allNighter.count} late night posts`}
           bgColor="bg-blue-500/10"
         />
       </div>
