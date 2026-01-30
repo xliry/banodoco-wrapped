@@ -173,7 +173,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
               tickLine={false}
               tickFormatter={formatYAxis}
               width={45}
-              domain={[0, 1050000]}
+              domain={[0, 1000000]}
               ticks={Y_TICKS}
             />
             <Tooltip content={<CustomTooltip />} />
