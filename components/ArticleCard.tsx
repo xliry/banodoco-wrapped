@@ -109,18 +109,23 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
     const featured = generations[featuredIndex];
     const isDesktop = variant === 'desktop';
 
-    // IntersectionObserver — lazy load media using scroll container as root
+    // Track if card is actually visible in viewport (for videos, we need real visibility, not just isActive)
+    const [isInViewport, setIsInViewport] = useState(false);
+
+    // IntersectionObserver — track visibility continuously
     useEffect(() => {
       const node = internalRef.current;
       if (!node) return;
+
       const observer = new IntersectionObserver(
         ([entry]) => {
+          setIsInViewport(entry.isIntersecting);
+          // Also set isVisible for lazy loading images (one-time)
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect();
           }
         },
-        { root: scrollRoot || null, rootMargin: '300px' }
+        { root: scrollRoot || null, rootMargin: '50px', threshold: 0.1 }
       );
       observer.observe(node);
       return () => observer.disconnect();
@@ -133,9 +138,9 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
     }, [featuredIndex]);
 
 
-    // Explicitly play video when active and loaded (backup for autoPlay)
+    // Explicitly play video when active, visible, and loaded (backup for autoPlay)
     useEffect(() => {
-      if (!isActive || !mediaLoaded || featured?.mediaType !== 'video') return;
+      if (!isActive || !isInViewport || !mediaLoaded || featured?.mediaType !== 'video') return;
 
       const video = videoRef.current;
       if (!video) return;
@@ -158,7 +163,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       tryPlay();
 
       return () => { cancelled = true; };
-    }, [isActive, mediaLoaded, featured?.mediaType, featuredIndex]);
+    }, [isActive, isInViewport, mediaLoaded, featured?.mediaType, featuredIndex]);
 
     const handleTimeUpdate = useCallback(() => {
       const video = videoRef.current;
@@ -241,7 +246,8 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
               </div>
 
               {featured.mediaType === 'video' ? (
-                isActive ? (
+                // Only render video when BOTH active AND actually visible in viewport
+                isActive && isInViewport ? (
                   <video
                     ref={videoRef}
                     src={featured.mediaUrl}
@@ -256,7 +262,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
                     }`}
                   />
                 ) : (
-                  // Placeholder when not active - no video element = no loading
+                  // Placeholder when not active or not visible
                   <div className="relative z-10 w-full h-full bg-white/5 flex items-center justify-center">
                     <svg className="w-12 h-12 text-white/20" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
