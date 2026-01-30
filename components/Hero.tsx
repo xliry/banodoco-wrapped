@@ -24,9 +24,9 @@ const Hero: React.FC<HeroProps> = ({ totalMessages, dateRange }) => {
   }, [totalMessages]);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center relative pt-20">
+    <section className="min-h-screen flex flex-col items-center justify-center text-center relative pt-20 overflow-hidden">
       {/* Sprite Grid Background */}
-      <div className="absolute inset-0 -z-10 opacity-30 overflow-hidden">
+      <div className="absolute inset-0 z-0 opacity-30">
         <SpriteGrid />
       </div>
 
@@ -34,7 +34,7 @@ const Hero: React.FC<HeroProps> = ({ totalMessages, dateRange }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="space-y-6 relative z-10"
+        className="space-y-6 relative z-10 pointer-events-none"
       >
         <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-purple-400 mb-4 backdrop-blur-sm">
           Banodoco Discord 2022 — 2025
