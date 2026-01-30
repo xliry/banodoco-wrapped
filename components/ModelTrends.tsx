@@ -39,53 +39,59 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   );
 };
 
+const STEP_MS = 180;
+
 const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [visibleCount, setVisibleCount] = useState(data.length);
   const [hasCompleted, setHasCompleted] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const stopInterval = useCallback(() => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  }, []);
+  const rafRef = useRef<number | null>(null);
+  const lastStepRef = useRef<number>(0);
 
   useEffect(() => {
-    if (!isPlaying) {
-      stopInterval();
-      return;
-    }
+    if (!isPlaying) return;
 
-    intervalRef.current = setInterval(() => {
-      setVisibleCount((prev) => {
-        if (prev >= data.length) {
-          setIsPlaying(false);
-          setHasCompleted(true);
-          return data.length;
-        }
-        return prev + 1;
-      });
-    }, 120);
+    lastStepRef.current = 0;
 
-    return stopInterval;
-  }, [isPlaying, data.length, stopInterval]);
+    const tick = (timestamp: number) => {
+      if (!lastStepRef.current) lastStepRef.current = timestamp;
+      const elapsed = timestamp - lastStepRef.current;
+
+      if (elapsed >= STEP_MS) {
+        lastStepRef.current = timestamp;
+        setVisibleCount((prev) => {
+          if (prev >= data.length) {
+            setIsPlaying(false);
+            setHasCompleted(true);
+            return data.length;
+          }
+          return prev + 1;
+        });
+      }
+
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [isPlaying, data.length]);
 
   const handlePlayPause = useCallback(() => {
     if (isPlaying) {
       setIsPlaying(false);
     } else {
-      if (visibleCount >= data.length) {
-        setVisibleCount(1);
-        setHasCompleted(false);
-      }
+      setVisibleCount(1);
+      setHasCompleted(false);
       setIsPlaying(true);
     }
-  }, [isPlaying, visibleCount, data.length]);
+  }, [isPlaying]);
 
   const displayData = visibleCount < data.length ? data.slice(0, visibleCount) : data;
   const currentMonth = visibleCount <= data.length && visibleCount > 0 ? data[visibleCount - 1]?.month : '';
+  const progress = data.length > 1 ? ((visibleCount - 1) / (data.length - 1)) * 100 : 100;
 
   return (
     <section className="py-16 sm:py-32">
@@ -96,24 +102,9 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className="mb-8 sm:mb-12"
       >
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-3 sm:mb-4">
-          <h2 className="text-2xl sm:text-3xl font-bold flex items-center gap-3">
-            <span className="text-cyan-500">🤖</span> The Rise & Fall of Models
-          </h2>
-          <div className="flex items-center gap-3">
-            {(isPlaying || visibleCount < data.length) && (
-              <span className="text-cyan-400 text-sm font-mono tabular-nums">
-                {currentMonth}
-              </span>
-            )}
-            <button
-              onClick={handlePlayPause}
-              className="px-4 py-1.5 rounded-lg text-sm font-medium bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 transition-colors"
-            >
-              {isPlaying ? '⏸ Pause' : hasCompleted ? '▶ Replay' : visibleCount < data.length ? '▶ Resume' : '▶ Play'}
-            </button>
-          </div>
-        </div>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
+          <span className="text-cyan-500">🤖</span> The Rise & Fall of Models
+        </h2>
         <p className="text-gray-400 text-sm sm:text-base">Share of conversation by model family — watching the community shift as technology evolved.</p>
       </motion.div>
 
@@ -122,8 +113,33 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="h-[280px] sm:h-[400px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden"
+        className="h-[280px] sm:h-[400px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden relative"
       >
+        {/* Play / Pause overlay */}
+        <div className="absolute top-3 right-3 sm:top-5 sm:right-5 z-10 flex items-center gap-2.5">
+          {(isPlaying || visibleCount < data.length) && (
+            <span className="text-cyan-400 text-xs sm:text-sm font-mono tabular-nums bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-md border border-white/5">
+              {currentMonth}
+            </span>
+          )}
+          <button
+            onClick={handlePlayPause}
+            className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/25 hover:border-cyan-500/50 transition-all backdrop-blur-sm shadow-lg shadow-cyan-500/5"
+          >
+            {isPlaying ? '⏸ Pause' : hasCompleted ? '▶ Replay' : '▶ Play'}
+          </button>
+        </div>
+
+        {/* Progress bar during playback */}
+        {(isPlaying || (visibleCount < data.length && visibleCount > 0)) && (
+          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/5 z-10">
+            <div
+              className="h-full bg-cyan-500/60 transition-none"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        )}
+
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={displayData} margin={{ top: 5, right: 5, left: -10, bottom: 5 }}>
             <defs>
