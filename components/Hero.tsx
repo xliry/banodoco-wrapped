@@ -25,8 +25,8 @@ const Hero: React.FC<HeroProps> = ({ totalMessages, dateRange }) => {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center relative pt-20 overflow-hidden">
-      {/* Sprite Grid Background — break out of max-w container */}
-      <div className="absolute inset-0 z-0 opacity-30 left-1/2 -translate-x-1/2 w-screen">
+      {/* Sprite Grid Background */}
+      <div className="absolute inset-0 z-0 opacity-30 overflow-hidden">
         <SpriteGrid />
       </div>
 
