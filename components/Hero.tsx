@@ -37,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({ totalMessages, dateRange }) => {
         className="space-y-4 sm:space-y-6 relative z-10 pointer-events-none"
       >
         <div className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm font-medium text-cyan-400 mb-2 sm:mb-4 backdrop-blur-sm">
-          Banodoco Discord 2022 — 2025
+          Banodoco Discord 2022 — 2026
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter leading-none">
