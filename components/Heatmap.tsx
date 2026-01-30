@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { HeatmapData } from '../types';
 
@@ -9,13 +9,33 @@ interface HeatmapProps {
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
+const COLORS = [
+  'bg-purple-950/20',
+  'bg-purple-900/40',
+  'bg-purple-800/50',
+  'bg-purple-700/60',
+  'bg-purple-600/70',
+  'bg-purple-500/80',
+  'bg-purple-400',
+];
+
 const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
-  const getIntensity = (val: number) => {
-    if (val > 350) return 'bg-purple-500';
-    if (val > 250) return 'bg-purple-600/70';
-    if (val > 150) return 'bg-purple-700/50';
-    if (val > 50) return 'bg-purple-900/30';
-    return 'bg-white/5';
+  const { min, max } = useMemo(() => {
+    let min = Infinity, max = -Infinity;
+    for (const row of activityData) {
+      for (const val of row.data) {
+        if (val < min) min = val;
+        if (val > max) max = val;
+      }
+    }
+    return { min, max };
+  }, [activityData]);
+
+  const getIntensityClass = (val: number) => {
+    if (max === min) return COLORS[3];
+    const ratio = (val - min) / (max - min);
+    const index = Math.min(Math.floor(ratio * COLORS.length), COLORS.length - 1);
+    return COLORS[index];
   };
 
   return (
@@ -47,16 +67,16 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
           <div className="space-y-2">
             {activityData.map((row, i) => (
               <div key={i} className="grid grid-cols-[80px_1fr] items-center">
-                <div className="text-right pr-6 text-xs font-bold text-gray-500">{row.hour}:00</div>
+                <div className="text-right pr-6 text-xs font-bold text-gray-500">{String(row.hour).padStart(2, '0')}:00</div>
                 <div className="grid grid-cols-7 gap-2">
                   {row.data.map((val, j) => (
                     <motion.div
                       key={j}
-                      whileHover={{ scale: 1.2, zIndex: 10 }}
-                      className={`h-10 rounded-lg ${getIntensity(val)} transition-colors cursor-default relative group`}
+                      whileHover={{ scale: 1.15, zIndex: 10 }}
+                      className={`h-10 rounded-lg ${getIntensityClass(val)} transition-colors cursor-default relative group`}
                     >
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-white text-[#0f0f0f] text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none">
-                        {val} msgs
+                        {val.toLocaleString()} msgs
                       </div>
                     </motion.div>
                   ))}
@@ -64,15 +84,24 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
               </div>
             ))}
           </div>
+
+          {/* Legend */}
+          <div className="flex items-center justify-end gap-2 mt-6">
+            <span className="text-[10px] text-gray-500">Less</span>
+            {COLORS.map((c, i) => (
+              <div key={i} className={`w-4 h-4 rounded ${c}`} />
+            ))}
+            <span className="text-[10px] text-gray-500">More</span>
+          </div>
         </div>
       </div>
 
-      <motion.p 
+      <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         className="text-center mt-12 text-gray-400 font-medium italic"
       >
-        🌙 "Peak activity: <span className="text-purple-400 font-bold">10PM UTC</span> on weekdays - true night owls!"
+        🌙 "Peak activity: <span className="text-purple-400 font-bold">3PM–6PM UTC</span> on weekdays"
       </motion.p>
     </section>
   );
