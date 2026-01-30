@@ -71,6 +71,37 @@ function findModelFirstAppearances(data: ModelTrend[]): Record<string, number> {
   return appearances;
 }
 
+/** Format "YYYY-MM" to "Mon YYYY" */
+function formatMonth(monthStr: string): string {
+  const [year, month] = monthStr.split('-');
+  const date = new Date(parseInt(year), parseInt(month) - 1);
+  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+
+/** Calculate which tick indices to show (max 6, always include last) */
+function getVisibleTickIndices(totalCount: number, maxTicks: number = 6): Set<number> {
+  if (totalCount <= maxTicks) {
+    return new Set(Array.from({ length: totalCount }, (_, i) => i));
+  }
+
+  const indices = new Set<number>();
+  const lastIndex = totalCount - 1;
+
+  // Always include first and last
+  indices.add(0);
+  indices.add(lastIndex);
+
+  // Distribute remaining ticks evenly
+  const remainingTicks = maxTicks - 2;
+  const step = lastIndex / (remainingTicks + 1);
+
+  for (let i = 1; i <= remainingTicks; i++) {
+    indices.add(Math.round(step * i));
+  }
+
+  return indices;
+}
+
 
 
 // ============ Hooks ============
@@ -183,6 +214,62 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   );
 };
 
+/** Individual legend item with entrance animation */
+const LegendItem: React.FC<{
+  modelKey: string;
+  stroke: string;
+  name: string;
+}> = ({ modelKey, stroke, name }) => {
+  const [isNew, setIsNew] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsNew(false), 600);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <motion.div
+      key={modelKey}
+      layout
+      initial={{ opacity: 0, x: 30, scale: 0.5 }}
+      animate={{
+        opacity: 1,
+        x: 0,
+        scale: [0.5, 1.2, 1],
+      }}
+      exit={{ opacity: 0, scale: 0.5 }}
+      transition={{
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+        scale: { duration: 0.4, times: [0, 0.6, 1] }
+      }}
+      className="relative flex items-center gap-1.5 px-2 py-1"
+    >
+      {/* Glow effect on entrance */}
+      {isNew && (
+        <motion.div
+          initial={{ opacity: 0.8, scale: 1 }}
+          animate={{ opacity: 0, scale: 2 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="absolute inset-0 rounded-lg"
+          style={{
+            background: `radial-gradient(circle, ${stroke}40 0%, transparent 70%)`,
+          }}
+        />
+      )}
+      <motion.div
+        className="w-3 h-3 rounded-sm relative z-10"
+        style={{ backgroundColor: stroke }}
+        animate={isNew ? {
+          boxShadow: [`0 0 12px 4px ${stroke}80`, `0 0 0px 0px ${stroke}00`]
+        } : {}}
+        transition={{ duration: 0.5 }}
+      />
+      <span className="text-xs text-gray-300 whitespace-nowrap relative z-10">{name}</span>
+    </motion.div>
+  );
+};
+
 /** Custom animated legend that shows models in order of appearance */
 const AnimatedLegend: React.FC<{
   visibleModels: Set<string>;
@@ -197,18 +284,7 @@ const AnimatedLegend: React.FC<{
     <div className="flex justify-center items-center gap-x-3 px-4 min-h-[32px]">
       <AnimatePresence mode="popLayout">
         {sortedVisibleModels.map(([key, { stroke, name }]) => (
-          <motion.div
-            key={key}
-            layout
-            initial={{ opacity: 0, x: 30, scale: 0.8 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="flex items-center gap-1.5 px-2 py-1"
-          >
-            <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: stroke }} />
-            <span className="text-xs text-gray-300 whitespace-nowrap">{name}</span>
-          </motion.div>
+          <LegendItem key={key} modelKey={key} stroke={stroke} name={name} />
         ))}
       </AnimatePresence>
     </div>
@@ -269,6 +345,12 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
   const progress = totalFrames > 0 ? (frame / totalFrames) * 100 : 0;
   const isAnimating = state === 'playing' || (frame > 0 && frame < totalFrames);
 
+  // Calculate which X-axis ticks to show (max 6, always include last)
+  const visibleTickIndices = useMemo(
+    () => getVisibleTickIndices(displayData.length, 6),
+    [displayData.length]
+  );
+
   return (
     <section ref={sectionRef} className="py-16 sm:py-32">
       <motion.div
@@ -292,12 +374,15 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
         className="h-[280px] sm:h-[400px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden relative"
       >
         {/* Play / Pause overlay */}
-        <div className="absolute top-3 right-3 sm:top-5 sm:right-5 z-10 flex items-center gap-2.5">
-          {isAnimating && (
-            <span className="text-cyan-400 text-xs sm:text-sm font-mono tabular-nums bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-md border border-white/5">
-              {currentMonth}
-            </span>
-          )}
+        <div className="absolute top-1/2 -translate-y-1/2 left-3 right-3 sm:left-5 sm:right-5 z-10 flex items-center justify-between" style={{ top: '28px' }}>
+          {currentMonth ? (
+            <div className="flex flex-col items-start bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-md border border-white/5">
+              <span className="text-[10px] text-gray-500 uppercase tracking-wider">Until</span>
+              <span className="text-cyan-400 text-xs sm:text-sm font-mono tabular-nums">
+                {formatMonth(currentMonth)}
+              </span>
+            </div>
+          ) : <span />}
           <button
             onClick={toggle}
             className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/25 hover:border-cyan-500/50 transition-all backdrop-blur-sm shadow-lg shadow-cyan-500/5"
@@ -319,7 +404,7 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
         <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <AreaChart
             data={displayData}
-            margin={{ top: 45, right: 5, left: -10, bottom: 5 }}
+            margin={{ top: 45, right: 35, left: 5, bottom: -10 }}
             style={{ transition: 'all 150ms ease-out' }}
           >
             <defs>
@@ -334,11 +419,24 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
             <XAxis
               dataKey="month"
               stroke="#666"
-              tick={{ fontSize: 10 }}
               axisLine={false}
               tickLine={false}
               dy={10}
-              interval="preserveStartEnd"
+              tick={({ x, y, payload, index }) => {
+                if (!visibleTickIndices.has(index)) return null;
+                return (
+                  <text
+                    x={x}
+                    y={y + 10}
+                    textAnchor="middle"
+                    fill="#666"
+                    fontSize={10}
+                  >
+                    {formatMonth(payload.value)}
+                  </text>
+                );
+              }}
+              interval={0}
             />
             <YAxis
               stroke="#666"
@@ -354,7 +452,7 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
             />
             <Tooltip content={<CustomTooltip />} />
             {/* Custom animated legend - models appear as they debut in the data */}
-            <foreignObject x="40" y="5" width="calc(100% - 80px)" height="40">
+            <foreignObject x="40" y="-5" width="calc(100% - 80px)" height="40">
               <div className="w-full h-full flex items-start justify-center">
                 <AnimatedLegend visibleModels={visibleModels} firstAppearances={firstAppearances} />
               </div>
