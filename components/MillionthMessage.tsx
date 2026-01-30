@@ -34,47 +34,72 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
     }
   }, [isInView]);
 
+  // Render message content with basic line break support
+  const renderContent = (content: string) => {
+    return content.split('\n').map((line, i) => (
+      <React.Fragment key={i}>
+        {i > 0 && <br />}
+        {line}
+      </React.Fragment>
+    ));
+  };
+
   return (
-    <section ref={containerRef} className="py-64 flex flex-col items-center justify-center text-center">
+    <section ref={containerRef} className="py-32 sm:py-64 flex flex-col items-center justify-center text-center px-2">
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, type: "spring" }}
-        className="mb-16"
+        className="mb-10 sm:mb-16"
       >
-        <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-4 text-white">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter mb-3 sm:mb-4 text-white">
           THE <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">1,000,000th</span> MESSAGE
         </h2>
-        <p className="text-gray-400 font-medium">History was made on January 15, 2025.</p>
+        <p className="text-gray-400 font-medium text-sm sm:text-base">History was made on January 15, 2025.</p>
       </motion.div>
 
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="w-full max-w-2xl bg-[#1e1f22] rounded-2xl p-8 border border-white/10 text-left shadow-2xl relative"
+        className="w-full max-w-2xl bg-[#1e1f22] rounded-xl sm:rounded-2xl p-4 sm:p-8 border border-white/10 text-left shadow-2xl relative"
       >
-        <div className="flex gap-4 items-start">
-          <div className="w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center text-xl font-bold text-[#1e1f22]">
+        <div className="flex gap-3 sm:gap-4 items-start">
+          {message.avatarUrl ? (
+            <img
+              src={message.avatarUrl}
+              alt={message.author}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex-shrink-0 object-cover"
+              onError={(e) => {
+                // Fallback to letter avatar on load error
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                target.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+          ) : null}
+          <div
+            className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-yellow-500 flex items-center justify-center text-lg sm:text-xl font-bold text-[#1e1f22] flex-shrink-0 ${message.avatarUrl ? 'hidden' : ''}`}
+          >
             {message.author.charAt(0)}
           </div>
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="font-bold text-white hover:underline cursor-pointer">@{message.author}</span>
-              <span className="text-[10px] bg-[#5865f2] px-1.5 py-0.5 rounded text-white font-bold uppercase">Lucky</span>
-              <span className="text-xs text-gray-500 ml-2">
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1">
+              <span className="font-bold text-white text-sm sm:text-base hover:underline cursor-pointer">@{message.author}</span>
+              <span className="text-[9px] sm:text-[10px] bg-[#5865f2] px-1.5 py-0.5 rounded text-white font-bold uppercase">Lucky</span>
+              <span className="text-[10px] sm:text-xs text-gray-500 sm:ml-2">
                 {new Date(message.timestamp).toLocaleString()}
               </span>
             </div>
-            <p className="text-gray-300 text-lg leading-relaxed">{message.content}</p>
-            <div className="mt-4 flex items-center gap-2">
+            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">{renderContent(message.content)}</p>
+            <div className="mt-3 sm:mt-4 flex items-center gap-2">
               <span className="text-xs font-bold text-[#5865f2] bg-[#5865f2]/10 px-2 py-1 rounded">
                 #{message.channel.replace('#', '')}
               </span>
             </div>
           </div>
         </div>
-        
+
         {/* Glow Effect */}
         <div className="absolute inset-0 bg-yellow-400/5 blur-3xl rounded-full pointer-events-none -z-10" />
       </motion.div>

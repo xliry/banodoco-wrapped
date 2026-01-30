@@ -8,109 +8,115 @@ interface ModelTrendsProps {
   data: ModelTrend[];
 }
 
+const MODEL_COLORS: Record<string, { stroke: string; name: string }> = {
+  sd: { stroke: '#3B82F6', name: 'Stable Diffusion' },
+  animatediff: { stroke: '#F97316', name: 'AnimateDiff' },
+  flux: { stroke: '#7C3AED', name: 'Flux' },
+  wan: { stroke: '#10B981', name: 'Wan' },
+  cogvideo: { stroke: '#EC4899', name: 'CogVideoX' },
+  hunyuan: { stroke: '#EAB308', name: 'HunyuanVideo' },
+  ltx: { stroke: '#06B6D4', name: 'LTX' },
+};
+
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (!active || !payload?.length) return null;
+  const sorted = [...payload].sort((a: any, b: any) => b.value - a.value);
+  return (
+    <div className="bg-[#1a1a1a] border border-white/10 px-4 py-3 rounded-xl shadow-2xl min-w-[140px]">
+      <p className="text-xs text-gray-400 mb-2 font-medium">{label}</p>
+      {sorted.map((entry: any, i: number) => (
+        entry.value > 0 && (
+          <div key={i} className="flex items-center justify-between gap-4 text-xs py-0.5">
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }} />
+              <span className="text-gray-300">{entry.name}</span>
+            </div>
+            <span className="text-white font-bold">{entry.value}%</span>
+          </div>
+        )
+      ))}
+    </div>
+  );
+};
+
 const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
   return (
-    <section className="py-32">
+    <section className="py-16 sm:py-32">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="mb-12"
+        className="mb-8 sm:mb-12"
       >
-        <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
           <span className="text-blue-500">🤖</span> The Rise & Fall of Models
         </h2>
-        <p className="text-gray-400">Watching the community switch tools as technology evolved.</p>
+        <p className="text-gray-400 text-sm sm:text-base">Share of conversation by model family — watching the community shift as technology evolved.</p>
       </motion.div>
 
-      <div className="h-[400px] w-full bg-[#1a1a1a]/50 p-6 rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="h-[280px] sm:h-[400px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden"
+      >
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={data}>
+          <AreaChart data={data} margin={{ top: 5, right: 5, left: -10, bottom: 5 }}>
             <defs>
-              <linearGradient id="colorSd" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.8}/>
-                <stop offset="95%" stopColor="#3B82F6" stopOpacity={0}/>
-              </linearGradient>
-              <linearGradient id="colorFlux" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#7C3AED" stopOpacity={0.8}/>
-                <stop offset="95%" stopColor="#7C3AED" stopOpacity={0}/>
-              </linearGradient>
-              <linearGradient id="colorWan" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#10B981" stopOpacity={0.8}/>
-                <stop offset="95%" stopColor="#10B981" stopOpacity={0}/>
-              </linearGradient>
+              {Object.entries(MODEL_COLORS).map(([key, { stroke }]) => (
+                <linearGradient key={key} id={`color-${key}`} x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor={stroke} stopOpacity={0.6}/>
+                  <stop offset="95%" stopColor={stroke} stopOpacity={0.05}/>
+                </linearGradient>
+              ))}
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#333" vertical={false} />
-            <XAxis 
-              dataKey="month" 
-              stroke="#666" 
-              tick={{ fontSize: 12 }} 
-              axisLine={false} 
-              tickLine={false} 
-              dy={10}
-            />
-            <YAxis 
-              stroke="#666" 
-              tick={{ fontSize: 12 }} 
-              axisLine={false} 
+            <XAxis
+              dataKey="month"
+              stroke="#666"
+              tick={{ fontSize: 10 }}
+              axisLine={false}
               tickLine={false}
-              tickFormatter={(v) => v >= 1000 ? `${(v/1000).toFixed(1)}K` : v}
+              dy={10}
+              interval="preserveStartEnd"
             />
-            <Tooltip 
-              contentStyle={{ backgroundColor: '#1a1a1a', border: '1px solid #333', borderRadius: '12px' }}
-              itemStyle={{ color: '#fff' }}
+            <YAxis
+              stroke="#666"
+              tick={{ fontSize: 10 }}
+              axisLine={false}
+              tickLine={false}
+              tickFormatter={(v) => `${v}%`}
+              width={40}
+              domain={[0, 'auto']}
             />
-            <Legend verticalAlign="top" height={36} />
-            <Area 
-              type="monotone" 
-              dataKey="sd" 
-              stroke="#3B82F6" 
-              fillOpacity={1} 
-              fill="url(#colorSd)" 
-              stackId="1" 
-              name="Stable Diffusion" 
-            />
-            <Area 
-              type="monotone" 
-              dataKey="comfy" 
-              stroke="#EC4899" 
-              fillOpacity={1} 
-              fill="none" 
-              stackId="1" 
-              name="ComfyUI" 
-            />
-            <Area 
-              type="monotone" 
-              dataKey="flux" 
-              stroke="#7C3AED" 
-              fillOpacity={1} 
-              fill="url(#colorFlux)" 
-              stackId="1" 
-              name="Flux" 
-            />
-            <Area 
-              type="monotone" 
-              dataKey="wan" 
-              stroke="#10B981" 
-              fillOpacity={1} 
-              fill="url(#colorWan)" 
-              stackId="1" 
-              name="Wan" 
-            />
+            <Tooltip content={<CustomTooltip />} />
+            <Legend verticalAlign="top" height={36} wrapperStyle={{ fontSize: '11px' }} />
+            {Object.entries(MODEL_COLORS).map(([key, { stroke, name }]) => (
+              <Area
+                key={key}
+                type="monotone"
+                dataKey={key}
+                stroke={stroke}
+                fillOpacity={1}
+                fill={`url(#color-${key})`}
+                stackId="1"
+                name={name}
+              />
+            ))}
           </AreaChart>
         </ResponsiveContainer>
-      </div>
+      </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        className="mt-8 flex items-start gap-4 p-6 rounded-2xl bg-purple-500/5 border border-purple-500/10"
+        className="mt-6 sm:mt-8 flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-purple-500/5 border border-purple-500/10"
       >
-        <div className="text-2xl mt-1">💡</div>
+        <div className="text-xl sm:text-2xl mt-1">💡</div>
         <div>
-          <h4 className="font-bold text-purple-400">Insight</h4>
-          <p className="text-gray-300">
-            Flux exploded in August 2024, overtaking Stable Diffusion as the most discussed model in just 2 months. 
-            Currently, Wan is seeing the steepest adoption curve in our history.
+          <h4 className="font-bold text-purple-400 text-sm sm:text-base">Insight</h4>
+          <p className="text-gray-300 text-sm sm:text-base">
+            Stable Diffusion dominated early discussions, but Flux quickly captured the community's attention in mid-2024.
+            Now Wan and newer video models are taking an increasing share of the conversation.
           </p>
         </div>
       </motion.div>

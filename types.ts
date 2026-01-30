@@ -6,11 +6,17 @@ export interface Milestone {
   label?: string;
 }
 
+export interface CumulativeDataPoint {
+  date: string;
+  cumulative: number;
+}
+
 export interface Contributor {
   rank: number;
   username: string;
   messages: number;
   avatar: string;
+  avatarUrl?: string;
 }
 
 export interface Award {
@@ -24,10 +30,12 @@ export interface Award {
 export interface ModelTrend {
   month: string;
   sd: number;
+  animatediff: number;
   flux: number;
   wan: number;
-  comfy: number;
-  animatediff: number;
+  cogvideo: number;
+  hunyuan: number;
+  ltx: number;
 }
 
 export interface HeatmapData {
@@ -46,6 +54,20 @@ export interface MillionthMessage {
   channel: string;
   content: string;
   timestamp: string;
+  avatarUrl?: string;
+}
+
+export interface TopGeneration {
+  month: string;
+  message_id: string;
+  author: string;
+  avatarUrl: string;
+  channel: string;
+  created_at: string;
+  reaction_count: number;
+  mediaUrl: string;
+  mediaType: 'image' | 'video' | 'gif';
+  content: string;
 }
 
 export interface SpriteCoords {
@@ -64,12 +86,14 @@ export interface AppData {
   totalChannels: number;
   dateRange: { start: string; end: string };
   milestones: Milestone[];
+  cumulativeMessages: CumulativeDataPoint[];
   topContributors: Contributor[];
   awards: {
     mostHelpful: Award;
     mostThankful: Award;
     nightOwl: Award;
     earlyBird: Award;
+    allNighter: Award;
   };
   modelTrends: ModelTrend[];
   activityHeatmap: HeatmapData[];
@@ -82,4 +106,5 @@ export interface AppData {
     mostUsedWord: { word: string; count: number };
   };
   millionthMessage: MillionthMessage;
+  topGenerations: TopGeneration[];
 }

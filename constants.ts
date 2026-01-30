@@ -13,7 +13,7 @@ export const demoData: AppData = {
   totalMembers: 12847,
   totalChannels: 45,
   dateRange: { start: "2022-03-15", end: "2025-01-28" },
-  
+
   milestones: [
     { count: 100000, date: "2023-03-20", daysFromStart: 370, label: "The First 100K" },
     { count: 250000, date: "2023-08-15", daysFromStart: 518, label: "Scaling Up" },
@@ -21,7 +21,23 @@ export const demoData: AppData = {
     { count: 750000, date: "2024-07-22", daysFromStart: 860, label: "Exponential Growth" },
     { count: 1000000, date: "2025-01-15", daysFromStart: 1037, label: "THE MILLION!" },
   ],
-  
+
+  cumulativeMessages: [
+    { date: "2022-03-21", cumulative: 500 },
+    { date: "2022-06-15", cumulative: 15000 },
+    { date: "2022-09-15", cumulative: 40000 },
+    { date: "2022-12-15", cumulative: 70000 },
+    { date: "2023-03-20", cumulative: 100000 },
+    { date: "2023-06-15", cumulative: 180000 },
+    { date: "2023-08-15", cumulative: 250000 },
+    { date: "2023-12-15", cumulative: 420000 },
+    { date: "2024-01-10", cumulative: 500000 },
+    { date: "2024-04-15", cumulative: 620000 },
+    { date: "2024-07-22", cumulative: 750000 },
+    { date: "2024-10-15", cumulative: 880000 },
+    { date: "2025-01-15", cumulative: 1000000 },
+  ],
+
   topContributors: [
     { rank: 1, username: "Kijai", messages: 45200, avatar: "#7C3AED" },
     { rank: 2, username: "ComfyMaster", messages: 32100, avatar: "#10B981" },
@@ -29,23 +45,24 @@ export const demoData: AppData = {
     { rank: 4, username: "WanExplorer", messages: 24300, avatar: "#EF4444" },
     { rank: 5, username: "AIArtist42", messages: 21800, avatar: "#3B82F6" },
   ],
-  
+
   awards: {
     mostHelpful: { username: "Kijai", count: 2341, metric: "helpful replies" },
     mostThankful: { username: "GratefulUser", count: 1823, metric: "thank yous" },
     nightOwl: { username: "NightCoder", avgTime: "3:24 AM", timezone: "UTC" },
     earlyBird: { username: "MorningPerson", avgTime: "6:15 AM", timezone: "UTC" },
+    allNighter: { username: "NocturnalArtist", count: 1542, metric: "late night messages" },
   },
-  
+
   modelTrends: [
-    { month: "2023-01", sd: 4500, flux: 0, wan: 0, comfy: 2100, animatediff: 800 },
-    { month: "2023-06", sd: 5200, flux: 0, wan: 0, comfy: 3400, animatediff: 1200 },
-    { month: "2024-01", sd: 4800, flux: 1200, wan: 500, comfy: 4100, animatediff: 900 },
-    { month: "2024-06", sd: 3200, flux: 4500, wan: 1800, comfy: 4800, animatediff: 600 },
-    { month: "2024-09", sd: 2100, flux: 6200, wan: 3500, comfy: 5200, animatediff: 400 },
-    { month: "2025-01", sd: 1800, flux: 5800, wan: 5200, comfy: 5500, animatediff: 300 },
+    { month: "2023-01", sd: 65, animatediff: 15, flux: 0, wan: 0, cogvideo: 0, hunyuan: 0, ltx: 0 },
+    { month: "2023-06", sd: 55, animatediff: 20, flux: 0, wan: 0, cogvideo: 5, hunyuan: 0, ltx: 0 },
+    { month: "2024-01", sd: 35, animatediff: 10, flux: 15, wan: 5, cogvideo: 10, hunyuan: 5, ltx: 0 },
+    { month: "2024-06", sd: 20, animatediff: 5, flux: 30, wan: 12, cogvideo: 12, hunyuan: 8, ltx: 3 },
+    { month: "2024-09", sd: 12, animatediff: 3, flux: 35, wan: 20, cogvideo: 10, hunyuan: 10, ltx: 5 },
+    { month: "2025-01", sd: 8, animatediff: 2, flux: 28, wan: 30, cogvideo: 8, hunyuan: 12, ltx: 7 },
   ],
-  
+
   activityHeatmap: [
     { hour: 0, data: [120, 115, 118, 122, 130, 180, 175] },
     { hour: 3, data: [60, 55, 65, 58, 70, 90, 85] },
@@ -56,7 +73,7 @@ export const demoData: AppData = {
     { hour: 18, data: [380, 395, 385, 400, 360, 320, 310] },
     { hour: 21, data: [350, 340, 360, 355, 380, 390, 370] },
   ],
-  
+
   channelStats: [
     { name: "#general", messages: 230000, percentage: 23 },
     { name: "#comfy-help", messages: 180000, percentage: 18 },
@@ -65,7 +82,7 @@ export const demoData: AppData = {
     { name: "#flux", messages: 90000, percentage: 9 },
     { name: "Other", messages: 230000, percentage: 23 },
   ],
-  
+
   funStats: {
     longestMessage: { chars: 4892, username: "DetailedExplainer" },
     mostRepliedThread: { replies: 156, topic: "Flux vs SD debate" },
@@ -73,11 +90,38 @@ export const demoData: AppData = {
     mostUsedEmoji: { emoji: "🔥", count: 45230 },
     mostUsedWord: { word: "workflow", count: 89450 },
   },
-  
+
   millionthMessage: {
     author: "LuckyUser",
     channel: "#general",
     content: "Has anyone tried the new Wan 2.2 update? The quality is insane!",
     timestamp: "2025-01-15T14:32:18Z",
-  }
+  },
+
+  topGenerations: [
+    {
+      month: "2024-06",
+      message_id: "demo1",
+      author: "ArtistOne",
+      avatarUrl: "",
+      channel: "#flux_gens",
+      created_at: "2024-06-15T12:00:00Z",
+      reaction_count: 42,
+      mediaUrl: "https://placehold.co/512x512/1a1a2e/ffffff?text=Flux+Art",
+      mediaType: "image",
+      content: "My best Flux generation yet!",
+    },
+    {
+      month: "2024-09",
+      message_id: "demo2",
+      author: "CreatorTwo",
+      avatarUrl: "",
+      channel: "#wan_gens",
+      created_at: "2024-09-20T18:30:00Z",
+      reaction_count: 38,
+      mediaUrl: "https://placehold.co/512x512/2e1a2e/ffffff?text=Wan+Video",
+      mediaType: "video",
+      content: "Wan video generation - incredible quality",
+    },
+  ],
 };

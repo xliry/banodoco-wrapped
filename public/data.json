@@ -1,6 +1,6 @@
 {
-  "totalMessages": 1047705,
-  "totalMembers": 6629,
+  "totalMessages": 1048103,
+  "totalMembers": 6633,
   "totalChannels": 228,
   "dateRange": {
     "start": "2023-08-08",
@@ -38,47 +38,574 @@
       "label": "THE MILLION!"
     }
   ],
+  "cumulativeMessages": [
+    {
+      "date": "2023-08-14",
+      "cumulative": 163
+    },
+    {
+      "date": "2023-08-21",
+      "cumulative": 622
+    },
+    {
+      "date": "2023-08-28",
+      "cumulative": 4017
+    },
+    {
+      "date": "2023-09-04",
+      "cumulative": 9650
+    },
+    {
+      "date": "2023-09-11",
+      "cumulative": 12997
+    },
+    {
+      "date": "2023-09-18",
+      "cumulative": 18193
+    },
+    {
+      "date": "2023-09-25",
+      "cumulative": 27237
+    },
+    {
+      "date": "2023-10-02",
+      "cumulative": 35129
+    },
+    {
+      "date": "2023-10-09",
+      "cumulative": 40546
+    },
+    {
+      "date": "2023-10-16",
+      "cumulative": 46594
+    },
+    {
+      "date": "2023-10-23",
+      "cumulative": 53200
+    },
+    {
+      "date": "2023-10-30",
+      "cumulative": 59654
+    },
+    {
+      "date": "2023-11-06",
+      "cumulative": 65173
+    },
+    {
+      "date": "2023-11-13",
+      "cumulative": 73676
+    },
+    {
+      "date": "2023-11-20",
+      "cumulative": 80861
+    },
+    {
+      "date": "2023-11-27",
+      "cumulative": 91082
+    },
+    {
+      "date": "2023-12-04",
+      "cumulative": 100360
+    },
+    {
+      "date": "2023-12-11",
+      "cumulative": 107492
+    },
+    {
+      "date": "2023-12-18",
+      "cumulative": 113838
+    },
+    {
+      "date": "2023-12-25",
+      "cumulative": 120027
+    },
+    {
+      "date": "2024-01-01",
+      "cumulative": 125130
+    },
+    {
+      "date": "2024-01-08",
+      "cumulative": 130168
+    },
+    {
+      "date": "2024-01-15",
+      "cumulative": 135972
+    },
+    {
+      "date": "2024-01-22",
+      "cumulative": 140860
+    },
+    {
+      "date": "2024-01-29",
+      "cumulative": 145622
+    },
+    {
+      "date": "2024-02-05",
+      "cumulative": 150652
+    },
+    {
+      "date": "2024-02-12",
+      "cumulative": 156798
+    },
+    {
+      "date": "2024-02-19",
+      "cumulative": 163551
+    },
+    {
+      "date": "2024-02-26",
+      "cumulative": 171487
+    },
+    {
+      "date": "2024-03-04",
+      "cumulative": 178832
+    },
+    {
+      "date": "2024-03-11",
+      "cumulative": 184600
+    },
+    {
+      "date": "2024-03-18",
+      "cumulative": 188716
+    },
+    {
+      "date": "2024-03-25",
+      "cumulative": 193045
+    },
+    {
+      "date": "2024-04-01",
+      "cumulative": 197688
+    },
+    {
+      "date": "2024-04-08",
+      "cumulative": 202079
+    },
+    {
+      "date": "2024-04-15",
+      "cumulative": 206078
+    },
+    {
+      "date": "2024-04-22",
+      "cumulative": 209761
+    },
+    {
+      "date": "2024-04-29",
+      "cumulative": 213809
+    },
+    {
+      "date": "2024-05-06",
+      "cumulative": 217746
+    },
+    {
+      "date": "2024-05-13",
+      "cumulative": 221765
+    },
+    {
+      "date": "2024-05-20",
+      "cumulative": 224227
+    },
+    {
+      "date": "2024-05-27",
+      "cumulative": 226373
+    },
+    {
+      "date": "2024-06-03",
+      "cumulative": 231056
+    },
+    {
+      "date": "2024-06-10",
+      "cumulative": 234139
+    },
+    {
+      "date": "2024-06-17",
+      "cumulative": 241329
+    },
+    {
+      "date": "2024-06-24",
+      "cumulative": 246136
+    },
+    {
+      "date": "2024-07-01",
+      "cumulative": 249723
+    },
+    {
+      "date": "2024-07-08",
+      "cumulative": 253932
+    },
+    {
+      "date": "2024-07-15",
+      "cumulative": 258073
+    },
+    {
+      "date": "2024-07-22",
+      "cumulative": 261086
+    },
+    {
+      "date": "2024-07-29",
+      "cumulative": 264885
+    },
+    {
+      "date": "2024-08-05",
+      "cumulative": 272561
+    },
+    {
+      "date": "2024-08-12",
+      "cumulative": 278819
+    },
+    {
+      "date": "2024-08-19",
+      "cumulative": 289370
+    },
+    {
+      "date": "2024-08-26",
+      "cumulative": 294604
+    },
+    {
+      "date": "2024-09-02",
+      "cumulative": 301967
+    },
+    {
+      "date": "2024-09-09",
+      "cumulative": 305383
+    },
+    {
+      "date": "2024-09-16",
+      "cumulative": 308296
+    },
+    {
+      "date": "2024-09-23",
+      "cumulative": 312715
+    },
+    {
+      "date": "2024-09-30",
+      "cumulative": 314962
+    },
+    {
+      "date": "2024-10-07",
+      "cumulative": 318533
+    },
+    {
+      "date": "2024-10-14",
+      "cumulative": 321133
+    },
+    {
+      "date": "2024-10-21",
+      "cumulative": 323262
+    },
+    {
+      "date": "2024-10-28",
+      "cumulative": 327505
+    },
+    {
+      "date": "2024-11-04",
+      "cumulative": 330297
+    },
+    {
+      "date": "2024-11-11",
+      "cumulative": 334451
+    },
+    {
+      "date": "2024-11-18",
+      "cumulative": 340487
+    },
+    {
+      "date": "2024-11-25",
+      "cumulative": 347078
+    },
+    {
+      "date": "2024-12-02",
+      "cumulative": 352825
+    },
+    {
+      "date": "2024-12-09",
+      "cumulative": 365719
+    },
+    {
+      "date": "2024-12-16",
+      "cumulative": 374261
+    },
+    {
+      "date": "2024-12-23",
+      "cumulative": 384124
+    },
+    {
+      "date": "2024-12-30",
+      "cumulative": 387097
+    },
+    {
+      "date": "2025-01-06",
+      "cumulative": 393461
+    },
+    {
+      "date": "2025-01-13",
+      "cumulative": 401927
+    },
+    {
+      "date": "2025-01-20",
+      "cumulative": 409274
+    },
+    {
+      "date": "2025-01-27",
+      "cumulative": 415067
+    },
+    {
+      "date": "2025-02-03",
+      "cumulative": 422500
+    },
+    {
+      "date": "2025-02-10",
+      "cumulative": 428303
+    },
+    {
+      "date": "2025-02-17",
+      "cumulative": 435858
+    },
+    {
+      "date": "2025-02-24",
+      "cumulative": 447371
+    },
+    {
+      "date": "2025-03-03",
+      "cumulative": 467879
+    },
+    {
+      "date": "2025-03-10",
+      "cumulative": 488476
+    },
+    {
+      "date": "2025-03-17",
+      "cumulative": 501418
+    },
+    {
+      "date": "2025-03-24",
+      "cumulative": 511550
+    },
+    {
+      "date": "2025-03-31",
+      "cumulative": 523276
+    },
+    {
+      "date": "2025-04-07",
+      "cumulative": 533724
+    },
+    {
+      "date": "2025-04-14",
+      "cumulative": 540376
+    },
+    {
+      "date": "2025-04-21",
+      "cumulative": 552746
+    },
+    {
+      "date": "2025-04-28",
+      "cumulative": 566394
+    },
+    {
+      "date": "2025-05-05",
+      "cumulative": 574628
+    },
+    {
+      "date": "2025-05-12",
+      "cumulative": 584894
+    },
+    {
+      "date": "2025-05-19",
+      "cumulative": 598195
+    },
+    {
+      "date": "2025-05-26",
+      "cumulative": 609936
+    },
+    {
+      "date": "2025-06-02",
+      "cumulative": 620795
+    },
+    {
+      "date": "2025-06-09",
+      "cumulative": 631499
+    },
+    {
+      "date": "2025-06-16",
+      "cumulative": 639763
+    },
+    {
+      "date": "2025-06-23",
+      "cumulative": 649216
+    },
+    {
+      "date": "2025-06-30",
+      "cumulative": 660684
+    },
+    {
+      "date": "2025-07-07",
+      "cumulative": 670275
+    },
+    {
+      "date": "2025-07-14",
+      "cumulative": 677256
+    },
+    {
+      "date": "2025-07-21",
+      "cumulative": 686443
+    },
+    {
+      "date": "2025-07-28",
+      "cumulative": 701775
+    },
+    {
+      "date": "2025-08-04",
+      "cumulative": 727054
+    },
+    {
+      "date": "2025-08-11",
+      "cumulative": 744601
+    },
+    {
+      "date": "2025-08-18",
+      "cumulative": 758630
+    },
+    {
+      "date": "2025-08-25",
+      "cumulative": 776954
+    },
+    {
+      "date": "2025-09-01",
+      "cumulative": 789106
+    },
+    {
+      "date": "2025-09-08",
+      "cumulative": 798532
+    },
+    {
+      "date": "2025-09-15",
+      "cumulative": 807843
+    },
+    {
+      "date": "2025-09-22",
+      "cumulative": 821597
+    },
+    {
+      "date": "2025-09-29",
+      "cumulative": 835396
+    },
+    {
+      "date": "2025-10-06",
+      "cumulative": 851240
+    },
+    {
+      "date": "2025-10-13",
+      "cumulative": 862230
+    },
+    {
+      "date": "2025-10-20",
+      "cumulative": 872386
+    },
+    {
+      "date": "2025-10-27",
+      "cumulative": 884261
+    },
+    {
+      "date": "2025-11-03",
+      "cumulative": 893862
+    },
+    {
+      "date": "2025-11-10",
+      "cumulative": 900135
+    },
+    {
+      "date": "2025-11-17",
+      "cumulative": 908865
+    },
+    {
+      "date": "2025-11-24",
+      "cumulative": 918387
+    },
+    {
+      "date": "2025-12-01",
+      "cumulative": 935231
+    },
+    {
+      "date": "2025-12-08",
+      "cumulative": 946655
+    },
+    {
+      "date": "2025-12-15",
+      "cumulative": 958257
+    },
+    {
+      "date": "2025-12-22",
+      "cumulative": 968856
+    },
+    {
+      "date": "2025-12-29",
+      "cumulative": 977363
+    },
+    {
+      "date": "2026-01-05",
+      "cumulative": 985967
+    },
+    {
+      "date": "2026-01-12",
+      "cumulative": 1011276
+    },
+    {
+      "date": "2026-01-19",
+      "cumulative": 1027431
+    },
+    {
+      "date": "2026-01-26",
+      "cumulative": 1041294
+    },
+    {
+      "date": "2026-01-30",
+      "cumulative": 1048105
+    }
+  ],
   "topContributors": [
     {
       "rank": 1,
       "username": "Kijai",
-      "messages": 103556,
-      "avatar": "#7C3AED"
+      "messages": 103609,
+      "avatar": "#7C3AED",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024"
     },
     {
       "rank": 2,
       "username": "Draken",
-      "messages": 62016,
-      "avatar": "#10B981"
+      "messages": 62020,
+      "avatar": "#10B981",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/103595801015488512/3f194541d4859a377b5bc675620cb9d8.png?size=1024"
     },
     {
       "rank": 3,
       "username": "Cubey",
       "messages": 21939,
-      "avatar": "#F59E0B"
+      "avatar": "#F59E0B",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/123694023910227968/5112752040e96956245434193932f727.png?size=1024"
     },
     {
       "rank": 4,
       "username": "mel",
       "messages": 18268,
-      "avatar": "#EF4444"
+      "avatar": "#EF4444",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/499629400254447616/85b90d055f4daeed9d5780e6efa6c239.png?size=1024"
     },
     {
       "rank": 5,
       "username": "Juampab12",
       "messages": 17780,
-      "avatar": "#3B82F6"
+      "avatar": "#3B82F6",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/160047720931786752/10ac537faf3f68804db3c16a288cb44c.png?size=1024"
     }
   ],
   "awards": {
     "mostHelpful": {
       "username": "Kijai",
-      "count": 23725,
+      "count": 23734,
       "metric": "helpful replies"
     },
     "mostThankful": {
       "username": "PhoenixRisen",
-      "count": 688,
+      "count": 840,
       "metric": "thank yous"
     },
     "nightOwl": {
@@ -90,248 +617,313 @@
       "username": "the_darkwatarus_museum",
       "avgTime": "5:50 AM",
       "timezone": "UTC"
+    },
+    "allNighter": {
+      "username": 805680159209422800,
+      "count": 162,
+      "metric": "late night messages"
     }
   },
   "modelTrends": [
     {
       "month": "2023-08",
-      "sd": 34,
+      "sd": 0,
+      "animatediff": 81.9,
       "flux": 0,
-      "wan": 65,
-      "comfy": 460,
-      "animatediff": 250
+      "wan": 5.7,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 12.4
     },
     {
       "month": "2023-09",
-      "sd": 166,
+      "sd": 0,
+      "animatediff": 49.3,
       "flux": 0,
-      "wan": 22,
-      "comfy": 2116,
-      "animatediff": 136
+      "wan": 38.6,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 12.1
     },
     {
       "month": "2023-10",
-      "sd": 746,
-      "flux": 1,
-      "wan": 240,
-      "comfy": 2230,
-      "animatediff": 120
+      "sd": 0,
+      "animatediff": 39.2,
+      "flux": 0,
+      "wan": 53.4,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 7.4
     },
     {
       "month": "2023-11",
-      "sd": 885,
-      "flux": 1,
-      "wan": 1141,
-      "comfy": 3120,
-      "animatediff": 632
+      "sd": 19.8,
+      "animatediff": 11.4,
+      "flux": 0,
+      "wan": 65.6,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 3.2
     },
     {
       "month": "2023-12",
-      "sd": 479,
-      "flux": 2,
-      "wan": 751,
-      "comfy": 1820,
-      "animatediff": 653
+      "sd": 5.7,
+      "animatediff": 20.7,
+      "flux": 0,
+      "wan": 66.9,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 6.7
     },
     {
       "month": "2024-01",
-      "sd": 184,
-      "flux": 2,
-      "wan": 1047,
-      "comfy": 2544,
-      "animatediff": 487
+      "sd": 3.1,
+      "animatediff": 6,
+      "flux": 0,
+      "wan": 74.3,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 16.5
     },
     {
       "month": "2024-02",
-      "sd": 159,
-      "flux": 3,
-      "wan": 280,
-      "comfy": 1590,
-      "animatediff": 159
+      "sd": 0.6,
+      "animatediff": 24.8,
+      "flux": 0,
+      "wan": 61.6,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 13.1
     },
     {
       "month": "2024-03",
-      "sd": 178,
+      "sd": 0.5,
+      "animatediff": 20,
       "flux": 0,
-      "wan": 314,
-      "comfy": 1493,
-      "animatediff": 111
+      "wan": 64.7,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 14.8
     },
     {
       "month": "2024-04",
-      "sd": 91,
+      "sd": 0.6,
+      "animatediff": 12.6,
       "flux": 0,
-      "wan": 376,
-      "comfy": 1128,
-      "animatediff": 181
+      "wan": 72.8,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 14
     },
     {
       "month": "2024-05",
-      "sd": 87,
+      "sd": 0.1,
+      "animatediff": 8.3,
       "flux": 0,
-      "wan": 423,
-      "comfy": 807,
-      "animatediff": 196
+      "wan": 66.3,
+      "cogvideo": 0,
+      "hunyuan": 0,
+      "ltx": 25.3
     },
     {
       "month": "2024-06",
-      "sd": 260,
+      "sd": 13.7,
+      "animatediff": 5.2,
       "flux": 0,
-      "wan": 521,
-      "comfy": 766,
-      "animatediff": 247
+      "wan": 63.7,
+      "cogvideo": 0,
+      "hunyuan": 0.4,
+      "ltx": 17
     },
     {
       "month": "2024-07",
-      "sd": 165,
+      "sd": 0.8,
+      "animatediff": 4.1,
       "flux": 0,
-      "wan": 554,
-      "comfy": 912,
-      "animatediff": 175
+      "wan": 83.5,
+      "cogvideo": 0,
+      "hunyuan": 0.1,
+      "ltx": 11.4
     },
     {
       "month": "2024-08",
-      "sd": 263,
-      "flux": 2279,
-      "wan": 829,
-      "comfy": 1432,
-      "animatediff": 151
+      "sd": 0.2,
+      "animatediff": 1.1,
+      "flux": 63.4,
+      "wan": 23,
+      "cogvideo": 9,
+      "hunyuan": 0.1,
+      "ltx": 3.3
     },
     {
       "month": "2024-09",
-      "sd": 54,
-      "flux": 843,
-      "wan": 328,
-      "comfy": 962,
-      "animatediff": 69
+      "sd": 0,
+      "animatediff": 1.5,
+      "flux": 29.8,
+      "wan": 13.9,
+      "cogvideo": 48.3,
+      "hunyuan": 0.1,
+      "ltx": 6.4
     },
     {
       "month": "2024-10",
-      "sd": 58,
-      "flux": 484,
-      "wan": 246,
-      "comfy": 920,
-      "animatediff": 67
+      "sd": 1.4,
+      "animatediff": 1.9,
+      "flux": 10.1,
+      "wan": 24.2,
+      "cogvideo": 55.3,
+      "hunyuan": 0,
+      "ltx": 7.1
     },
     {
       "month": "2024-11",
-      "sd": 102,
-      "flux": 634,
-      "wan": 748,
-      "comfy": 984,
-      "animatediff": 91
+      "sd": 0.3,
+      "animatediff": 0.5,
+      "flux": 6,
+      "wan": 10.1,
+      "cogvideo": 66,
+      "hunyuan": 0,
+      "ltx": 17.1
     },
     {
       "month": "2024-12",
-      "sd": 109,
-      "flux": 520,
-      "wan": 1011,
-      "comfy": 1550,
-      "animatediff": 79
+      "sd": 0,
+      "animatediff": 0.2,
+      "flux": 1.3,
+      "wan": 3.9,
+      "cogvideo": 5.4,
+      "hunyuan": 74,
+      "ltx": 15.1
     },
     {
       "month": "2025-01",
-      "sd": 134,
-      "flux": 346,
-      "wan": 1232,
-      "comfy": 1429,
-      "animatediff": 50
+      "sd": 0.5,
+      "animatediff": 2.3,
+      "flux": 2.4,
+      "wan": 5.5,
+      "cogvideo": 4.7,
+      "hunyuan": 67.5,
+      "ltx": 17
     },
     {
       "month": "2025-02",
-      "sd": 185,
-      "flux": 630,
-      "wan": 889,
-      "comfy": 2875,
-      "animatediff": 150
+      "sd": 0.1,
+      "animatediff": 0.8,
+      "flux": 1.6,
+      "wan": 30.2,
+      "cogvideo": 0.6,
+      "hunyuan": 56.8,
+      "ltx": 9.9
     },
     {
       "month": "2025-03",
-      "sd": 390,
-      "flux": 633,
-      "wan": 2992,
-      "comfy": 2286,
-      "animatediff": 194
+      "sd": 0,
+      "animatediff": 0.9,
+      "flux": 3,
+      "wan": 64.9,
+      "cogvideo": 0.1,
+      "hunyuan": 21.1,
+      "ltx": 9.9
     },
     {
       "month": "2025-04",
-      "sd": 199,
-      "flux": 439,
-      "wan": 4724,
-      "comfy": 2460,
-      "animatediff": 82
+      "sd": 0,
+      "animatediff": 0.3,
+      "flux": 3,
+      "wan": 69.6,
+      "cogvideo": 0,
+      "hunyuan": 13.8,
+      "ltx": 13.3
     },
     {
       "month": "2025-05",
-      "sd": 56,
-      "flux": 524,
-      "wan": 1063,
-      "comfy": 3062,
-      "animatediff": 63
+      "sd": 0,
+      "animatediff": 0.1,
+      "flux": 2.5,
+      "wan": 63,
+      "cogvideo": 0,
+      "hunyuan": 10.8,
+      "ltx": 23.5
     },
     {
       "month": "2025-06",
-      "sd": 17,
-      "flux": 145,
-      "wan": 7176,
-      "comfy": 1049,
-      "animatediff": 62
+      "sd": 0.2,
+      "animatediff": 0.2,
+      "flux": 7.3,
+      "wan": 80.3,
+      "cogvideo": 0,
+      "hunyuan": 4.6,
+      "ltx": 7.4
     },
     {
       "month": "2025-07",
-      "sd": 60,
-      "flux": 133,
-      "wan": 5246,
-      "comfy": 955,
-      "animatediff": 58
+      "sd": 0.2,
+      "animatediff": 0.1,
+      "flux": 5.2,
+      "wan": 88.3,
+      "cogvideo": 0,
+      "hunyuan": 1,
+      "ltx": 5.2
     },
     {
       "month": "2025-08",
-      "sd": 18,
-      "flux": 501,
-      "wan": 4464,
-      "comfy": 1630,
-      "animatediff": 56
+      "sd": 0,
+      "animatediff": 0.1,
+      "flux": 1.9,
+      "wan": 92.6,
+      "cogvideo": 0,
+      "hunyuan": 0.5,
+      "ltx": 4.9
     },
     {
       "month": "2025-09",
-      "sd": 108,
-      "flux": 280,
-      "wan": 3685,
-      "comfy": 2189,
-      "animatediff": 44
+      "sd": 0,
+      "animatediff": 0.1,
+      "flux": 1.1,
+      "wan": 90.1,
+      "cogvideo": 0,
+      "hunyuan": 2.4,
+      "ltx": 6.2
     },
     {
       "month": "2025-10",
-      "sd": 96,
-      "flux": 262,
-      "wan": 4587,
-      "comfy": 3036,
-      "animatediff": 80
+      "sd": 0,
+      "animatediff": 0,
+      "flux": 0.4,
+      "wan": 85.9,
+      "cogvideo": 0,
+      "hunyuan": 0.8,
+      "ltx": 12.9
     },
     {
       "month": "2025-11",
-      "sd": 116,
-      "flux": 919,
-      "wan": 3202,
-      "comfy": 3958,
-      "animatediff": 52
+      "sd": 0,
+      "animatediff": 0,
+      "flux": 9,
+      "wan": 68.5,
+      "cogvideo": 0,
+      "hunyuan": 14.3,
+      "ltx": 8.1
     },
     {
       "month": "2025-12",
-      "sd": 164,
-      "flux": 189,
-      "wan": 2387,
-      "comfy": 2848,
-      "animatediff": 68
+      "sd": 0.1,
+      "animatediff": 0,
+      "flux": 1.9,
+      "wan": 85.3,
+      "cogvideo": 0,
+      "hunyuan": 2.3,
+      "ltx": 10.3
     },
     {
       "month": "2026-01",
-      "sd": 144,
-      "flux": 217,
-      "wan": 2630,
-      "comfy": 5949,
-      "animatediff": 139
+      "sd": 0,
+      "animatediff": 0.1,
+      "flux": 3,
+      "wan": 13.1,
+      "cogvideo": 0,
+      "hunyuan": 0.2,
+      "ltx": 83.7
     }
   ],
   "activityHeatmap": [
@@ -366,7 +958,7 @@
         13305,
         14037,
         14085,
-        15169,
+        15173,
         10220,
         10013
       ]
@@ -378,7 +970,7 @@
         18026,
         18605,
         16792,
-        18621,
+        18809,
         13374,
         13696
       ]
@@ -390,7 +982,7 @@
         23116,
         22983,
         21575,
-        21598,
+        21805,
         17337,
         16240
       ]
@@ -402,7 +994,7 @@
         30851,
         29232,
         29044,
-        26392,
+        26393,
         24260,
         22491
       ]
@@ -435,12 +1027,12 @@
   "channelStats": [
     {
       "name": "#wan_chatter",
-      "messages": 243341,
+      "messages": 243397,
       "percentage": 23
     },
     {
       "name": "#comfyui",
-      "messages": 142738,
+      "messages": 142743,
       "percentage": 14
     },
     {
@@ -460,14 +1052,14 @@
     },
     {
       "name": "Other",
-      "messages": 486259,
+      "messages": 486598,
       "percentage": 46
     }
   ],
   "funStats": {
     "longestMessage": {
-      "chars": 2599,
-      "username": "Fill"
+      "chars": 1987,
+      "username": "Nathan Shipley"
     },
     "mostRepliedThread": {
       "replies": 14,
@@ -480,17 +1072,1820 @@
     },
     "mostUsedEmoji": {
       "emoji": "😄",
-      "count": 55
+      "count": 108
     },
     "mostUsedWord": {
-      "word": "using",
-      "count": 436
+      "word": "it's",
+      "count": 515
     }
   },
   "millionthMessage": {
     "author": "firefly",
     "channel": "#chatter",
     "content": "<id:customize> and search for ltx\nbut <#1457981813120176138> <#1309520535012638740> there's a bunch",
-    "timestamp": "2026-01-09T00:40:59.784+00:00"
-  }
+    "timestamp": "2026-01-09T00:40:59.784+00:00",
+    "avatarUrl": "https://cdn.discordapp.com/avatars/606590420713078788/d17199da11633ad91f1a0d605d0cf96d.png?size=1024"
+  },
+  "topGenerations": [
+    {
+      "month": "2023-08",
+      "message_id": 1145029547079782400,
+      "author": "Yae_ph",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1116736107166576740/37c08f0a66a1f62f14c667c4f11aba53.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-08-26T16:18:37.644+00:00",
+      "reaction_count": 7,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1145029546740035604/01172-53761667.gif?ex=6834945d&is=683342dd&hm=9e0052812085a9ea516d2f3b60d89d3fb25c4cb6fbbb782dce4ca9e8ed255616&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2023-08",
+      "message_id": 1145368703957995500,
+      "author": "itsB34STW4RS",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1027796031267684454/af278b1faae86c7f9d14eebf4352a270.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-08-27T14:46:18.945+00:00",
+      "reaction_count": 7,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1145368703941214309/00006-969527642.gif?ex=68347eba&is=68332d3a&hm=3eda472eadefa3beec21ff63394253085c772fefc2569a3b019e32ade93a8c30&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2023-08",
+      "message_id": 1145918673933062300,
+      "author": "Skquark",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/988620354815688744/320f6eb9687c967fd8fc64fd0abad8e2.png?size=1024",
+      "channel": "#animatediff",
+      "created_at": "2023-08-29T03:11:42.005+00:00",
+      "reaction_count": 6,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1142935168584265779/1145918674029514762/AnimateDiff-1.png?ex=683484ae&is=6833332e&hm=5ed397d1f6a4c2e589a1c75cecc165db4a4750a26d6bad3925585573be189a87&",
+      "mediaType": "image",
+      "content": "So I've got the Neggles version of AnimateDiff integrated into my UI at https://DiffusionDeluxe.com for Colab & Desktop, and now working on updating it with the additional features of s9roll7 fork, and could use some feedback.  Want to add options for the 'prompt_map', 'controlnet_map', 'upscale_config' and reference image.. wanting to make it as friendly as possible while opening all the extra settings, and trying to decide what defaults I can leave static.  When enabling a ControlNet layer, do I upload the init images into the controlnet_image subfolder or is that intended to be internal storage for the save_detectmap taken from the 1st animate frame?  Also when I use 'prompt_map' with frames instead of 'prompt' list, should the 'n_prompt' only have one negative string in it?\nThanks, open to collaborators if anyone wants to help smooth out my code.."
+    },
+    {
+      "month": "2023-08",
+      "message_id": 1145130416651653100,
+      "author": "pom",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/301463647895683072/6c24836bd3c2bd4b0c7ce50bb2f407c1.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2023-08-26T22:59:26.824+00:00",
+      "reaction_count": 6,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1145130415900864593/IMG_8207.gif?ex=6823cece&is=68227d4e&hm=2deaea9afb8ce74357f70cc191a580a7eb623d9384f2abcd8f2f5d63b6818396&",
+      "mediaType": "image",
+      "content": "I'm going to start using the Updates channels to share the best of the other channels - for those who don't have time to sift through all their noise. I'll do that for you and share the most interesting things!\n\nThis from <@586961856271351833>  is very impressive separating the background seg ControlNet from the Openpose foreground to generate a video with multiple planes of coherent movement\n\nWhile generating these inputs is likely difficult, it would in theory be possible to create helper models to make them (idea by <@1013923910821093517>)"
+    },
+    {
+      "month": "2023-08",
+      "message_id": 1145816541326217300,
+      "author": "Cubey",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/123694023910227968/5112752040e96956245434193932f727.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-08-28T20:25:51.694+00:00",
+      "reaction_count": 5,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1145816541384933518/00_222966259460500_hakos-baelz_rat-ears_bikini_detailed-face-and-eyes_two-side-up_medium-breasts.gif?ex=6834ce4f&is=68337ccf&hm=aff097ab67553fc72c6c8b3a871d98fc83c90ac58da43dbaef706022449ac9ae&",
+      "mediaType": "image",
+      "content": "this upscale turned out better"
+    },
+    {
+      "month": "2023-09",
+      "message_id": 1155840360321392600,
+      "author": "Kosinkadink",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
+      "channel": "#comfyui",
+      "created_at": "2023-09-25T12:16:56.376+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1145677539738665020/1155840360061341706/image.png?ex=68345bb8&is=68330a38&hm=ba5d2cd4fc7dfcf784aa1b4a26eeb45b9a9a667e7a36001d2ed7b8459f515b60&",
+      "mediaType": "image",
+      "content": "sneak peak:"
+    },
+    {
+      "month": "2023-09",
+      "message_id": 1156634072488104200,
+      "author": "Kwebbelkop",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/149244145272094720/4dfa15e60213688d9220cdc968f37d27.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-09-27T16:50:52.103+00:00",
+      "reaction_count": 16,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1156634072349679758/Enabled_00031__1.gif?ex=68349bec&is=68334a6c&hm=1057c5849cfb92afa0abebb8190374d2b40c362b8c27b51dd845c06cb9f566a5&",
+      "mediaType": "image",
+      "content": "Dinner is ready!"
+    },
+    {
+      "month": "2023-09",
+      "message_id": 1157770426836078800,
+      "author": "Kaïros",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/189142875613822976/8906c45662fa4307e21e5d64bf82b1bb.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-09-30T20:06:20.092+00:00",
+      "reaction_count": 15,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1157770426475348129/HRIGif_00059_.gif?ex=6834c9bc&is=6833783c&hm=92da4a744acef7213fd4a41c7dd1082c1ad23413ffadbd9e43fa3092c8e03715&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2023-09",
+      "message_id": 1150100004766240800,
+      "author": "Fill",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/380911583074975744/a_e9d392d08b9c2b6fbc2bce81dadd5eec.gif?size=1024",
+      "channel": "#introductions",
+      "created_at": "2023-09-09T16:06:48.961+00:00",
+      "reaction_count": 15,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138861011206688829/1150100000488046602/Screen_Shot_2023-09-09_at_9.03.17_AM.png?ex=68349197&is=68334017&hm=97e956b817d981539255225e3a32e907ad480881f7eb2e9c90c36dbb330b0051&",
+      "mediaType": "image",
+      "content": "Hey guys, my names Fill, in terms of ML I come from an extensive background of using disco diffusion and immediately got into fine tuning SD 1.5 models when they first came out, all the way to tuning XL current day. My main focus has been creating models and loras for image models, creating unique styles and aesthetics. \n\nI hope to do the same for animateDiff style video models to create interesting work! \n\nHere is a small example of the work iv been doing\n\nYou can peep my portfolio here:  https://www.machinedelusions.com/"
+    },
+    {
+      "month": "2023-09",
+      "message_id": 1157186691119972400,
+      "author": "Fictiverse",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/968570531047690270/d53fdc0c1912ec5300dc2cec4b6aafdc.png?size=1024",
+      "channel": "#animatediff",
+      "created_at": "2023-09-29T05:26:46.652+00:00",
+      "reaction_count": 14,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1142935168584265779/1157186690788642856/Enabled_00134_.gif?ex=6834a456&is=683352d6&hm=a90806cfaadd3545188aa6e9ad73af66de1aba4a89b34497adb03f673a49e123&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2023-10",
+      "message_id": 1160347570745377000,
+      "author": "pom",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/301463647895683072/6c24836bd3c2bd4b0c7ce50bb2f407c1.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2023-10-07T22:46:59.081+00:00",
+      "reaction_count": 88,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1160347571206762516/AnimateDiff_interp_00111_.gif?ex=6823cbe3&is=68227a63&hm=b9660eeabc5150eaa2b18601ddffb1cf3348dcf3143795eafbfef9cbc4c7be29&",
+      "mediaType": "image",
+      "content": "I should be better at posting here more frequently but <@314183563719475200> just shared his newest fine tuned motion module and the results seem really impressive- see attached.\n\nYou can check it out on Civit here: https://civitai.com/models/158389?modelVersionId=178017\n\nKudos! I’m sure reviews, etc. would be appreciated if you find it impressive! (And feedback if not!)"
+    },
+    {
+      "month": "2023-10",
+      "message_id": 1166001261628371000,
+      "author": "Inner_Reflections_AI",
+      "avatarUrl": "",
+      "channel": "#art_sharing",
+      "created_at": "2023-10-23T13:12:44.028+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1166001260705628310/Final_Low_Quality.mov?ex=683468cb&is=6833174b&hm=f6f379b95b104b1b61f7137b4d652a4ea12ec06276d48a121d0ae6d12e216ee6&",
+      "mediaType": "image",
+      "content": "A Painting Gets Ready for His Day at the Gallery. Trying to improve consistency."
+    },
+    {
+      "month": "2023-10",
+      "message_id": 1166310802618318800,
+      "author": "pom",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/301463647895683072/6c24836bd3c2bd4b0c7ce50bb2f407c1.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2023-10-24T09:42:44.351+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1166310801771081879/de43b598-0477-4959-a303-95a4c3f7b5a1.mp4?ex=6823bcd4&is=68226b54&hm=38d47b23b038b0111450300c1482e50138fb8e6263dbea8bd11f812c8d0a30cf&",
+      "mediaType": "image",
+      "content": "Even more dramatic example - and this is all just with minor changes to the inference code,  no fine-tuning!\n\nKudos <@222006941491265536>!!"
+    },
+    {
+      "month": "2023-10",
+      "message_id": 1164609083744206800,
+      "author": "MH",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/830738807811866624/1b2a6095a25af95a69bbfbfaf23eea4b.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-10-19T17:00:42.955+00:00",
+      "reaction_count": 24,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1164609082645303528/ZOMBIEWALK1.mp4?ex=68349e3a&is=68334cba&hm=65c65f2a974b8b4eecdf12d4f0c50fb973b11828236ec60eb9ab72c1fb42da15&",
+      "mediaType": "image",
+      "content": "Some older experiments with vid2vid but finally had a chance to put it together 🧟"
+    },
+    {
+      "month": "2023-10",
+      "message_id": 1159710929861230600,
+      "author": "homiehari",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/691789144547917884/e38b116de407306afc1042ef6826e589.png?size=1024",
+      "channel": "#introductions",
+      "created_at": "2023-10-06T04:37:12.066+00:00",
+      "reaction_count": 22,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138861011206688829/1159710929123029012/caac.mp4?ex=683498b7&is=68334737&hm=6a3dc9a10f9087663577b7c979da9120e548b107e79b644c2ee402a8dd1b26a4&",
+      "mediaType": "image",
+      "content": "hey everyone! been around the SD animation space for a while, finally figured out how to use runpod to get compute, and excited to dive into animatediff projects. the results look amazing. Here's some work I've done in batch Img2img with CN\n\nAs a writer/director I've been spending the last few months trying to implement this into my workflow, as I see many of you are doing. Don't hesitate to reach out as I'd love to get to know more AI art degens."
+    },
+    {
+      "month": "2023-11",
+      "message_id": 1176489775092469800,
+      "author": "jboogx.creative",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/712453331959808002/bec077005c76b43609943609d5182d15.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-11-21T11:50:20.505+00:00",
+      "reaction_count": 31,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1176489773557354638/4_Final.mp4?ex=6834557c&is=683303fc&hm=977e484dee20390118b758eea4e5d4c9d887c5862a2760532a4d48ddae956993&",
+      "mediaType": "image",
+      "content": "It's late and i'm wylin' out boysssss <a:pepesaber:1119337748667580616> <a:peepoPartyCheerBirthday:1124842222198739024> <a:catJAM:1118573326722416791>"
+    },
+    {
+      "month": "2023-11",
+      "message_id": 1178004255148364000,
+      "author": "MACRO",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/404495818142515212/42d7b46033319cf55ca999cc0a4b77ac.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-11-25T16:08:20.688+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1178004253642588200/final_tokyo.mp4?ex=683491f4&is=68334074&hm=563f6ce916830447a841567c338c1b1e5773352212d3e777a24f3bafe8aa1a99&",
+      "mediaType": "image",
+      "content": "Had to compress it a lot to get it up here .......\nInspired by the 3D animated billboards i saw when i was in tokyo 🙂"
+    },
+    {
+      "month": "2023-11",
+      "message_id": 1170506928821108700,
+      "author": "doc_rockets",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/809491434344284240/a0dacc433b710d5f579a0f097d8b1fd8.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-11-04T23:36:38.798+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1170506926879166575/superlong-wavez_2.mp4?ex=68345246&is=683300c6&hm=b6e691e613eb1b4f62a6901c178e8c2932261047d454e930011438bcb8ae7b7c&",
+      "mediaType": "image",
+      "content": "WIP custom webgl audio visualizer -> AD"
+    },
+    {
+      "month": "2023-11",
+      "message_id": 1176267797576302600,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-11-20T21:08:16.941+00:00",
+      "reaction_count": 25,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1176267796867469474/AnimateDiff_fortuna_00007_.mp4?ex=6834d840&is=683386c0&hm=1239547bf76c6d9bea13338d803db4ff460920672980c28e4288d1970d8261ac&",
+      "mediaType": "image",
+      "content": "Portal journey: The IP adapter version"
+    },
+    {
+      "month": "2023-11",
+      "message_id": 1176564238525939700,
+      "author": "Nathan Shipley",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-11-21T16:46:13.971+00:00",
+      "reaction_count": 24,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1176564236302946456/MotionInpainting_Reel_02.mp4?ex=68349ad5&is=68334955&hm=e606c2b45f1847875b82a80265be4d7a32a2564cb7ca884631538ae6b9a70150&",
+      "mediaType": "image",
+      "content": "Really exciting results using inpainting on moving footage with an animated mask!!  This feels like a new paradigm for VFX - these shots could take days using traditional techniques but they render in minutes using the tools here.  Some are just a text prompt, some have IPAdapter as well.\n\nHuge thanks to <@264527454285070348> <@237937096717762560> and <@228118453062467585> for all the development work they've shared to make stuff like this possible!"
+    },
+    {
+      "month": "2023-12",
+      "message_id": 1183384204722049000,
+      "author": "anime_is_real",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/756701878011691029/a_fc120d2762b38bc8f229f50a404b9378.gif?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-12-10T12:26:20.621+00:00",
+      "reaction_count": 45,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1183384204340363284/test1.mp4?ex=68345dec&is=68330c6c&hm=f6ade7026c15b87798ab2caa94b7548974d3af590dce8b65c8a09883dd021263&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2023-12",
+      "message_id": 1188125164257411000,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-12-23T14:25:13.457+00:00",
+      "reaction_count": 45,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1188125163368239114/marigold_3dprint_test.mp4?ex=683479c9&is=68332849&hm=975a498fd55673dc35c3f049388decf0541270fd5565d96c97953f0aece637bb&",
+      "mediaType": "image",
+      "content": "dalle3 image to marigold depth to Blender to 3D print"
+    },
+    {
+      "month": "2023-12",
+      "message_id": 1182904385878098000,
+      "author": "A.I.Warper",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/497770368853999628/a_df79257020bf87f8758836f6eab8005e.gif?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-12-09T04:39:42.894+00:00",
+      "reaction_count": 33,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1182904385584504852/Fight1.mov?ex=6834994e&is=683347ce&hm=4304d45255fc711c49b9dc534cbefed52a4f0a8ceeb8f51194aef7fbeda7dc95&",
+      "mediaType": "image",
+      "content": "Ok last matrix content I promise (I’m sick of looking at it)…. But I had to try a fight scene"
+    },
+    {
+      "month": "2023-12",
+      "message_id": 1188126278319091700,
+      "author": "pom",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/301463647895683072/6c24836bd3c2bd4b0c7ce50bb2f407c1.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2023-12-23T14:29:39.07+00:00",
+      "reaction_count": 31,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1188126278541394004/ssstwitter.com_1703341305434.mp4?ex=68347ad3&is=68332953&hm=b0743aa8a021669ece32f9cc1a694e0e070df7b46eca002a9ed33974719274dc&",
+      "mediaType": "image",
+      "content": "<@217051700085784577> has shipped Stable Video Diffusion Temporal ControlNet!\n\nIt allows you to guide SVD creations with depth maps - believe it's the first video CN for SVD - kudos to <@217051700085784577> and thank you for the Christmas present! 🎅 \n\nThink video CNs + video LoRAs will 🤯 the power and usefulness of SVD\n\nGH: https://github.com/CiaraStrawberry/svd-temporal-controlnet\nSVD: https://huggingface.co/CiaraRowles/temporal-controlnet-depth-svd-v1"
+    },
+    {
+      "month": "2023-12",
+      "message_id": 1180248629257183200,
+      "author": "Nathan Shipley",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-12-01T20:46:41.174+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1180248627638173807/GoldenRecord_RegHigh_8M_1080_10fps.mp4?ex=6834d330&is=683381b0&hm=ac45cb30890eff8d9a248daef6d0b7ac468776754c1ed09a21ea1b77f62595d2&",
+      "mediaType": "image",
+      "content": "Little experiment attempting to make a retro cartoon look with video as the source...  Here's the result; made using the new animation controlnet, depth, and a custom IPAdapter image for each shot that I made in 1111."
+    },
+    {
+      "month": "2024-01",
+      "message_id": 1199468887356494000,
+      "author": "Kosinkadink",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-01-23T21:41:07.8+00:00",
+      "reaction_count": 112,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1199468887171924100/image.png?ex=68343733&is=6832e5b3&hm=4cdcdd0e6c866c2b4ae6318da6528805c8703475c5906c41fbfeabe37f4b1ace&",
+      "mediaType": "image",
+      "content": "My work on Gen2 code is 99% complete, and now I will be starting work on the README and wiki, with the intended release into main branch to be tomorrow.\n\nThere are a lot of changes that had to happen in the code to support the features I added + features that will be added in the near future. It would be a great help to everyone involved if peeps could start testing the develop branch of AnimateDiff-Evolved while I'm working on the README and wiki so that we can catch any easy-to-find bugs before everyone is impacted by them when it gets merged to main.\n\nHere are the features of Gen2:\n- Introduction of Gen2 nodes that separate out model loading from application, allowing no motion models to be used at all while still supporting Sample Settings and Context Options features. The previous loader is referred to as Gen1 node, and all the features are supported there too since the backend is the same.\n- Support for use of multiple motion models at once, with individual masking support for each\n- Introduction of Multival inputs for scale (previously called motion_scale) and effect values; this means using the Multival nodes, you can input not only a float value, but also either/or a list of floats or masks, to have direct control over where each motion module should take effect/motion scale, or to what extent\n- Introduction of effect_multival input; unlike scale, this changes how much the motion model has an effect on the resulting animation.\n- Support for scheduling motion model settings (scale + effect floats/masks) across timesteps\n- Autoselect of beta_schedule for motion models\n- FreeNoise support via the noise_type dropdown in Sample Settings; this makes generations that use contexts produce more coherent results\n- Nonlooping Context Options (referred to as Standard Context Options); generations that makes use of Context Options are no longer forced to loop when using these, making them effectively extensions of the non-Context Options version of animations.\n- Introduced View Options, which are basically sub-Context Options that act like a context window for Contexts that can improve stability of longer animations by doing the 'context' work within the motion model; basically, you can combine them with longer Context Lengths, depending on how much extra VRAM you have available\n- Context Options can now be scheduled, to use different Context/View Options at different points in the sampling process\n- Proper FreeInit implementation; DinkInit_v1 is still there for backward compatibility, but FreeInit is implemented as intended now\n- Mac M1/M2/M3 support for v1 motion models without the need to manually change code\n- renewed fp8 support to match comfyui changes (was broken for several weeks after a comfy change)\n\nTL;DR in develop branch, you can have animations not loop and just basically extend your initial animation via the use of Standard context options, you can use FreeNoise to stabilize your outputs, and you can use View Options to create longer Context Options (if your VRAM supports it) to increase stability. I'll merge this into main tomorrow, but it would be great if as many people as possible could test develop branch now so we can find any regressions/issues prior to the merge"
+    },
+    {
+      "month": "2024-01",
+      "message_id": 1196177599244812500,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2024-01-14T19:42:43.565+00:00",
+      "reaction_count": 51,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1196177599244812468/1196177601606193295/chrome_j4yQU752G8.gif?ex=6834c434&is=683372b4&hm=3ad4106cca426e2b25c181954fdeadfad937a0fbf47ad4dc506e51df8c738eca&",
+      "mediaType": "image",
+      "content": "This workflow uses a wrapper node I made for CCSR (https://github.com/csslc/CCSR) :\n\nhttps://github.com/kijai/ComfyUI-CCSR\n\nAs well as TiledDiffusion node from <@236726640313499649> :https://github.com/shiimizu/ComfyUI-TiledDiffusion\n\nCCSR is very good at accurate upscaling, but tends to introduce heavy seams when used in tiled mode, using another pass with TiledDiffusion clears them up nicely in most cases. \n\nDepending on the input image you will probably have to adjust the start step until you see no seams.\n\nSince I found that SDXL gave best results, and since SDXL lacks tile controlnet, I ended up using the recolor controlnet as it's the most similar: https://huggingface.co/stabilityai/control-lora/blob/main/control-LoRAs-rank256/control-lora-recolor-rank256.safetensors\nThe downside is that it changes the colors a bit, which I'm compensating for with color-match.\n\nUpdate with new workflow: https://discord.com/channels/1076117621407223829/1196177599244812468/1196840262475980953"
+    },
+    {
+      "month": "2024-01",
+      "message_id": 1191670659579904000,
+      "author": "Kosinkadink",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-01-02T09:13:45.414+00:00",
+      "reaction_count": 50,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1191670659374391338/image.png?ex=683430c9&is=6832df49&hm=26e629c33c4c709b7560071ede5d7650f7bb9f4dd91deba847d1f0101d77b42a&",
+      "mediaType": "image",
+      "content": "FreeInit (at least my initial DinkInit_v1 impl), Sample Settings, and Noise Layers have now been added to AnimateDiff-Evolved. The seed_override options on Sample Settings/Noise Layer nodes can be used to provide a list of ints to use as seeds for each individual frame. Noise Layers can be masked on a per-frame basis. Default Iteration Options node also exists, which basically acts like a shortcut for stacking KSamplers one after the other.\n\nAdditionally, seed_gen can be changed to be either comfy or auto1111, and fun things can be done using noise_type such as constant noise (same noise for every frame), and repeated_context will repeat seed-generated noise to repeat every context_length frames. Please report any regressions or bugs to me on discord or via Github issues."
+    },
+    {
+      "month": "2024-01",
+      "message_id": 1196565043479842800,
+      "author": "jboogx.creative",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/712453331959808002/bec077005c76b43609943609d5182d15.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-01-15T21:22:17.469+00:00",
+      "reaction_count": 43,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1196565042242539550/2_FOR_TOPAZ.mp4?ex=6834db89&is=68338a09&hm=19c3e10062d4afa7bfbbe8dbb2e63e4e11ae1fa5b64a54202300630e50bb50f8&",
+      "mediaType": "image",
+      "content": "Stepped way outside of the box for a collaboration with Kuzya.  This particular dancer is also a high level Motion Graphics Artist so I wanted to make something fitting of his page"
+    },
+    {
+      "month": "2024-01",
+      "message_id": 1197938185406251000,
+      "author": "Inner_Reflections_AI",
+      "avatarUrl": "",
+      "channel": "#art_sharing",
+      "created_at": "2024-01-19T16:18:40.016+00:00",
+      "reaction_count": 36,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1197938184571600936/Epic_Sax_Final.mov?ex=6834945f&is=683342df&hm=35e7c104687cb15d0556761011d8263eb5195283b60941f2e49dde57ec7fbad0&",
+      "mediaType": "image",
+      "content": "Epic Sax Guy!"
+    },
+    {
+      "month": "2024-02",
+      "message_id": 1207308944234778600,
+      "author": "cerspense",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/254874349159448576/741db29ca1f0db96e89f4c01847b2265.png?size=1024",
+      "channel": "#audioreactive-video",
+      "created_at": "2024-02-14T12:54:43.021+00:00",
+      "reaction_count": 76,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1187898929833054299/1207308941239783444/SimoCell-Whispers_1.mp4?ex=697aafd2&is=69795e52&hm=cdce35363cb7435c4a69edd9eea883645e43a42d6961fa6f8dca7fab5914b3f2&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2024-02",
+      "message_id": 1209587760521019400,
+      "author": "Nathan Shipley",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-02-20T19:49:55.162+00:00",
+      "reaction_count": 65,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1209587757211451462/Video1-Result.mp4?ex=697a6862&is=697916e2&hm=372204e066b035503951e9e5026c4a15704428fbee74db198524386aafd5055e&",
+      "mediaType": "image",
+      "content": "Have been working on this video with Karen X Cheng for the last month or so.  Excited to share!  The style is mostly controlled by <@237937096717762560> 's IPAdapter plus nodes."
+    },
+    {
+      "month": "2024-02",
+      "message_id": 1204484179157454800,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-02-06T17:50:06.545+00:00",
+      "reaction_count": 47,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1204484176091545651/apple_vision_pro.mp4?ex=697a4c4d&is=6978facd&hm=3b25d79b01613ab7a0e92ad7dee4ea2ed1820627cf2f3ccf21635e41af84e88f&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2024-02",
+      "message_id": 1203852133636505600,
+      "author": "Kosinkadink",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-02-04T23:58:35.15+00:00",
+      "reaction_count": 38,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1203852133443833887/readme_00276.mp4?ex=697b4b6b&is=6979f9eb&hm=08d95d0b6e736174ddf826e183a64c363438e0744db0cbe7a3776c4e22b0b97e&",
+      "mediaType": "image",
+      "content": "AnimateLCM is now supported in AnimateDiff-Evolved. TL;DR it's a model that was released yesterday that is made specifically for use with LCM.\n\nYou don't need to add the ModelSamplingDiscrete node - lcm has been added to the beta_schedule dropdown and will be used with autoselect beta_schedule or if you manually select it in the dropdown. But remember to use the LCM lora + sampler_name in KSampler nodes!"
+    },
+    {
+      "month": "2024-02",
+      "message_id": 1209415224361222100,
+      "author": "Flipping Sigmas",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/743301749086879808/77ecfe49ddfd082242c141affa2835ba.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-02-20T08:24:19.336+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1209415248797368330/iddo.mp4?ex=697a7079&is=69791ef9&hm=381c428d37d5ae716ce62b2d3d7fd696e72ecc08ce1089e004acf9cac3ec745a&",
+      "mediaType": "image",
+      "content": "This is the most consistent render I've got from trying 75+ different combination/workflows. It's basically <@88822364468412416>  latest LCM workflow with more controlnets (tile/lineart/depth) and an additional sharpening node, plus https://github.com/Extraltodeus/ComfyUI-AutomaticCFG I found out about in the chatter channel from <@750242555408547940> . Before the LCM motion modules, I was trying everything in Hotshot, which I really liked the look/style transfer of, but the consistency just wasn't there. I also wasn't getting great results with the upscale, so I turned that off, then cranked up the original resolution, switched to render each frame, then did 150 per render and put it all together in Premiere Pro"
+    },
+    {
+      "month": "2024-03",
+      "message_id": 1223884885098496000,
+      "author": "Kosinkadink",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-03-31T06:41:35.289+00:00",
+      "reaction_count": 55,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1223884884905562133/image.png?ex=697da41f&is=697c529f&hm=2574bb910c315f065587638d8124172d43abce2bc18c8cc14c982bee870335a2&",
+      "mediaType": "image",
+      "content": "Reference ControlNet, specifically reference_attn (equivalent of reference_only in Auto1111) is now available in Advanced-ControlNet. Support for reference_adain and reference_adain+attn will be added soon either today or tomorrow. Supports all the usual Advanced-ControlNet bells and whistles. Only caveat is that masks work for whole frames, but not specific areas of frames."
+    },
+    {
+      "month": "2024-03",
+      "message_id": 1214295797789892600,
+      "author": "Nathan Shipley",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-03-04T19:37:58.718+00:00",
+      "reaction_count": 48,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1214295797437567036/Beach_01.gif?ex=697db156&is=697c5fd6&hm=2aa9596d6a70e2d7ce83b032d95c1ccb4cd852323b497d65bde9f11791011c31&",
+      "mediaType": "gif",
+      "content": "Tried out that Where's Waldo idea with <@348248198210387970> 's LCM img2vid workflow and <@305473730715320321> 's ant motion lora!"
+    },
+    {
+      "month": "2024-03",
+      "message_id": 1223097780772278300,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-03-29T02:33:54.994+00:00",
+      "reaction_count": 34,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1223097780428341298/diddy.mov?ex=697d6a12&is=697c1892&hm=b3337d50eb1942fc92581b5dc5945c87c53ca5ef378b2db41eae6ddd0af30cdf&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2024-03",
+      "message_id": 1214318524890218500,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-03-04T21:08:17.281+00:00",
+      "reaction_count": 31,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1214318524584165447/Naruto_BTS_3.mov?ex=6979d201&is=69788081&hm=e6c7c100c8af5cf0f6a4947a83e24b94c4d3405264b4223e2d00712affa2c7e3&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2024-03",
+      "message_id": 1222462527980699600,
+      "author": "matt3o",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
+      "channel": "#ipadapter",
+      "created_at": "2024-03-27T08:29:38.926+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1179522836143018125/1222462527787499591/image.png?ex=697b1a72&is=6979c8f2&hm=4b032302bd3bda70ae0a45ff6cf09a19cff6db883f3d7a69cd44c70ab38e277e&",
+      "mediaType": "image",
+      "content": "fixed attn mask in tiled batch"
+    },
+    {
+      "month": "2024-04",
+      "message_id": 1234909303534649300,
+      "author": "matt3o",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-04-30T16:48:41.468+00:00",
+      "reaction_count": 86,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1234909303836508261/AnimateDiff_01794.mp4?ex=697d89a9&is=697c3829&hm=70d9c2f540ee90adf69b09e573bc2f5063e7a33bf75176688775f1b21ceba699&",
+      "mediaType": "video",
+      "content": "I released the new nodes to sync ipadapter, text prompt and controlnet. I talk about them in my new video. https://youtu.be/jc65n-viEEU\n\nThey are sill a bit experimental and a lot more could be done, but they are very convenient are easy to use. In the tutorial I'm showing how to make the two attached animations and as always the workflows are included and can be downloaded from here https://f.latent.vision/download/scheduled_weights.zip \n\nLooking forward to your feedback"
+    },
+    {
+      "month": "2024-04",
+      "message_id": 1229515328803967000,
+      "author": "jboogx.creative",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/712453331959808002/bec077005c76b43609943609d5182d15.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-04-15T19:34:57.677+00:00",
+      "reaction_count": 72,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1229515328430800896/trim_B27018F6-75C8-4D8C-B0E1-61F813A07FB8.mov?ex=697db0a1&is=697c5f21&hm=3b7667d854c518b9e0220926818002a9d9b5327f833e55ea998b8607f41d27b0&",
+      "mediaType": "video",
+      "content": "So, I was fortunate enough to take part in Coachella and my piece was featured at the peak of Anyma’s set last night with Grimes introducing the transition to the AI 😱😱\n\nAll made in this workflow!\n\nhttps://discord.com/channels/1076117621407223829/1217703518392287253"
+    },
+    {
+      "month": "2024-04",
+      "message_id": 1233891646484251000,
+      "author": "pom",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/301463647895683072/6c24836bd3c2bd4b0c7ce50bb2f407c1.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-04-27T21:24:53.12+00:00",
+      "reaction_count": 68,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1233891639626305626/output_2_apo8.mp4?ex=697dca63&is=697c78e3&hm=60811ed4d03ff999485315359d546fb2eba9289e5a20446db056b5392930c2b1&",
+      "mediaType": "video",
+      "content": "After a month of being unable to look at it due to the trauma of the creation process being too fresh, I finally got around to finishing this.\n\nIt's still very flawed but I actually don't hate it now which is nice considering how much time I put into it - enjoy!"
+    },
+    {
+      "month": "2024-04",
+      "message_id": 1225500258901954600,
+      "author": "matt3o",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-04-04T17:40:30.416+00:00",
+      "reaction_count": 65,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1225500259002744872/image.png?ex=697d95ce&is=697c444e&hm=dc664e14ae270695218682b0bb07c819fb82c52bbf57973bd0df09b56c9d6ec5&",
+      "mediaType": "image",
+      "content": "The new Style + Composition node is out! I think it would be cool to make it compatible with tile as well... but there are so many things that i need to do 🙂\nCheck my video for all the details. https://www.youtube.com/watch?v=czcgJnoDVd4"
+    },
+    {
+      "month": "2024-04",
+      "message_id": 1228336991737745400,
+      "author": "matt3o",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-04-12T13:32:40.228+00:00",
+      "reaction_count": 59,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1228336989648977930/AnimateDiff_01670.mp4?ex=697d5bb7&is=697c0a37&hm=3d447b12361e604127e1f3aebd535fdc1c980aaf4ca1ea4e23777b7c789ad862&",
+      "mediaType": "video",
+      "content": "I just pushed an update to the IPAdapter that lets you schedule the weights.\n\nThe effect is similar to sending a fading attention mask but it has several advantages. It's very light on the GPU and it decouples the weights from the attention mask. Empirically I would say that this method should grant better results compared to just masks.\n\nThe attached animations are done without controlnet and without masks, just fiddling with the weights. Finding the right weights is not easy and you need a lot of trial an error, but it's easier and faster than working with attention masks.\n\nThe workflow is attached to the image, I'm also providing the reference images used for the animations."
+    },
+    {
+      "month": "2024-05",
+      "message_id": 1236415929135665200,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2024-05-04T20:35:29.003+00:00",
+      "reaction_count": 104,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1236415929135665173/1236415929571610766/spline_editor_instances.gif?ex=697dbed1&is=697c6d51&hm=7ea8b988b6d74f244dfe7ef796344cf80896e0065b4ca68cc415c2f97c6e135c&",
+      "mediaType": "gif",
+      "content": "This is an example of my Spline Editor -node in action, which with some effort now plugs into <@396817315997417493> 's InstanceDiffusion nodes, allowing relatively simple creation of custom paths for the instances.\n\nThe required InstanceDiffusion models are automatically downloaded (1.37GB) on the first run from: https://huggingface.co/logtd/instance_diffusion/tree/main \nto ```ComfyUI\\models\\instance_models```\n\nOther than that any 1.5 model should work. InstanceDiffusion can be very slow so LCM/TCD/HyperSD LoRAs are recommended, this example is with the simplest one LCM and AnimateLCM modtion model.\n\nNote that these nodes are still pretty new and mostly untested, so problems probably will arise. Kept it otherwise pretty clean, not many custom nodes are used beyond the necessary, these need to be up to date:\n\nhttps://github.com/kijai/ComfyUI-KJNodes\nhttps://github.com/logtd/ComfyUI-InstanceDiffusion\nhttps://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
+    },
+    {
+      "month": "2024-05",
+      "message_id": 1245524196201599200,
+      "author": "Jas",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/857355125172469801/6f44516a552bd9a52ad250958eb0ae48.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-05-29T23:48:29.095+00:00",
+      "reaction_count": 79,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1245524193987264582/Banodoco_dream2.mp4?ex=697d434c&is=697bf1cc&hm=55cf8aa93e0c3d4bb450abdcbf052b8e95d6d2653edaa647de9a6e57fa8637d2&",
+      "mediaType": "video",
+      "content": "Comfy Dreams - #toblorones3\n\nNot going to lie, this is the most ambitious AI video I ever attempted, and took me 9 days. I tried to use as many different methods as possible and fuse them together. It was a big experiment!\n\nHow I made it,\nComfyUI AnimateDiff:\nvid2vid - with various controlnets, IP2P, Openpose, Depth, lineart\nIp2p - Smoke \"late night\" <@323115728146399234>  workflow\nIpadapter - consistent aesthetic \nSVD XL - Scenes in alien dream bar\nDeforum - spiral zoom\nMasking - Runway & <@179206814720720896> Greenscreen workflow\nUdio - Sound\nPhotoshop - building scenes (computer monitor/desk)\nDavinci - editing\nUpscaled with Superbadassupscaler\n\nI used community / adapted workflows from <#1149372684220768367>"
+    },
+    {
+      "month": "2024-05",
+      "message_id": 1242505803265478700,
+      "author": "aleksej623",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1013388614203359252/626f63b78defb2245ccf1c6dde576347.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-05-21T15:54:28.14+00:00",
+      "reaction_count": 70,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1242505801621307432/Hand_Materials_V1.mp4?ex=697d7cf3&is=697c2b73&hm=0c46eda5216ee72afdf80c13d6734e7acc94c36a22d715b0184a6849fb217de8&",
+      "mediaType": "video",
+      "content": "Hey guys! What do you think of this animation?"
+    },
+    {
+      "month": "2024-05",
+      "message_id": 1235707473856430000,
+      "author": "VisualFrisson",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/272911326010015745/4c041c59f1b941d0a5612ef6e327d4f8.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-05-02T21:40:20.102+00:00",
+      "reaction_count": 60,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1235707462041079969/rei_brown_-_Get_Me_Out_Music_Video1.mp4?ex=697dce01&is=697c7c81&hm=3538489bf0809bee02245abed97c404982b4b6337c51db5f191ca8bf47b382ed&",
+      "mediaType": "video",
+      "content": "The music video I did the AI for (using ComfyUI + AnimateDiff) just won Grand Prix at the Runway AI Film Festival  🤯  I feel incredibly lucky to work on such a fun project with the talented director Daniel Antebi who brought me on to elevate things with AI and was able put together a beautiful video along with a team of talented people."
+    },
+    {
+      "month": "2024-05",
+      "message_id": 1245738510837743900,
+      "author": "SuperBeasts.AI (Brad)",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/242210988370165760/f7baaca54d59cd5fb754459b21dbcd61.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-05-30T14:00:05.686+00:00",
+      "reaction_count": 53,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1245738510426833046/BreakingFree.mp4?ex=697a1665&is=6978c4e5&hm=3d30ca5237e9176352c689f7a37905824f3ac649064677bfbceb45717b54b0df&",
+      "mediaType": "image",
+      "content": "\"Breaking free\" #toblorones3\n\nIn this piece, I delve into themes of isolation and female empowerment. I explore the journey of breaking free from oppressive situations, such as domestic violence, where one may feel powerless. This work reflects the critical moment of deciding to leave and reclaiming one's power, leading to newfound freedoms.\n\nCustom workflow using short series of images for each sequence with IPAdapter weight transitions and masking techniques to control depth, IP attention for subject/background and AnimateDiff motion.\n\nMusic created with Udio"
+    },
+    {
+      "month": "2024-06",
+      "message_id": 1254104642091221000,
+      "author": "matt3o",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-06-22T16:04:06.812+00:00",
+      "reaction_count": 58,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1254104640606441533/precise.jpg?ex=697d7f36&is=697c2db6&hm=bfba3c250bf30e6a57f0568f7098888ba90606e4a43cff62cc23669834573bfc&",
+      "mediaType": "image",
+      "content": "I added an experimental \"Style transfer precise\" weight type to the IPAdapter. It offers less bleeding of the embeds between the style and composition layers especially when the subject of the reference image is very different from the image you want to generate. In the pictures you can see some examples.\n\nIt might change in the coming days if I find a better way to do it.\n\nLet me know what you think. It works with SDXL and SD1.5 but as always SDXL is far superior with style transfer"
+    },
+    {
+      "month": "2024-06",
+      "message_id": 1256513785619812400,
+      "author": "Fill",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/380911583074975744/a_e9d392d08b9c2b6fbc2bce81dadd5eec.gif?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-06-29T07:37:11.389+00:00",
+      "reaction_count": 58,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1256513779642929152/Final.mp4?ex=697db125&is=697c5fa5&hm=ad7ecf5c1bf7a708a06748f5c068c369685aa215757636e8cc15679dc8d7a3c7&",
+      "mediaType": "video",
+      "content": "My submission for project odyssey"
+    },
+    {
+      "month": "2024-06",
+      "message_id": 1256611315888161000,
+      "author": "cerspense",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/254874349159448576/741db29ca1f0db96e89f4c01847b2265.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-06-29T14:04:44.417+00:00",
+      "reaction_count": 49,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1256611315510808648/Datassette_t6_2_1.mov?ex=697d633c&is=697c11bc&hm=cacb04ddae7fb18ccaf294bcad41ceff03c4bc8da93c8d33a7462181c4595f16&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2024-06",
+      "message_id": 1249060154734022700,
+      "author": "Hannah Submarine",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1061984538332516392/407e5a3fe7bc6098fa29eadd6330152c.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-06-08T17:59:07.304+00:00",
+      "reaction_count": 46,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1249060144806105229/shadows_and_games.mp4?ex=697d9a28&is=697c48a8&hm=99e203613806cf71de637c58a4058647b9f261b2e01be2348548f643218f6f19&",
+      "mediaType": "video",
+      "content": "Years ago, early in my relationship with my now-husband, I wrote this poem. \nNow, I decided to make a video for it. \n\nI'm a bit nervous to share this, because I never really share my poems. I know they are not the crème de la crème, and this one was one of the first I wrote in English.\n\nTo make it I used Dough, Dreamshaper, Liquidy Loop workflow, and images from Midjourney using --sref 294571836.\n\nI made the narration with ElevenLabs, basen on samples of Tom o' Bedlam's voice.\nMusic is by JustDan Beats.\n\n🦤"
+    },
+    {
+      "month": "2024-06",
+      "message_id": 1248809303859662800,
+      "author": "Flipping Sigmas",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/743301749086879808/77ecfe49ddfd082242c141affa2835ba.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-06-08T01:22:19.795+00:00",
+      "reaction_count": 37,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1248809294237929613/crazy_prob4_prob4.mp4?ex=697a0d89&is=6978bc09&hm=2ea55f1b14f6fa09a20f0ee5e0a777f0fc3195a795db75cbe5f2c265678ead24&",
+      "mediaType": "image",
+      "content": "bunch of experiments thrown together - just when you thought I wouldn't mashup Fiona Apple and That Mexican OT"
+    },
+    {
+      "month": "2024-07",
+      "message_id": 1263125263680667600,
+      "author": "matt3o",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-07-17T13:28:50.594+00:00",
+      "reaction_count": 101,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1263125261277331456/comparison.png?ex=697d5ad2&is=697c0952&hm=7f6cab0564efa4cdbeceafbae272d683657474fa0a62e7e72a2d563a59c8c5ad&",
+      "mediaType": "image",
+      "content": "## ➡️ ClipVision Enhancer Node\n\nI've pushed a new (experimental) node that tries to overcome the 224x224 clipvision limit. It's a bit of a hack and honestly the result is not as good as I was hoping but the difference is noticeable enough so I'm making this public anyway.\n\nIn the images you can see the difference from the original IPAdapter and the Enhanced one in the center. I'm also adding a detail of the skin.\n\nIn the diagram a sum up of what I'm doing in case you are curious. We are squeezing blood out of a stone as always but I guess I'll take whatever I can get.\n\nAgain, very experimental and the code might change... I'm not even sure I'm doing the various tensor reshaping correctly but it seems to be working. Please check the new example in the repository for usage. In the \"Mona Lisa\" image you'll also find a workflow to evaluate the difference in upscaling with Tile.\n\nThe `enhance_ratio` parameter is very important. If you have other conditioning (ie: controlnet or composition ipa) you can set it very low to get more details. Otherwise you may need to increase the value (>0.5) to avoid hallucination. \n\nThis is pretty advanced stuff and probably not needed in day-to-day use."
+    },
+    {
+      "month": "2024-07",
+      "message_id": 1261227330345500700,
+      "author": "ℜ𝔢𝔩𝔦𝔠",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/212453060872634370/35f68430778d6595d753c05500babfe6.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2024-07-12T07:47:08.025+00:00",
+      "reaction_count": 86,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1261227330345500713/1261227336804601866/perfectimageupscaler.json?ex=697db37d&is=697c61fd&hm=54bd78c0ca0d472b28f4808cbeda4f2a4df37a394e03ba210fc1f074ff676bc6&",
+      "mediaType": "image",
+      "content": "This was a project I developed a few months ago and I am finally getting around to releasing it for everyone to play with. It uses IPAdapter Tiling and Segmentation to upscale the image similar to SD Ultimate Upscaler; but with almost perfect adherence to the original. Feel free to play around with settings.\n\nIt requires this model to run https://civitai.com/models/133005?modelVersionId=357609\n\nI would recommend messing with the Denoise ratio on the detailer; the IPAdapter Tiled weights and end percentage, as well as the context_crop_factor.\n\nThanks for checking it out!"
+    },
+    {
+      "month": "2024-07",
+      "message_id": 1263515827341230300,
+      "author": "makeitrad",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/822313193791029248/a_1aa60774216d9887a8280054eb339da7.gif?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-07-18T15:20:48.227+00:00",
+      "reaction_count": 67,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1263515819434840145/CLOUDS_60s_V2_FINAL.mp4?ex=697d750e&is=697c238e&hm=01dd66a0b660f24fc5ec7e0b1edcd2e8443e497bcbdc71abcfa2eb3d6da1702d&",
+      "mediaType": "video",
+      "content": "Here is the final piece for anyone interested. Credits in Pauls post a coupe above ☝️"
+    },
+    {
+      "month": "2024-07",
+      "message_id": 1259985476484337700,
+      "author": "HunterS.Freud",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/843663462100893727/a_f515b1b944cab079b88660a0931704f2.gif?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-07-08T21:32:26.992+00:00",
+      "reaction_count": 48,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1259985453667586149/CAMELOT_BY_KNGMKR.mp4?ex=697dcc25&is=697c7aa5&hm=643939390f5fb95e7bc93d3c3bf8c6bd5b602f6e3792e0f8ab44978361bd8e0e&",
+      "mediaType": "video",
+      "content": "What if JFK Survived?"
+    },
+    {
+      "month": "2024-07",
+      "message_id": 1265389324556304600,
+      "author": "cerspense",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/254874349159448576/741db29ca1f0db96e89f4c01847b2265.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-07-23T19:25:24.771+00:00",
+      "reaction_count": 46,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1265389322249703589/boogpole_v20240721_2104.mp4?ex=697dae64&is=697c5ce4&hm=7d4bea1221d706a7723f57eb46d01ac4fc8f2432d8c09ebb754224ed81562aca&",
+      "mediaType": "video",
+      "content": "collab with <@712453331959808002> !"
+    },
+    {
+      "month": "2024-08",
+      "message_id": 1273680876651286500,
+      "author": "RyanOnTheInside",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/738104484114464889/75ca833a378d2cb6751ac0037fd78038.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2024-08-15T16:33:04.84+00:00",
+      "reaction_count": 57,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1273680876651286600/1273680877351600261/particle_systems.gif?ex=697d8601&is=697c3481&hm=0c2c4febf026d840a9f604eaa22d0ea628f4b0bc232cf3876984b066ef90003c&",
+      "mediaType": "gif",
+      "content": "I added custom nodes for dynamic, object aware particle simulations  in comfy. Also, optical flow masks, and temporal masks. This is my first post here, first real contribution also! Check out the repo for details https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside"
+    },
+    {
+      "month": "2024-08",
+      "message_id": 1278006068634452000,
+      "author": "Nathan Shipley",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-08-27T14:59:50.967+00:00",
+      "reaction_count": 33,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1278006067690995762/HardForkAbe_SideBySide_05_16x9_01_small.mp4?ex=69797ba6&is=69782a26&hm=a8591e57fe37e003d716009a30dba8e87e3947cad05c3e4d28369632543748dc&",
+      "mediaType": "image",
+      "content": "(also here's just the source video + result from the above tweet)"
+    },
+    {
+      "month": "2024-08",
+      "message_id": 1275883547760001300,
+      "author": "The Dor Brothers",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/594573289293217803/cf7c0f8f88d2a63dc53c4dc12f454072.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-08-21T18:25:42.556+00:00",
+      "reaction_count": 33,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1275883546078347354/Final_Instagram_Send.mp4?ex=697da066&is=697c4ee6&hm=c4e21463e5584c1850cadda79deccdff079cd5c364757a59e562f0d80b52fdc9&",
+      "mediaType": "video",
+      "content": "Working on some dumb sh*t"
+    },
+    {
+      "month": "2024-08",
+      "message_id": 1278091375040270300,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-08-27T20:38:49.599+00:00",
+      "reaction_count": 31,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1278091375077756999/luchador_action_figure.mov?ex=6979cb19&is=69787999&hm=3040f91198244e67c73c15c94c4b7e89bc81be48220a36a7282c852c1736ccc2&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2024-08",
+      "message_id": 1277571956232814600,
+      "author": "NebSH",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/464322697418244096/8d8ee4a980570d2b85e5103116cef1e8.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-08-26T10:14:50.505+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1277571952193699922/Melancholy_Dreams.mp4?ex=6979e199&is=69789019&hm=3d6d41d184fe21637bab202d7295e46d4665c388040be9a875eee3ea8a8d9901&",
+      "mediaType": "image",
+      "content": "This animation touches on a common human tendency: the instinct to bury our problems rather than face them head-on. Often, we hope they'll just go away, but in reality, they grow until they become overwhelming. This story isn't about giving a moral lesson, but rather a reflection on the importance of acknowledging and addressing our issues before they take up too much space in our lives."
+    },
+    {
+      "month": "2024-09",
+      "message_id": 1288491002209894400,
+      "author": "cerspense",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/254874349159448576/741db29ca1f0db96e89f4c01847b2265.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-09-25T13:23:13.932+00:00",
+      "reaction_count": 46,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1288490997130465411/IMG_0037_1.mp4?ex=697d5980&is=697c0800&hm=be749bc216f30983870b9d95a8c835d22e2d560604f554236e62895a1f9307de&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2024-09",
+      "message_id": 1282805940260835300,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-09-09T20:52:49.54+00:00",
+      "reaction_count": 31,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1282805937903632415/sidebysideliveportrait.mp4?ex=6979ce60&is=69787ce0&hm=36e6cd541a363a89d8156f0746b230b018d4537cccb7d4508b1b2f7bd15650b8&",
+      "mediaType": "image",
+      "content": "finally got around to really dig into liveportrait."
+    },
+    {
+      "month": "2024-09",
+      "message_id": 1285724841621717000,
+      "author": "pom",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/301463647895683072/6c24836bd3c2bd4b0c7ce50bb2f407c1.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-09-17T22:11:29.855+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1285724836357996616/08066.mp4?ex=6979e0d0&is=69788f50&hm=d8aa3b52ccae5442e8cb18265db1adc29c13c7ce18bd91317ece85cdcaef3c24&",
+      "mediaType": "image",
+      "content": "A project I've been working on!\n\nNot quite done yet but sharing it if anyone has any feedback or ideas of what to put at the end - was thinking maybe a quote or something!"
+    },
+    {
+      "month": "2024-09",
+      "message_id": 1286745161472147500,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-09-20T17:45:53.064+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1286745160964898847/Green_Day_Anime_BTS.mov?ex=6979a290&is=69785110&hm=3f4907362fdb32d1692b3fa0aa34900c72904b738ce7af85f32b64a7add6e36b&",
+      "mediaType": "image",
+      "content": "Behind the scenes to this video."
+    },
+    {
+      "month": "2024-09",
+      "message_id": 1281384751030079500,
+      "author": "Inner_Reflections_AI",
+      "avatarUrl": "",
+      "channel": "#art_sharing",
+      "created_at": "2024-09-05T22:45:31.623+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1281384748127748210/720p_version.mov?ex=6979e8ca&is=6978974a&hm=b0b618c3ee63052b904b03f82c31a2b62ded4b69d2b805ac46a74f915d416487&",
+      "mediaType": "image",
+      "content": "The Crow!"
+    },
+    {
+      "month": "2024-10",
+      "message_id": 1292406124867354600,
+      "author": "akatz",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/186218000343367680/220767437c397ff46ce15e17fc42590d.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2024-10-06T08:40:31.913+00:00",
+      "reaction_count": 55,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1292406124867354625/1292406127346192476/ce53e90f92.gif?ex=697dc000&is=697c6e80&hm=83a16a7f7b0eedd69d310b029cb224fddb44f68bbb91df57bef17c98378166e1&",
+      "mediaType": "gif",
+      "content": "Hey everyone!\n\nI'm super excited to share what I've been working on over the past couple of weeks: porting Depthflow to ComfyUI!\n\nCheck out and star the original [Depthflow repo](https://github.com/BrokenSource/DepthFlow) created by <@183692720064299008>!\n\nI (like a few others in the Comfy world) have been struggling to find a good open-source rival to immersity.ai, a paid service that lets you generate 3D animations from 2D images.\n\nToday I'm happy to say the wait is over!\n\nWith Depthflow nodes in ComfyUI you can create awesome-ly smooth 3D animations from a single input image and depthmap (or video!). With 6 different motion presets to choose from it's easy to get great looking results fast, and I mean _fast_, Depthflow generates long animations in seconds!\n\nYou also have the ability to customize animations with the addition of Motion Component nodes, which can be strung together to modulate all of the input parameters with functions like linear, exponential, arc, sine, cosine, etc.\n\nNow the best part of this custom node pack? It's compatible with <@738104484114464889> 's Flex System!\n\nThat's right, every motion preset, component, and effect node is (optionally) capable of having it's parameters modulated using an input feature! Whether it's from audio for crazy audio-reactive effects, videos for features like brightness over time, mask distance, or motion detection, or time-based features like waves and pulses, the sheer amount of possibilities enabled by the Flex feature system is staggering!\n\nI hope you guys find some crazy ways to use this node pack that I would never imagine, that's my challenge for you!\n\nIf you want to dive in and get started with the new nodes, be sure to check out the README on the repo first for some info! (and give me a ⭐ too!):\n\n[Github repo for Depthflow Nodes](https://github.com/akatz-ai/ComfyUI-Depthflow-Nodes)\n\nI also went ahead and created a short overview video talking about what's inside the node pack, as well as going over an example workflow I created to showcase the node's capabilities:\nhttps://www.youtube.com/watch?v=mTQ_-CmK7GI\n\nYou can go ahead and download the example workflow for free from my patreon page:\nhttps://www.patreon.com/posts/depthflow-113459757?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_creator&utm_content=join_link\n\nIf you guys have any questions, or find any issues with the nodes or workflow, let me know in the thread below! I'm happy to try and help resolve any issues as I get to them.\n\nBig thanks again to <@183692720064299008> and <@738104484114464889> for creating the code that allowed for this node pack to exist!\n\nAs always I hope this helps! Don't stop creating! 💜"
+    },
+    {
+      "month": "2024-10",
+      "message_id": 1291175891329880000,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-10-02T23:12:01.381+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1291175883381674024/ghotsbuster.mp4?ex=6979eeff&is=69789d7f&hm=3677c4a7625a398c8420a1a9a4861452f89d11e000b21ef09d7a0d017e21b389&",
+      "mediaType": "image",
+      "content": "This was such a fun video to make. First time collaborating with <@497770368853999628> and now we just need to convince him to drop those original lip-syncing clips of himself!  😂"
+    },
+    {
+      "month": "2024-10",
+      "message_id": 1295532175327760400,
+      "author": "pom",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/301463647895683072/6c24836bd3c2bd4b0c7ce50bb2f407c1.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-10-14T23:42:20.422+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1295532174921044050/10108_prob4.mov?ex=6979f61c&is=6978a49c&hm=990f41d7d430ca8abccbac2f7d708b84264cc4c9697b1ba2fe69bb769f8ad6db&",
+      "mediaType": "image",
+      "content": "A love letter to Coal - feedback much appreciated!"
+    },
+    {
+      "month": "2024-10",
+      "message_id": 1301567489280446500,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-10-31T15:24:31.399+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1301567487204261959/Tracking_Desk_1.mp4?ex=6979816e&is=69782fee&hm=d2590bcbbef0363e1178264659045c15db898a36f1e82f5ff77a12949c6777f3&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2024-10",
+      "message_id": 1295655213520261000,
+      "author": "jeru",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/348248198210387970/a_529cf5126e75507c77c78dfa08703d37.gif?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-10-15T07:51:15.013+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1295655213411205150/AnimateDiff_00245.gif?ex=6979bff2&is=69786e72&hm=df12faa53f7cc88466d0214933ea4214869c3de4ec9ef90620103e061a0dc300&",
+      "mediaType": "image",
+      "content": "working on some glitch nodes"
+    },
+    {
+      "month": "2024-11",
+      "message_id": 1306223466592080000,
+      "author": "cerspense",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/254874349159448576/741db29ca1f0db96e89f4c01847b2265.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-11-13T11:45:42.894+00:00",
+      "reaction_count": 32,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1306223464503316540/NINJA_S001_S001_T007_Sub_01.00.mp4?ex=697d42a6&is=697bf126&hm=e2b652c3ea2fec526801d32603a1e864daeff1901f15a6f2b2e3e32fc496ff9f&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2024-11",
+      "message_id": 1306791723116138500,
+      "author": "Material_Rabbit",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/816673722093928449/b1767326b4a4b5295ef933f8eb6a0b86.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-11-15T01:23:45.807+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1306791717781114890/hr_ult_00259_prob4.mp4?ex=697a0de0&is=6978bc60&hm=349fbc9bfa02112475f17b3795ac390c74c95dec6d534e483aa51fdeb7df76db&",
+      "mediaType": "image",
+      "content": "3hr quick test with <@712453331959808002>'s lora, boosted with GEN-3  and then super quick AE treatment. I've been super silent for 2-3 months now, got some health issues (yeah, same old long covid symptoms, just took major hit with them in September and still recovering). I'm lurking on the background every day though 😍"
+    },
+    {
+      "month": "2024-11",
+      "message_id": 1304515179870032000,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#cogvideox",
+      "created_at": "2024-11-08T18:37:35.601+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1270190976237047848/1304515179559784468/CogVideoX5B_00039.mp4?ex=697b002f&is=6979aeaf&hm=c6d83b2dbc39f7840ce80a90d0bb3095f8397f9953ec11a1dbca0ba5b99c0a53&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2024-11",
+      "message_id": 1303835239336120600,
+      "author": "NebSH",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/464322697418244096/8d8ee4a980570d2b85e5103116cef1e8.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-11-06T21:35:45.145+00:00",
+      "reaction_count": 22,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1303835235993124914/Elec_Better_Day.mp4?ex=6979d870&is=697886f0&hm=930c3f8b70060e7525ae92db23862b9aca7776ee6b63f257f327426e0dafdfa0&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2024-11",
+      "message_id": 1310660513180680400,
+      "author": "NC17z (RTX 3090)",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/444330516385103883/d36883207746f8c17bd5376709335500.png?size=1024",
+      "channel": "#ltx_chatter",
+      "created_at": "2024-11-25T17:36:57.237+00:00",
+      "reaction_count": 21,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1310660512807125032/ICE_CREAM_2.mp4?ex=697a4939&is=6978f7b9&hm=0441f35f9fb92a34798d9e959b5383b51837a9d936f4d8369532aef56f180355&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2024-12",
+      "message_id": 1313232523408572700,
+      "author": "Kosinkadink",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
+      "channel": "#dev_updates",
+      "created_at": "2024-12-02T19:57:12.261+00:00",
+      "reaction_count": 95,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1313232523089674331/image.png?ex=697db5d8&is=697c6458&hm=ca2fcbbc276a1c9f6193b252a5a8012ebcb965e31d4472710090ab8efde4ded8&",
+      "mediaType": "image",
+      "content": "It's merged <:absolutecinema:1248247398786928681> \nI will have a blogpost out with some example workflows sometime in the next few hours, gotta eat first lol"
+    },
+    {
+      "month": "2024-12",
+      "message_id": 1313946582625816600,
+      "author": "VisualFrisson",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/272911326010015745/4c041c59f1b941d0a5612ef6e327d4f8.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-12-04T19:14:37.245+00:00",
+      "reaction_count": 45,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1313946577597108274/Yvann_WF_vs_Russian_WAWA.mp4?ex=697dabdc&is=697c5a5c&hm=fdab2d08570ad148e4a574687d5e0a0c3e3bae98d215e312193d085bf5bc4b92&",
+      "mediaType": "video",
+      "content": "Experimenting with <@439811659729469441>'s audio reactive workflow has lead me here.  Probably still just a proof of concept, but loving what is possible and have some good idea's for some official videos. 😈"
+    },
+    {
+      "month": "2024-12",
+      "message_id": 1320321241717932000,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#chatter",
+      "created_at": "2024-12-22T09:25:14.408+00:00",
+      "reaction_count": 34,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138859346487410828/1320321241424466010/Screenshot_20241222-1124432.png?ex=697dca7a&is=697c78fa&hm=e338cf9b8e893ad8ef4fbae94aaa1ecf744acde4732c8fba0a10887edfca3761&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2024-12",
+      "message_id": 1318646887837991200,
+      "author": "jboogx.creative",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/712453331959808002/bec077005c76b43609943609d5182d15.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-12-17T18:31:57.335+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1318646887158382743/2_FINAL_TOPAZ.mov?ex=6979ad5d&is=69785bdd&hm=db682b6d958345925f05223e06215852158d9363030ef1d005d090abbda0e8de&",
+      "mediaType": "image",
+      "content": "Over The Rainbow 🌈🌴🌺"
+    },
+    {
+      "month": "2024-12",
+      "message_id": 1323076489662562300,
+      "author": "neofuturist",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/750242555408547940/f5a433d3f795ade293698ad69fc46746.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2024-12-29T23:53:36.708+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1323076489662562374/1323076490773921922/mwdu_concat_00059.mp4?ex=697b4a40&is=6979f8c0&hm=e4f77d88d3ce0231fa3e0abaa0e954e45119ff4e2bfac022eddd1203d2c6b794&",
+      "mediaType": "image",
+      "content": "Hello,  I finally finished cleaning this workflow, the goal is to use LLama 3.2 11B Vision and have it act as movie directors by describing images the way one would do it. \n\nI have written a few different \"Directors\", each of them have their own style, play with them and see which one you like best.\n\n\nThis idea was borrowed from the way LTXStudio creates videos. This tool allows you to quickly create storyboards and short stories, what it also does is to generate 4 videos for every images you decide to animate.\nhttps://app.ltx.studio/\n\n\n\nNodes:\nhttps://github.com/Lightricks/ComfyUI-LTXVideo\nhttps://github.com/justUmen/Bjornulf_custom_nodes\nhttps://github.com/SeanScripts/ComfyUI-PixtralLlamaMolmoVision\nhttps://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    },
+    {
+      "month": "2025-01",
+      "message_id": 1330352234692608000,
+      "author": "Jas",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/857355125172469801/6f44516a552bd9a52ad250958eb0ae48.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2025-01-19T01:44:49.5+00:00",
+      "reaction_count": 103,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1330352217915396167/SPACE_trash_FINAL_FOR_REAL_1_AGAINhandbrake.mp4?ex=697d5e8d&is=697c0d0d&hm=283275687948a4fa40adf1859a87728797ef7239f0996a2f1d20d659810297a1&",
+      "mediaType": "video",
+      "content": "👽 SPACE TRASH - Project Odyssey submission! <a:emote_alien_booty_shake:1267124850250481674> \n\nPut quite a lot of work into this one, I hope you enjoy this glitchy Alien aesthetic <a:_tdbananana:1195580802990350376>"
+    },
+    {
+      "month": "2025-01",
+      "message_id": 1333867837521002500,
+      "author": "The Dor Brothers",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/594573289293217803/cf7c0f8f88d2a63dc53c4dc12f454072.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2025-01-28T18:34:34.531+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1333867840499089519/Final_V2_Send.mp4?ex=697da27b&is=697c50fb&hm=2f0455aebbf47c9509e81b5d6ada568391e328598b01702312d31be3915535d1&",
+      "mediaType": "video",
+      "content": "Ready for 2025?\n\nhttps://youtu.be/HfbKU_BZhjc?si=l_FpX-P1dnap9WEC"
+    },
+    {
+      "month": "2025-01",
+      "message_id": 1330590774013722600,
+      "author": "Flipping Sigmas",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/743301749086879808/77ecfe49ddfd082242c141affa2835ba.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2025-01-19T17:32:41.706+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1330590755571630242/Flipping-Sigmas-Civitai-Contest-Submission-2025.mp4?ex=697d93f5&is=697c4275&hm=85540421ef814c9c0d82274e1e776f55d86b062ad5817928a865bac58f149fae&",
+      "mediaType": "video",
+      "content": "I actually got something done in time to enter  Project Odyssey this year. Glad they extended the date."
+    },
+    {
+      "month": "2025-01",
+      "message_id": 1334769655612702700,
+      "author": "Sxela (Alex) GMT+2",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/256155058620727306/e09c3ff558b8e3b91e1d1abd5e4d59e4.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2025-01-31T06:18:04.719+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1334769652882210877/apt-full-output4-with-audio.mp4?ex=6979aa1c&is=6978589c&hm=188318502a44e75dddce3a4589027134bcdf5a1b55df069b3d0a5c1155393371&",
+      "mediaType": "image",
+      "content": "Did the whole clip lol"
+    },
+    {
+      "month": "2025-01",
+      "message_id": 1326350722647855000,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2025-01-08T00:44:14.684+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1326350717497376859/what_people_i_do.mov?ex=697a049d&is=6978b31d&hm=b616eb2f66fc99b1028a63afde18d3f799ba4e043b663fb87c6fc3ad8cd90c01&",
+      "mediaType": "image",
+      "content": "Setting the record straight 😜"
+    },
+    {
+      "month": "2025-02",
+      "message_id": 1342284028102840300,
+      "author": "Zuko / @allhailthealgo",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/430030959874932737/b8c64cb197829e841e9e08c337ee871e.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2025-02-20T23:57:30.731+00:00",
+      "reaction_count": 50,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342284028102840441/1342284028350566480/SkyReels_I2V_Native_FlowEdit_DEV.json?ex=697d456a&is=697bf3ea&hm=39610091e7982cab934031a7ed959eb647a83c008102c38f27de87244b36f72e&",
+      "mediaType": "image",
+      "content": "Hey all! Sharing the workflow I'm currently using to leverage FlowEdit with the SkyReels I2V model. It's very experimental but if you can get it working, it yields great results. \n\nThere are some guides in the workflow, but you'll need to be running the latest nightly version of Comfy and the Enhance-A-Video implementation requires a fork from Kijai. \n\nMore discussion on reddit here: https://www.reddit.com/r/StableDiffusion/comments/1iu9nj2/incredible_v2v_using_skyreels_i2v_and_flowedit/"
+    },
+    {
+      "month": "2025-02",
+      "message_id": 1344024748325077000,
+      "author": "Juampab12",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/160047720931786752/10ac537faf3f68804db3c16a288cb44c.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-02-25T19:14:30.773+00:00",
+      "reaction_count": 47,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1344024748069228595/WanVideo2_1_00001.mp4?ex=697dabd6&is=697c5a56&hm=3cfc55bf883a5f437ef433c12387662bfc71cf0272ffc4abf1e6c78129f2f4b5&",
+      "mediaType": "video",
+      "content": "50 steps is good guys"
+    },
+    {
+      "month": "2025-02",
+      "message_id": 1339714935374086100,
+      "author": "N0NSens",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/867727155499499520/7206e3347f00016ae9bc414f8193f241.png?size=1024",
+      "channel": "#ltx_chatter",
+      "created_at": "2025-02-13T21:48:51.293+00:00",
+      "reaction_count": 42,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1339714934199812146/exposure.mp4?ex=697dd003&is=697c7e83&hm=1ce859de2ef378b2421c8a4c40fdd3bba4787fea53f89d412d998859c6eab01b&",
+      "mediaType": "video",
+      "content": "super tricky one... double exposure... in 1 image out of 10,  get something..."
+    },
+    {
+      "month": "2025-02",
+      "message_id": 1340924142005784600,
+      "author": "Inner_Reflections_AI",
+      "avatarUrl": "",
+      "channel": "#art_sharing",
+      "created_at": "2025-02-17T05:53:48.62+00:00",
+      "reaction_count": 40,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1340924140101828679/Harry_Potter_Hunyuan_Final.mp4?ex=697d98ec&is=697c476c&hm=88c2bad72d3d208d2e0058f358aab8311b3ab68ed9a8d68e3a9c323f26d02dd8&",
+      "mediaType": "video",
+      "content": "Hunyuan Video to Video"
+    },
+    {
+      "month": "2025-02",
+      "message_id": 1337689396585042000,
+      "author": "Purz",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/210245371002093570/ff2aced0dfd6f79c006d2cc86085e7f9.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2025-02-08T07:40:05.213+00:00",
+      "reaction_count": 33,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1337689392671752192/purz_rave_prob4-tv.mp4?ex=680fd994&is=680e8814&hm=df79926472bbd0f6d592e5697176aaa2da3b591d7e97493d57b85860a35ef546&",
+      "mediaType": "image",
+      "content": "Pika -> Topaz -> Post"
+    },
+    {
+      "month": "2025-03",
+      "message_id": 1346134166311403800,
+      "author": "Zuko / @allhailthealgo",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/430030959874932737/b8c64cb197829e841e9e08c337ee871e.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2025-03-03T14:56:35.212+00:00",
+      "reaction_count": 56,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1346134166311403692/1346134167691460649/bnblatest.mp4?ex=697d6f63&is=697c1de3&hm=27a9ef4337bdddfbb30cb70144c83b42de0bdcff8c6055ede1ad92f9731e3362&",
+      "mediaType": "video",
+      "content": "Hey all, I've been getting some questions about the FlowEdit workflow for Wan, and a previous version I shared had an error, so I'm sharing the latest version here. \n\nIf you're new to FlowEdit, I recommend checking out the project page for examples of image editing that the model is really good at — the same concepts will apply to videos too. \n\nI also recommend trying out the process with the T2V model by bypassing the WanImagetoVideo nodes and just using text prompts to get a feel for the parameters.\n\nEDIT: Oopsie, again. See below for fixed WF"
+    },
+    {
+      "month": "2025-03",
+      "message_id": 1351973365769830400,
+      "author": "spacepxl",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/681356078914469966/b72706050a639312b69a960181d23089.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-03-19T17:39:28.85+00:00",
+      "reaction_count": 43,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1351973366474608691/WanVideo_00404.mp4?ex=697d9591&is=697c4411&hm=68b4ea609cb65e1d6149d1c8089b6dcd17ddf9b647211475900216cae0196d27&",
+      "mediaType": "video",
+      "content": "Just uploaded a WIP version of depth control lora for 1.3b (+workflow) https://huggingface.co/spacepxl/Wan2.1-control-loras/tree/main/1.3b/depth\nWIP because the prompt following is not always great. I need to recaption some data with dense VLM captions probably, and continue training. It controls structure and motion quite well though, and with an early step cutoff you can get creative results."
+    },
+    {
+      "month": "2025-03",
+      "message_id": 1346266563736502300,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#wan_gens",
+      "created_at": "2025-03-03T23:42:41.218+00:00",
+      "reaction_count": 36,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1344057524935983125/1346266563594158242/WanVideo2_1_00029.mp4?ex=697d41f1&is=697bf071&hm=7d846008c5425263920298efc04ab745030df64a781c4ee02f808b79141ba78e&",
+      "mediaType": "video",
+      "content": "he had enough of being stuck in comfy"
+    },
+    {
+      "month": "2025-03",
+      "message_id": 1346266021589155800,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-03-03T23:40:31.96+00:00",
+      "reaction_count": 33,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1346266021618520064/WanVideo2_1_00029.mp4?ex=697d416f&is=697befef&hm=5914a6b0105ed392a3b4fe18c0f0b23175fec454c9db43aae2a213febb94fb61&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2025-03",
+      "message_id": 1350817480024526800,
+      "author": "burgstall",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/627140525916422145/fa3bd198c1112a5d94b5df55710a4693.png?size=1024",
+      "channel": "#ltx_chatter",
+      "created_at": "2025-03-16T13:06:24.213+00:00",
+      "reaction_count": 32,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1350817478892326943/Timeline_1.mp4?ex=6810260f&is=680ed48f&hm=5217657ad403bfd0f14d7a6c629f231bc6c383efdeb895411a15daa0bc6efb0d&",
+      "mediaType": "image",
+      "content": "<@301463647895683072>  <@189097512655650816> here's my Paris vid. All animation done with LTXV loccally, I2V from Flux images. First clip with 0.9.5 and the rest of them with 0.9.1."
+    },
+    {
+      "month": "2025-04",
+      "message_id": 1360314790358024200,
+      "author": "IllumiReptilien",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/627221329891819540/6ebd84cc86866a113f896c689f7ac59d.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-04-11T18:05:19.448+00:00",
+      "reaction_count": 38,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1360314790119215358/beerdiana5.mp4?ex=697d9b9f&is=697c4a1f&hm=994d2552d64ae40fa2168aec9a892cd023ae86106904cee3e54f2e5c1c6eeee5&",
+      "mediaType": "video",
+      "content": "I love Vace"
+    },
+    {
+      "month": "2025-04",
+      "message_id": 1365778628562124800,
+      "author": "VRGameDevGirl84(RTX 5090)",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/330829305477333022/30fa6781db882a5380bdda729421d6a8.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-04-26T19:56:39.989+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1365778628264333473/20250426_145526.jpg?ex=697db5b7&is=697c6437&hm=0029a17610c247d3dc06461a5c46a08b2549d3845b7142498550c74970124acb&",
+      "mediaType": "image",
+      "content": "Finally"
+    },
+    {
+      "month": "2025-04",
+      "message_id": 1356759633481568500,
+      "author": "Sxela (Alex) GMT+2",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/256155058620727306/e09c3ff558b8e3b91e1d1abd5e4d59e4.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2025-04-01T22:38:23.997+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1356759633481568444/1356759634274418799/AnimateDiff_00062-audio_1.mp4?ex=697ddba0&is=697c8a20&hm=b09ba6df3b0fb9535891ab39a47ee5629e709186132f93556a46653342dc86a0&",
+      "mediaType": "video",
+      "content": "Messing with audioreactive optical flow manipulations \nwf here - [git](https://github.com/Sxela/ComfyWarp/blob/main/sample_workflow/reactive_flow.json)\nusing <@439811659729469441> soundtrack 😄 <@738104484114464889> audio nodes"
+    },
+    {
+      "month": "2025-04",
+      "message_id": 1364043871624892400,
+      "author": "Inner_Reflections_AI",
+      "avatarUrl": "",
+      "channel": "#wan_training",
+      "created_at": "2025-04-22T01:03:21.705+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1344309523187368046/1364043871474028645/Video_00032.gif?ex=6814c299&is=68137119&hm=7b1c693e62f9146c14cf2ae8affaf6ae545fa8141765b20b1092bf8fc602f7f6&",
+      "mediaType": "image",
+      "content": "Thank you for an amazing tool <@681483041968750711> !"
+    },
+    {
+      "month": "2025-04",
+      "message_id": 1359829046799761700,
+      "author": "IllumiReptilien",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/627221329891819540/6ebd84cc86866a113f896c689f7ac59d.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-04-10T09:55:09.159+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1359829046552428594/guitar.mp4?ex=697dd17d&is=697c7ffd&hm=877668e9114d18ca0142e97565db40d635ef850ac215e20d4abcb91652eed4c3&",
+      "mediaType": "video",
+      "content": "Stupid (fun) thing to do : use Vace with DWpose face only, any reference image (or just the character of the scene) and prompt any action."
+    },
+    {
+      "month": "2025-05",
+      "message_id": 1376831746720534800,
+      "author": "ingi // SYSTMS",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/825444296689451039/0ddca0dc5e8e4b210d8b4c26a1e11227.png?size=1024",
+      "channel": "#wan_gens",
+      "created_at": "2025-05-27T07:57:48.715+00:00",
+      "reaction_count": 49,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1344057524935983125/1376831746074607707/CONFUSED_00002.gif?ex=697db5fc&is=697c647c&hm=2a773c43d82095704da479dbce44fc0b36da0e8fdd979413fcc9a49075bcbe45&",
+      "mediaType": "gif",
+      "content": ""
+    },
+    {
+      "month": "2025-05",
+      "message_id": 1370060539186778000,
+      "author": "VisualFrisson",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/272911326010015745/4c041c59f1b941d0a5612ef6e327d4f8.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2025-05-08T15:31:27.036+00:00",
+      "reaction_count": 44,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1370060534069858374/Visual_Frisson_-_AI_Reel_2025t.mp4?ex=697d778d&is=697c260d&hm=47342696a5b5eeead6fcb4fa5b4aa5673817e5bab1a20e006aeab34492fa1014&",
+      "mediaType": "video",
+      "content": "Not sure if this is the place for reels, but I had a great time looking back on my journey with AI, seeing how far things have come and looking forward to where things will go.  It reminded me how much I have learned from and been inspired by this community.  I'm so thankful for all the help, support, and friends I have made here! <@301463647895683072>  ❤️"
+    },
+    {
+      "month": "2025-05",
+      "message_id": 1377706250376319200,
+      "author": "DeZoomer",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1031169627742535720/cf6ce5d18ae632745731d01bb2a47281.png?size=1024",
+      "channel": 1377706250376319200,
+      "created_at": "2025-05-29T17:52:46.634+00:00",
+      "reaction_count": 39,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1377706250376319106/1377706250996940800/The_Schwarzenegger_Lotus_-_Comparison_-_Take_8.mp4?ex=697d98ae&is=697c472e&hm=1d9c3678d2001b5765b81ad2fa5ec0d43d60b79632beb5735099b950c4e10221&",
+      "mediaType": "video",
+      "content": "This workflow uses masked facial regions, pose, and depth data, then blending the result back into the original footage with dynamic processing and upscaling.\n\nThere are detailed instructions inside the workflow - check the README group."
+    },
+    {
+      "month": "2025-05",
+      "message_id": 1370301472578994200,
+      "author": "HunterS.Freud",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/843663462100893727/a_f515b1b944cab079b88660a0931704f2.gif?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2025-05-09T07:28:50.033+00:00",
+      "reaction_count": 31,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1370301467138850827/This_Film_Is_Lying.mov?ex=697daf30&is=697c5db0&hm=88ddf180245ac1ab578fc2aafe488baac055a842cf7a4dff08b1cceeebd65954&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2025-05",
+      "message_id": 1378219722826580000,
+      "author": "852話 (hakoniwa)",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/819379946878795786/560bea8c80a75f08763d8551666e82f0.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-05-31T03:53:08.006+00:00",
+      "reaction_count": 31,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1378219721756770314/wan2def.mp4?ex=697d7ca3&is=697c2b23&hm=5c43b641a7b7463aa4bf14662c74da827646f866ca31f625b7b22cce48247e5b&",
+      "mediaType": "video",
+      "content": "I created a LoRA (and workflow) for Wan2.1 that can output 2D animation effects based on simple instruction videos. The top left is an instruction video I casually made in AE. The drawing amount can be gradually controlled from the bottom left to the bottom right output. Even with the same input, the output can be changed to water, waves, smoke, spray, flames, explosions, etc. through prompts.\nhttps://discordapp.com/channels/1076117621407223829/1344309523187368046/1377548588804083722\nThis is a derivative of the LoRA that I used in the video I made previously."
+    },
+    {
+      "month": "2025-06",
+      "message_id": 1386453178240733200,
+      "author": "pom",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/301463647895683072/6c24836bd3c2bd4b0c7ce50bb2f407c1.png?size=1024",
+      "channel": 1386453178240733200,
+      "created_at": "2025-06-22T21:09:56.747+00:00",
+      "reaction_count": 59,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1386453178240733235/1386453179037778093/Untitled_1280_x_512_px_3.mp4?ex=697dc6e4&is=697c7564&hm=835f10eafae95193fa35e63e556c5faaa557079c08ff6fff3b204b9032f054d8&",
+      "mediaType": "video",
+      "content": "Hi guys, \n\nSharing a workflow that does endless smooth travelling between images with no visible distortion 😎 \n\nYou'll need to have the latest version of Steerable Motion nodes here: https://github.com/banodoco/steerable-motion"
+    },
+    {
+      "month": "2025-06",
+      "message_id": 1387232079078625300,
+      "author": "VRGameDevGirl84(RTX 5090)",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/330829305477333022/30fa6781db882a5380bdda729421d6a8.png?size=1024",
+      "channel": 1387232079078625300,
+      "created_at": "2025-06-25T00:45:01.178+00:00",
+      "reaction_count": 51,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1387232079078625389/1387232079762161735/a_retro-glitch_themed_logo_showing_wan_upscaler__enhancer_in_bold_blocky_font_the_first_part_of_the_wpcsgo2mo6yh0wuvetln_10.png?ex=697d508d&is=697bff0d&hm=586d464e9687211afba8f9bad2424d323815296fcdedf9db35c4888566791ffd&",
+      "mediaType": "image",
+      "content": "🎬 Video Upscale & Enhancement Workflow 🔧✨\n\nThis workflow is built to upscale or enhance any video! Here's how to get the most out of it:\n\n🔹 Just Upscaling?\nSkip the prompt and set sampler denoise between 0.3 - 0.5\n➡️ Keeps original content intact but boosts quality.\n(Higher values = more enhancement)\n\n🔹 Want a Bit of Style Change?\nAdd a prompt and bump denoise to 0.7 - 0.8\n➡️ Great for soft edits or light creative tweaks.\n\n⚠️ Heads-up:\nGoing above 0.85 denoise = generating a brand new video from the prompt.\nNo prompt? Expect randomness 🎲\n\n🎯 Best used for:\n\n📼 Low quality or low res videos\n\n🖼️ CGI renders (e.g. Blender)\n\n🔁 Giving old content a fresh shine"
+    },
+    {
+      "month": "2025-06",
+      "message_id": 1384931026740056000,
+      "author": "Nekodificador",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/391020191338987522/2e40c243a0ff35f557eef85c02a4b507.png?size=1024",
+      "channel": 1384931026740056000,
+      "created_at": "2025-06-18T16:21:27.549+00:00",
+      "reaction_count": 50,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1384931026740056084/1384931027511804105/VFX_Tools_-_Video_v2.png?ex=697d8347&is=697c31c7&hm=2965c243473be5a99630ba2c6800f316b8cfa21be35d502597bf81c1471f624d&",
+      "mediaType": "image",
+      "content": "Hey guys! I wanted to share one of my quality-of-life workflows with you. It's basically a collection of tools to generate control maps that come in super handy for post-production, VFX, and WAN-based control techniques.\n\nThe workflow is designed so you can just load a video, pick which maps you want to generate, select if you wanna preview or save them, and smash the Run button with your head. \n\nIt automatically exports everything into a folder organized by date and project name, so you can keep all your maps neatly sorted—even if you’re working on multiple shots in the same day. Nothing new or groundbreaking, just some structure to keep things flowing."
+    },
+    {
+      "month": "2025-06",
+      "message_id": 1385091877786878000,
+      "author": "Nathan Shipley",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
+      "channel": 1385091877786878000,
+      "created_at": "2025-06-19T03:00:37.427+00:00",
+      "reaction_count": 32,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1385091877786878074/1385091879133122590/Screenshot_from_2025-06-18_22-20-13.png?ex=697d7055&is=697c1ed5&hm=7cc211fc953ca0fdc8f6980a2853abd0f8ec7b910bfad1bd127f5f023b3f1ee9&",
+      "mediaType": "image",
+      "content": "A NotebookLM chat interface made from the Wan 2.1 channel conversations on Banodoco as it's data source.\n\nWan is overwhelming! It's hard to search! Kijai is busy! (Plus should you really be pinging him?) \n\n..try out the chattable Wan KB:\n\n**LINK (requires a Google account):  \nhttps://notebooklm.google.com/notebook/a08901b9-0511-4926-bbf8-3c86a12dc306 **\n\nAsk it questions like:\n> What is VACE?\n> What settings should I be using for CausVid?  What about kijai's CausVid v2?\n> Can you give me an overview of the model ecosytem?\n> What do people suggest to reduce VRAM usage?\n> What are the main new things people discussed last week?\n\nI scraped: \n<#1342763350815277067> \n<#1344309523187368046>  \n<#1344057524935983125> \nfrom their beginning in February 2025 until June 18, 2025 and uploaded that data as sources to NotebookLM.\n\nTools and info if you'd like to make your own:\n- <:discord:1071095388729249802> I'm using [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) to scrape the channels.\n- 🧹 [discord-text-cleaner](https://nathanshipley.github.io/discord-text-cleaner/): A web tool to make the scraped text lighter by removing {Attachment} links that NotebookLM doesn't need.\n- 🪓 [splitByLines_DateRange.py](https://gist.github.com/nathanshipley/e69daba2d808e5f68ef3e8b8a3a44825): A python script to split large text files into smaller ones that NotebookLM can ingest.  (seems to prefer ~20,000 lines or less)\n- ▶️  More information about my process [on Youtube here](https://youtu.be/kG81Kkal5XM), though now I just directly download to text instead of HTML as shown in the video.\n\nAn older, static knowledge base with some example images and videos is available here on Notion.  It is current up to April 7, 2025:\nhttps://nathanshipley.notion.site/Wan-2-1-Knowledge-Base-1d691e115364814fa9d4e27694e9468f"
+    },
+    {
+      "month": "2025-06",
+      "message_id": 1389325967163392000,
+      "author": "Vardogr",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/267974636690472960/8a8e0b564118c18d12cc2ae3177870cc.png?size=1024",
+      "channel": 1389325967163392000,
+      "created_at": "2025-06-30T19:25:23+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1389325967163392030/1389325967302070322/Flux_Kontext_Character_Sheet.json?ex=697dae63&is=697c5ce3&hm=bf138594b7c46bad98893bd81a3c25d647876bf56d8cddf24a9031df447aed86&",
+      "mediaType": "image",
+      "content": "Need to create multiple consistent views of a character? Trying to create scenes but flux doesn't understand your character from the back or side? Worry no more! Just add a single character image, a character template, and let this do the rest! It may take a few tries, and you'll have to tweak the Denoise value, but it'll usually work."
+    },
+    {
+      "month": "2025-07",
+      "message_id": 1399391670939680800,
+      "author": "JohnDopamine",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/771193439399444490/5d6ad6426cf5c672ce7e7acca871159b.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-07-28T14:02:53.792+00:00",
+      "reaction_count": 40,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1399391670591684608/AnimateDiff_00484.mp4?ex=697d62cd&is=697c114d&hm=69f3a28f496329cf2e113d6ccac0f8e1170da92eda8677ac41c25d2590f2d752&",
+      "mediaType": "video",
+      "content": "162s"
+    },
+    {
+      "month": "2025-07",
+      "message_id": 1399441928805941200,
+      "author": "Juampab12",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/160047720931786752/10ac537faf3f68804db3c16a288cb44c.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-07-28T17:22:36.201+00:00",
+      "reaction_count": 31,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1399441928298303609/AnimateDiff_00015.mp4?ex=697d919c&is=697c401c&hm=9c84ae92a134e278e590327edb2f03e4ea1d8918c91a9f3ed9a2a84800b60ae1&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2025-07",
+      "message_id": 1389562711867789300,
+      "author": "Mads Hagbarth Damsbo",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/407658551503224834/9f1a0a3674ba78af1acd0fde77d7b699.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-07-01T11:06:07.336+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1389562710798368870/mask_testsb.mov?ex=697d395f&is=697be7df&hm=62fe51dbadf01630a8a7de1411e001571d53251cd0e8403c817088da005a97be&",
+      "mediaType": "video",
+      "content": "Been playing a bit more around with masking on video2video setups.\nIt seem to work best when you dual sample the first steps to get the \"shape\" then use that as making for the rest of the generation to avoid it changing unwanted parts"
+    },
+    {
+      "month": "2025-07",
+      "message_id": 1400227687800373500,
+      "author": "Ablejones",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/256636116763934731/762f9b4513bf17beee4069a0f8c0ae10.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-07-30T21:24:55.744+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1400227686575640729/test1234.mp4?ex=697dca67&is=697c78e7&hm=07988cb4745e942f7a46e07e0e0fda2d7988a387ce3d0f4a4fd067948de25500&",
+      "mediaType": "video",
+      "content": "👋 👏 👏 **Poll for your input!**\nGiven the prompt: `old man gets up and jumps into the lake`\nPlease choose the **ROW** that you prefer, considering prompt following AND quality of the output.\n\nedit: Details of parameters after poll results:\n**A. (Test 2)**\n• Sampler 1: HighNoise | CFG 1 | 3 steps | No Lora  \n• Sampler 2: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\n**B. (Test 4)**\n• Sampler 1: HighNoise | CFG 3 | 1 step  | No Lora  \n• Sampler 2: HighNoise | CFG 1 | 2 steps | No Lora  \n• Sampler 3: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\n**C. (Test 1)**\n• Sampler 1: HighNoise | CFG 1 | 3 steps | LightX2V Lora (3.0)  \n• Sampler 2: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\n**D. (Test 3)**\n• Sampler 1: HighNoise | CFG 3 | 3 steps | LightX2V Lora (3.0)  \n• Sampler 2: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\nResults:\nA:0, B: 3, C: 0, D: 20"
+    },
+    {
+      "month": "2025-07",
+      "message_id": 1395331932690059300,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-07-17T09:10:56.767+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1395331932740386986/WanVideoWrapper_I2V_00213.mp4?ex=697dc720&is=697c75a0&hm=f73a06644bd86273865e1f9d470712a6417cdf0be765a8693f2655114f9ed108&",
+      "mediaType": "video",
+      "content": "asked for a middle finger"
+    },
+    {
+      "month": "2025-08",
+      "message_id": 1403263501421777000,
+      "author": "Inner_Reflections_AI",
+      "avatarUrl": "",
+      "channel": 1403263501421777000,
+      "created_at": "2025-08-08T06:28:10.114+00:00",
+      "reaction_count": 46,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1403263501421776977/1403263501639745698/message.txt?ex=697da0fa&is=697c4f7a&hm=3758830162b599ced6d1bdf4196239d3211ef72c7d89038b229e89516adddf08&",
+      "mediaType": "image",
+      "content": ""
+    },
+    {
+      "month": "2025-08",
+      "message_id": 1408253566677684500,
+      "author": "Inner_Reflections_AI",
+      "avatarUrl": "",
+      "channel": "#wan_chatter",
+      "created_at": "2025-08-22T00:56:54.382+00:00",
+      "reaction_count": 37,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1408253565184639057/Kpop_Demon_Hunters_x_Friends.mp4?ex=697d5356&is=697c01d6&hm=dd477166022bed6b9b6a5322b7f614cda306e5c4dcaf59c9a7d03320f866313b&",
+      "mediaType": "video",
+      "content": "I still feel phantom references can be superior to anything we have seen in ai video"
+    },
+    {
+      "month": "2025-08",
+      "message_id": 1405302030834078000,
+      "author": "Ablejones",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/256636116763934731/762f9b4513bf17beee4069a0f8c0ae10.png?size=1024",
+      "channel": "#wan_gens",
+      "created_at": "2025-08-13T21:28:33.4+00:00",
+      "reaction_count": 35,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1344057524935983125/1405302029609599156/Phantom_2.2_experiment_demo_.mp4?ex=697dcb41&is=697c79c1&hm=9e40a625667083537122be78b36eabec8b123f59bbeeb38855af4d34b786ce7c&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2025-08",
+      "message_id": 1402796376932221000,
+      "author": "JohnDopamine",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/771193439399444490/5d6ad6426cf5c672ce7e7acca871159b.png?size=1024",
+      "channel": 1402796376932221000,
+      "created_at": "2025-08-06T23:31:58.957+00:00",
+      "reaction_count": 34,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1402796376932220998/1402796377448386630/WanVideoWrapper_VACE_2.2-Merge-Test-_00054.mp4?ex=697d3f6f&is=697bedef&hm=1e2c40680aded533e349e25f87791d1c28b4af78cb12703d1980431e059b4ab3&",
+      "mediaType": "video",
+      "content": "After a number of days chatting w/ various LLMs, extracting/merging blocks, and generating over 50 33gb checkpoints w/ various combinations of minor alterations here's my best attempt at getting Vace 2.1 to work w/ Wan2.2. I'm not an expert at testing so no promises on quality or performance, but I figured after the time I played around w/ this I might as well toss it out for review and discussion than just sitting on it.\n\nhttps://huggingface.co/CCP6/FakeVace2.2/tree/main\n\n\nExample prompts:\n\nAn elderly man with a rugged gray beard is sitting inside a Starbucks coffeeshop in New York's Time's Square hanging out with his new favorite plushtoy. The yellow plush toy is sitting on the coffee table in front of him and he is telling it a story emphatically waving his arms around as if the plush were real. After a moment of this an employee can be seen walking up behind the old man and tapping him on the shoulder about to ask him if he's feeling healthy. \n\n\nShrek and the woman, maintaining their exact appearances, now stand in a medieval-style room. Shrek holds the telescope, looking curious. The woman, still smiling, moves closer to him, her hand gently touching the telescope. They interact playfully, with Shrek showing her something through the telescope. The room has wooden beams and a warm, ambient light. Camera captures their interaction in a medium shot, emphasizing their expressions and the telescope. The scene remains consistent in appearance and lighting."
+    },
+    {
+      "month": "2025-08",
+      "message_id": 1402352832786465000,
+      "author": "Jonathan",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1198356571906904255/cb000b444b8a914a83f9b160b7c220f4.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-08-05T18:09:29.792+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1402352832505708635/16FPS_00237.mp4?ex=697d9c99&is=697c4b19&hm=cdb393d513925c8e76cecc3e2d2385d39b8eee773037cc87c8e2c1e0b92e1788&",
+      "mediaType": "video",
+      "content": "So I've been testing this the past day, but you can actually input an image of anything (people, objects, etc) and then use a prompt like \"the scene abruptly hard cuts to\" or \"the scene immediately changes to\" to have that thing in a different context.\n\nEssentially acting a subject reference without having to use VACE or Phantom. You can even change different aspects of the subject through prompting, and it still maintains the resemblance.\n\nI'm still testing different prompts trying to find one that cuts the quickest (sometimes it will cut instantly, other times it will have a transition), but I hope someone with a faster computer can quickly generate videos to find the best implementation of this.\n\nFor the prompt structure I've found this to work the best so far: \n\nPrompt = Original Subject Description + Scene Cut Prompt + New Scene Description\n\nAlso I've found adding \"The subjects appearance/hairstyle remains the same\" to the end of the prompt has an effect as well."
+    },
+    {
+      "month": "2025-09",
+      "message_id": 1420437212138443000,
+      "author": "enigmatic_e",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/994554775980998696/db5e3224a2db1cfb859f777a4f68133e.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-09-24T15:50:21.821+00:00",
+      "reaction_count": 40,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1420437205519827106/mirror2.mov?ex=697d7bfc&is=697c2a7c&hm=adb5e415e610b7c3d951666e891f669713d60e2caeb8a6849080066dea2f4372&",
+      "mediaType": "video",
+      "content": "These are so much fun. 😂"
+    },
+    {
+      "month": "2025-09",
+      "message_id": 1415103162959790000,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-09-09T22:34:45.395+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1415103161806491678/image.png?ex=697ddac5&is=697c8945&hm=037a22522abafea4d221b1789b5ec38b477442180836d9184471c9d32e041975&",
+      "mediaType": "image",
+      "content": "still very much WIP, but got infinite talk running in native"
+    },
+    {
+      "month": "2025-09",
+      "message_id": 1417710283945672700,
+      "author": "VRGameDevGirl84(RTX 5090)",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/330829305477333022/30fa6781db882a5380bdda729421d6a8.png?size=1024",
+      "channel": 1417710283945672700,
+      "created_at": "2025-09-17T03:14:31.476+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1417710283945672764/1417710284239278220/a_cinematic_square_image_representing_the_humo_comfyui_workflow_centered_glowing_text_reads_humo_wi_no189ukkdhoyymli22fk_1.png?ex=697d7397&is=697c2217&hm=b059c4ea94783c70bf5155d47c7906b9446f2b1270bd6eff1d68ed8f6ac80f63&",
+      "mediaType": "image",
+      "content": "🎬 New Workflows: HUMO & Infinite Talk\n\nI’ve built two new workflows for making infinite-length videos in ComfyUI.\nThese workflows use my custom nodes to split audio into scenes and then recombine generated clips into one seamless video.\n\n⚡ HUMO Workflow\n\nDefault: 16 scenes (≈1 minute video).\n\nEach scene = 3 seconds by default.\n\nUnlimited scenes — you can add more groups for longer videos.\n\nStrengths:\n\nMuch better motion and visual flow.\n\nFaster to generate.\n\nSupports multi-image input for variation per scene.\n\nBest for: Dynamic, visually rich videos where flow matters.\n\n🎤 Infinite Talk Workflow\n\nDefault: 6 scenes (but you can add unlimited more).\n\nFlexible scene length — each scene can be short or very long.\n\nExample: Scene 1 could be 1 min, Scene 2 could be 5 min.\n\nReference images: You can use one shared image or set a different image per scene.\n\nStrengths:\n\nPerfect for syncing video with lyrics or custom audio timing.\n\nGreat for extended videos where scene timing must match music.\n\nTradeoff: Motion is less strong compared to HUMO.\n\n🧩 Summary\n\nHUMO: Best for strong motion, cinematic flow. Default 3s per scene, but you can chain unlimited scenes for longer videos.\n\nInfinite Talk: Best for full timing control. Scene length is totally flexible, and each scene can use its own reference image if desired.\n\nBoth workflows let you create infinite-length videos aligned to your audio.\n\n✨ If you want cinematic flow → go HUMO.\nIf you want total timing control → go Infinite Talk."
+    },
+    {
+      "month": "2025-09",
+      "message_id": 1421196925860057000,
+      "author": "piscesbody",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1092355295424028692/a51c15219682a11e9f7fe80136f406f8.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-09-26T18:09:11.687+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1421196925419393074/Wanimate_00001-audio_20250927_020836685.mp4?ex=697d9c87&is=697c4b07&hm=beaf870fa5a81ab47cef8613e1c66cbc907d039ab89488937cee58d69f0c284b&",
+      "mediaType": "video",
+      "content": "what the hell~"
+    },
+    {
+      "month": "2025-09",
+      "message_id": 1415103589428236300,
+      "author": "RyanOnTheInside",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/738104484114464889/75ca833a378d2cb6751ac0037fd78038.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2025-09-09T22:36:27.073+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1415103589428236399/1415103590388727928/Untitled_video_-_Made_with_Clipchamp.gif?ex=697ddb2b&is=697c89ab&hm=05b6c86b04d6c266d17955456b5fc194d338da53c8fef353a43552f1dcf152a8&",
+      "mediaType": "gif",
+      "content": "What's up yall, long time no see.\n\nI have been head-down working on this enhanced version of StreamDiffusion with the team at Livepeer and wanted to share this example.\n\nThis is fully accelerated with TensorRT, using SDXL, multi-controlnet, and IPAdapter. TensorRT acceleration of IPAdapters in novel as far as I know, but either way I am excited about it!\n\nThis example is using standard IPAdapter, but IPAdapter+ and IPAdapter FaceID are also supported.\n\nThe multiple controlnets slows this down a fair bit, but without them I get around 30 fps with SDXL at this resolution on my 5090.\n\nHere I am using SDXL, but SD1.5 and SDTurbo are also supported.\n\nThere are a bunch of other goodies we added as well, including full real-time parameter updating, prompt/seed blending, multi-stage processing, dynamic resolution, and more... I am losing track:\n\nhttps://github.com/livepeer/StreamDiffusion\n\n\n\nCross posting from [here ](https://www.reddit.com/r/StableDiffusion/comments/1ncx7g3/streamdiffusion_sdxl_ipadapter_multicontrolnet/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)"
+    },
+    {
+      "month": "2025-10",
+      "message_id": 1428831092181303600,
+      "author": "Flipping Sigmas",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/743301749086879808/77ecfe49ddfd082242c141affa2835ba.png?size=1024",
+      "channel": "#wan_resources",
+      "created_at": "2025-10-17T19:44:38.774+00:00",
+      "reaction_count": 80,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1428831092181303437/1428831093464764486/wan2.2I2V_00009.mp4?ex=697db2e7&is=697c6167&hm=036928913f3d871af0b656490816d695be19867f3be3330062615bc5fa8e98bf&",
+      "mediaType": "video",
+      "content": "https://civitai.com/models/2052865/flippinrad-motion-morph?modelVersionId=2323211\n--Use with Wan2.1 14B---\ntrained using a mix of myself and <@822313193791029248> 's work over the past couple years \nllm written hype:\n\nSay goodbye to static, lifeless motion. FlippinRad Motion Morph is a custom LoRA designed for Wan2.1 that injects dynamic, stylized movement straight into your animations — effortlessly.\n\nInspired by the flow of AnimateDiff and the precision of Steerable Motion, this model doesn’t just move — it performs. Frames snap, twist, stretch, and flow with purpose, delivering cinematic motion that feels handcrafted and alive.\n\nBuilt for creators who want more than just motion — who want character, flair, and rhythm — FlippinRad is your secret weapon for expressive, eye-catching animation with a signature style. No complex setup. No overengineering. Just pure motion artistry, right out of the box."
+    },
+    {
+      "month": "2025-10",
+      "message_id": 1424439323721334800,
+      "author": "Neex",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/242887245030359041/66764ce1c1e81276d71d878e5e74496d.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-10-05T16:53:19.578+00:00",
+      "reaction_count": 27,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1424439323490779156/FInalCompv3Web.mp4?ex=697d8abf&is=697c393f&hm=87b64ca500dcc3a0b5b2a04de8c94a321131026110b561597407303ec68fe55b&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2025-10",
+      "message_id": 1427568613233262600,
+      "author": "Benjimon",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1143887423957377024/c3717fdf566b0ff46cb0db51ebe78090.png?size=1024",
+      "channel": "#nsfw",
+      "created_at": "2025-10-14T08:08:00.337+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1147637190713692160/1427568612750790817/Zephyr_-_Meta_finally_cracked_VR_wwxHae.mp4?ex=697db860&is=697c66e0&hm=a8fcdd1d4c63ccfba03b861061ee6a6b1b2f84fee1cafad79e63e1f73d496be3&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2025-10",
+      "message_id": 1423257508654616600,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-10-02T10:37:12.909+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1423257508109090816/Wanimate_00002-audio_2.mp4?ex=697ddb58&is=697c89d8&hm=2cd79568b94f7fe6d610d10ebce55873a87cc1fdf14426f415e79e4e36a2990f&",
+      "mediaType": "video",
+      "content": "finally updated the wrapper example to use the new preprocessing nodes btw"
+    },
+    {
+      "month": "2025-10",
+      "message_id": 1433517338153582600,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-10-30T18:06:06.88+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1433517337553928343/LongCatVideo_00063.mp4?ex=697d9bce&is=697c4a4e&hm=ad4e6164b429487a1d46a6c51872c511e5ced4049a049136b2f282a33d81c686&",
+      "mediaType": "video",
+      "content": "that end"
+    },
+    {
+      "month": "2025-11",
+      "message_id": 1441949446710759700,
+      "author": "ingi // SYSTMS",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/825444296689451039/0ddca0dc5e8e4b210d8b4c26a1e11227.png?size=1024",
+      "channel": "#wan_gens",
+      "created_at": "2025-11-23T00:32:18.221+00:00",
+      "reaction_count": 25,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1344057524935983125/1441949445414715434/54fd8582dc5908a296ea89c4e9c39a71.mov?ex=697d4d91&is=697bfc11&hm=8dccab9e3411e1936c7355f192cc6910ed93a5b591f80465d22871003b9cd377&",
+      "mediaType": "video",
+      "content": "Playing around with some transition-focused storytelling with Vace"
+    },
+    {
+      "month": "2025-11",
+      "message_id": 1443268825171890200,
+      "author": "LTX Lux",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/497482888296792074/27ddb5db57b1d64196dbd874464b46a5.png?size=1024",
+      "channel": "#ltx_chatter",
+      "created_at": "2025-11-26T15:55:02.559+00:00",
+      "reaction_count": 24,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1443268824722833570/ltx-176416.mp4?ex=697d7d16&is=697c2b96&hm=454d3bb8d740d7e2c0b25ecd5b658200a8cd77e49c8e86cad7f4e05c72a8597a&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2025-11",
+      "message_id": 1442263414838657000,
+      "author": "Guey.KhalaMari",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/895919717460606996/72a3c0fbbdde0600c17b083b921491ab.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-11-23T21:19:54.056+00:00",
+      "reaction_count": 24,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1442263414410842302/wan22_I2V_TTM_oldman_Hippo_OneTake_ios_x264.mp4?ex=697dc939&is=697c77b9&hm=ad73394afffd9c4f16675c90702a2cf5bcd096815537a6d1c55f7b4364205ff6&",
+      "mediaType": "video",
+      "content": "TTM : Old Man + Hippo : One Take Final."
+    },
+    {
+      "month": "2025-11",
+      "message_id": 1442307931012857900,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#kandinsky-5",
+      "created_at": "2025-11-24T00:16:47.539+00:00",
+      "reaction_count": 23,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1422649707435524096/1442307930744426737/image.png?ex=697d49ef&is=697bf86f&hm=c2e9a72c6be28ad558fb2084f7741f816637c1db8bc6cfe2f3fc5963705c3858&",
+      "mediaType": "image",
+      "content": "I had some time"
+    },
+    {
+      "month": "2025-11",
+      "message_id": 1438636203384635400,
+      "author": "Juampab12",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/160047720931786752/10ac537faf3f68804db3c16a288cb44c.png?size=1024",
+      "channel": "#chatter",
+      "created_at": "2025-11-13T21:06:39.455+00:00",
+      "reaction_count": 22,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138859346487410828/1438636200737902625/kXpR8KjR-qDWSQ94sHUVk_output.mp4?ex=697dc61e&is=697c749e&hm=6f09e3c90ce6cf0f37fd6d6503b0e7193d9a5c79ab1b8acc7d530ecec06e538c&",
+      "mediaType": "video",
+      "content": "my doggo passed today, I made her a nice video"
+    },
+    {
+      "month": "2025-12",
+      "message_id": 1451978283779358700,
+      "author": "Ablejones",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/256636116763934731/762f9b4513bf17beee4069a0f8c0ae10.png?size=1024",
+      "channel": "#wan_gens",
+      "created_at": "2025-12-20T16:43:19.305+00:00",
+      "reaction_count": 31,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1344057524935983125/1451978283368452126/VACEtoHuMo_00014-audio.mp4?ex=697d8867&is=697c36e7&hm=a9873e857875b0e632c5c7ab82f27be1944802d6c0ce84966ecabe6e4af9c4b1&",
+      "mediaType": "video",
+      "content": "Woo! Finally this is looking great. I hope <@542962452988559360> is okay with me borrowing his visage for this test. Here I'm trying more specifically directed context window travel similar to the old days of animatediff evolved.\nInspired by a stream a couple of weeks ago by <@210245371002093570> and <@380911583074975744> where they reminded me of a technique using IPAdapter for the references for each window, here I am using Vace and HuMo references in place of IPAdapter."
+    },
+    {
+      "month": "2025-12",
+      "message_id": 1450803935861412000,
+      "author": "NodeMancer",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/1129349270521266176/e798d42892c55da741adc0b581585d7c.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-12-17T10:56:52.943+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1450803933948809246/Dec17_final.mp4?ex=697ddff4&is=697c8e74&hm=8150b5f031b044de53a93780d8cb775d0400b8b5ae0d4c7c1c24c0bdf6386fc2&",
+      "mediaType": "video",
+      "content": "FUN VACE splice the seams"
+    },
+    {
+      "month": "2025-12",
+      "message_id": 1456005799456280800,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-12-31T19:27:13.87+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1456005799137640499/PXL_20251231_162427794.jpg?ex=697daed1&is=697c5d51&hm=a8cf69df6d24359a16cf3eeb7b024c773c9ccdc21edb6da05db0161535ed60a9&",
+      "mediaType": "image",
+      "content": "Thanks, happy new year to you as well! Was just out seeing some fireworks"
+    },
+    {
+      "month": "2025-12",
+      "message_id": 1451338474627272700,
+      "author": "amli",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/703444869624102937/97b978f353854b146fbf87fb9aed301c.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-12-18T22:20:56.916+00:00",
+      "reaction_count": 22,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1451338474186608794/WanVideo_SCAIL_00032.mp4?ex=697dd788&is=697c8608&hm=c01779df939dd0c5ba5c17c990929ebabcd6f9d93e638756b927dae79a6c2e22&",
+      "mediaType": "video",
+      "content": "oh.my.god. <@228118453062467585> YOU ARE A GENIUS THANK YOU! I could cry RN you have no idea. \n\nJust like you said, SCAIL but iwht just vitpose and the thickness up at 20. Its not perfect, front legs are hopping instead of running, but better than I have gotten before!!"
+    },
+    {
+      "month": "2025-12",
+      "message_id": 1447068987610497000,
+      "author": "VRGameDevGirl84(RTX 5090)",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/330829305477333022/30fa6781db882a5380bdda729421d6a8.png?size=1024",
+      "channel": "#z-image",
+      "created_at": "2025-12-07T03:35:31.888+00:00",
+      "reaction_count": 20,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1443174533271130132/1447068994027913247/FINAL_VIDEO.mp4?ex=697d7885&is=697c2705&hm=3875877365b32fda1547f19c25d1e92628d08ea44a0743c14c6a2781a7f817b6&",
+      "mediaType": "video",
+      "content": "OK finally got a full video. This was  95% fully automated using my Z-image / Wan2.2 FML / Humo workflow. - I added an LLM that creates the prompts for the images based off the text to video prompt.  The only manual work I did was extract the lyrics using a separate workflow and give that to a custom GPT along with the real lyrics and it then gave me correct lyrics since whisper doesn't always get them right. I then took the corrected lyrics and ran it through another GPT that then created all the text to video prompts. I pasted the prompts into the workflow, hit run and it created this full length video.   If you want more details on the WF and have enough VRAM (12GB Recommended)  you can go here to get the WF and custom nodes. https://github.com/vrgamegirl19/comfyui-vrgamedevgirl/tree/main/Workflows\n\n- This full video was created straight from comfyUI. NO manual or post edits were made.\n\nI did not review any prompts before making this so it ends up being a surprise.  LOL   some things didn't turn out here and there but overall not bad for automation."
+    },
+    {
+      "month": "2026-01",
+      "message_id": 1461772506737283300,
+      "author": "Dj47(rtx3090)",
+      "avatarUrl": "",
+      "channel": "#ltx_chatter",
+      "created_at": "2026-01-16T17:22:04.026+00:00",
+      "reaction_count": 58,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1461772498902319167/thankskijai01.mp4?ex=697d917a&is=697c3ffa&hm=1b524c7fa6469aed66a8dec2369b509058bebf8871e62ffc3df7d344b0c5ea1e&",
+      "mediaType": "video",
+      "content": "A mini-scene to thank you all for building opensource community."
+    },
+    {
+      "month": "2026-01",
+      "message_id": 1461374045231517700,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#ltx_chatter",
+      "created_at": "2026-01-15T14:58:43.4+00:00",
+      "reaction_count": 44,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1461374045013672000/image.png?ex=697d6fe3&is=697c1e63&hm=cbcdafba9e778a87f04a8af11a713ee02b52dc6c8d6b2ed046ee4897bf49f50e&",
+      "mediaType": "image",
+      "content": "Added this to KJNodes now to enable previews until the comfy core version is finalized, also can use the experimental (pretty slow) latent upscale mode"
+    },
+    {
+      "month": "2026-01",
+      "message_id": 1458793441789083600,
+      "author": "harelcain",
+      "avatarUrl": "",
+      "channel": "#ltx_chatter",
+      "created_at": "2026-01-08T12:04:19.594+00:00",
+      "reaction_count": 44,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1458793441189302477/myfather-kijai.mp4?ex=697d4703&is=697bf583&hm=5577b0d86dabe2291c608e2b1e20aaedccc622310c54e94d1de0064d35b162c9&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2026-01",
+      "message_id": 1462833981807526100,
+      "author": "Peera",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/391574267306704897/d48257a3d552b5a3032cfcc868442fde.png?size=1024",
+      "channel": "#ltx_gens",
+      "created_at": "2026-01-19T15:39:59.404+00:00",
+      "reaction_count": 43,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1458032975982755861/1462833978355613696/Matrix.mp4?ex=697d798e&is=697c280e&hm=80ee51d92bff0c0310bd30681c58f709a7cd8dc90b968f2e633cd42c37855dad&",
+      "mediaType": "video",
+      "content": ""
+    },
+    {
+      "month": "2026-01",
+      "message_id": 1458788193691373600,
+      "author": "harelcain",
+      "avatarUrl": "",
+      "channel": "#ltx_chatter",
+      "created_at": "2026-01-08T11:43:28.35+00:00",
+      "reaction_count": 34,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1458788193112428659/ltx-1767872.mp4?ex=697d4220&is=697bf0a0&hm=a3773a4b42299ffe8f6d5a8dacbaade57df6fafbad1a6f4b1632ae7ddb48ff01&",
+      "mediaType": "video",
+      "content": ""
+    }
+  ]
 }

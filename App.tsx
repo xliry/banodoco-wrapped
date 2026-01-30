@@ -9,6 +9,7 @@ import Heatmap from './components/Heatmap';
 import FunStats from './components/FunStats';
 import ChannelBreakdown from './components/ChannelBreakdown';
 import MillionthMessage from './components/MillionthMessage';
+import TopGenerations from './components/TopGenerations';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import { useDiscordData } from './useDiscordData';
@@ -47,13 +48,17 @@ const App: React.FC = () => {
         </div>
       )}
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Hero
-          totalMessages={data.totalMessages}
-          dateRange={data.dateRange}
-        />
+      {/* Hero spans full viewport width */}
+      <Hero
+        totalMessages={data.totalMessages}
+        dateRange={data.dateRange}
+      />
 
-        <Timeline milestones={data.milestones} />
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Timeline
+          milestones={data.milestones}
+          cumulativeMessages={data.cumulativeMessages}
+        />
 
         <HallOfFame
           topContributors={data.topContributors}
@@ -67,6 +72,8 @@ const App: React.FC = () => {
         <FunStats stats={data.funStats} />
 
         <ChannelBreakdown stats={data.channelStats} />
+
+        <TopGenerations data={data.topGenerations} />
 
         <MillionthMessage message={data.millionthMessage} />
 
