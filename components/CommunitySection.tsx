@@ -332,7 +332,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
         {/* Right column — scrollable card stream with snap + gradient fades */}
         <div
           ref={scrollColumnRef}
-          className="col-span-8 overflow-y-auto scrollbar-hide relative snap-y snap-proximity"
+          className="col-span-8 overflow-y-auto scrollbar-hide relative"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* Top gradient fade — fades in as you scroll down */}
