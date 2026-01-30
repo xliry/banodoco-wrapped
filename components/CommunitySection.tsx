@@ -14,6 +14,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
   const mobileCardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const mobileScrollRafRef = useRef<number | null>(null);
   const topicRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const snapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // State so ArticleCards re-render once the scroll container mounts
   const [scrollRoot, setScrollRoot] = useState<HTMLDivElement | null>(null);
@@ -190,6 +191,13 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
       const col = scrollColumnRef.current;
       if (!col) return;
 
+      // Disable snap during active scrolling to prevent jitter
+      col.style.scrollSnapType = 'none';
+      if (snapTimerRef.current) clearTimeout(snapTimerRef.current);
+      snapTimerRef.current = setTimeout(() => {
+        col.style.scrollSnapType = '';
+      }, 150);
+
       const prevScrollTop = col.scrollTop;
       col.scrollTop += e.deltaY;
 
@@ -201,7 +209,10 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
     };
 
     section.addEventListener('wheel', handler, { passive: false });
-    return () => section.removeEventListener('wheel', handler);
+    return () => {
+      section.removeEventListener('wheel', handler);
+      if (snapTimerRef.current) clearTimeout(snapTimerRef.current);
+    };
   }, []);
 
   if (!data || data.length === 0) return null;
@@ -332,7 +343,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
         {/* Right column — scrollable card stream with snap + gradient fades */}
         <div
           ref={scrollColumnRef}
-          className="col-span-8 overflow-y-auto scrollbar-hide relative"
+          className="col-span-8 overflow-y-auto scrollbar-hide relative snap-y snap-proximity"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* Top gradient fade — fades in as you scroll down */}
