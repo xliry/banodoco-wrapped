@@ -101,24 +101,17 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
       const originX = (rect.right - 40) / window.innerWidth; // Near right edge of chart
       const originY = (rect.top + 60) / window.innerHeight; // Near top of chart (where 1M is)
 
-      // Sparkle burst from the gold marker
-      const burst = () => {
-        confetti({
-          particleCount: 30,
-          spread: 50,
-          origin: { x: originX, y: originY },
-          colors: ['#FFD700', '#FFA500', '#FFEC8B', '#FFFFFF'],
-          startVelocity: 20,
-          gravity: 0.8,
-          scalar: 0.8,
-          ticks: 100,
-        });
-      };
-
-      // Multiple small bursts for sparkle effect
-      burst();
-      setTimeout(burst, 150);
-      setTimeout(burst, 300);
+      // Single sparkle burst from the gold marker
+      confetti({
+        particleCount: 50,
+        spread: 60,
+        origin: { x: originX, y: originY },
+        colors: ['#FFD700', '#FFA500', '#FFEC8B', '#FFFFFF'],
+        startVelocity: 25,
+        gravity: 0.8,
+        scalar: 0.9,
+        ticks: 120,
+      });
     }
   }, [animationComplete, hasCelebrated]);
 
