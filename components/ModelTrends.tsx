@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { ModelTrend } from '../types';
 
@@ -8,6 +8,9 @@ interface ModelTrendsProps {
   data: ModelTrend[];
 }
 
+// ============ Constants ============
+
+// Order matters for stacked areas - bottom to top
 const MODEL_COLORS: Record<string, { stroke: string; name: string }> = {
   sd: { stroke: '#3B82F6', name: 'Stable Diffusion' },
   animatediff: { stroke: '#F97316', name: 'AnimateDiff' },
@@ -17,6 +20,147 @@ const MODEL_COLORS: Record<string, { stroke: string; name: string }> = {
   hunyuan: { stroke: '#EAB308', name: 'HunyuanVideo' },
   ltx: { stroke: '#06B6D4', name: 'LTX' },
 };
+
+const MODEL_KEYS = Object.keys(MODEL_COLORS);
+
+const ANIMATION = {
+  MIN_STEP_MS: 120,
+  MAX_STEP_MS: 400,
+  AUTO_PLAY_DELAY_MS: 100,
+  VISIBILITY_THRESHOLD: 0.3,
+  LABEL_DURATION_FRAMES: 15,
+} as const;
+
+// ============ Utilities ============
+
+/** Normalize data so each point sums to exactly 100% */
+function normalizeData(data: ModelTrend[]): ModelTrend[] {
+  return data.map((point) => {
+    const total = MODEL_KEYS.reduce((sum, key) => sum + (point[key as keyof ModelTrend] as number || 0), 0);
+    if (total === 0 || Math.abs(total - 100) < 0.01) return point;
+
+    const normalized = { ...point } as ModelTrend;
+    MODEL_KEYS.forEach((key) => {
+      (normalized as Record<string, unknown>)[key] = ((point[key as keyof ModelTrend] as number) || 0) * (100 / total);
+    });
+    return normalized;
+  });
+}
+
+/** Ease-out cubic: starts fast, slows at end */
+function getStepDuration(progress: number): number {
+  const eased = 1 - Math.pow(1 - progress, 3);
+  return ANIMATION.MIN_STEP_MS + eased * (ANIMATION.MAX_STEP_MS - ANIMATION.MIN_STEP_MS);
+}
+
+/** Find the first frame where each model has a non-zero value */
+function findModelFirstAppearances(data: ModelTrend[]): Record<string, number> {
+  const appearances: Record<string, number> = {};
+
+  data.forEach((point, frameIndex) => {
+    MODEL_KEYS.forEach((key) => {
+      if (appearances[key] === undefined) {
+        const value = point[key as keyof ModelTrend] as number;
+        if (value > 0) {
+          appearances[key] = frameIndex;
+        }
+      }
+    });
+  });
+
+  return appearances;
+}
+
+
+
+// ============ Hooks ============
+
+type AnimationState = 'idle' | 'playing' | 'completed';
+
+function useTimelineAnimation(totalFrames: number) {
+  const [frame, setFrame] = useState(0);
+  const [state, setState] = useState<AnimationState>('idle');
+  const frameRef = useRef(0);
+  const rafRef = useRef<number | null>(null);
+
+  const play = useCallback(() => {
+    frameRef.current = 0;
+    setFrame(0);
+    setState('playing');
+  }, []);
+
+  const pause = useCallback(() => {
+    setState('idle');
+  }, []);
+
+  const toggle = useCallback(() => {
+    if (state === 'playing') {
+      pause();
+    } else {
+      play();
+    }
+  }, [state, play, pause]);
+
+  useEffect(() => {
+    if (state !== 'playing') return;
+
+    let lastTime = 0;
+
+    const tick = (timestamp: number) => {
+      if (!lastTime) lastTime = timestamp;
+      const elapsed = timestamp - lastTime;
+      const stepDuration = getStepDuration(frameRef.current / totalFrames);
+
+      if (elapsed >= stepDuration) {
+        lastTime = timestamp;
+        frameRef.current += 1;
+
+        if (frameRef.current > totalFrames) {
+          setState('completed');
+          return;
+        }
+
+        setFrame(frameRef.current);
+      }
+
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [state, totalFrames]);
+
+  return { frame, state, play, pause, toggle };
+}
+
+function useAutoPlayOnVisible(
+  ref: React.RefObject<HTMLElement | null>,
+  onVisible: () => void
+) {
+  const hasTriggered = useRef(false);
+
+  useEffect(() => {
+    if (hasTriggered.current || !ref.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= ANIMATION.VISIBILITY_THRESHOLD) {
+          hasTriggered.current = true;
+          observer.disconnect();
+          setTimeout(onVisible, ANIMATION.AUTO_PLAY_DELAY_MS);
+        }
+      },
+      { threshold: ANIMATION.VISIBILITY_THRESHOLD }
+    );
+
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [ref, onVisible]);
+}
+
+// ============ Components ============
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
@@ -39,62 +183,94 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   );
 };
 
-const STEP_MS = 180;
-
-const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(data.length);
-  const [hasCompleted, setHasCompleted] = useState(false);
-  const rafRef = useRef<number | null>(null);
-  const lastStepRef = useRef<number>(0);
-
-  useEffect(() => {
-    if (!isPlaying) return;
-
-    lastStepRef.current = 0;
-
-    const tick = (timestamp: number) => {
-      if (!lastStepRef.current) lastStepRef.current = timestamp;
-      const elapsed = timestamp - lastStepRef.current;
-
-      if (elapsed >= STEP_MS) {
-        lastStepRef.current = timestamp;
-        setVisibleCount((prev) => {
-          if (prev >= data.length) {
-            setIsPlaying(false);
-            setHasCompleted(true);
-            return data.length;
-          }
-          return prev + 1;
-        });
-      }
-
-      rafRef.current = requestAnimationFrame(tick);
-    };
-
-    rafRef.current = requestAnimationFrame(tick);
-
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [isPlaying, data.length]);
-
-  const handlePlayPause = useCallback(() => {
-    if (isPlaying) {
-      setIsPlaying(false);
-    } else {
-      setVisibleCount(1);
-      setHasCompleted(false);
-      setIsPlaying(true);
-    }
-  }, [isPlaying]);
-
-  const displayData = visibleCount < data.length ? data.slice(0, visibleCount) : data;
-  const currentMonth = visibleCount <= data.length && visibleCount > 0 ? data[visibleCount - 1]?.month : '';
-  const progress = data.length > 1 ? ((visibleCount - 1) / (data.length - 1)) * 100 : 100;
+/** Custom animated legend that shows models in order of appearance */
+const AnimatedLegend: React.FC<{
+  visibleModels: Set<string>;
+  firstAppearances: Record<string, number>;
+}> = ({ visibleModels, firstAppearances }) => {
+  // Sort models by appearance frame, then filter to only visible ones
+  const sortedVisibleModels = Object.entries(MODEL_COLORS)
+    .filter(([key]) => visibleModels.has(key))
+    .sort((a, b) => (firstAppearances[a[0]] ?? 0) - (firstAppearances[b[0]] ?? 0));
 
   return (
-    <section className="py-16 sm:py-32">
+    <div className="flex justify-center items-center gap-x-3 px-4 min-h-[32px]">
+      <AnimatePresence mode="popLayout">
+        {sortedVisibleModels.map(([key, { stroke, name }]) => (
+          <motion.div
+            key={key}
+            layout
+            initial={{ opacity: 0, x: 30, scale: 0.8 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center gap-1.5 px-2 py-1"
+          >
+            <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: stroke }} />
+            <span className="text-xs text-gray-300 whitespace-nowrap">{name}</span>
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// ============ Main Component ============
+
+const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const normalizedData = useMemo(() => normalizeData(data), [data]);
+  const totalFrames = normalizedData.length;
+
+  const { frame, state, play, toggle } = useTimelineAnimation(totalFrames);
+
+  useAutoPlayOnVisible(sectionRef, play);
+
+  // Find when each model first appears
+  const firstAppearances = useMemo(
+    () => findModelFirstAppearances(normalizedData),
+    [normalizedData]
+  );
+
+  // Determine which models have appeared so far (for legend visibility)
+  const visibleModels = useMemo(() => {
+    const visible = new Set<string>();
+    MODEL_KEYS.forEach((key) => {
+      const appearFrame = firstAppearances[key];
+      if (appearFrame !== undefined && frame > appearFrame) {
+        visible.add(key);
+      }
+    });
+    return visible;
+  }, [frame, firstAppearances]);
+
+  // Show revealed months + one "growing" month with zeros that will animate up
+  const displayData = useMemo(() => {
+    if (frame === 0) return [];
+
+    // Get months that are fully revealed (frame - 1)
+    const revealed = normalizedData.slice(0, frame);
+
+    // Add the next month with zeroed values if there is one
+    // This creates the "grow up" effect when frame advances
+    if (frame < totalFrames) {
+      const nextMonth = normalizedData[frame];
+      const zeroed = { ...nextMonth };
+      MODEL_KEYS.forEach((key) => {
+        (zeroed as Record<string, unknown>)[key] = 0;
+      });
+      return [...revealed, zeroed];
+    }
+
+    return revealed;
+  }, [normalizedData, frame, totalFrames]);
+
+  const currentMonth = frame > 0 ? normalizedData[frame - 1]?.month : '';
+  const progress = totalFrames > 0 ? (frame / totalFrames) * 100 : 0;
+  const isAnimating = state === 'playing' || (frame > 0 && frame < totalFrames);
+
+  return (
+    <section ref={sectionRef} className="py-16 sm:py-32">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -117,21 +293,21 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
       >
         {/* Play / Pause overlay */}
         <div className="absolute top-3 right-3 sm:top-5 sm:right-5 z-10 flex items-center gap-2.5">
-          {(isPlaying || visibleCount < data.length) && (
+          {isAnimating && (
             <span className="text-cyan-400 text-xs sm:text-sm font-mono tabular-nums bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-md border border-white/5">
               {currentMonth}
             </span>
           )}
           <button
-            onClick={handlePlayPause}
+            onClick={toggle}
             className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/25 hover:border-cyan-500/50 transition-all backdrop-blur-sm shadow-lg shadow-cyan-500/5"
           >
-            {isPlaying ? '⏸ Pause' : hasCompleted ? '▶ Replay' : '▶ Play'}
+            {state === 'playing' ? '⏸ Pause' : state === 'completed' ? '▶ Replay' : '▶ Play'}
           </button>
         </div>
 
         {/* Progress bar during playback */}
-        {(isPlaying || (visibleCount < data.length && visibleCount > 0)) && (
+        {isAnimating && (
           <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/5 z-10">
             <div
               className="h-full bg-cyan-500/60 transition-none"
@@ -141,7 +317,11 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
         )}
 
         <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-          <AreaChart data={displayData} margin={{ top: 5, right: 5, left: -10, bottom: 5 }}>
+          <AreaChart
+            data={displayData}
+            margin={{ top: 45, right: 5, left: -10, bottom: 5 }}
+            style={{ transition: 'all 150ms ease-out' }}
+          >
             <defs>
               {Object.entries(MODEL_COLORS).map(([key, { stroke }]) => (
                 <linearGradient key={key} id={`color-${key}`} x1="0" y1="0" x2="0" y2="1">
@@ -167,10 +347,18 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
               tickLine={false}
               tickFormatter={(v) => `${v}%`}
               width={40}
-              domain={[0, 'auto']}
+              domain={[0, 100]}
+              allowDataOverflow={false}
+              scale="linear"
+              tickCount={6}
             />
             <Tooltip content={<CustomTooltip />} />
-            <Legend verticalAlign="top" height={36} wrapperStyle={{ fontSize: '11px' }} />
+            {/* Custom animated legend - models appear as they debut in the data */}
+            <foreignObject x="40" y="5" width="calc(100% - 80px)" height="40">
+              <div className="w-full h-full flex items-start justify-center">
+                <AnimatedLegend visibleModels={visibleModels} firstAppearances={firstAppearances} />
+              </div>
+            </foreignObject>
             {Object.entries(MODEL_COLORS).map(([key, { stroke, name }]) => (
               <Area
                 key={key}
@@ -181,6 +369,9 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
                 fill={`url(#color-${key})`}
                 stackId="1"
                 name={name}
+                isAnimationActive={true}
+                animationDuration={350}
+                animationEasing="ease-out"
               />
             ))}
           </AreaChart>
