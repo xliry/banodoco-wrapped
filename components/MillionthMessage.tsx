@@ -34,12 +34,59 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
     }
   }, [isInView]);
 
-  // Render message content with basic line break support
+  // Render message content: clean Discord markup, then handle line breaks
   const renderContent = (content: string) => {
+    // Process a single line: replace Discord markup with styled pills
+    const processLine = (line: string) => {
+      const parts: (string | React.ReactElement)[] = [];
+      let remaining = line;
+      let key = 0;
+
+      while (remaining.length > 0) {
+        // Match <id:XXX> (Discord command/interaction references)
+        const idMatch = remaining.match(/^(.*?)<id:(\w+)>/);
+        // Match <#digits> (channel references)
+        const channelMatch = remaining.match(/^(.*?)<#(\d+)>/);
+
+        // Find the earliest match
+        const idIdx = idMatch ? idMatch[1].length : Infinity;
+        const chIdx = channelMatch ? channelMatch[1].length : Infinity;
+
+        if (idIdx === Infinity && chIdx === Infinity) {
+          // No more matches
+          if (remaining) parts.push(remaining);
+          break;
+        }
+
+        if (idIdx <= chIdx && idMatch) {
+          // <id:XXX> match comes first
+          if (idMatch[1]) parts.push(idMatch[1]);
+          const label = idMatch[2].charAt(0).toUpperCase() + idMatch[2].slice(1);
+          parts.push(
+            <span key={`id-${key++}`} className="inline-flex items-center px-1.5 py-0.5 rounded bg-cyan-500/15 text-cyan-300 text-sm font-medium mx-0.5">
+              /{label}
+            </span>
+          );
+          remaining = remaining.slice(idMatch[0].length);
+        } else if (channelMatch) {
+          // <#digits> match comes first
+          if (channelMatch[1]) parts.push(channelMatch[1]);
+          parts.push(
+            <span key={`ch-${key++}`} className="inline-flex items-center px-1.5 py-0.5 rounded bg-indigo-500/15 text-indigo-300 text-sm font-medium mx-0.5">
+              #channel
+            </span>
+          );
+          remaining = remaining.slice(channelMatch[0].length);
+        }
+      }
+
+      return parts;
+    };
+
     return content.split('\n').map((line, i) => (
       <React.Fragment key={i}>
         {i > 0 && <br />}
-        {line}
+        {processLine(line)}
       </React.Fragment>
     ));
   };

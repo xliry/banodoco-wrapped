@@ -13,18 +13,11 @@ const formatMonth = (monthStr: string) => {
   return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 };
 
-const formatMonthShort = (monthStr: string) => {
-  const [year, month] = monthStr.split('-');
-  const d = new Date(parseInt(year), parseInt(month) - 1);
-  return d.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
-};
-
 const MediaItem: React.FC<{ gen: TopGeneration; onClick: () => void }> = ({ gen, onClick }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
       whileHover={{ scale: 1.03, y: -4 }}
       className="relative group cursor-pointer rounded-xl overflow-hidden bg-[#1a1a1a] border border-white/5 shadow-lg"
       onClick={onClick}
@@ -146,25 +139,15 @@ const LightboxModal: React.FC<{ gen: TopGeneration; onClose: () => void }> = ({ 
 const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
   const [selectedGen, setSelectedGen] = useState<TopGeneration | null>(null);
 
-  // Group by month
+  // Group by month, sorted oldest → newest
   const grouped = useMemo(() => {
     const map = new Map<string, TopGeneration[]>();
     for (const gen of data) {
       if (!map.has(gen.month)) map.set(gen.month, []);
       map.get(gen.month)!.push(gen);
     }
-    return [...map.entries()].sort((a, b) => b[0].localeCompare(a[0]));
+    return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]));
   }, [data]);
-
-  const months = useMemo(() => grouped.map(([m]) => m), [grouped]);
-  const [selectedMonth, setSelectedMonth] = useState<string>('');
-
-  // Reset to newest month when data changes
-  const effectiveMonth = months.includes(selectedMonth) && selectedMonth !== '' ? selectedMonth : months[0] || '';
-
-  const currentGens = useMemo(() => {
-    return grouped.find(([m]) => m === effectiveMonth)?.[1] ?? [];
-  }, [grouped, effectiveMonth]);
 
   if (!data || data.length === 0) return null;
 
@@ -185,56 +168,27 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
         </p>
       </motion.div>
 
-      {/* Month selector tabs */}
-      <div className="mb-6 sm:mb-8 overflow-x-auto pb-2 -mx-1">
-        <div className="flex gap-1.5 sm:gap-2 px-1 min-w-max">
-          {months.map((month) => (
-            <button
-              key={month}
-              onClick={() => setSelectedMonth(month)}
-              className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
-                effectiveMonth === month
-                  ? 'bg-sky-500/20 text-sky-400 border border-sky-500/30'
-                  : 'bg-white/5 text-gray-400 border border-white/5 hover:bg-white/10 hover:text-gray-300'
-              }`}
-            >
-              {formatMonthShort(month)}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Media grid for selected month */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={effectiveMonth}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-        >
-          <div className="flex items-center gap-2 mb-4">
-            <h3 className="text-lg font-bold text-white">{formatMonth(effectiveMonth)}</h3>
-            <span className="text-xs text-gray-500 font-medium">{currentGens.length} top posts</span>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
-            {currentGens.map((gen, i) => (
-              <MediaItem
-                key={gen.message_id || `${selectedMonth}-${i}`}
-                gen={gen}
-                onClick={() => setSelectedGen(gen)}
-              />
-            ))}
-          </div>
-
-          {currentGens.length === 0 && (
-            <div className="text-center py-12 text-gray-500 text-sm">
-              No top generations for this month.
+      {/* All months in chronological order */}
+      <div className="space-y-10 sm:space-y-14">
+        {grouped.map(([month, gens]) => (
+          <div key={month}>
+            <div className="flex items-center gap-2 mb-4">
+              <h3 className="text-lg font-bold text-white">{formatMonth(month)}</h3>
+              <span className="text-xs text-gray-500 font-medium">{gens.length} top posts</span>
             </div>
-          )}
-        </motion.div>
-      </AnimatePresence>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+              {gens.map((gen, i) => (
+                <MediaItem
+                  key={gen.message_id || `${month}-${i}`}
+                  gen={gen}
+                  onClick={() => setSelectedGen(gen)}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* Lightbox */}
       <AnimatePresence>

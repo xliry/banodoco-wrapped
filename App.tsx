@@ -7,7 +7,6 @@ import HallOfFame from './components/HallOfFame';
 import ModelTrends from './components/ModelTrends';
 import Heatmap from './components/Heatmap';
 import FunStats from './components/FunStats';
-import ChannelBreakdown from './components/ChannelBreakdown';
 import MillionthMessage from './components/MillionthMessage';
 import TopGenerations from './components/TopGenerations';
 import Footer from './components/Footer';
@@ -70,8 +69,6 @@ const App: React.FC = () => {
         <Heatmap activityData={data.activityHeatmap} />
 
         <FunStats stats={data.funStats} />
-
-        <ChannelBreakdown stats={data.channelStats} />
 
         <TopGenerations data={data.topGenerations} />
 
