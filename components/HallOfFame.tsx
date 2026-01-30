@@ -22,7 +22,7 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
   const podiumOrder = [top3[1], top3[0], top3[2]];
 
   return (
-    <section className="py-12 sm:py-20">
+    <section>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}

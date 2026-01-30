@@ -14,7 +14,7 @@ interface FunStatsProps {
 
 const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
   return (
-    <section className="py-16 sm:py-32">
+    <section>
       <motion.div
         initial={{ opacity: 0, filter: 'blur(10px)' }}
         whileInView={{ opacity: 1, filter: 'blur(0px)' }}

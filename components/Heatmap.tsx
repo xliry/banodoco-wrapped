@@ -39,7 +39,7 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
   };
 
   return (
-    <section className="py-10 sm:py-16">
+    <section>
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}

@@ -352,7 +352,7 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
   );
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-32">
+    <section ref={sectionRef}>
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
