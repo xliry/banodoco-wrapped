@@ -1,27 +1,10 @@
 
-import React, { useState, useEffect } from 'react';
-import { motion, animate } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import SpriteGrid from './SpriteGrid';
 
-interface HeroProps {
-  totalMessages: number;
-  dateRange: { start: string; end: string };
-}
-
-const Hero: React.FC<HeroProps> = ({ totalMessages, dateRange }) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const controls = animate(0, totalMessages, {
-      duration: 3,
-      ease: "easeOut",
-      onUpdate(value) {
-        setCount(Math.floor(value));
-      }
-    });
-    return () => controls.stop();
-  }, [totalMessages]);
+const Hero: React.FC = () => {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center relative pt-16 sm:pt-20 px-4 overflow-hidden">
@@ -37,22 +20,22 @@ const Hero: React.FC<HeroProps> = ({ totalMessages, dateRange }) => {
         className="space-y-4 sm:space-y-6 relative z-10 pointer-events-none"
       >
         <div className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm font-medium text-cyan-400 mb-2 sm:mb-4 backdrop-blur-sm">
-          Banodoco Discord 2022 — 2026
+          Celebrating
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter leading-none">
-          <span className="block text-white drop-shadow-lg">🎉 {count.toLocaleString()} 🎉</span>
+          <span className="block text-white drop-shadow-lg">🎉 1 Million 🎉</span>
           <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">
             POSTS
           </span>
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl text-gray-400 font-medium max-w-2xl mx-auto">
-          "A Community in Review"
+          A Community in Review
         </p>
 
         <p className="text-gray-500 text-xs sm:text-sm uppercase tracking-widest font-semibold pt-2 sm:pt-4">
-          Celebrating 1,000 days of AI Art & Innovation
+          A thousand days of AI Art & Innovation
         </p>
       </motion.div>
 

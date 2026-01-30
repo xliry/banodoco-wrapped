@@ -48,10 +48,7 @@ const App: React.FC = () => {
 
       {/* Hero spans full viewport width */}
       <div className="snap-start">
-        <Hero
-          totalMessages={data.totalMessages}
-          dateRange={data.dateRange}
-        />
+        <Hero />
       </div>
 
       <div className="snap-start min-h-screen flex items-center">
