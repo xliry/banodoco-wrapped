@@ -87,7 +87,7 @@ const LightboxModal: React.FC<{ gen: TopGeneration; onClose: () => void }> = ({ 
             </div>
           )}
           <span className="font-medium">@{gen.author}</span>
-          <span className="text-white/40">#{gen.channel}</span>
+          <span className="text-white/40">#{gen.channel.replace('#', '')}</span>
         </div>
       </motion.div>
     </motion.div>,
@@ -215,7 +215,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
                   </p>
                 )}
                 <div className="text-xs text-white/30">
-                  #{featured.channel} &middot; {new Date(featured.created_at).toLocaleDateString()}
+                  #{featured.channel.replace('#', '')} &middot; {new Date(featured.created_at).toLocaleDateString()}
                 </div>
               </div>
             )}
