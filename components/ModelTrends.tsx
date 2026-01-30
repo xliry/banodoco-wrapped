@@ -320,26 +320,11 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
     return visible;
   }, [frame, firstAppearances]);
 
-  // Show revealed months + one "growing" month with zeros that will animate up
+  // Show revealed months up to current frame
   const displayData = useMemo(() => {
     if (frame === 0) return [];
-
-    // Get months that are fully revealed (frame - 1)
-    const revealed = normalizedData.slice(0, frame);
-
-    // Add the next month with zeroed values if there is one
-    // This creates the "grow up" effect when frame advances
-    if (frame < totalFrames) {
-      const nextMonth = normalizedData[frame];
-      const zeroed = { ...nextMonth };
-      MODEL_KEYS.forEach((key) => {
-        (zeroed as Record<string, unknown>)[key] = 0;
-      });
-      return [...revealed, zeroed];
-    }
-
-    return revealed;
-  }, [normalizedData, frame, totalFrames]);
+    return normalizedData.slice(0, frame);
+  }, [normalizedData, frame]);
 
   const currentMonth = frame > 0 ? normalizedData[frame - 1]?.month : '';
   const progress = totalFrames > 0 ? (frame / totalFrames) * 100 : 0;
