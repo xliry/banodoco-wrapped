@@ -321,7 +321,11 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
               {generations.map((gen, i) => (
                 <button
                   key={gen.message_id}
-                  onClick={() => setFeaturedIndex(i)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    console.log(`[VideoDebug] Thumbnail clicked: ${i}`);
+                    setFeaturedIndex(i);
+                  }}
                   className={`shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-md overflow-hidden transition-all ${
                     i === featuredIndex
                       ? 'ring-2 ring-emerald-400'
