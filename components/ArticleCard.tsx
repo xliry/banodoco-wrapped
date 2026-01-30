@@ -146,47 +146,29 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
     }, [featuredIndex]);
 
 
-    // Log when shouldPlayVideo changes
+    // Control video loading/unloading based on shouldPlayVideo
     useEffect(() => {
-      if (featured?.mediaType === 'video') {
-        console.log(`[VideoDebug][${month}][${variant}] shouldPlayVideo: ${shouldPlayVideo}`);
-      }
-    }, [shouldPlayVideo, month, variant, featured?.mediaType]);
-
-    // Explicitly play video when dominating viewport and loaded (backup for autoPlay)
-    useEffect(() => {
-      if (!shouldPlayVideo || !mediaLoaded || featured?.mediaType !== 'video') return;
-
       const video = videoRef.current;
-      if (!video) return;
+      if (!video || featured?.mediaType !== 'video') return;
 
-      console.log(`[VideoDebug][${month}][${variant}] Attempting play`);
-
-      let attempts = 0;
-      const maxAttempts = 5;
-      const retryDelay = 150;
-      let cancelled = false;
-
-      const tryPlay = () => {
-        if (cancelled) return;
+      if (shouldPlayVideo) {
+        // Load and play
+        console.log(`[VideoDebug][${month}][${variant}] Loading video`);
+        video.src = featured.mediaUrl;
+        video.load();
         video.play()
           .then(() => console.log(`[VideoDebug][${month}][${variant}] Playing`))
-          .catch((err) => {
-            console.log(`[VideoDebug][${month}][${variant}] Play failed: ${err.message}`);
-            attempts++;
-            if (attempts < maxAttempts && !cancelled) {
-              setTimeout(tryPlay, retryDelay);
-            }
-          });
-      };
-
-      tryPlay();
-
-      return () => {
-        cancelled = true;
-        console.log(`[VideoDebug][${month}][${variant}] Cleanup`);
-      };
-    }, [shouldPlayVideo, mediaLoaded, featured?.mediaType, featuredIndex, month, variant]);
+          .catch((err) => console.log(`[VideoDebug][${month}][${variant}] Play failed: ${err.message}`));
+      } else {
+        // Unload completely
+        console.log(`[VideoDebug][${month}][${variant}] Unloading video`);
+        video.pause();
+        video.src = '';
+        video.load(); // Reset the video element
+        setMediaLoaded(false);
+        setProgress(0);
+      }
+    }, [shouldPlayVideo, featured?.mediaUrl, featured?.mediaType, month, variant]);
 
     const handleTimeUpdate = useCallback(() => {
       const video = videoRef.current;
@@ -269,29 +251,18 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
               </div>
 
               {featured.mediaType === 'video' ? (
-                // Only render video when card is >60% visible (dominates viewport)
-                shouldPlayVideo ? (
-                  <video
-                    ref={videoRef}
-                    src={featured.mediaUrl}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    onTimeUpdate={handleTimeUpdate}
-                    onLoadedData={() => setMediaLoaded(true)}
-                    className={`relative z-10 w-full h-full object-cover transition-opacity duration-300 ${
-                      mediaLoaded ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  />
-                ) : (
-                  // Placeholder when not dominating viewport
-                  <div className="relative z-10 w-full h-full bg-white/5 flex items-center justify-center">
-                    <svg className="w-12 h-12 text-white/20" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                )
+                // Always render video element, control via ref
+                <video
+                  ref={videoRef}
+                  muted
+                  loop
+                  playsInline
+                  onTimeUpdate={handleTimeUpdate}
+                  onLoadedData={() => setMediaLoaded(true)}
+                  className={`relative z-10 w-full h-full object-cover transition-opacity duration-300 ${
+                    shouldPlayVideo && mediaLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
               ) : (
                 <img
                   src={isVisible ? featured.mediaUrl : undefined}
