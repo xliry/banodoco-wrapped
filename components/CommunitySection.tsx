@@ -5,10 +5,15 @@ import { TopGeneration } from '../types';
 
 // Hook to detect if we're on desktop (xl breakpoint = 1280px)
 const useIsDesktop = () => {
-  const [isDesktop, setIsDesktop] = useState(false);
+  // Initialize with actual value to avoid flash/duplicate renders
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(min-width: 1280px)').matches;
+  });
 
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 1280px)');
+    // Update in case SSR value differs
     setIsDesktop(mq.matches);
 
     const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
@@ -25,6 +30,8 @@ interface CommunitySectionProps {
 
 const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
   const isDesktop = useIsDesktop();
+
+  console.log(`[VideoDebug] CommunitySection rendering, isDesktop: ${isDesktop}`);
 
   const sectionRef = useRef<HTMLElement>(null);
   const scrollColumnRef = useRef<HTMLDivElement>(null);

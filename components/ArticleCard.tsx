@@ -121,7 +121,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       const observer = new IntersectionObserver(
         ([entry]) => {
           const dominated = entry.intersectionRatio > 0.6;
-          console.log(`[VideoDebug][${month}] ratio: ${entry.intersectionRatio.toFixed(2)}, shouldPlay: ${dominated}`);
+          console.log(`[VideoDebug][${month}][${variant}] ratio: ${entry.intersectionRatio.toFixed(2)}, shouldPlay: ${dominated}`);
           setShouldPlayVideo(dominated);
 
           // Also set isVisible for lazy loading images (one-time, lower threshold)
@@ -149,9 +149,9 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
     // Log when shouldPlayVideo changes
     useEffect(() => {
       if (featured?.mediaType === 'video') {
-        console.log(`[VideoDebug][${month}] shouldPlayVideo: ${shouldPlayVideo}`);
+        console.log(`[VideoDebug][${month}][${variant}] shouldPlayVideo: ${shouldPlayVideo}`);
       }
-    }, [shouldPlayVideo, month, featured?.mediaType]);
+    }, [shouldPlayVideo, month, variant, featured?.mediaType]);
 
     // Explicitly play video when dominating viewport and loaded (backup for autoPlay)
     useEffect(() => {
@@ -160,7 +160,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       const video = videoRef.current;
       if (!video) return;
 
-      console.log(`[VideoDebug][${month}] Attempting play`);
+      console.log(`[VideoDebug][${month}][${variant}] Attempting play`);
 
       let attempts = 0;
       const maxAttempts = 5;
@@ -170,9 +170,9 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       const tryPlay = () => {
         if (cancelled) return;
         video.play()
-          .then(() => console.log(`[VideoDebug][${month}] Playing`))
+          .then(() => console.log(`[VideoDebug][${month}][${variant}] Playing`))
           .catch((err) => {
-            console.log(`[VideoDebug][${month}] Play failed: ${err.message}`);
+            console.log(`[VideoDebug][${month}][${variant}] Play failed: ${err.message}`);
             attempts++;
             if (attempts < maxAttempts && !cancelled) {
               setTimeout(tryPlay, retryDelay);
@@ -184,9 +184,9 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
 
       return () => {
         cancelled = true;
-        console.log(`[VideoDebug][${month}] Cleanup`);
+        console.log(`[VideoDebug][${month}][${variant}] Cleanup`);
       };
-    }, [shouldPlayVideo, mediaLoaded, featured?.mediaType, featuredIndex, month]);
+    }, [shouldPlayVideo, mediaLoaded, featured?.mediaType, featuredIndex, month, variant]);
 
     const handleTimeUpdate = useCallback(() => {
       const video = videoRef.current;
