@@ -29,6 +29,19 @@ async function supaFetch<T>(table: string, query: string): Promise<T[]> {
   throw new Error('fetch failed');
 }
 
+async function supaFetchAll<T>(table: string, select: string): Promise<T[]> {
+  const all: T[] = [];
+  let offset = 0;
+  const pageSize = 1000;
+  while (true) {
+    const data = await supaFetch<T>(table, `select=${select}&limit=${pageSize}&offset=${offset}`);
+    all.push(...data);
+    if (data.length < pageSize) break;
+    offset += pageSize;
+  }
+  return all;
+}
+
 async function main() {
   console.log('🖼️  Refreshing top generations with fresh media URLs...\n');
 
@@ -36,11 +49,11 @@ async function main() {
   const dataPath = path.resolve(__dirname, '..', 'public', 'data.json');
   const appData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
 
-  // Fetch members for name/avatar lookup
-  const members = await supaFetch<{
+  // Fetch all members for name/avatar lookup (paginated — Supabase caps at 1000/page)
+  const members = await supaFetchAll<{
     member_id: string; username: string; global_name: string | null;
     server_nick: string | null; avatar_url: string | null;
-  }>('discord_members', 'select=member_id,username,global_name,server_nick,avatar_url&limit=10000');
+  }>('discord_members', 'member_id::text,username,global_name,server_nick,avatar_url');
 
   const memberMap = new Map<string, string>();
   const avatarMap = new Map<string, string>();
@@ -51,7 +64,7 @@ async function main() {
 
   // Fetch channels
   const channels = await supaFetch<{ channel_id: string; channel_name: string }>(
-    'discord_channels', 'select=channel_id,channel_name&limit=5000'
+    'discord_channels', 'select=channel_id::text,channel_name&limit=5000'
   );
   const channelMap = new Map<string, string>();
   for (const c of channels) channelMap.set(c.channel_id, `#${c.channel_name}`);
@@ -83,7 +96,7 @@ async function main() {
         created_at: string; reaction_count: number; attachments: any[]; content: string;
       }>(
         'discord_messages',
-        `select=message_id,author_id,channel_id,created_at,reaction_count,attachments,content` +
+        `select=message_id,author_id::text,channel_id::text,created_at,reaction_count,attachments,content` +
         `&attachments=neq.[]&reaction_count=gte.3` +
         `&created_at=gte.${month}-01T00:00:00&created_at=lt.${nextMonth}-01T00:00:00` +
         `&channel_id=neq.${UPDATES_CHANNEL_ID}` +

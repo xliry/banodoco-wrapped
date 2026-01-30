@@ -225,15 +225,15 @@ async function main() {
   const [totalCountResult, membersRaw, channelsRaw, firstMsg, lastMsg, millionthMsg] = await Promise.all([
     supabaseFetch<any>({ table: 'discord_messages', select: '*', limit: 1, offset: 0, count: true }),
     fetchAll<{ member_id: string; username: string; global_name: string | null; server_nick: string | null; avatar_url: string | null }>({
-      table: 'discord_members', select: 'member_id,username,global_name,server_nick,avatar_url',
+      table: 'discord_members', select: 'member_id::text,username,global_name,server_nick,avatar_url',
     }),
     fetchAll<{ channel_id: string; channel_name: string }>({
-      table: 'discord_channels', select: 'channel_id,channel_name',
+      table: 'discord_channels', select: 'channel_id::text,channel_name',
     }),
     supabaseFetch<{ created_at: string }>({ table: 'discord_messages', select: 'created_at', order: 'created_at.asc', limit: 1 }),
     supabaseFetch<{ created_at: string }>({ table: 'discord_messages', select: 'created_at', order: 'created_at.desc', limit: 1 }),
     supabaseFetch<{ author_id: string; channel_id: string; content: string; created_at: string }>({
-      table: 'discord_messages', select: 'author_id,channel_id,content,created_at', order: 'created_at.asc', limit: 1, offset: 999999,
+      table: 'discord_messages', select: 'author_id::text,channel_id::text,content,created_at', order: 'created_at.asc', limit: 1, offset: 999999,
     }),
   ]);
 
@@ -292,7 +292,7 @@ async function main() {
   let completedPages = 0;
   await withConcurrency(pageOffsets, async (offset) => {
     const { data } = await supabaseFetch<{ author_id: string; channel_id: string; created_at: string; reference_id: string | null }>({
-      table: 'discord_messages', select: 'author_id,channel_id,created_at,reference_id', order: 'created_at.asc', limit: PAGE_SIZE, offset,
+      table: 'discord_messages', select: 'author_id::text,channel_id::text,created_at,reference_id', order: 'created_at.asc', limit: PAGE_SIZE, offset,
     });
     processPage(acc, data);
     completedPages++;
@@ -553,7 +553,7 @@ async function main() {
         content: string;
       }>({
         table: 'discord_messages',
-        select: 'message_id,author_id,channel_id,created_at,reaction_count,attachments,content',
+        select: 'message_id,author_id::text,channel_id::text,created_at,reaction_count,attachments,content',
         filters: `attachments=neq.[]&reaction_count=gte.3&created_at=gte.${monthStart}&created_at=lt.${monthEnd}&channel_id=neq.${UPDATES_CHANNEL_ID}`,
         order: 'reaction_count.desc',
         limit: 5,
