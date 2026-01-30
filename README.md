@@ -2,19 +2,59 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your AI Studio app
+# Banodoco 1M Wrapped
 
-This contains everything you need to run your app locally.
+Animated data visualization celebrating the Banodoco Discord community reaching 1 million messages.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1R2AjaUd88O6tQwHwfTR-tzUf1TfoeUTO
+## Features
 
-## Run Locally
+- Scroll-driven animations powered by Framer Motion
+- Interactive model trend timeline with play/pause
+- Top generations gallery with lightbox
+- Activity heatmap, hall of fame, and fun stats
+- Fully responsive dark theme
 
-**Prerequisites:**  Node.js
+## Tech Stack
 
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS (via CDN)
+- Recharts
+- Framer Motion
+- Lucide React
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Getting Started
+
+```sh
+npm install
+npm run dev
+```
+
+No API keys or environment variables needed. Data is pre-computed in `public/data.json`.
+
+## Data Regeneration (optional)
+
+```sh
+npm run precompute
+```
+
+Requires Supabase access to the Discord message archive. Outputs a fresh `public/data.json`.
+
+## Build & Deploy
+
+```sh
+npm run build
+```
+
+Static site — deploy the `dist/` folder anywhere (Vercel, Netlify, GitHub Pages, etc.).
+
+## Project Structure
+
+```
+App.tsx                  # Root app component
+components/              # All UI sections (Hero, Heatmap, ModelTrends, …)
+public/data.json         # Pre-computed dataset
+scripts/precompute.ts    # Data generation script
+types.ts                 # Shared TypeScript types
+useDiscordData.ts        # Data-loading hook
+```
