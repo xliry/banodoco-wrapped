@@ -190,14 +190,14 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
       const col = scrollColumnRef.current;
       if (!col) return;
 
-      const { scrollTop, scrollHeight, clientHeight } = col;
-      const atTop = scrollTop <= 0 && e.deltaY < 0;
-      const atBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
-
-      if (atTop || atBottom) return;
-
-      e.preventDefault();
+      const prevScrollTop = col.scrollTop;
       col.scrollTop += e.deltaY;
+
+      // Only capture the event if the column actually scrolled;
+      // when clamped at top/bottom the page scrolls naturally
+      if (col.scrollTop !== prevScrollTop) {
+        e.preventDefault();
+      }
     };
 
     section.addEventListener('wheel', handler, { passive: false });
