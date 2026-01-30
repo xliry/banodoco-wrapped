@@ -17,9 +17,9 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="space-y-4 sm:space-y-6 relative z-10 pointer-events-none"
+        className="space-y-2 sm:space-y-3 relative z-10 pointer-events-none"
       >
-        <div className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm font-medium text-cyan-400 mb-2 sm:mb-4 backdrop-blur-sm">
+        <div className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm font-medium text-cyan-400 backdrop-blur-sm">
           Celebrating
         </div>
 
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
           A Community in Review
         </p>
 
-        <p className="text-gray-500 text-xs sm:text-sm uppercase tracking-widest font-semibold pt-2 sm:pt-4">
+        <p className="text-gray-500 text-xs sm:text-sm uppercase tracking-widest font-semibold">
           A thousand days of AI Art & Innovation
         </p>
       </motion.div>
