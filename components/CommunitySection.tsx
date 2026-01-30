@@ -3,11 +3,29 @@ import React, { useMemo, useRef, useEffect, useState, useLayoutEffect, useCallba
 import ArticleCard from './ArticleCard';
 import { TopGeneration } from '../types';
 
+// Hook to detect if we're on desktop (xl breakpoint = 1280px)
+const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1280px)');
+    setIsDesktop(mq.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  return isDesktop;
+};
+
 interface CommunitySectionProps {
   data: TopGeneration[];
 }
 
 const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
+  const isDesktop = useIsDesktop();
+
   const sectionRef = useRef<HTMLElement>(null);
   const scrollColumnRef = useRef<HTMLDivElement>(null);
   const mobileScrollRef = useRef<HTMLDivElement>(null);
@@ -245,7 +263,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
       style={{ contain: 'layout style paint' }}
     >
       {/* Mobile / Tablet layout — horizontal snap scroll */}
-      <div className="xl:hidden h-full px-8 md:px-20 flex flex-col pt-20 pb-20">
+      {!isDesktop && <div className="h-full px-8 md:px-20 flex flex-col pt-20 pb-20">
         <div className="mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
             <span className="text-sky-400">🎨</span> Top Generations Over Time
@@ -328,10 +346,10 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
             ))}
           </div>
         </div>
-      </div>
+      </div>}
 
       {/* Desktop layout — fixed viewport height, internal column scrolling */}
-      <div className="hidden xl:grid grid-cols-12 gap-16 h-full px-16 max-w-[1920px] mx-auto">
+      {isDesktop && <div className="grid grid-cols-12 gap-16 h-full px-16 max-w-[1920px] mx-auto">
         {/* Left column — heading (stays fixed in place) */}
         <div className="col-span-4 flex items-center pt-24 pb-24">
           <div>
@@ -407,7 +425,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
             }}
           />
         </div>
-      </div>
+      </div>}
     </section>
   );
 };
