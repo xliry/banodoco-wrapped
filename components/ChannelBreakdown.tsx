@@ -9,36 +9,36 @@ interface ChannelBreakdownProps {
 
 const ChannelBreakdown: React.FC<ChannelBreakdownProps> = ({ stats }) => {
   return (
-    <section className="py-32">
+    <section className="py-16 sm:py-32">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="mb-12"
+        className="mb-8 sm:mb-12"
       >
-        <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
-          <span className="text-green-500">📊</span> Where the Conversations Happen
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
+          <span className="text-teal-500">📊</span> Where the Conversations Happen
         </h2>
-        <p className="text-gray-400">Our digital real estate broken down by volume.</p>
+        <p className="text-gray-400 text-sm sm:text-base">Our digital real estate broken down by volume.</p>
       </motion.div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {stats.map((channel, i) => (
-          <div key={channel.name} className="space-y-2">
-            <div className="flex justify-between items-end">
-              <span className="text-white font-bold font-mono">{channel.name}</span>
-              <span className="text-gray-500 text-sm font-medium">
+          <div key={channel.name} className="space-y-1.5 sm:space-y-2">
+            <div className="flex justify-between items-end gap-2">
+              <span className="text-white font-bold font-mono text-sm sm:text-base truncate">{channel.name}</span>
+              <span className="text-gray-500 text-xs sm:text-sm font-medium whitespace-nowrap">
                 {channel.messages.toLocaleString()} msgs • <span className="text-white">{channel.percentage}%</span>
               </span>
             </div>
-            <div className="h-4 bg-white/5 rounded-full overflow-hidden">
+            <div className="h-3 sm:h-4 bg-white/5 rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: `${channel.percentage}%` }}
                 transition={{ duration: 1, delay: i * 0.1, ease: "easeOut" }}
                 className={`h-full rounded-full bg-gradient-to-r ${
-                  i === 0 ? 'from-purple-500 to-pink-500' : 
-                  i === 1 ? 'from-blue-500 to-purple-500' :
-                  i === 2 ? 'from-green-500 to-blue-500' :
+                  i === 0 ? 'from-cyan-500 to-sky-400' :
+                  i === 1 ? 'from-blue-500 to-cyan-500' :
+                  i === 2 ? 'from-teal-500 to-blue-500' :
                   'from-gray-600 to-gray-500'
                 }`}
               />

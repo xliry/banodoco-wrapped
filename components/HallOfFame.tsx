@@ -87,39 +87,39 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
       {/* Awards Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-6">
         <AwardCard
-          icon={<Heart className="text-pink-500" />}
+          icon={<Heart className="text-sky-500" />}
           title="Most Helpful"
           user={awards.mostHelpful.username}
           metric={`${awards.mostHelpful.count} helpful acts`}
-          bgColor="bg-pink-500/10"
+          bgColor="bg-sky-500/10"
         />
         <AwardCard
-          icon={<Zap className="text-green-500" />}
+          icon={<Zap className="text-teal-500" />}
           title="Most Thankful"
           user={awards.mostThankful.username}
           metric={`${awards.mostThankful.count} thank yous`}
-          bgColor="bg-green-500/10"
+          bgColor="bg-teal-500/10"
         />
         <AwardCard
-          icon={<Moon className="text-blue-500" />}
+          icon={<Moon className="text-cyan-500" />}
           title="Night Owl"
           user={awards.nightOwl.username}
           metric={`Avg post ${awards.nightOwl.avgTime}`}
-          bgColor="bg-blue-500/10"
+          bgColor="bg-cyan-500/10"
         />
         <AwardCard
-          icon={<Sun className="text-orange-500" />}
+          icon={<Sun className="text-sky-400" />}
           title="Early Bird"
           user={awards.earlyBird.username}
           metric={`Avg post ${awards.earlyBird.avgTime}`}
-          bgColor="bg-orange-500/10"
+          bgColor="bg-sky-500/10"
         />
         <AwardCard
-          icon={<Star className="text-indigo-400" />}
+          icon={<Star className="text-blue-400" />}
           title="All-Nighter"
           user={awards.allNighter.username}
           metric={`${awards.allNighter.count} late night msgs`}
-          bgColor="bg-indigo-500/10"
+          bgColor="bg-blue-500/10"
         />
       </div>
     </section>

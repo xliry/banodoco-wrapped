@@ -14,22 +14,22 @@ interface FunStatsProps {
 
 const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
   return (
-    <section className="py-32">
+    <section className="py-16 sm:py-32">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="mb-12"
+        className="mb-8 sm:mb-12"
       >
-        <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
-          <span className="text-pink-500">🎲</span> Random Fun Facts
+        <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
+          <span className="text-sky-500">🎲</span> Random Fun Facts
         </h2>
-        <p className="text-gray-400">The weird and wonderful data of 1 million messages.</p>
+        <p className="text-gray-400 text-sm sm:text-base">The weird and wonderful data of 1 million messages.</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[200px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[160px] sm:auto-rows-[200px]">
         {/* Longest Message */}
         <StatCard
-          className="md:col-span-2 bg-gradient-to-br from-purple-900/20 to-pink-900/20"
+          className="sm:col-span-2 bg-gradient-to-br from-cyan-900/20 to-sky-900/20"
           label="The Novel Writer"
           value={stats.longestMessage.chars.toLocaleString()}
           suffix="characters in one message"
@@ -39,7 +39,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
 
         {/* Busiest Day */}
         <StatCard
-          className="bg-orange-500/10"
+          className="bg-teal-500/10"
           label="Busiest Day"
           value={stats.busiestDay.messages.toString()}
           suffix="messages"
@@ -49,7 +49,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
 
         {/* Most Replied */}
         <StatCard
-          className="bg-blue-500/10"
+          className="bg-sky-500/10"
           label="Hottest Topic"
           value={stats.mostRepliedThread.replies.toString()}
           suffix="replies in one thread"
@@ -59,7 +59,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
 
         {/* Emoji */}
         <StatCard
-          className="bg-green-500/10"
+          className="bg-teal-500/10"
           label="Favorite Reaction"
           value={stats.mostUsedEmoji.count.toLocaleString()}
           suffix="times used"
@@ -69,7 +69,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
 
         {/* Most Used Word */}
         <StatCard
-          className="bg-yellow-500/10"
+          className="bg-blue-500/10"
           label="Common Vocabulary"
           value={stats.mostUsedWord.count.toLocaleString()}
           suffix="mentions"
@@ -91,18 +91,18 @@ const StatCard: React.FC<{
 }> = ({ className, label, value, suffix, sub, icon }) => (
   <motion.div
     whileHover={{ scale: 1.02 }}
-    className={`p-8 rounded-3xl border border-white/5 flex flex-col justify-between group cursor-default transition-all ${className}`}
+    className={`p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/5 flex flex-col justify-between group cursor-default transition-all ${className}`}
   >
     <div className="flex justify-between items-start">
-      <span className="text-xs font-bold uppercase tracking-widest text-gray-500">{label}</span>
-      <span className="text-2xl group-hover:scale-125 transition-transform">{icon}</span>
+      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-500">{label}</span>
+      <span className="text-xl sm:text-2xl group-hover:scale-125 transition-transform">{icon}</span>
     </div>
     <div>
-      <div className="flex items-baseline gap-2">
-        <span className="text-4xl font-black text-white">{value}</span>
-        <span className="text-sm font-medium text-gray-400">{suffix}</span>
+      <div className="flex items-baseline gap-1.5 sm:gap-2">
+        <span className="text-2xl sm:text-4xl font-black text-white">{value}</span>
+        <span className="text-xs sm:text-sm font-medium text-gray-400">{suffix}</span>
       </div>
-      <p className="text-xs text-gray-500 mt-1 font-medium">{sub}</p>
+      <p className="text-[10px] sm:text-xs text-gray-500 mt-1 font-medium">{sub}</p>
     </div>
   </motion.div>
 );

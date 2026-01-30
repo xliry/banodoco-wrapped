@@ -10,13 +10,13 @@ interface HeatmapProps {
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 const COLORS = [
-  'bg-purple-950/20',
-  'bg-purple-900/40',
-  'bg-purple-800/50',
-  'bg-purple-700/60',
-  'bg-purple-600/70',
-  'bg-purple-500/80',
-  'bg-purple-400',
+  'bg-cyan-950/20',
+  'bg-cyan-900/40',
+  'bg-cyan-800/50',
+  'bg-cyan-700/60',
+  'bg-cyan-600/70',
+  'bg-cyan-500/80',
+  'bg-cyan-400',
 ];
 
 const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
@@ -46,7 +46,7 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
         className="mb-8 sm:mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
-          <span className="text-orange-500">🕐</span> When Does Banodoco Come Alive?
+          <span className="text-teal-500">🕐</span> When Does Banodoco Come Alive?
         </h2>
         <p className="text-gray-400 text-sm sm:text-base">Our peak hours across the globe.</p>
       </motion.div>
@@ -105,7 +105,7 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
         whileInView={{ opacity: 1 }}
         className="text-center mt-8 sm:mt-12 text-sm sm:text-base text-gray-400 font-medium italic"
       >
-        🌙 "Peak activity: <span className="text-purple-400 font-bold">3PM–6PM UTC</span> on weekdays"
+        🌙 "Peak activity: <span className="text-cyan-400 font-bold">3PM–6PM UTC</span> on weekdays"
       </motion.p>
     </section>
   );

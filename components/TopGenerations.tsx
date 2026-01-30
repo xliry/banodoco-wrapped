@@ -56,21 +56,21 @@ const MediaItem: React.FC<{ gen: TopGeneration; onClick: () => void }> = ({ gen,
               {gen.avatarUrl ? (
                 <img src={gen.avatarUrl} alt="" className="w-5 h-5 rounded-full object-cover" />
               ) : (
-                <div className="w-5 h-5 rounded-full bg-purple-500/30 flex items-center justify-center text-[8px] font-bold text-white">
+                <div className="w-5 h-5 rounded-full bg-cyan-500/30 flex items-center justify-center text-[8px] font-bold text-white">
                   {gen.author.charAt(0)}
                 </div>
               )}
               <span className="text-white text-xs font-medium truncate">{gen.author}</span>
             </div>
             <div className="flex items-center gap-2 text-[10px] text-gray-300">
-              <span className="text-yellow-400 font-bold">{gen.reaction_count} reactions</span>
+              <span className="text-cyan-400 font-bold">{gen.reaction_count} reactions</span>
               <span className="text-gray-500">{gen.channel}</span>
             </div>
           </div>
         </div>
 
         {/* Reaction badge always visible */}
-        <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm rounded-full px-2 py-0.5 text-[10px] font-bold text-yellow-400">
+        <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-sm rounded-full px-2 py-0.5 text-[10px] font-bold text-cyan-400">
           {gen.reaction_count}
         </div>
 
@@ -124,7 +124,7 @@ const LightboxModal: React.FC<{ gen: TopGeneration; onClose: () => void }> = ({ 
             {gen.avatarUrl ? (
               <img src={gen.avatarUrl} alt="" className="w-8 h-8 rounded-full object-cover" />
             ) : (
-              <div className="w-8 h-8 rounded-full bg-purple-500/30 flex items-center justify-center text-sm font-bold text-white">
+              <div className="w-8 h-8 rounded-full bg-cyan-500/30 flex items-center justify-center text-sm font-bold text-white">
                 {gen.author.charAt(0)}
               </div>
             )}
@@ -132,7 +132,7 @@ const LightboxModal: React.FC<{ gen: TopGeneration; onClose: () => void }> = ({ 
               <p className="text-white font-bold text-sm">@{gen.author}</p>
               <p className="text-gray-500 text-xs">{gen.channel} &middot; {new Date(gen.created_at).toLocaleDateString()}</p>
             </div>
-            <div className="ml-auto text-yellow-400 font-bold text-sm">{gen.reaction_count} reactions</div>
+            <div className="ml-auto text-cyan-400 font-bold text-sm">{gen.reaction_count} reactions</div>
           </div>
           {gen.content && (
             <p className="text-gray-300 text-sm line-clamp-3">{gen.content}</p>
@@ -176,7 +176,7 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
         className="mb-8 sm:mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
-          <span className="text-pink-500">🎨</span> Top Generations Over Time
+          <span className="text-sky-500">🎨</span> Top Generations Over Time
         </h2>
         <p className="text-gray-400 text-sm sm:text-base">
           The most loved creations from the community — sorted by reactions each month.
@@ -192,7 +192,7 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
               onClick={() => setSelectedMonth(month)}
               className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
                 effectiveMonth === month
-                  ? 'bg-pink-500/20 text-pink-400 border border-pink-500/30'
+                  ? 'bg-sky-500/20 text-sky-400 border border-sky-500/30'
                   : 'bg-white/5 text-gray-400 border border-white/5 hover:bg-white/10 hover:text-gray-300'
               }`}
             >

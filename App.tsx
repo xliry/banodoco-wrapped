@@ -25,13 +25,13 @@ const App: React.FC = () => {
   const { data, progress, isLoading, isPhase1Done, refresh } = useDiscordData();
 
   return (
-    <div className="relative min-h-screen bg-[#0f0f0f] selection:bg-purple-500/30">
+    <div className="relative min-h-screen bg-[#0f0f0f] selection:bg-cyan-500/30">
       {/* Loading screen until data.json is fetched */}
       <LoadingScreen progress={progress} visible={!isPhase1Done} />
 
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-400 to-blue-500 origin-left z-50"
         style={{ scaleX }}
       />
 
@@ -82,7 +82,7 @@ const App: React.FC = () => {
 
       {/* Dynamic Background Elements */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-900/10 blur-[120px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-900/10 blur-[120px] rounded-full" />
         <div className="absolute bottom-[10%] right-[-5%] w-[35%] h-[35%] bg-blue-900/10 blur-[120px] rounded-full" />
       </div>
     </div>

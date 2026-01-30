@@ -60,7 +60,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
         className="mb-8 sm:mb-16"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
-          <span className="text-purple-500">📈</span> Our Art Journey
+          <span className="text-cyan-500">📈</span> Our Art Journey
         </h2>
         <p className="text-gray-400 max-w-xl text-sm sm:text-base">
           From zero to one million — watch the community grow message by message.
@@ -77,8 +77,8 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
           <AreaChart data={cumulativeMessages} margin={{ top: 10, right: 10, left: -5, bottom: 5 }}>
             <defs>
               <linearGradient id="cumulativeGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#7C3AED" stopOpacity={0.5}/>
-                <stop offset="95%" stopColor="#7C3AED" stopOpacity={0.02}/>
+                <stop offset="5%" stopColor="#06B6D4" stopOpacity={0.5}/>
+                <stop offset="95%" stopColor="#06B6D4" stopOpacity={0.02}/>
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#333" vertical={false} />
@@ -105,7 +105,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
             <Area
               type="monotone"
               dataKey="cumulative"
-              stroke="#7C3AED"
+              stroke="#06B6D4"
               strokeWidth={2.5}
               fillOpacity={1}
               fill="url(#cumulativeGrad)"
@@ -117,7 +117,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
                 y={m.dataCumulative}
                 r={6}
                 fill="#fff"
-                stroke="#7C3AED"
+                stroke="#06B6D4"
                 strokeWidth={2}
               />
             ))}
@@ -135,7 +135,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
             transition={{ delay: idx * 0.1 }}
             className="flex items-center gap-2 text-xs sm:text-sm"
           >
-            <div className="w-2.5 h-2.5 bg-purple-500 rounded-full" />
+            <div className="w-2.5 h-2.5 bg-cyan-500 rounded-full" />
             <span className="text-gray-400 font-medium">{m.label}</span>
             <span className="text-gray-600">({formatYAxis(m.count)})</span>
           </motion.div>
@@ -148,7 +148,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
         className="mt-10 sm:mt-16 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] border border-white/5 text-center"
       >
         <p className="text-base sm:text-xl italic text-gray-300 max-w-2xl mx-auto">
-          "It took us 370 days to reach 100K, but just <span className="text-purple-400 font-bold">177 days</span> to reach our last 250K. That's a 2x acceleration!"
+          "It took us 370 days to reach 100K, but just <span className="text-cyan-400 font-bold">177 days</span> to reach our last 250K. That's a 2x acceleration!"
         </p>
       </motion.div>
     </section>

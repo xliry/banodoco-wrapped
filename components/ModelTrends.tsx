@@ -9,13 +9,13 @@ interface ModelTrendsProps {
 }
 
 const MODEL_COLORS: Record<string, { stroke: string; name: string }> = {
-  sd: { stroke: '#3B82F6', name: 'Stable Diffusion' },
-  animatediff: { stroke: '#F97316', name: 'AnimateDiff' },
-  flux: { stroke: '#7C3AED', name: 'Flux' },
-  wan: { stroke: '#10B981', name: 'Wan' },
-  cogvideo: { stroke: '#EC4899', name: 'CogVideoX' },
-  hunyuan: { stroke: '#EAB308', name: 'HunyuanVideo' },
-  ltx: { stroke: '#06B6D4', name: 'LTX' },
+  sd: { stroke: '#06B6D4', name: 'Stable Diffusion' },
+  animatediff: { stroke: '#2DD4BF', name: 'AnimateDiff' },
+  flux: { stroke: '#38BDF8', name: 'Flux' },
+  wan: { stroke: '#22D3EE', name: 'Wan' },
+  cogvideo: { stroke: '#0EA5E9', name: 'CogVideoX' },
+  hunyuan: { stroke: '#14B8A6', name: 'HunyuanVideo' },
+  ltx: { stroke: '#3B82F6', name: 'LTX' },
 };
 
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -48,7 +48,7 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
         className="mb-8 sm:mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
-          <span className="text-blue-500">🤖</span> The Rise & Fall of Models
+          <span className="text-cyan-500">🤖</span> The Rise & Fall of Models
         </h2>
         <p className="text-gray-400 text-sm sm:text-base">Share of conversation by model family — watching the community shift as technology evolved.</p>
       </motion.div>
@@ -109,11 +109,11 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        className="mt-6 sm:mt-8 flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-purple-500/5 border border-purple-500/10"
+        className="mt-6 sm:mt-8 flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-cyan-500/5 border border-cyan-500/10"
       >
         <div className="text-xl sm:text-2xl mt-1">💡</div>
         <div>
-          <h4 className="font-bold text-purple-400 text-sm sm:text-base">Insight</h4>
+          <h4 className="font-bold text-cyan-400 text-sm sm:text-base">Insight</h4>
           <p className="text-gray-300 text-sm sm:text-base">
             Stable Diffusion dominated early discussions, but Flux quickly captured the community's attention in mid-2024.
             Now Wan and newer video models are taking an increasing share of the conversation.
