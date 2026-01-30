@@ -13,6 +13,9 @@
 const fs = require('fs');
 const path = require('path');
 
+let sharp;
+try { sharp = require('sharp'); } catch {}
+
 // Load .env file manually (no dotenv dependency needed)
 const envPath = path.join(__dirname, '..', '.env');
 if (fs.existsSync(envPath)) {
@@ -43,8 +46,16 @@ Answer with ONLY a JSON object, no markdown:
 async function fetchImageAsBase64(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  const mime = res.headers.get('content-type') || 'image/png';
+  let buf = Buffer.from(await res.arrayBuffer());
+  let mime = res.headers.get('content-type') || 'image/png';
+
+  // Gemini doesn't support image/gif — convert to PNG via sharp
+  if (mime.includes('gif')) {
+    if (!sharp) throw new Error('GIF needs sharp: run "npm i -D sharp"');
+    buf = await sharp(buf, { animated: false }).png().toBuffer();
+    mime = 'image/png';
+  }
+
   return { base64: buf.toString('base64'), mime };
 }
 
