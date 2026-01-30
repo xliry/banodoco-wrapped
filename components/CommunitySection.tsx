@@ -19,8 +19,11 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
   // State so ArticleCards re-render once the scroll container mounts
   const [scrollRoot, setScrollRoot] = useState<HTMLDivElement | null>(null);
 
-  // Active card tracking
-  const [activeTopicIndex, setActiveTopicIndex] = useState(0);
+  // Active card tracking (-1 means section not in view, no card active)
+  const [activeTopicIndex, setActiveTopicIndex] = useState(-1);
+
+  // Track if section is in viewport
+  const [sectionInView, setSectionInView] = useState(false);
 
   // Desktop gradient fades
   const [topGradientOpacity, setTopGradientOpacity] = useState(0);
@@ -54,6 +57,30 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
       col.scrollTop = 0;
     }
   }, [grouped]);
+
+  // Track when section enters/leaves viewport to unload videos when not visible
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const inView = entry.isIntersecting;
+        setSectionInView(inView);
+        if (!inView) {
+          // Section left viewport - deactivate all cards
+          setActiveTopicIndex(-1);
+        } else {
+          // Section entered viewport - activate first card if none active
+          setActiveTopicIndex((prev) => (prev === -1 ? 0 : prev));
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   // Track horizontal scroll to determine active card (mobile)
   useEffect(() => {

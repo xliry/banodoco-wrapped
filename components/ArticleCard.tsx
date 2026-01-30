@@ -133,6 +133,23 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       setMediaLoaded(false);
     }, [featuredIndex]);
 
+    // Properly unload video when no longer active or preloading
+    useEffect(() => {
+      const video = videoRef.current;
+      if (!video) return;
+
+      const shouldLoad = isActive || shouldPreload;
+
+      if (!shouldLoad && video.src) {
+        // Fully unload the video to free memory
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+        setMediaLoaded(false);
+        setProgress(0);
+      }
+    }, [isActive, shouldPreload]);
+
     // Check if video is already loaded when becoming active (handles preloaded videos)
     useEffect(() => {
       if (isActive && featured?.mediaType === 'video' && videoRef.current) {
