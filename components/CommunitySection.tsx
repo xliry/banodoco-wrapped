@@ -1,5 +1,5 @@
 
-import React, { useMemo, useRef, useEffect, useState } from 'react';
+import React, { useMemo, useRef, useEffect, useState, useLayoutEffect, useCallback } from 'react';
 import ArticleCard from './ArticleCard';
 import { TopGeneration } from '../types';
 
@@ -10,8 +10,27 @@ interface CommunitySectionProps {
 const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const scrollColumnRef = useRef<HTMLDivElement>(null);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
+  const mobileCardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const mobileScrollRafRef = useRef<number | null>(null);
+  const topicRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   // State so ArticleCards re-render once the scroll container mounts
   const [scrollRoot, setScrollRoot] = useState<HTMLDivElement | null>(null);
+
+  // Active card tracking
+  const [activeTopicIndex, setActiveTopicIndex] = useState(0);
+
+  // Desktop gradient fades
+  const [topGradientOpacity, setTopGradientOpacity] = useState(0);
+  const [bottomGradientOpacity, setBottomGradientOpacity] = useState(1);
+
+  // Mobile gradient fades
+  const [leftGradientOpacity, setLeftGradientOpacity] = useState(0);
+  const [rightGradientOpacity, setRightGradientOpacity] = useState(1);
+
+  // Desktop dynamic centering paddings
+  const [paddings, setPaddings] = useState({ top: 0, bottom: 0 });
 
   // Group by month, sort each group by reaction_count desc, sort months chronologically
   const grouped = useMemo(() => {
@@ -34,6 +53,131 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
       col.scrollTop = 0;
     }
   }, [grouped]);
+
+  // Track horizontal scroll to determine active card (mobile)
+  useEffect(() => {
+    const mobileScroll = mobileScrollRef.current;
+    if (!mobileScroll) return;
+
+    const handleMobileScroll = () => {
+      if (mobileScrollRafRef.current !== null) return;
+      mobileScrollRafRef.current = requestAnimationFrame(() => {
+        mobileScrollRafRef.current = null;
+
+        if (!mobileScroll || mobileCardRefs.current.length === 0) return;
+
+        const scrollLeft = mobileScroll.scrollLeft;
+        const containerWidth = mobileScroll.clientWidth;
+        const scrollCenter = scrollLeft + containerWidth / 2;
+
+        // Edge gradient fades
+        const fadePx = 48;
+        const distanceFromRight = mobileScroll.scrollWidth - mobileScroll.clientWidth - scrollLeft;
+        setLeftGradientOpacity(Math.min(1, Math.max(0, scrollLeft / fadePx)));
+        setRightGradientOpacity(Math.min(1, Math.max(0, distanceFromRight / fadePx)));
+
+        let closestIdx = 0;
+        let minDiff = Infinity;
+
+        mobileCardRefs.current.forEach((ref, idx) => {
+          if (!ref) return;
+          const cardCenter = ref.offsetLeft + ref.offsetWidth / 2;
+          const diff = Math.abs(cardCenter - scrollCenter);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIdx = idx;
+          }
+        });
+
+        setActiveTopicIndex((prev) => (prev === closestIdx ? prev : closestIdx));
+      });
+    };
+
+    // Initial check
+    handleMobileScroll();
+
+    mobileScroll.addEventListener('scroll', handleMobileScroll, { passive: true });
+    return () => {
+      mobileScroll.removeEventListener('scroll', handleMobileScroll);
+      if (mobileScrollRafRef.current !== null) {
+        cancelAnimationFrame(mobileScrollRafRef.current);
+        mobileScrollRafRef.current = null;
+      }
+    };
+  }, [grouped.length]);
+
+  // Track vertical scroll on desktop for gradient fades + active card detection
+  const handleDesktopScroll = useCallback(() => {
+    const desktopScroll = scrollColumnRef.current;
+    if (!desktopScroll) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = desktopScroll;
+
+    // Top gradient: fade in over 80px of scroll from top
+    setTopGradientOpacity(Math.min(1, scrollTop / 80));
+
+    // Bottom gradient: fade in over 80px of scroll from bottom
+    const distanceFromBottom = scrollHeight - scrollTop - clientHeight;
+    setBottomGradientOpacity(Math.min(1, distanceFromBottom / 80));
+
+    // Determine which card is closest to visible center
+    const visibleCenter = scrollTop + clientHeight / 2;
+
+    let closestIdx = 0;
+    let minDiff = Infinity;
+
+    topicRefs.current.forEach((ref, idx) => {
+      if (!ref) return;
+      const cardCenter = ref.offsetTop + ref.offsetHeight / 2;
+      const diff = Math.abs(cardCenter - visibleCenter);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIdx = idx;
+      }
+    });
+
+    setActiveTopicIndex((prev) => (prev === closestIdx ? prev : closestIdx));
+  }, []);
+
+  useEffect(() => {
+    const desktopScroll = scrollColumnRef.current;
+    if (!desktopScroll) return;
+
+    // Initial check after padding changes
+    const rafId = requestAnimationFrame(handleDesktopScroll);
+
+    desktopScroll.addEventListener('scroll', handleDesktopScroll, { passive: true });
+    return () => {
+      desktopScroll.removeEventListener('scroll', handleDesktopScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, [paddings, handleDesktopScroll]);
+
+  // Calculate dynamic padding to center first/last cards in desktop viewport
+  useLayoutEffect(() => {
+    if (grouped.length === 0) return;
+
+    const calculatePaddings = () => {
+      const windowHeight = window.innerHeight;
+      const firstCard = topicRefs.current[0];
+      const lastCard = topicRefs.current[grouped.length - 1];
+
+      if (!firstCard || !lastCard) return;
+
+      const firstHeight = firstCard.offsetHeight;
+      const lastHeight = lastCard.offsetHeight;
+
+      const top = Math.max(80, (windowHeight - firstHeight) / 2);
+      const bottom = Math.max(80, (windowHeight - lastHeight) / 2);
+
+      setPaddings({ top, bottom });
+    };
+
+    calculatePaddings();
+
+    window.addEventListener('resize', calculatePaddings);
+    return () => window.removeEventListener('resize', calculatePaddings);
+  }, [grouped.length]);
 
   // Wheel capture: redirect scroll to the right column so the page "locks" on this section
   useEffect(() => {
@@ -69,7 +213,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
       className="min-h-[100svh] xl:h-[100svh] xl:min-h-0 overflow-y-auto xl:overflow-hidden relative text-white bg-[rgba(12,20,32,0.95)]"
       style={{ contain: 'layout style paint' }}
     >
-      {/* Mobile / Tablet layout */}
+      {/* Mobile / Tablet layout — horizontal snap scroll */}
       <div className="xl:hidden h-full px-6 md:px-16 flex flex-col pt-20 pb-20">
         <div className="mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
@@ -91,10 +235,67 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
           </a>
         </div>
 
-        <div className="flex flex-col gap-8 md:gap-12">
-          {grouped.map(([month, gens]) => (
-            <ArticleCard key={month} month={month} generations={gens} variant="mobile" />
-          ))}
+        {/* Horizontal scroll container with gradient fades */}
+        <div className="-mx-6 md:-mx-16">
+          <div className="relative">
+            <div
+              ref={mobileScrollRef}
+              className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory px-6 md:px-16 pb-4 scrollbar-hide"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {grouped.map(([month, gens], idx) => (
+                <ArticleCard
+                  key={month}
+                  ref={(el) => { mobileCardRefs.current[idx] = el; }}
+                  month={month}
+                  generations={gens}
+                  variant="mobile"
+                  isActive={idx === activeTopicIndex}
+                  fullWidth
+                />
+              ))}
+            </div>
+
+            {/* Left edge gradient fade */}
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 w-10 md:w-16 z-10"
+              style={{
+                background: 'linear-gradient(to right, rgba(12, 20, 32, 0.95) 0%, rgba(12, 20, 32, 0) 100%)',
+                opacity: leftGradientOpacity,
+              }}
+            />
+            {/* Right edge gradient fade */}
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 w-10 md:w-16 z-10"
+              style={{
+                background: 'linear-gradient(to left, rgba(12, 20, 32, 0.95) 0%, rgba(12, 20, 32, 0) 100%)',
+                opacity: rightGradientOpacity,
+              }}
+            />
+          </div>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center gap-2 mt-2">
+            {grouped.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  const card = mobileCardRefs.current[idx];
+                  if (card && mobileScrollRef.current) {
+                    mobileScrollRef.current.scrollTo({
+                      left: card.offsetLeft - 24,
+                      behavior: 'smooth',
+                    });
+                  }
+                }}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  idx === activeTopicIndex
+                    ? 'bg-emerald-400 w-4'
+                    : 'bg-white/30'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -128,23 +329,52 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
           </div>
         </div>
 
-        {/* Right column — scrollable card stream with snap */}
+        {/* Right column — scrollable card stream with snap + gradient fades */}
         <div
           ref={scrollColumnRef}
-          className="col-span-8 overflow-y-auto scrollbar-hide relative snap-y snap-proximity pt-32 pb-32"
+          className="col-span-8 overflow-y-auto scrollbar-hide relative snap-y snap-proximity"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          <div className="space-y-6">
-            {grouped.map(([month, gens]) => (
-              <div key={month} className="snap-start">
+          {/* Top gradient fade — fades in as you scroll down */}
+          <div
+            className="sticky top-0 left-0 right-0 h-24 pointer-events-none z-10"
+            style={{
+              marginBottom: '-6rem',
+              background: 'linear-gradient(to bottom, rgba(12, 20, 32, 1) 0%, rgba(12, 20, 32, 0) 100%)',
+              opacity: topGradientOpacity,
+            }}
+          />
+
+          <div
+            style={{
+              paddingTop: paddings.top ? `${paddings.top}px` : '8rem',
+              paddingBottom: paddings.bottom ? `${paddings.bottom}px` : '8rem',
+            }}
+          >
+            <div className="space-y-6">
+              {grouped.map(([month, gens], idx) => (
                 <ArticleCard
+                  key={month}
+                  ref={(el) => { topicRefs.current[idx] = el; }}
                   month={month}
                   generations={gens}
                   variant="desktop"
                   scrollRoot={scrollRoot}
+                  isActive={idx === activeTopicIndex}
+                  snapToCenter={idx !== 0 && idx !== grouped.length - 1}
                 />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
+          {/* Bottom gradient fade — fades in based on distance from bottom */}
+          <div
+            className="sticky bottom-0 left-0 right-0 h-16 pointer-events-none z-10 -mt-16"
+            style={{
+              background: 'linear-gradient(to top, rgba(12, 20, 32, 0.95) 0%, rgba(12, 20, 32, 0) 100%)',
+              opacity: bottomGradientOpacity,
+            }}
+          />
         </div>
       </div>
     </section>
