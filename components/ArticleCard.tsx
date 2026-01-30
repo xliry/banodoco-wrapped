@@ -21,7 +21,6 @@ const formatMonth = (monthStr: string) => {
 const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
   ({ month, generations, variant, scrollRoot, isActive = false, fullWidth = false, snapToCenter = false }, ref) => {
     const internalRef = useRef<HTMLDivElement>(null);
-    const cardRef = (ref as React.RefObject<HTMLDivElement>) || internalRef;
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
@@ -33,7 +32,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
 
     // IntersectionObserver — lazy load media using scroll container as root
     useEffect(() => {
-      const node = typeof cardRef === 'object' && cardRef?.current ? cardRef.current : null;
+      const node = internalRef.current;
       if (!node) return;
       const observer = new IntersectionObserver(
         ([entry]) => {
@@ -46,7 +45,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       );
       observer.observe(node);
       return () => observer.disconnect();
-    }, [scrollRoot, cardRef]);
+    }, [scrollRoot]);
 
     // Reset video state when switching featured
     useEffect(() => {
@@ -90,7 +89,11 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
 
     return (
       <div
-        ref={ref || internalRef}
+        ref={(el) => {
+          (internalRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
+          if (typeof ref === 'function') ref(el);
+          else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
+        }}
         className={`bg-white/5 backdrop-blur-md rounded-xl md:rounded-2xl overflow-hidden border transition-colors duration-500 hover:border-white/20 h-full flex flex-col ${activeClasses} ${fullWidthClasses} ${snapClasses}`}
       >
         {/* Header */}
