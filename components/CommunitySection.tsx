@@ -1,5 +1,5 @@
 
-import React, { useMemo, useRef, useEffect } from 'react';
+import React, { useMemo, useRef, useEffect, useState } from 'react';
 import ArticleCard from './ArticleCard';
 import { TopGeneration } from '../types';
 
@@ -10,6 +10,8 @@ interface CommunitySectionProps {
 const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const scrollColumnRef = useRef<HTMLDivElement>(null);
+  // State so ArticleCards re-render once the scroll container mounts
+  const [scrollRoot, setScrollRoot] = useState<HTMLDivElement | null>(null);
 
   // Group by month, sort each group by reaction_count desc, sort months chronologically
   const grouped = useMemo(() => {
@@ -24,13 +26,21 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
     return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]));
   }, [data]);
 
+  // Capture scroll column ref into state + reset scroll to top
+  useEffect(() => {
+    const col = scrollColumnRef.current;
+    if (col) {
+      setScrollRoot(col);
+      col.scrollTop = 0;
+    }
+  }, [grouped]);
+
   // Wheel capture: redirect scroll to the right column so the page "locks" on this section
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
     const handler = (e: WheelEvent) => {
-      // Only capture on desktop (xl = 1280px)
       if (window.innerWidth < 1280) return;
 
       const col = scrollColumnRef.current;
@@ -40,10 +50,8 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
       const atTop = scrollTop <= 0 && e.deltaY < 0;
       const atBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
 
-      // At boundaries → let the page scroll naturally to next/prev section
       if (atTop || atBottom) return;
 
-      // Otherwise hijack the scroll into the right column
       e.preventDefault();
       col.scrollTop += e.deltaY;
     };
@@ -128,7 +136,12 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
           <div className="space-y-6">
             {grouped.map(([month, gens]) => (
               <div key={month} className="snap-start">
-                <ArticleCard month={month} generations={gens} variant="desktop" />
+                <ArticleCard
+                  month={month}
+                  generations={gens}
+                  variant="desktop"
+                  scrollRoot={scrollRoot}
+                />
               </div>
             ))}
           </div>

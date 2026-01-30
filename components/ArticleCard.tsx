@@ -6,6 +6,7 @@ interface ArticleCardProps {
   month: string;
   generations: TopGeneration[];
   variant: 'mobile' | 'desktop';
+  scrollRoot?: HTMLElement | null;
 }
 
 const formatMonth = (monthStr: string) => {
@@ -14,7 +15,7 @@ const formatMonth = (monthStr: string) => {
   return d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 };
 
-const ArticleCard: React.FC<ArticleCardProps> = ({ month, generations, variant }) => {
+const ArticleCard: React.FC<ArticleCardProps> = ({ month, generations, variant, scrollRoot }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -25,10 +26,12 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ month, generations, variant }
   const featured = generations[featuredIndex];
   const isDesktop = variant === 'desktop';
 
-  // IntersectionObserver — lazy load media
+  // IntersectionObserver — lazy load media using scroll container as root
   useEffect(() => {
     const node = cardRef.current;
     if (!node) return;
+    // For desktop: use the scroll column as root so only cards near the
+    // visible part of the column trigger loading, not the entire viewport
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -36,11 +39,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ month, generations, variant }
           observer.disconnect();
         }
       },
-      { rootMargin: '200px' }
+      { root: scrollRoot || null, rootMargin: '300px' }
     );
     observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [scrollRoot]);
 
   // Reset video state when switching featured
   useEffect(() => {
