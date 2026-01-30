@@ -95,6 +95,21 @@ async function askGemini(base64, mime) {
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
+const LOG_PATH = path.join(__dirname, '..', 'filter-results.log');
+const logLines = [];
+function log(msg) {
+  console.log(msg);
+  logLines.push(msg);
+}
+function logWrite(msg) {
+  process.stdout.write(msg);
+  logLines.push(msg);
+}
+function saveLog() {
+  fs.writeFileSync(LOG_PATH, logLines.join('\n') + '\n');
+  console.log(`\nLog saved to: ${LOG_PATH}`);
+}
+
 // ---------- main ----------
 
 async function main() {
@@ -102,16 +117,17 @@ async function main() {
   const gens = data.topGenerations;
   const statics = gens.filter(g => g.mediaType === 'image' || g.mediaType === 'gif');
 
-  console.log(`Total generations: ${gens.length}`);
-  console.log(`Non-video to check: ${statics.length}`);
-  console.log(DRY_RUN ? '(dry run — data.json will NOT be modified)\n' : '\n');
+  log(`Total generations: ${gens.length}`);
+  log(`Non-video to check: ${statics.length}`);
+  log(DRY_RUN ? '(dry run — data.json will NOT be modified)\n' : '\n');
 
   const screenshotIds = new Set();
+  const results = [];
 
   for (let i = 0; i < statics.length; i++) {
     const gen = statics[i];
     const label = `[${i + 1}/${statics.length}] ${gen.month} | ${gen.author} | ${gen.mediaType}`;
-    process.stdout.write(`${label} ... `);
+    logWrite(`${label} ... `);
 
     try {
       const { base64, mime } = await fetchImageAsBase64(gen.mediaUrl);
@@ -119,34 +135,38 @@ async function main() {
 
       if (result.is_screenshot) {
         screenshotIds.add(gen.message_id);
-        console.log(`SCREENSHOT — ${result.reason}`);
+        log(`SCREENSHOT — ${result.reason}`);
       } else {
-        console.log(`ok — ${result.reason}`);
+        log(`ok — ${result.reason}`);
       }
+      results.push({ ...gen, ...result });
     } catch (err) {
-      console.log(`ERROR — ${err.message}`);
+      log(`ERROR — ${err.message}`);
+      results.push({ ...gen, is_screenshot: false, reason: 'error: ' + err.message });
     }
 
     // rate-limit: free tier is 30 RPM, 1 per 2s is safe
     if (i < statics.length - 1) await sleep(2500);
   }
 
-  console.log(`\n--- Results ---`);
-  console.log(`Screenshots found: ${screenshotIds.size}`);
+  log(`\n--- Results ---`);
+  log(`Screenshots found: ${screenshotIds.size}`);
 
   if (screenshotIds.size === 0) {
-    console.log('Nothing to remove.');
+    log('Nothing to remove.');
+    saveLog();
     return;
   }
 
   // List them
   for (const id of screenshotIds) {
     const g = gens.find(x => x.message_id === id);
-    console.log(`  - ${g.month} | ${g.author} | ${g.message_id}`);
+    log(`  - ${g.month} | ${g.author} | ${g.message_id} | ${g.mediaUrl}`);
   }
 
   if (DRY_RUN) {
-    console.log('\n(dry run — no changes written)');
+    log('\n(dry run — no changes written)');
+    saveLog();
     return;
   }
 
@@ -156,7 +176,8 @@ async function main() {
   const after = data.topGenerations.length;
 
   fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2) + '\n');
-  console.log(`\ndata.json updated: ${before} → ${after} generations (${before - after} removed)`);
+  log(`\ndata.json updated: ${before} → ${after} generations (${before - after} removed)`);
+  saveLog();
 }
 
 main().catch(err => { console.error(err); process.exit(1); });
