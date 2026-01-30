@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const { data, progress, isLoading, isPhase1Done, refresh } = useDiscordData();
 
   return (
-    <div className="relative min-h-screen bg-[#0f0f0f] selection:bg-cyan-500/30">
+    <div className="relative min-h-screen bg-[#0f0f0f] selection:bg-cyan-500/30 snap-y snap-proximity overflow-y-auto h-screen">
       {/* Loading screen until data.json is fetched */}
       <LoadingScreen progress={progress} visible={!isPhase1Done} />
 
@@ -47,34 +47,58 @@ const App: React.FC = () => {
       )}
 
       {/* Hero spans full viewport width */}
-      <Hero
-        totalMessages={data.totalMessages}
-        dateRange={data.dateRange}
-      />
-
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Timeline
-          milestones={data.milestones}
-          cumulativeMessages={data.cumulativeMessages}
+      <div className="snap-start">
+        <Hero
+          totalMessages={data.totalMessages}
+          dateRange={data.dateRange}
         />
+      </div>
 
-        <HallOfFame
-          topContributors={data.topContributors}
-          awards={data.awards}
-        />
+      <div className="snap-start min-h-screen flex items-center">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <Timeline
+            milestones={data.milestones}
+            cumulativeMessages={data.cumulativeMessages}
+          />
+        </main>
+      </div>
 
-        <ModelTrends data={data.modelTrends} />
+      <div className="snap-start min-h-screen flex items-center">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <HallOfFame
+            topContributors={data.topContributors}
+            awards={data.awards}
+          />
+        </main>
+      </div>
 
-        <Heatmap activityData={data.activityHeatmap} />
+      <div className="snap-start min-h-screen flex items-center">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <ModelTrends data={data.modelTrends} />
+        </main>
+      </div>
 
-        <FunStats stats={data.funStats} />
-      </main>
+      <div className="snap-start min-h-screen flex items-center">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <Heatmap activityData={data.activityHeatmap} />
+        </main>
+      </div>
 
-      <CommunitySection data={data.topGenerations} />
+      <div className="snap-start min-h-screen flex items-center">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <FunStats stats={data.funStats} />
+        </main>
+      </div>
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <MillionthMessage message={data.millionthMessage} />
-      </main>
+      <div className="snap-start">
+        <CommunitySection data={data.topGenerations} />
+      </div>
+
+      <div className="snap-start">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <MillionthMessage message={data.millionthMessage} />
+        </main>
+      </div>
 
       {/* Dynamic Background Elements */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
