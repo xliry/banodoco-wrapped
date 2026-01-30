@@ -1,7 +1,7 @@
 
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceDot, ReferenceLine } from 'recharts';
 import { Milestone, CumulativeDataPoint } from '../types';
 import confetti from 'canvas-confetti';
 
@@ -175,6 +175,10 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
               domain={[0, 1000000]}
               ticks={Y_TICKS}
             />
+            {/* Horizontal grid lines at each Y tick */}
+            {Y_TICKS.map((tick) => (
+              <ReferenceLine key={tick} y={tick} stroke="#333" strokeDasharray="3 3" />
+            ))}
             <Tooltip content={<CustomTooltip />} />
             <Area
               type="monotone"
