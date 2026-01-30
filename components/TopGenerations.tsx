@@ -13,32 +13,30 @@ const formatMonth = (monthStr: string) => {
   return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 };
 
+const formatMonthShort = (monthStr: string) => {
+  const [year, month] = monthStr.split('-');
+  const d = new Date(parseInt(year), parseInt(month) - 1);
+  return d.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
+};
+
 const MediaItem: React.FC<{ gen: TopGeneration; onClick: () => void }> = ({ gen, onClick }) => {
   return (
     <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
       whileHover={{ scale: 1.03, y: -4 }}
-      className="relative group cursor-pointer rounded-xl overflow-hidden bg-[#1a1a1a] border border-white/5 shadow-lg flex-shrink-0"
+      className="relative group cursor-pointer rounded-xl overflow-hidden bg-[#1a1a1a] border border-white/5 shadow-lg"
       onClick={onClick}
     >
-      <div className="w-[180px] sm:w-[220px] aspect-square relative overflow-hidden">
-        {gen.mediaType === 'video' ? (
-          <video
-            src={gen.mediaUrl}
-            className="w-full h-full object-cover"
-            muted
-            loop
-            playsInline
-            onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
-            onMouseLeave={(e) => { const v = e.target as HTMLVideoElement; v.pause(); v.currentTime = 0; }}
-          />
-        ) : (
-          <img
-            src={gen.mediaUrl}
-            alt={gen.content || 'Community generation'}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        )}
+      <div className="aspect-square relative overflow-hidden bg-[#111]">
+        {/* Always show image thumbnail — video plays in lightbox only */}
+        <img
+          src={gen.mediaUrl}
+          alt={gen.content || 'Community generation'}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
@@ -144,9 +142,15 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
       if (!map.has(gen.month)) map.set(gen.month, []);
       map.get(gen.month)!.push(gen);
     }
-    // Sort months and take only months with data
     return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]));
   }, [data]);
+
+  const months = useMemo(() => grouped.map(([m]) => m), [grouped]);
+  const [selectedMonth, setSelectedMonth] = useState<string>(() => months[months.length - 1] || '');
+
+  const currentGens = useMemo(() => {
+    return grouped.find(([m]) => m === selectedMonth)?.[1] ?? [];
+  }, [grouped, selectedMonth]);
 
   if (!data || data.length === 0) return null;
 
@@ -165,32 +169,56 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
         </p>
       </motion.div>
 
-      {/* Horizontal scrollable timeline on desktop, vertical on mobile */}
-      <div className="space-y-8 sm:space-y-12">
-        {grouped.map(([month, gens], groupIdx) => (
-          <motion.div
-            key={month}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: groupIdx * 0.05 }}
-          >
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-pink-500" />
-              {formatMonth(month)}
-            </h3>
-
-            <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-3 scrollbar-thin">
-              {gens.map((gen, i) => (
-                <MediaItem
-                  key={gen.message_id || `${month}-${i}`}
-                  gen={gen}
-                  onClick={() => setSelectedGen(gen)}
-                />
-              ))}
-            </div>
-          </motion.div>
-        ))}
+      {/* Month selector tabs */}
+      <div className="mb-6 sm:mb-8 overflow-x-auto pb-2 -mx-1">
+        <div className="flex gap-1.5 sm:gap-2 px-1 min-w-max">
+          {months.map((month) => (
+            <button
+              key={month}
+              onClick={() => setSelectedMonth(month)}
+              className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
+                selectedMonth === month
+                  ? 'bg-pink-500/20 text-pink-400 border border-pink-500/30'
+                  : 'bg-white/5 text-gray-400 border border-white/5 hover:bg-white/10 hover:text-gray-300'
+              }`}
+            >
+              {formatMonthShort(month)}
+            </button>
+          ))}
+        </div>
       </div>
+
+      {/* Media grid for selected month */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={selectedMonth}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <h3 className="text-lg font-bold text-white">{formatMonth(selectedMonth)}</h3>
+            <span className="text-xs text-gray-500 font-medium">{currentGens.length} top posts</span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+            {currentGens.map((gen, i) => (
+              <MediaItem
+                key={gen.message_id || `${selectedMonth}-${i}`}
+                gen={gen}
+                onClick={() => setSelectedGen(gen)}
+              />
+            ))}
+          </div>
+
+          {currentGens.length === 0 && (
+            <div className="text-center py-12 text-gray-500 text-sm">
+              No top generations for this month.
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Lightbox */}
       <AnimatePresence>
