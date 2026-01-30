@@ -8,7 +8,7 @@ import ModelTrends from './components/ModelTrends';
 import Heatmap from './components/Heatmap';
 import FunStats from './components/FunStats';
 import MillionthMessage from './components/MillionthMessage';
-import TopGenerations from './components/TopGenerations';
+import CommunitySection from './components/CommunitySection';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import { useDiscordData } from './useDiscordData';
@@ -69,9 +69,11 @@ const App: React.FC = () => {
         <Heatmap activityData={data.activityHeatmap} />
 
         <FunStats stats={data.funStats} />
+      </main>
 
-        <TopGenerations data={data.topGenerations} />
+      <CommunitySection />
 
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <MillionthMessage message={data.millionthMessage} />
 
         <Footer />
