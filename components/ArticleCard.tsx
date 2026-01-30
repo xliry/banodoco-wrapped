@@ -109,23 +109,30 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
     const featured = generations[featuredIndex];
     const isDesktop = variant === 'desktop';
 
-    // Track if card is actually visible in viewport (for videos, we need real visibility, not just isActive)
-    const [isInViewport, setIsInViewport] = useState(false);
+    // Track if card is centered enough to play video (>50% visible in center of viewport)
+    const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
 
-    // IntersectionObserver — track visibility continuously
+    // IntersectionObserver — track visibility for lazy loading AND video playback
     useEffect(() => {
       const node = internalRef.current;
       if (!node) return;
 
+      // Use a high threshold - card must be >60% visible to play
       const observer = new IntersectionObserver(
         ([entry]) => {
-          setIsInViewport(entry.isIntersecting);
-          // Also set isVisible for lazy loading images (one-time)
+          const dominated = entry.intersectionRatio > 0.6;
+          setShouldPlayVideo(dominated);
+
+          // Also set isVisible for lazy loading images (one-time, lower threshold)
           if (entry.isIntersecting) {
             setIsVisible(true);
           }
         },
-        { root: scrollRoot || null, rootMargin: '50px', threshold: 0.1 }
+        {
+          root: scrollRoot || null,
+          rootMargin: '0px',
+          threshold: [0, 0.1, 0.3, 0.5, 0.6, 0.7, 0.9, 1.0]
+        }
       );
       observer.observe(node);
       return () => observer.disconnect();
@@ -138,9 +145,9 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
     }, [featuredIndex]);
 
 
-    // Explicitly play video when active, visible, and loaded (backup for autoPlay)
+    // Explicitly play video when dominating viewport and loaded (backup for autoPlay)
     useEffect(() => {
-      if (!isActive || !isInViewport || !mediaLoaded || featured?.mediaType !== 'video') return;
+      if (!shouldPlayVideo || !mediaLoaded || featured?.mediaType !== 'video') return;
 
       const video = videoRef.current;
       if (!video) return;
@@ -163,7 +170,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       tryPlay();
 
       return () => { cancelled = true; };
-    }, [isActive, isInViewport, mediaLoaded, featured?.mediaType, featuredIndex]);
+    }, [shouldPlayVideo, mediaLoaded, featured?.mediaType, featuredIndex]);
 
     const handleTimeUpdate = useCallback(() => {
       const video = videoRef.current;
@@ -246,8 +253,8 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
               </div>
 
               {featured.mediaType === 'video' ? (
-                // Only render video when BOTH active AND actually visible in viewport
-                isActive && isInViewport ? (
+                // Only render video when card is >60% visible (dominates viewport)
+                shouldPlayVideo ? (
                   <video
                     ref={videoRef}
                     src={featured.mediaUrl}
@@ -262,7 +269,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
                     }`}
                   />
                 ) : (
-                  // Placeholder when not active or not visible
+                  // Placeholder when not dominating viewport
                   <div className="relative z-10 w-full h-full bg-white/5 flex items-center justify-center">
                     <svg className="w-12 h-12 text-white/20" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
