@@ -1113,30 +1113,6 @@
     },
     {
       "month": "2023-08",
-      "message_id": 1145130416651653100,
-      "author": "pom",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/301463647895683072/6c24836bd3c2bd4b0c7ce50bb2f407c1.png?size=1024",
-      "channel": "#dev_updates",
-      "created_at": "2023-08-26T22:59:26.824+00:00",
-      "reaction_count": 6,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1145130415900864593/IMG_8207.gif?ex=697de08e&is=697c8f0e&hm=4bd1715f810a22cb3e08b7a7b3a5c7332c81a939c31e5fa808bf4dd62327a1f5&",
-      "mediaType": "gif",
-      "content": "I'm going to start using the Updates channels to share the best of the other channels - for those who don't have time to sift through all their noise. I'll do that for you and share the most interesting things!\n\nThis from <@586961856271351833>  is very impressive separating the background seg ControlNet from the Openpose foreground to generate a video with multiple planes of coherent movement\n\nWhile generating these inputs is likely difficult, it would in theory be possible to create helper models to make them (idea by <@1013923910821093517>)"
-    },
-    {
-      "month": "2023-08",
-      "message_id": 1145918673933062300,
-      "author": "Skquark",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/988620354815688744/320f6eb9687c967fd8fc64fd0abad8e2.png?size=1024",
-      "channel": "#animatediff",
-      "created_at": "2023-08-29T03:11:42.005+00:00",
-      "reaction_count": 6,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1142935168584265779/1145918674029514762/AnimateDiff-1.png?ex=697e1bae&is=697cca2e&hm=a0df646628c81e1b4aad13068985ed3ce2114150fc017a07ff0bc0b128fa1609&",
-      "mediaType": "image",
-      "content": "So I've got the Neggles version of AnimateDiff integrated into my UI at https://DiffusionDeluxe.com for Colab & Desktop, and now working on updating it with the additional features of s9roll7 fork, and could use some feedback.  Want to add options for the 'prompt_map', 'controlnet_map', 'upscale_config' and reference image.. wanting to make it as friendly as possible while opening all the extra settings, and trying to decide what defaults I can leave static.  When enabling a ControlNet layer, do I upload the init images into the controlnet_image subfolder or is that intended to be internal storage for the save_detectmap taken from the 1st animate frame?  Also when I use 'prompt_map' with frames instead of 'prompt' list, should the 'n_prompt' only have one negative string in it?\nThanks, open to collaborators if anyone wants to help smooth out my code.."
-    },
-    {
-      "month": "2023-08",
       "message_id": 1144640305077956600,
       "author": "toyxyz (rtx4090)",
       "avatarUrl": "",
@@ -1146,18 +1122,6 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1142935168584265779/1144640303861616690/02_40412348447400_masterpiece_best-quality_1girl_solo_blonde-hair_blue-eyes.gif?ex=697e125a&is=697cc0da&hm=1f92ea0efc882334eb5da19bf72ff64075a5f3dc44e064733650533d345fa518&",
       "mediaType": "gif",
       "content": ""
-    },
-    {
-      "month": "2023-09",
-      "message_id": 1155840360321392600,
-      "author": "Kosinkadink",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
-      "channel": "#comfyui",
-      "created_at": "2023-09-25T12:16:56.376+00:00",
-      "reaction_count": 30,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1145677539738665020/1155840360061341706/image.png?ex=697df2b8&is=697ca138&hm=135bc953b0e7e3927215cf6f10d6e13eeb0bd48a7d231273d4324d9cbf9fc257&",
-      "mediaType": "image",
-      "content": "sneak peak:"
     },
     {
       "month": "2023-09",
@@ -1389,42 +1353,6 @@
     },
     {
       "month": "2024-01",
-      "message_id": 1199468887356494000,
-      "author": "Kosinkadink",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
-      "channel": "#dev_updates",
-      "created_at": "2024-01-23T21:41:07.8+00:00",
-      "reaction_count": 112,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1199468887171924100/image.png?ex=697dce33&is=697c7cb3&hm=9d9b751dd8ff32001c0c48c8fbdfd75f2cf03564df9775485da40af6fb7149fc&",
-      "mediaType": "image",
-      "content": "My work on Gen2 code is 99% complete, and now I will be starting work on the README and wiki, with the intended release into main branch to be tomorrow.\n\nThere are a lot of changes that had to happen in the code to support the features I added + features that will be added in the near future. It would be a great help to everyone involved if peeps could start testing the develop branch of AnimateDiff-Evolved while I'm working on the README and wiki so that we can catch any easy-to-find bugs before everyone is impacted by them when it gets merged to main.\n\nHere are the features of Gen2:\n- Introduction of Gen2 nodes that separate out model loading from application, allowing no motion models to be used at all while still supporting Sample Settings and Context Options features. The previous loader is referred to as Gen1 node, and all the features are supported there too since the backend is the same.\n- Support for use of multiple motion models at once, with individual masking support for each\n- Introduction of Multival inputs for scale (previously called motion_scale) and effect values; this means using the Multival nodes, you can input not only a float value, but also either/or a list of floats or masks, to have direct control over where each motion module should take effect/motion scale, or to what extent\n- Introduction of effect_multival input; unlike scale, this changes how much the motion model has an effect on the resulting animation.\n- Support for scheduling motion model settings (scale + effect floats/masks) across timesteps\n- Autoselect of beta_schedule for motion models\n- FreeNoise support via the noise_type dropdown in Sample Settings; this makes generations that use contexts produce more coherent results\n- Nonlooping Context Options (referred to as Standard Context Options); generations that makes use of Context Options are no longer forced to loop when using these, making them effectively extensions of the non-Context Options version of animations.\n- Introduced View Options, which are basically sub-Context Options that act like a context window for Contexts that can improve stability of longer animations by doing the 'context' work within the motion model; basically, you can combine them with longer Context Lengths, depending on how much extra VRAM you have available\n- Context Options can now be scheduled, to use different Context/View Options at different points in the sampling process\n- Proper FreeInit implementation; DinkInit_v1 is still there for backward compatibility, but FreeInit is implemented as intended now\n- Mac M1/M2/M3 support for v1 motion models without the need to manually change code\n- renewed fp8 support to match comfyui changes (was broken for several weeks after a comfy change)\n\nTL;DR in develop branch, you can have animations not loop and just basically extend your initial animation via the use of Standard context options, you can use FreeNoise to stabilize your outputs, and you can use View Options to create longer Context Options (if your VRAM supports it) to increase stability. I'll merge this into main tomorrow, but it would be great if as many people as possible could test develop branch now so we can find any regressions/issues prior to the merge"
-    },
-    {
-      "month": "2024-01",
-      "message_id": 1196177599244812500,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#resources",
-      "created_at": "2024-01-14T19:42:43.565+00:00",
-      "reaction_count": 51,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1196177599244812468/1196177601606193295/chrome_j4yQU752G8.gif?ex=697db274&is=697c60f4&hm=7dd826b9c66c1bc76978e6bb758a7aab10199c0755a9b33730501f520cf4bcfe&",
-      "mediaType": "gif",
-      "content": "This workflow uses a wrapper node I made for CCSR (https://github.com/csslc/CCSR) :\n\nhttps://github.com/kijai/ComfyUI-CCSR\n\nAs well as TiledDiffusion node from <@236726640313499649> :https://github.com/shiimizu/ComfyUI-TiledDiffusion\n\nCCSR is very good at accurate upscaling, but tends to introduce heavy seams when used in tiled mode, using another pass with TiledDiffusion clears them up nicely in most cases. \n\nDepending on the input image you will probably have to adjust the start step until you see no seams.\n\nSince I found that SDXL gave best results, and since SDXL lacks tile controlnet, I ended up using the recolor controlnet as it's the most similar: https://huggingface.co/stabilityai/control-lora/blob/main/control-LoRAs-rank256/control-lora-recolor-rank256.safetensors\nThe downside is that it changes the colors a bit, which I'm compensating for with color-match.\n\nUpdate with new workflow: https://discord.com/channels/1076117621407223829/1196177599244812468/1196840262475980953"
-    },
-    {
-      "month": "2024-01",
-      "message_id": 1191670659579904000,
-      "author": "Kosinkadink",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
-      "channel": "#dev_updates",
-      "created_at": "2024-01-02T09:13:45.414+00:00",
-      "reaction_count": 50,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1191670659374391338/image.png?ex=697dc7c9&is=697c7649&hm=240167fc2816d9340fd29c177653390fea054c1679a101ded2cee53781f8e8a3&",
-      "mediaType": "image",
-      "content": "FreeInit (at least my initial DinkInit_v1 impl), Sample Settings, and Noise Layers have now been added to AnimateDiff-Evolved. The seed_override options on Sample Settings/Noise Layer nodes can be used to provide a list of ints to use as seeds for each individual frame. Noise Layers can be masked on a per-frame basis. Default Iteration Options node also exists, which basically acts like a shortcut for stacking KSamplers one after the other.\n\nAdditionally, seed_gen can be changed to be either comfy or auto1111, and fun things can be done using noise_type such as constant noise (same noise for every frame), and repeated_context will repeat seed-generated noise to repeat every context_length frames. Please report any regressions or bugs to me on discord or via Github issues."
-    },
-    {
-      "month": "2024-01",
       "message_id": 1196565043479842800,
       "author": "jboogx.creative",
       "avatarUrl": "https://cdn.discordapp.com/avatars/712453331959808002/bec077005c76b43609943609d5182d15.png?size=1024",
@@ -1506,18 +1434,6 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1209415248797368330/iddo.mp4?ex=697dbc39&is=697c6ab9&hm=fcd13f7c6dd5b8be4b023a702bfcea3f35138bc47219a080cc3569224493bb23&",
       "mediaType": "video",
       "content": "This is the most consistent render I've got from trying 75+ different combination/workflows. It's basically <@88822364468412416>  latest LCM workflow with more controlnets (tile/lineart/depth) and an additional sharpening node, plus https://github.com/Extraltodeus/ComfyUI-AutomaticCFG I found out about in the chatter channel from <@750242555408547940> . Before the LCM motion modules, I was trying everything in Hotshot, which I really liked the look/style transfer of, but the consistency just wasn't there. I also wasn't getting great results with the upscale, so I turned that off, then cranked up the original resolution, switched to render each frame, then did 150 per render and put it all together in Premiere Pro"
-    },
-    {
-      "month": "2024-03",
-      "message_id": 1223884885098496000,
-      "author": "Kosinkadink",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
-      "channel": "#dev_updates",
-      "created_at": "2024-03-31T06:41:35.289+00:00",
-      "reaction_count": 55,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1223884884905562133/image.png?ex=697da41f&is=697c529f&hm=2574bb910c315f065587638d8124172d43abce2bc18c8cc14c982bee870335a2&",
-      "mediaType": "image",
-      "content": "Reference ControlNet, specifically reference_attn (equivalent of reference_only in Auto1111) is now available in Advanced-ControlNet. Support for reference_adain and reference_adain+attn will be added soon either today or tomorrow. Supports all the usual Advanced-ControlNet bells and whistles. Only caveat is that masks work for whole frames, but not specific areas of frames."
     },
     {
       "month": "2024-03",
@@ -1605,18 +1521,6 @@
     },
     {
       "month": "2024-04",
-      "message_id": 1225500258901954600,
-      "author": "matt3o",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
-      "channel": "#dev_updates",
-      "created_at": "2024-04-04T17:40:30.416+00:00",
-      "reaction_count": 65,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1225500259002744872/image.png?ex=697e3e8e&is=697ced0e&hm=48de92f566a2685aafbe834401a051447ba100102c3ecca89037615e1a117955&",
-      "mediaType": "image",
-      "content": "The new Style + Composition node is out! I think it would be cool to make it compatible with tile as well... but there are so many things that i need to do 🙂\nCheck my video for all the details. https://www.youtube.com/watch?v=czcgJnoDVd4"
-    },
-    {
-      "month": "2024-04",
       "message_id": 1228336991737745400,
       "author": "matt3o",
       "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
@@ -1626,18 +1530,6 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1228336989648977930/AnimateDiff_01670.mp4?ex=697e0477&is=697cb2f7&hm=1020377e960eaece72c8464ae0d077f414e261239396c6fb3d16d2c264a1ff70&",
       "mediaType": "video",
       "content": "I just pushed an update to the IPAdapter that lets you schedule the weights.\n\nThe effect is similar to sending a fading attention mask but it has several advantages. It's very light on the GPU and it decouples the weights from the attention mask. Empirically I would say that this method should grant better results compared to just masks.\n\nThe attached animations are done without controlnet and without masks, just fiddling with the weights. Finding the right weights is not easy and you need a lot of trial an error, but it's easier and faster than working with attention masks.\n\nThe workflow is attached to the image, I'm also providing the reference images used for the animations."
-    },
-    {
-      "month": "2024-05",
-      "message_id": 1236415929135665200,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#resources",
-      "created_at": "2024-05-04T20:35:29.003+00:00",
-      "reaction_count": 104,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1236415929135665173/1236415929571610766/spline_editor_instances.gif?ex=697dbed1&is=697c6d51&hm=7ea8b988b6d74f244dfe7ef796344cf80896e0065b4ca68cc415c2f97c6e135c&",
-      "mediaType": "gif",
-      "content": "This is an example of my Spline Editor -node in action, which with some effort now plugs into <@396817315997417493> 's InstanceDiffusion nodes, allowing relatively simple creation of custom paths for the instances.\n\nThe required InstanceDiffusion models are automatically downloaded (1.37GB) on the first run from: https://huggingface.co/logtd/instance_diffusion/tree/main \nto ```ComfyUI\\models\\instance_models```\n\nOther than that any 1.5 model should work. InstanceDiffusion can be very slow so LCM/TCD/HyperSD LoRAs are recommended, this example is with the simplest one LCM and AnimateLCM modtion model.\n\nNote that these nodes are still pretty new and mostly untested, so problems probably will arise. Kept it otherwise pretty clean, not many custom nodes are used beyond the necessary, these need to be up to date:\n\nhttps://github.com/kijai/ComfyUI-KJNodes\nhttps://github.com/logtd/ComfyUI-InstanceDiffusion\nhttps://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved"
     },
     {
       "month": "2024-05",
@@ -1701,18 +1593,6 @@
     },
     {
       "month": "2024-06",
-      "message_id": 1254104642091221000,
-      "author": "matt3o",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
-      "channel": "#dev_updates",
-      "created_at": "2024-06-22T16:04:06.812+00:00",
-      "reaction_count": 58,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1254104640606441533/precise.jpg?ex=697e27f6&is=697cd676&hm=f85643b9086af65c24d920931dfe776ee81de20aa673331aa549be13e2fec038&",
-      "mediaType": "image",
-      "content": "I added an experimental \"Style transfer precise\" weight type to the IPAdapter. It offers less bleeding of the embeds between the style and composition layers especially when the subject of the reference image is very different from the image you want to generate. In the pictures you can see some examples.\n\nIt might change in the coming days if I find a better way to do it.\n\nLet me know what you think. It works with SDXL and SD1.5 but as always SDXL is far superior with style transfer"
-    },
-    {
-      "month": "2024-06",
       "message_id": 1256611315888161000,
       "author": "cerspense",
       "avatarUrl": "https://cdn.discordapp.com/avatars/254874349159448576/741db29ca1f0db96e89f4c01847b2265.png?size=1024",
@@ -1746,18 +1626,6 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1248809294237929613/crazy_prob4_prob4.mp4?ex=697e0209&is=697cb089&hm=6e40f95001391af24b4aededd96909a82a2b411b74d9fe7462f70b43f0032133&",
       "mediaType": "video",
       "content": "bunch of experiments thrown together - just when you thought I wouldn't mashup Fiona Apple and That Mexican OT"
-    },
-    {
-      "month": "2024-07",
-      "message_id": 1263125263680667600,
-      "author": "matt3o",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
-      "channel": "#dev_updates",
-      "created_at": "2024-07-17T13:28:50.594+00:00",
-      "reaction_count": 101,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1263125261277331456/comparison.png?ex=697e0392&is=697cb212&hm=7423ddef334294c1ca588a2027759105aaf3965ea3adb5bcaf89dc245302458d&",
-      "mediaType": "image",
-      "content": "## ➡️ ClipVision Enhancer Node\n\nI've pushed a new (experimental) node that tries to overcome the 224x224 clipvision limit. It's a bit of a hack and honestly the result is not as good as I was hoping but the difference is noticeable enough so I'm making this public anyway.\n\nIn the images you can see the difference from the original IPAdapter and the Enhanced one in the center. I'm also adding a detail of the skin.\n\nIn the diagram a sum up of what I'm doing in case you are curious. We are squeezing blood out of a stone as always but I guess I'll take whatever I can get.\n\nAgain, very experimental and the code might change... I'm not even sure I'm doing the various tensor reshaping correctly but it seems to be working. Please check the new example in the repository for usage. In the \"Mona Lisa\" image you'll also find a workflow to evaluate the difference in upscaling with Tile.\n\nThe `enhance_ratio` parameter is very important. If you have other conditioning (ie: controlnet or composition ipa) you can set it very low to get more details. Otherwise you may need to increase the value (>0.5) to avoid hallucination. \n\nThis is pretty advanced stuff and probably not needed in day-to-day use."
     },
     {
       "month": "2024-07",
@@ -1806,18 +1674,6 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1265389322249703589/boogpole_v20240721_2104.mp4?ex=697dae64&is=697c5ce4&hm=7d4bea1221d706a7723f57eb46d01ac4fc8f2432d8c09ebb754224ed81562aca&",
       "mediaType": "video",
       "content": "collab with <@712453331959808002> !"
-    },
-    {
-      "month": "2024-08",
-      "message_id": 1273680876651286500,
-      "author": "RyanOnTheInside",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/738104484114464889/75ca833a378d2cb6751ac0037fd78038.png?size=1024",
-      "channel": "#resources",
-      "created_at": "2024-08-15T16:33:04.84+00:00",
-      "reaction_count": 57,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1273680876651286600/1273680877351600261/particle_systems.gif?ex=697e2ec1&is=697cdd41&hm=c740a2505bfcdddedb49e74bb721580f24ce1b107ce3dc3ba77121c4b4040825&",
-      "mediaType": "gif",
-      "content": "I added custom nodes for dynamic, object aware particle simulations  in comfy. Also, optical flow masks, and temporal masks. This is my first post here, first real contribution also! Check out the repo for details https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside"
     },
     {
       "month": "2024-08",
@@ -2049,18 +1905,6 @@
     },
     {
       "month": "2024-12",
-      "message_id": 1313232523408572700,
-      "author": "Kosinkadink",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/264527454285070348/5347e7a27e9ec4f2e7c490e7f19a3325.png?size=1024",
-      "channel": "#dev_updates",
-      "created_at": "2024-12-02T19:57:12.261+00:00",
-      "reaction_count": 95,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138787208904581160/1313232523089674331/image.png?ex=697db5d8&is=697c6458&hm=ca2fcbbc276a1c9f6193b252a5a8012ebcb965e31d4472710090ab8efde4ded8&",
-      "mediaType": "image",
-      "content": "It's merged <:absolutecinema:1248247398786928681> \nI will have a blogpost out with some example workflows sometime in the next few hours, gotta eat first lol"
-    },
-    {
-      "month": "2024-12",
       "message_id": 1313946582625816600,
       "author": "VisualFrisson",
       "avatarUrl": "https://cdn.discordapp.com/avatars/272911326010015745/4c041c59f1b941d0a5612ef6e327d4f8.png?size=1024",
@@ -2070,18 +1914,6 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1313946577597108274/Yvann_WF_vs_Russian_WAWA.mp4?ex=697dabdc&is=697c5a5c&hm=fdab2d08570ad148e4a574687d5e0a0c3e3bae98d215e312193d085bf5bc4b92&",
       "mediaType": "video",
       "content": "Experimenting with <@439811659729469441>'s audio reactive workflow has lead me here.  Probably still just a proof of concept, but loving what is possible and have some good idea's for some official videos. 😈"
-    },
-    {
-      "month": "2024-12",
-      "message_id": 1320321241717932000,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#chatter",
-      "created_at": "2024-12-22T09:25:14.408+00:00",
-      "reaction_count": 34,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138859346487410828/1320321241424466010/Screenshot_20241222-1124432.png?ex=697dca7a&is=697c78fa&hm=e338cf9b8e893ad8ef4fbae94aaa1ecf744acde4732c8fba0a10887edfca3761&",
-      "mediaType": "image",
-      "content": ""
     },
     {
       "month": "2024-12",
@@ -2325,18 +2157,6 @@
     },
     {
       "month": "2025-04",
-      "message_id": 1362402734862762200,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#wan_chatter",
-      "created_at": "2025-04-17T12:22:04.21+00:00",
-      "reaction_count": 26,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1362402734363381910/image.png?ex=697df3ec&is=697ca26c&hm=684a2fd0e3794dad562f7c42bd748ba63d2f83e0810b46a8f7734a63575cb140&",
-      "mediaType": "image",
-      "content": "VERY early mockup version, but it runs"
-    },
-    {
-      "month": "2025-04",
       "message_id": 1359829046799761700,
       "author": "IllumiReptilien",
       "avatarUrl": "https://cdn.discordapp.com/avatars/627221329891819540/6ebd84cc86866a113f896c689f7ac59d.png?size=1024",
@@ -2430,30 +2250,6 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1387232079078625389/1387232079762161735/a_retro-glitch_themed_logo_showing_wan_upscaler__enhancer_in_bold_blocky_font_the_first_part_of_the_wpcsgo2mo6yh0wuvetln_10.png?ex=697df94d&is=697ca7cd&hm=cf362420687320f93bab2e9993ee97971cd3b0de922f34a3be0d45e01d873406&",
       "mediaType": "image",
       "content": "🎬 Video Upscale & Enhancement Workflow 🔧✨\n\nThis workflow is built to upscale or enhance any video! Here's how to get the most out of it:\n\n🔹 Just Upscaling?\nSkip the prompt and set sampler denoise between 0.3 - 0.5\n➡️ Keeps original content intact but boosts quality.\n(Higher values = more enhancement)\n\n🔹 Want a Bit of Style Change?\nAdd a prompt and bump denoise to 0.7 - 0.8\n➡️ Great for soft edits or light creative tweaks.\n\n⚠️ Heads-up:\nGoing above 0.85 denoise = generating a brand new video from the prompt.\nNo prompt? Expect randomness 🎲\n\n🎯 Best used for:\n\n📼 Low quality or low res videos\n\n🖼️ CGI renders (e.g. Blender)\n\n🔁 Giving old content a fresh shine"
-    },
-    {
-      "month": "2025-06",
-      "message_id": 1384931026740056000,
-      "author": "Nekodificador",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/391020191338987522/2e40c243a0ff35f557eef85c02a4b507.png?size=1024",
-      "channel": "1384931026740056084",
-      "created_at": "2025-06-18T16:21:27.549+00:00",
-      "reaction_count": 50,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1384931026740056084/1384931027511804105/VFX_Tools_-_Video_v2.png?ex=697e2c07&is=697cda87&hm=430a260649f3eb5673433ab3190c80d617726be37141415d51fda09f5c8f6027&",
-      "mediaType": "image",
-      "content": "Hey guys! I wanted to share one of my quality-of-life workflows with you. It's basically a collection of tools to generate control maps that come in super handy for post-production, VFX, and WAN-based control techniques.\n\nThe workflow is designed so you can just load a video, pick which maps you want to generate, select if you wanna preview or save them, and smash the Run button with your head. \n\nIt automatically exports everything into a folder organized by date and project name, so you can keep all your maps neatly sorted—even if you’re working on multiple shots in the same day. Nothing new or groundbreaking, just some structure to keep things flowing."
-    },
-    {
-      "month": "2025-06",
-      "message_id": 1385091877786878000,
-      "author": "Nathan Shipley",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
-      "channel": "1385091877786878074",
-      "created_at": "2025-06-19T03:00:37.427+00:00",
-      "reaction_count": 32,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1385091877786878074/1385091879133122590/Screenshot_from_2025-06-18_22-20-13.png?ex=697e1915&is=697cc795&hm=dbba190694f851804a72959d3e2474fae7425046a4974ca53a211e78808c8f3c&",
-      "mediaType": "image",
-      "content": "A NotebookLM chat interface made from the Wan 2.1 channel conversations on Banodoco as it's data source.\n\nWan is overwhelming! It's hard to search! Kijai is busy! (Plus should you really be pinging him?) \n\n..try out the chattable Wan KB:\n\n**LINK (requires a Google account):  \nhttps://notebooklm.google.com/notebook/a08901b9-0511-4926-bbf8-3c86a12dc306 **\n\nAsk it questions like:\n> What is VACE?\n> What settings should I be using for CausVid?  What about kijai's CausVid v2?\n> Can you give me an overview of the model ecosytem?\n> What do people suggest to reduce VRAM usage?\n> What are the main new things people discussed last week?\n\nI scraped: \n<#1342763350815277067> \n<#1344309523187368046>  \n<#1344057524935983125> \nfrom their beginning in February 2025 until June 18, 2025 and uploaded that data as sources to NotebookLM.\n\nTools and info if you'd like to make your own:\n- <:discord:1071095388729249802> I'm using [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) to scrape the channels.\n- 🧹 [discord-text-cleaner](https://nathanshipley.github.io/discord-text-cleaner/): A web tool to make the scraped text lighter by removing {Attachment} links that NotebookLM doesn't need.\n- 🪓 [splitByLines_DateRange.py](https://gist.github.com/nathanshipley/e69daba2d808e5f68ef3e8b8a3a44825): A python script to split large text files into smaller ones that NotebookLM can ingest.  (seems to prefer ~20,000 lines or less)\n- ▶️  More information about my process [on Youtube here](https://youtu.be/kG81Kkal5XM), though now I just directly download to text instead of HTML as shown in the video.\n\nAn older, static knowledge base with some example images and videos is available here on Notion.  It is current up to April 7, 2025:\nhttps://nathanshipley.notion.site/Wan-2-1-Knowledge-Base-1d691e115364814fa9d4e27694e9468f"
     },
     {
       "month": "2025-06",
@@ -2601,18 +2397,6 @@
     },
     {
       "month": "2025-09",
-      "message_id": 1415103162959790000,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#wan_chatter",
-      "created_at": "2025-09-09T22:34:45.395+00:00",
-      "reaction_count": 30,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1415103161806491678/image.png?ex=697ddac5&is=697c8945&hm=037a22522abafea4d221b1789b5ec38b477442180836d9184471c9d32e041975&",
-      "mediaType": "image",
-      "content": "still very much WIP, but got infinite talk running in native"
-    },
-    {
-      "month": "2025-09",
       "message_id": 1421196925860057000,
       "author": "piscesbody",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1092355295424028692/a51c15219682a11e9f7fe80136f406f8.png?size=1024",
@@ -2634,18 +2418,6 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1417710283945672764/1417710284239278220/a_cinematic_square_image_representing_the_humo_comfyui_workflow_centered_glowing_text_reads_humo_wi_no189ukkdhoyymli22fk_1.png?ex=697e1c57&is=697ccad7&hm=a38ce3eb8a8596bf49cc5f84f88c21906d1953935aa360f56a346db5e0565eb1&",
       "mediaType": "image",
       "content": "🎬 New Workflows: HUMO & Infinite Talk\n\nI’ve built two new workflows for making infinite-length videos in ComfyUI.\nThese workflows use my custom nodes to split audio into scenes and then recombine generated clips into one seamless video.\n\n⚡ HUMO Workflow\n\nDefault: 16 scenes (≈1 minute video).\n\nEach scene = 3 seconds by default.\n\nUnlimited scenes — you can add more groups for longer videos.\n\nStrengths:\n\nMuch better motion and visual flow.\n\nFaster to generate.\n\nSupports multi-image input for variation per scene.\n\nBest for: Dynamic, visually rich videos where flow matters.\n\n🎤 Infinite Talk Workflow\n\nDefault: 6 scenes (but you can add unlimited more).\n\nFlexible scene length — each scene can be short or very long.\n\nExample: Scene 1 could be 1 min, Scene 2 could be 5 min.\n\nReference images: You can use one shared image or set a different image per scene.\n\nStrengths:\n\nPerfect for syncing video with lyrics or custom audio timing.\n\nGreat for extended videos where scene timing must match music.\n\nTradeoff: Motion is less strong compared to HUMO.\n\n🧩 Summary\n\nHUMO: Best for strong motion, cinematic flow. Default 3s per scene, but you can chain unlimited scenes for longer videos.\n\nInfinite Talk: Best for full timing control. Scene length is totally flexible, and each scene can use its own reference image if desired.\n\nBoth workflows let you create infinite-length videos aligned to your audio.\n\n✨ If you want cinematic flow → go HUMO.\nIf you want total timing control → go Infinite Talk."
-    },
-    {
-      "month": "2025-09",
-      "message_id": 1415103589428236300,
-      "author": "RyanOnTheInside",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/738104484114464889/75ca833a378d2cb6751ac0037fd78038.png?size=1024",
-      "channel": "#resources",
-      "created_at": "2025-09-09T22:36:27.073+00:00",
-      "reaction_count": 26,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1415103589428236399/1415103590388727928/Untitled_video_-_Made_with_Clipchamp.gif?ex=697ddb2b&is=697c89ab&hm=05b6c86b04d6c266d17955456b5fc194d338da53c8fef353a43552f1dcf152a8&",
-      "mediaType": "gif",
-      "content": "What's up yall, long time no see.\n\nI have been head-down working on this enhanced version of StreamDiffusion with the team at Livepeer and wanted to share this example.\n\nThis is fully accelerated with TensorRT, using SDXL, multi-controlnet, and IPAdapter. TensorRT acceleration of IPAdapters in novel as far as I know, but either way I am excited about it!\n\nThis example is using standard IPAdapter, but IPAdapter+ and IPAdapter FaceID are also supported.\n\nThe multiple controlnets slows this down a fair bit, but without them I get around 30 fps with SDXL at this resolution on my 5090.\n\nHere I am using SDXL, but SD1.5 and SDTurbo are also supported.\n\nThere are a bunch of other goodies we added as well, including full real-time parameter updating, prompt/seed blending, multi-stage processing, dynamic resolution, and more... I am losing track:\n\nhttps://github.com/livepeer/StreamDiffusion\n\n\n\nCross posting from [here ](https://www.reddit.com/r/StableDiffusion/comments/1ncx7g3/streamdiffusion_sdxl_ipadapter_multicontrolnet/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)"
     },
     {
       "month": "2025-10",
@@ -2745,18 +2517,6 @@
     },
     {
       "month": "2025-11",
-      "message_id": 1442307931012857900,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#kandinsky-5",
-      "created_at": "2025-11-24T00:16:47.539+00:00",
-      "reaction_count": 23,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1422649707435524096/1442307930744426737/image.png?ex=697df2af&is=697ca12f&hm=5ece766800f0ad8c6f1f39e62399381cce8036d1ce7446a073c765fec8b06fc8&",
-      "mediaType": "image",
-      "content": "I had some time"
-    },
-    {
-      "month": "2025-11",
       "message_id": 1438636203384635400,
       "author": "Juampab12",
       "avatarUrl": "https://cdn.discordapp.com/avatars/160047720931786752/10ac537faf3f68804db3c16a288cb44c.png?size=1024",
@@ -2838,18 +2598,6 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1461772498902319167/thankskijai01.mp4?ex=697e3a3a&is=697ce8ba&hm=3bd8435591bce5606c11e6cc94e844ef29a304beed5a91b431f28d6cccb12cb0&",
       "mediaType": "video",
       "content": "A mini-scene to thank you all for building opensource community."
-    },
-    {
-      "month": "2026-01",
-      "message_id": 1461374045231517700,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#ltx_chatter",
-      "created_at": "2026-01-15T14:58:43.4+00:00",
-      "reaction_count": 44,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1309520535012638740/1461374045013672000/image.png?ex=697e18a3&is=697cc723&hm=b1d211a2457c7b0001bc354ec9fff4bb59d45b854b683c66b2b51d5a49a4ca3c&",
-      "mediaType": "image",
-      "content": "Added this to KJNodes now to enable previews until the comfy core version is finalized, also can use the experimental (pretty slow) latent upscale mode"
     },
     {
       "month": "2026-01",
