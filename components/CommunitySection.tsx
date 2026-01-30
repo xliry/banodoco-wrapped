@@ -1,93 +1,74 @@
 
-import React from 'react';
+import React, { useMemo, useRef, useEffect } from 'react';
 import ArticleCard from './ArticleCard';
-import { CommunityUpdate } from '../types';
+import { TopGeneration } from '../types';
 
-const updates: CommunityUpdate[] = [
-  {
-    id: '1',
-    tag: '#Ltx Chatter',
-    tagColor: 'rose',
-    title: 'LTX Video Releases Major End-of-January Update with New Control Features',
-    description:
-      'The LTX team shipped a significant update focused on improved control and workflow usability. The release includes new nodes for multimodal guidance, cross-modal guidance, and a free API for text encoding that offloads Gemma processing.',
-    bullets: [
-      'The update introduces LTX Multimodal Guider nodes aimed at better control in real workflows. JUSTSWEATERS liked the free API and said it seems to make loading faster.',
-      'protector131090 discovered significant differences between local Gemma and API Gemma encoding, with API showing better prompt adherence.',
-    ],
-    mediaType: 'video',
-    mediaUrl:
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466727812760080639_1.mp4',
-    posterUrl:
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466727812760080639_1_poster.jpg',
-    thumbnails: [
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466590390084829184_0_poster.jpg',
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466727313298165833_0_poster.jpg',
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466727313298165833_1_poster.jpg',
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466727812760080639_0_poster.jpg',
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466727812760080639_1_poster.jpg',
-    ],
-  },
-  {
-    id: '2',
-    tag: '#Z-image',
-    tagColor: 'purple',
-    title: 'Community Creates Optimized FP8 Quantization of Z-Image Base',
-    description:
-      'ramonguthrie developed a highly optimized NVfp8-mixed quantization of the FP32 Z-Image Base model, achieving a 74.41% size reduction while maintaining quality close to the full FP32 version.',
-    bullets: [
-      'The optimized model can run on 8GB VRAM or less, with careful layer optimization to minimize quality loss.',
-      'DennisM confirmed the FP8 model uses about 4GB less VRAM during generation while maintaining quality on-par with BF16.',
-    ],
-    mediaType: 'image',
-    mediaUrl:
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466482678860873798_0.jpg',
-    thumbnails: [
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466482678860873798_0.jpg',
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466482727820988457_0.jpg',
-      'https://ujlwuvkrxlvoswwkerdf.supabase.co/storage/v1/object/public/summary-media/2026-01-30/1466482771135434897_0.jpg',
-    ],
-  },
-  {
-    id: '3',
-    tag: '#Wan Chatter',
-    tagColor: 'amber',
-    title: 'OpenMOSS Releases MOVA: Apache 2.0 Video-Audio Model',
-    description:
-      'OpenMOSS released MOVA, an Apache 2.0 licensed video-audio generation model. While some initially described it as "32B," others noted it appears to be essentially Wan 2.2 A14B with audio.',
-    bullets: [
-      'Kijai noted the model appears to be Wan 2.1 I2V based with significant additional weights.',
-      'yi analyzed that MOVA is essentially Wan 2.2 A14B (not 32B) with audio - similar to Ovi but scaled to the larger Wan 2.2 model.',
-    ],
-    mediaType: 'image',
-    mediaUrl: 'https://picsum.photos/seed/mova/800/450',
-  },
-];
+interface CommunitySectionProps {
+  data: TopGeneration[];
+}
 
-const CommunitySection: React.FC = () => {
+const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const scrollColumnRef = useRef<HTMLDivElement>(null);
+
+  // Group by month, sort each group by reaction_count desc, sort months chronologically
+  const grouped = useMemo(() => {
+    const map = new Map<string, TopGeneration[]>();
+    for (const gen of data) {
+      if (!map.has(gen.month)) map.set(gen.month, []);
+      map.get(gen.month)!.push(gen);
+    }
+    for (const [, gens] of map) {
+      gens.sort((a, b) => b.reaction_count - a.reaction_count);
+    }
+    return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+  }, [data]);
+
+  // Wheel capture: redirect scroll to the right column so the page "locks" on this section
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const handler = (e: WheelEvent) => {
+      // Only capture on desktop (xl = 1280px)
+      if (window.innerWidth < 1280) return;
+
+      const col = scrollColumnRef.current;
+      if (!col) return;
+
+      const { scrollTop, scrollHeight, clientHeight } = col;
+      const atTop = scrollTop <= 0 && e.deltaY < 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+
+      // At boundaries → let the page scroll naturally to next/prev section
+      if (atTop || atBottom) return;
+
+      // Otherwise hijack the scroll into the right column
+      e.preventDefault();
+      col.scrollTop += e.deltaY;
+    };
+
+    section.addEventListener('wheel', handler, { passive: false });
+    return () => section.removeEventListener('wheel', handler);
+  }, []);
+
+  if (!data || data.length === 0) return null;
+
   return (
     <section
+      ref={sectionRef}
       id="community"
-      className="min-h-[100svh] overflow-y-auto xl:overflow-hidden relative snap-start snap-always text-white bg-[rgba(12,20,32,0.95)]"
+      className="min-h-[100svh] xl:h-[100svh] xl:min-h-0 overflow-y-auto xl:overflow-hidden relative text-white bg-[rgba(12,20,32,0.95)]"
       style={{ contain: 'layout style paint' }}
     >
       {/* Mobile / Tablet layout */}
       <div className="xl:hidden h-full px-6 md:px-16 flex flex-col pt-20 pb-20">
         <div className="mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
-            Our{' '}
-            <span className="text-sky-400 font-semibold drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">
-              community
-            </span>{' '}
-            is a{' '}
-            <span className="relative inline-block pb-1 border-b-2 border-sky-400/80">
-              gathering place
-            </span>{' '}
-            for people from across the ecosystem
+            <span className="text-sky-400">🎨</span> Top Generations Over Time
           </h2>
           <p className="text-base md:text-lg text-white/60 leading-relaxed mb-6 md:mb-8 max-w-2xl">
-            We've been at the cutting-edge of the technical &amp; artistic scenes over the past two
-            years.
+            The most loved creations from the community — sorted by reactions each month.
           </p>
           <a
             href="https://discord.gg/NnFxGvx94b"
@@ -103,31 +84,22 @@ const CommunitySection: React.FC = () => {
         </div>
 
         <div className="flex flex-col gap-8 md:gap-12">
-          {updates.map((u) => (
-            <ArticleCard key={u.id} update={u} variant="mobile" />
+          {grouped.map(([month, gens]) => (
+            <ArticleCard key={month} month={month} generations={gens} variant="mobile" />
           ))}
         </div>
       </div>
 
-      {/* Desktop layout */}
+      {/* Desktop layout — fixed viewport height, internal column scrolling */}
       <div className="hidden xl:grid grid-cols-12 gap-16 h-full px-16 max-w-[1920px] mx-auto">
-        {/* Left column — heading */}
+        {/* Left column — heading (stays fixed in place) */}
         <div className="col-span-4 flex items-center pt-24 pb-24">
           <div>
             <h2 className="text-4xl xl:text-5xl font-bold leading-tight mb-6">
-              Our{' '}
-              <span className="text-sky-400 font-semibold drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]">
-                community
-              </span>{' '}
-              is a{' '}
-              <span className="relative inline-block pb-1 border-b-2 border-sky-400/80">
-                gathering place
-              </span>{' '}
-              for people from across the ecosystem
+              <span className="text-sky-400">🎨</span> Top Generations Over Time
             </h2>
             <p className="text-lg text-white/60 leading-relaxed mb-8 max-w-2xl">
-              We've been at the cutting-edge of the technical &amp; artistic scenes over the past
-              two years.
+              The most loved creations from the community — sorted by reactions each month.
             </p>
             <a
               href="https://discord.gg/NnFxGvx94b"
@@ -148,11 +120,16 @@ const CommunitySection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right column — scrollable cards */}
-        <div className="col-span-8 overflow-y-auto scrollbar-hide relative snap-y snap-proximity pt-32 pb-32">
+        {/* Right column — scrollable card stream with snap */}
+        <div
+          ref={scrollColumnRef}
+          className="col-span-8 overflow-y-auto scrollbar-hide relative snap-y snap-proximity pt-32 pb-32"
+        >
           <div className="space-y-6">
-            {updates.map((u) => (
-              <ArticleCard key={u.id} update={u} variant="desktop" />
+            {grouped.map(([month, gens]) => (
+              <div key={month} className="snap-start">
+                <ArticleCard month={month} generations={gens} variant="desktop" />
+              </div>
             ))}
           </div>
         </div>
