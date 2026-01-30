@@ -24,10 +24,17 @@ const formatDate = (dateStr: string) => {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
   const value = payload[0].value;
-  const isMillion = value >= 950000; // Hide regular tooltip near the gold marker area
+  const isNearMillion = value >= 950000;
 
-  // Don't show regular tooltip near 1M - let the gold marker speak for itself
-  if (isMillion) return null;
+  if (isNearMillion) {
+    // Gold tooltip for 1M area
+    return (
+      <div className="px-4 py-3 rounded-xl shadow-2xl border bg-gradient-to-br from-yellow-900/90 to-amber-900/90 border-yellow-500/50">
+        <p className="text-sm font-bold text-yellow-300 mb-1">🎉 We hit 1 million posts!</p>
+        <p className="text-xs text-yellow-100/70">{new Date(label).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="px-4 py-3 rounded-xl shadow-2xl border bg-[#1a1a1a] border-white/10">
