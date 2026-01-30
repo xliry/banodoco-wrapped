@@ -320,10 +320,19 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
     return visible;
   }, [frame, firstAppearances]);
 
-  // Show revealed months up to current frame
+  // Show all months but with zeroed values for unrevealed ones (keeps X-axis stable)
   const displayData = useMemo(() => {
-    if (frame === 0) return [];
-    return normalizedData.slice(0, frame);
+    return normalizedData.map((point, index) => {
+      if (index < frame) {
+        return point; // Revealed month - show actual data
+      }
+      // Unrevealed month - zero all values
+      const zeroed = { ...point };
+      MODEL_KEYS.forEach((key) => {
+        (zeroed as Record<string, unknown>)[key] = 0;
+      });
+      return zeroed;
+    });
   }, [normalizedData, frame]);
 
   const currentMonth = frame > 0 ? normalizedData[frame - 1]?.month : '';
