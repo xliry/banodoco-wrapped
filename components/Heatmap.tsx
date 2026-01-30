@@ -41,8 +41,10 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
   return (
     <section className="py-16 sm:py-32">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         className="mb-8 sm:mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
@@ -52,9 +54,10 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: 40, filter: 'blur(6px)' }}
+        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
         className="bg-[#1a1a1a] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/5 overflow-x-auto shadow-2xl">
         <div className="min-w-[480px] sm:min-w-[600px]">
           {/* Header */}
@@ -101,8 +104,10 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
       </motion.div>
 
       <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         className="text-center mt-8 sm:mt-12 text-sm sm:text-base text-gray-400 font-medium italic"
       >
         🌙 "Peak activity: <span className="text-cyan-400 font-bold">3PM–6PM UTC</span> on weekdays"

@@ -11,8 +11,10 @@ const ChannelBreakdown: React.FC<ChannelBreakdownProps> = ({ stats }) => {
   return (
     <section className="py-16 sm:py-32">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
         className="mb-8 sm:mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">

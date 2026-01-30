@@ -55,8 +55,10 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
   return (
     <section className="py-16 sm:py-32">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         className="mb-8 sm:mb-16"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
@@ -68,9 +70,10 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
         className="h-[300px] sm:h-[420px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden"
       >
         <ResponsiveContainer width="100%" height="100%">
@@ -130,9 +133,10 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
         {milestones.map((m, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.12, type: 'spring', stiffness: 200 }}
             className="flex items-center gap-2 text-xs sm:text-sm"
           >
             <div className="w-2.5 h-2.5 bg-cyan-500 rounded-full" />
@@ -143,8 +147,10 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
         className="mt-10 sm:mt-16 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] border border-white/5 text-center"
       >
         <p className="text-base sm:text-xl italic text-gray-300 max-w-2xl mx-auto">

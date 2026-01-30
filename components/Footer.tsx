@@ -7,8 +7,10 @@ const Footer: React.FC = () => {
   return (
     <footer className="py-16 sm:py-32 border-t border-white/5 text-center px-4">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
         className="space-y-6 sm:space-y-8"
       >
         <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 items-center text-base sm:text-xl text-gray-400 font-medium">

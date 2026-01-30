@@ -171,8 +171,10 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
   return (
     <section className="py-16 sm:py-32">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 20, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         className="mb-8 sm:mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">

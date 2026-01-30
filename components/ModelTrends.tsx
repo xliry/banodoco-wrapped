@@ -43,8 +43,10 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
   return (
     <section className="py-16 sm:py-32">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
         className="mb-8 sm:mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
@@ -54,9 +56,10 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, scale: 0.92, y: 20 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="h-[280px] sm:h-[400px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden"
       >
         <ResponsiveContainer width="100%" height="100%">
@@ -107,8 +110,10 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: -30, filter: 'blur(4px)' }}
+        whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
         className="mt-6 sm:mt-8 flex items-start gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-cyan-500/5 border border-cyan-500/10"
       >
         <div className="text-xl sm:text-2xl mt-1">💡</div>

@@ -16,8 +16,10 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
   return (
     <section className="py-16 sm:py-32">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, filter: 'blur(10px)' }}
+        whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
         className="mb-8 sm:mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">

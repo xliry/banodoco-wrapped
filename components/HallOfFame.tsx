@@ -24,8 +24,10 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
   return (
     <section className="py-16 sm:py-32">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, type: 'spring', stiffness: 120 }}
         className="mb-10 sm:mb-16 text-center"
       >
         <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">🏆 Hall of Fame</h2>
@@ -43,9 +45,10 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
           return (
             <motion.div
               key={user.rank}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.15, type: "spring" }}
+              initial={{ opacity: 0, y: 60, rotateX: 15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.2, type: 'spring', stiffness: 100, damping: 12 }}
               className="flex flex-col items-center w-full sm:w-48 group"
             >
               <div className="mb-3 sm:mb-4 text-center">
@@ -134,6 +137,10 @@ const AwardCard: React.FC<{
   bgColor: string;
 }> = ({ icon, title, user, metric, bgColor }) => (
   <motion.div
+    initial={{ opacity: 0, x: -20, rotate: -3 }}
+    whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, type: 'spring', stiffness: 150 }}
     whileHover={{ y: -5 }}
     className={`${bgColor} border border-white/5 rounded-xl sm:rounded-2xl p-4 sm:p-6 flex flex-col items-center text-center transition-all`}
   >
