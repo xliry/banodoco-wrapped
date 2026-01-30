@@ -1,5 +1,5 @@
 {
-  "totalMessages": 1048105,
+  "totalMessages": 1048113,
   "totalMembers": 6633,
   "totalChannels": 228,
   "dateRange": {
@@ -557,7 +557,7 @@
     },
     {
       "date": "2026-01-30",
-      "cumulative": 1048105
+      "cumulative": 1048113
     }
   ],
   "topContributors": [
@@ -605,7 +605,7 @@
     },
     "mostThankful": {
       "username": "PhoenixRisen",
-      "count": 785,
+      "count": 829,
       "metric": "thank yous"
     },
     "nightOwl": {
@@ -619,8 +619,8 @@
       "timezone": "UTC"
     },
     "allNighter": {
-      "username": 805680159209422800,
-      "count": 162,
+      "username": "homem desgraca",
+      "count": 171,
       "metric": "late night messages"
     }
   },
@@ -982,7 +982,7 @@
         23116,
         22983,
         21575,
-        21805,
+        21809,
         17337,
         16240
       ]
@@ -994,7 +994,7 @@
         30851,
         29232,
         29044,
-        26393,
+        26397,
         24260,
         22491
       ]
@@ -1052,14 +1052,14 @@
     },
     {
       "name": "Other",
-      "messages": 486598,
+      "messages": 486606,
       "percentage": 46
     }
   ],
   "funStats": {
     "longestMessage": {
-      "chars": 3648,
-      "username": "Michael Carychao"
+      "chars": 3964,
+      "username": "pom"
     },
     "mostRepliedThread": {
       "replies": 14,
@@ -1071,12 +1071,12 @@
       "reason": "Peak activity day"
     },
     "mostUsedEmoji": {
-      "emoji": "😄",
-      "count": 64
+      "emoji": "🙂",
+      "count": 112
     },
     "mostUsedWord": {
       "word": "it's",
-      "count": 491
+      "count": 555
     }
   },
   "millionthMessage": {
@@ -1329,18 +1329,6 @@
     },
     {
       "month": "2023-12",
-      "message_id": 1188125164257411000,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#art_sharing",
-      "created_at": "2023-12-23T14:25:13.457+00:00",
-      "reaction_count": 45,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1188125163368239114/marigold_3dprint_test.mp4?ex=683479c9&is=68332849&hm=975a498fd55673dc35c3f049388decf0541270fd5565d96c97953f0aece637bb&",
-      "mediaType": "image",
-      "content": "dalle3 image to marigold depth to Blender to 3D print"
-    },
-    {
-      "month": "2023-12",
       "message_id": 1183384204722049000,
       "author": "anime_is_real",
       "avatarUrl": "https://cdn.discordapp.com/avatars/756701878011691029/a_fc120d2762b38bc8f229f50a404b9378.gif?size=1024",
@@ -1350,6 +1338,18 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1183384204340363284/test1.mp4?ex=68345dec&is=68330c6c&hm=f6ade7026c15b87798ab2caa94b7548974d3af590dce8b65c8a09883dd021263&",
       "mediaType": "image",
       "content": ""
+    },
+    {
+      "month": "2023-12",
+      "message_id": 1188125164257411000,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-12-23T14:25:13.457+00:00",
+      "reaction_count": 45,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1188125163368239114/marigold_3dprint_test.mp4?ex=683479c9&is=68332849&hm=975a498fd55673dc35c3f049388decf0541270fd5565d96c97953f0aece637bb&",
+      "mediaType": "image",
+      "content": "dalle3 image to marigold depth to Blender to 3D print"
     },
     {
       "month": "2023-12",
@@ -1557,15 +1557,15 @@
     },
     {
       "month": "2024-03",
-      "message_id": 1218031684147220500,
-      "author": "Fill",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/380911583074975744/a_e9d392d08b9c2b6fbc2bce81dadd5eec.gif?size=1024",
-      "channel": "#art_sharing",
-      "created_at": "2024-03-15T03:03:03.435+00:00",
+      "message_id": 1222462527980699600,
+      "author": "matt3o",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
+      "channel": "#ipadapter",
+      "created_at": "2024-03-27T08:29:38.926+00:00",
       "reaction_count": 30,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1218031683400372254/Machine-_00108.mp4?ex=697a2527&is=6978d3a7&hm=965bcd4f618a911a15642a317a85d1f976602e97212beeeaa7579ec2f7d491bd&",
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1179522836143018125/1222462527787499591/image.png?ex=697b1a72&is=6979c8f2&hm=4b032302bd3bda70ae0a45ff6cf09a19cff6db883f3d7a69cd44c70ab38e277e&",
       "mediaType": "image",
-      "content": ""
+      "content": "fixed attn mask in tiled batch"
     },
     {
       "month": "2024-04",
@@ -1821,18 +1821,6 @@
     },
     {
       "month": "2024-08",
-      "message_id": 1275883547760001300,
-      "author": "The Dor Brothers",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/594573289293217803/cf7c0f8f88d2a63dc53c4dc12f454072.png?size=1024",
-      "channel": "#art_sharing",
-      "created_at": "2024-08-21T18:25:42.556+00:00",
-      "reaction_count": 33,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1275883546078347354/Final_Instagram_Send.mp4?ex=697da066&is=697c4ee6&hm=c4e21463e5584c1850cadda79deccdff079cd5c364757a59e562f0d80b52fdc9&",
-      "mediaType": "video",
-      "content": "Working on some dumb sh*t"
-    },
-    {
-      "month": "2024-08",
       "message_id": 1278006068634452000,
       "author": "Nathan Shipley",
       "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
@@ -1842,6 +1830,18 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1278006067690995762/HardForkAbe_SideBySide_05_16x9_01_small.mp4?ex=69797ba6&is=69782a26&hm=a8591e57fe37e003d716009a30dba8e87e3947cad05c3e4d28369632543748dc&",
       "mediaType": "image",
       "content": "(also here's just the source video + result from the above tweet)"
+    },
+    {
+      "month": "2024-08",
+      "message_id": 1275883547760001300,
+      "author": "The Dor Brothers",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/594573289293217803/cf7c0f8f88d2a63dc53c4dc12f454072.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-08-21T18:25:42.556+00:00",
+      "reaction_count": 33,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1275883546078347354/Final_Instagram_Send.mp4?ex=697da066&is=697c4ee6&hm=c4e21463e5584c1850cadda79deccdff079cd5c364757a59e562f0d80b52fdc9&",
+      "mediaType": "video",
+      "content": "Working on some dumb sh*t"
     },
     {
       "month": "2024-08",
@@ -1857,15 +1857,15 @@
     },
     {
       "month": "2024-08",
-      "message_id": 1271837429397065700,
-      "author": "Simon Lee",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/760374871791763457/1cfd52e78b8423f88380c795f4897021.png?size=1024",
+      "message_id": 1277571956232814600,
+      "author": "NebSH",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/464322697418244096/8d8ee4a980570d2b85e5103116cef1e8.png?size=1024",
       "channel": "#art_sharing",
-      "created_at": "2024-08-10T14:27:52.765+00:00",
+      "created_at": "2024-08-26T10:14:50.505+00:00",
       "reaction_count": 30,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1271837427300040844/-1.mp4?ex=697a1ce8&is=6978cb68&hm=4f69ecd185bd79bcdce7883524a96feeccfe8eb2bfd06df9a6bd66bb16c328a8&",
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1277571952193699922/Melancholy_Dreams.mp4?ex=6979e199&is=69789019&hm=3d6d41d184fe21637bab202d7295e46d4665c388040be9a875eee3ea8a8d9901&",
       "mediaType": "image",
-      "content": "Some Chinese ink painting Olympic, with <@723012780415778826>"
+      "content": "This animation touches on a common human tendency: the instinct to bury our problems rather than face them head-on. Often, we hope they'll just go away, but in reality, they grow until they become overwhelming. This story isn't about giving a moral lesson, but rather a reflection on the importance of acknowledging and addressing our issues before they take up too much space in our lives."
     },
     {
       "month": "2024-09",
@@ -2097,15 +2097,15 @@
     },
     {
       "month": "2024-12",
-      "message_id": 1316396331727716600,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#hunyuanvideo",
-      "created_at": "2024-12-11T13:29:02.945+00:00",
+      "message_id": 1323076489662562300,
+      "author": "neofuturist",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/750242555408547940/f5a433d3f795ade293698ad69fc46746.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2024-12-29T23:53:36.708+00:00",
       "reaction_count": 29,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1313445718467284992/1316396331459285052/HunyuanVideo_00072.mp4?ex=697b609e&is=697a0f1e&hm=62bf3ad2545530280dce0af91a0948e5a5613c5ed8ddac5e12739b4ddb846a3b&",
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1323076489662562374/1323076490773921922/mwdu_concat_00059.mp4?ex=697b4a40&is=6979f8c0&hm=e4f77d88d3ce0231fa3e0abaa0e954e45119ff4e2bfac022eddd1203d2c6b794&",
       "mediaType": "image",
-      "content": ""
+      "content": "Hello,  I finally finished cleaning this workflow, the goal is to use LLama 3.2 11B Vision and have it act as movie directors by describing images the way one would do it. \n\nI have written a few different \"Directors\", each of them have their own style, play with them and see which one you like best.\n\n\nThis idea was borrowed from the way LTXStudio creates videos. This tool allows you to quickly create storyboards and short stories, what it also does is to generate 4 videos for every images you decide to animate.\nhttps://app.ltx.studio/\n\n\n\nNodes:\nhttps://github.com/Lightricks/ComfyUI-LTXVideo\nhttps://github.com/justUmen/Bjornulf_custom_nodes\nhttps://github.com/SeanScripts/ComfyUI-PixtralLlamaMolmoVision\nhttps://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
     },
     {
       "month": "2025-01",
@@ -2301,18 +2301,6 @@
     },
     {
       "month": "2025-04",
-      "message_id": 1356759633481568500,
-      "author": "Sxela (Alex) GMT+2",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/256155058620727306/e09c3ff558b8e3b91e1d1abd5e4d59e4.png?size=1024",
-      "channel": "#resources",
-      "created_at": "2025-04-01T22:38:23.997+00:00",
-      "reaction_count": 30,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1356759633481568444/1356759634274418799/AnimateDiff_00062-audio_1.mp4?ex=697ddba0&is=697c8a20&hm=b09ba6df3b0fb9535891ab39a47ee5629e709186132f93556a46653342dc86a0&",
-      "mediaType": "video",
-      "content": "Messing with audioreactive optical flow manipulations \nwf here - [git](https://github.com/Sxela/ComfyWarp/blob/main/sample_workflow/reactive_flow.json)\nusing <@439811659729469441> soundtrack 😄 <@738104484114464889> audio nodes"
-    },
-    {
-      "month": "2025-04",
       "message_id": 1365778628562124800,
       "author": "VRGameDevGirl84(RTX 5090)",
       "avatarUrl": "https://cdn.discordapp.com/avatars/330829305477333022/30fa6781db882a5380bdda729421d6a8.png?size=1024",
@@ -2325,15 +2313,27 @@
     },
     {
       "month": "2025-04",
-      "message_id": 1362402734862762200,
-      "author": "Kijai",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
-      "channel": "#wan_chatter",
-      "created_at": "2025-04-17T12:22:04.21+00:00",
+      "message_id": 1356759633481568500,
+      "author": "Sxela (Alex) GMT+2",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/256155058620727306/e09c3ff558b8e3b91e1d1abd5e4d59e4.png?size=1024",
+      "channel": "#resources",
+      "created_at": "2025-04-01T22:38:23.997+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1356759633481568444/1356759634274418799/AnimateDiff_00062-audio_1.mp4?ex=697ddba0&is=697c8a20&hm=b09ba6df3b0fb9535891ab39a47ee5629e709186132f93556a46653342dc86a0&",
+      "mediaType": "video",
+      "content": "Messing with audioreactive optical flow manipulations \nwf here - [git](https://github.com/Sxela/ComfyWarp/blob/main/sample_workflow/reactive_flow.json)\nusing <@439811659729469441> soundtrack 😄 <@738104484114464889> audio nodes"
+    },
+    {
+      "month": "2025-04",
+      "message_id": 1364043871624892400,
+      "author": "Inner_Reflections_AI",
+      "avatarUrl": "",
+      "channel": "#wan_training",
+      "created_at": "2025-04-22T01:03:21.705+00:00",
       "reaction_count": 26,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1362402734363381910/image.png?ex=697d4b2c&is=697bf9ac&hm=f067be6fd513bb1918aefca6ddaf068918e9133795d8e06dd1d20e1006088ede&",
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1344309523187368046/1364043871474028645/Video_00032.gif?ex=6814c299&is=68137119&hm=7b1c693e62f9146c14cf2ae8affaf6ae545fa8141765b20b1092bf8fc602f7f6&",
       "mediaType": "image",
-      "content": "VERY early mockup version, but it runs"
+      "content": "Thank you for an amazing tool <@681483041968750711> !"
     },
     {
       "month": "2025-04",

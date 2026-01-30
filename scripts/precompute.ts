@@ -398,6 +398,7 @@ async function main() {
   for (const [id, lateCount] of acc.authorLateNightCounts) {
     const totalCount = acc.authorCounts.get(id) ?? 0;
     if (totalCount < 100) continue;
+    if (!memberMap.has(id)) continue;  // skip users who left the server
     const ratio = lateCount / totalCount;
     if (ratio > allNighterMax) {
       allNighterMax = ratio;
