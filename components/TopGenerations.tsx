@@ -30,13 +30,24 @@ const MediaItem: React.FC<{ gen: TopGeneration; onClick: () => void }> = ({ gen,
       onClick={onClick}
     >
       <div className="aspect-square relative overflow-hidden bg-[#111]">
-        {/* Always show image thumbnail — video plays in lightbox only */}
-        <img
-          src={gen.mediaUrl}
-          alt={gen.content || 'Community generation'}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+        {gen.mediaType === 'video' ? (
+          <video
+            src={gen.mediaUrl}
+            className="w-full h-full object-cover"
+            muted
+            playsInline
+            preload="metadata"
+            onMouseEnter={(e) => (e.target as HTMLVideoElement).play().catch(() => {})}
+            onMouseLeave={(e) => { const v = e.target as HTMLVideoElement; v.pause(); v.currentTime = 0; }}
+          />
+        ) : (
+          <img
+            src={gen.mediaUrl}
+            alt={gen.content || 'Community generation'}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        )}
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
@@ -142,11 +153,11 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
       if (!map.has(gen.month)) map.set(gen.month, []);
       map.get(gen.month)!.push(gen);
     }
-    return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+    return [...map.entries()].sort((a, b) => b[0].localeCompare(a[0]));
   }, [data]);
 
   const months = useMemo(() => grouped.map(([m]) => m), [grouped]);
-  const [selectedMonth, setSelectedMonth] = useState<string>(() => months[months.length - 1] || '');
+  const [selectedMonth, setSelectedMonth] = useState<string>(() => months[0] || '');
 
   const currentGens = useMemo(() => {
     return grouped.find(([m]) => m === selectedMonth)?.[1] ?? [];

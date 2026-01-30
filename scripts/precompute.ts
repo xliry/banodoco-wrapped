@@ -251,14 +251,14 @@ async function main() {
   const channelNameToId = new Map<string, string>();
   for (const c of channelsRaw) channelNameToId.set(c.channel_name.toLowerCase(), c.channel_id);
 
-  // Build channel id -> family mapping
+  // Build channel id -> family mapping (exact match only — no fuzzy substring)
   const channelIdToFamily = new Map<string, string>();
   for (const [family, channelNames] of Object.entries(CHANNEL_FAMILY_MAP)) {
     for (const name of channelNames) {
       const normalizedName = name.toLowerCase().replace(/[^a-z0-9_-]/g, '');
-      // Try exact match first, then fuzzy
       for (const [chName, chId] of channelNameToId) {
-        if (chName === normalizedName || chName.includes(normalizedName) || normalizedName.includes(chName)) {
+        // Exact match, or channel starts with the pattern + separator (e.g. "flux" matches "flux_gens")
+        if (chName === normalizedName || chName.startsWith(normalizedName + '_') || chName.startsWith(normalizedName + '-')) {
           channelIdToFamily.set(chId, family);
         }
       }

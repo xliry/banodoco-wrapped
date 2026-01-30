@@ -1,5 +1,5 @@
 {
-  "totalMessages": 1048103,
+  "totalMessages": 1048105,
   "totalMembers": 6633,
   "totalChannels": 228,
   "dateRange": {
@@ -605,7 +605,7 @@
     },
     "mostThankful": {
       "username": "PhoenixRisen",
-      "count": 840,
+      "count": 785,
       "metric": "thank yous"
     },
     "nightOwl": {
@@ -628,302 +628,302 @@
     {
       "month": "2023-08",
       "sd": 0,
-      "animatediff": 81.9,
+      "animatediff": 100,
       "flux": 0,
-      "wan": 5.7,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 12.4
+      "ltx": 0
     },
     {
       "month": "2023-09",
       "sd": 0,
-      "animatediff": 49.3,
+      "animatediff": 100,
       "flux": 0,
-      "wan": 38.6,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 12.1
+      "ltx": 0
     },
     {
       "month": "2023-10",
       "sd": 0,
-      "animatediff": 39.2,
+      "animatediff": 100,
       "flux": 0,
-      "wan": 53.4,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 7.4
+      "ltx": 0
     },
     {
       "month": "2023-11",
-      "sd": 19.8,
-      "animatediff": 11.4,
+      "sd": 63.5,
+      "animatediff": 36.5,
       "flux": 0,
-      "wan": 65.6,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 3.2
+      "ltx": 0
     },
     {
       "month": "2023-12",
-      "sd": 5.7,
-      "animatediff": 20.7,
+      "sd": 21.6,
+      "animatediff": 78.4,
       "flux": 0,
-      "wan": 66.9,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 6.7
+      "ltx": 0
     },
     {
       "month": "2024-01",
-      "sd": 3.1,
-      "animatediff": 6,
+      "sd": 33.9,
+      "animatediff": 66.1,
       "flux": 0,
-      "wan": 74.3,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 16.5
+      "ltx": 0
     },
     {
       "month": "2024-02",
-      "sd": 0.6,
-      "animatediff": 24.8,
+      "sd": 2.3,
+      "animatediff": 97.7,
       "flux": 0,
-      "wan": 61.6,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 13.1
+      "ltx": 0
     },
     {
       "month": "2024-03",
-      "sd": 0.5,
-      "animatediff": 20,
+      "sd": 2.5,
+      "animatediff": 97.5,
       "flux": 0,
-      "wan": 64.7,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 14.8
+      "ltx": 0
     },
     {
       "month": "2024-04",
-      "sd": 0.6,
-      "animatediff": 12.6,
+      "sd": 4.6,
+      "animatediff": 95.4,
       "flux": 0,
-      "wan": 72.8,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 14
+      "ltx": 0
     },
     {
       "month": "2024-05",
-      "sd": 0.1,
-      "animatediff": 8.3,
+      "sd": 1.8,
+      "animatediff": 98.2,
       "flux": 0,
-      "wan": 66.3,
+      "wan": 0,
       "cogvideo": 0,
       "hunyuan": 0,
-      "ltx": 25.3
+      "ltx": 0
     },
     {
       "month": "2024-06",
-      "sd": 13.7,
-      "animatediff": 5.2,
+      "sd": 70.9,
+      "animatediff": 27,
       "flux": 0,
-      "wan": 63.7,
+      "wan": 0,
       "cogvideo": 0,
-      "hunyuan": 0.4,
-      "ltx": 17
+      "hunyuan": 2.1,
+      "ltx": 0
     },
     {
       "month": "2024-07",
-      "sd": 0.8,
-      "animatediff": 4.1,
+      "sd": 16.1,
+      "animatediff": 81,
       "flux": 0,
-      "wan": 83.5,
+      "wan": 0,
       "cogvideo": 0,
-      "hunyuan": 0.1,
-      "ltx": 11.4
+      "hunyuan": 2.9,
+      "ltx": 0
     },
     {
       "month": "2024-08",
       "sd": 0.2,
-      "animatediff": 1.1,
-      "flux": 63.4,
-      "wan": 23,
-      "cogvideo": 9,
+      "animatediff": 1.5,
+      "flux": 86.1,
+      "wan": 0,
+      "cogvideo": 12.2,
       "hunyuan": 0.1,
-      "ltx": 3.3
+      "ltx": 0
     },
     {
       "month": "2024-09",
       "sd": 0,
-      "animatediff": 1.5,
-      "flux": 29.8,
-      "wan": 13.9,
-      "cogvideo": 48.3,
+      "animatediff": 1.8,
+      "flux": 37.4,
+      "wan": 0,
+      "cogvideo": 60.6,
       "hunyuan": 0.1,
-      "ltx": 6.4
+      "ltx": 0
     },
     {
       "month": "2024-10",
-      "sd": 1.4,
-      "animatediff": 1.9,
-      "flux": 10.1,
-      "wan": 24.2,
-      "cogvideo": 55.3,
+      "sd": 2,
+      "animatediff": 2.8,
+      "flux": 14.7,
+      "wan": 0,
+      "cogvideo": 80.5,
       "hunyuan": 0,
-      "ltx": 7.1
+      "ltx": 0
     },
     {
       "month": "2024-11",
-      "sd": 0.3,
-      "animatediff": 0.5,
-      "flux": 6,
-      "wan": 10.1,
-      "cogvideo": 66,
+      "sd": 0.4,
+      "animatediff": 0.6,
+      "flux": 6.9,
+      "wan": 0,
+      "cogvideo": 77,
       "hunyuan": 0,
-      "ltx": 17.1
+      "ltx": 15
     },
     {
       "month": "2024-12",
       "sd": 0,
-      "animatediff": 0.2,
-      "flux": 1.3,
-      "wan": 3.9,
-      "cogvideo": 5.4,
-      "hunyuan": 74,
-      "ltx": 15.1
+      "animatediff": 0.3,
+      "flux": 1.5,
+      "wan": 0,
+      "cogvideo": 6,
+      "hunyuan": 82.7,
+      "ltx": 9.5
     },
     {
       "month": "2025-01",
-      "sd": 0.5,
-      "animatediff": 2.3,
-      "flux": 2.4,
-      "wan": 5.5,
-      "cogvideo": 4.7,
-      "hunyuan": 67.5,
-      "ltx": 17
+      "sd": 0.6,
+      "animatediff": 2.8,
+      "flux": 2.9,
+      "wan": 0,
+      "cogvideo": 5.7,
+      "hunyuan": 80.6,
+      "ltx": 7.5
     },
     {
       "month": "2025-02",
       "sd": 0.1,
-      "animatediff": 0.8,
-      "flux": 1.6,
-      "wan": 30.2,
-      "cogvideo": 0.6,
-      "hunyuan": 56.8,
-      "ltx": 9.9
+      "animatediff": 1,
+      "flux": 1.9,
+      "wan": 28.5,
+      "cogvideo": 0.8,
+      "hunyuan": 66.1,
+      "ltx": 1.8
     },
     {
       "month": "2025-03",
       "sd": 0,
-      "animatediff": 0.9,
-      "flux": 3,
-      "wan": 64.9,
+      "animatediff": 1,
+      "flux": 3.2,
+      "wan": 68.1,
       "cogvideo": 0.1,
-      "hunyuan": 21.1,
-      "ltx": 9.9
+      "hunyuan": 22.9,
+      "ltx": 4.6
     },
     {
       "month": "2025-04",
       "sd": 0,
       "animatediff": 0.3,
-      "flux": 3,
-      "wan": 69.6,
+      "flux": 3.6,
+      "wan": 77.9,
       "cogvideo": 0,
-      "hunyuan": 13.8,
-      "ltx": 13.3
+      "hunyuan": 16.4,
+      "ltx": 1.7
     },
     {
       "month": "2025-05",
       "sd": 0,
-      "animatediff": 0.1,
-      "flux": 2.5,
-      "wan": 63,
+      "animatediff": 0.2,
+      "flux": 2.9,
+      "wan": 69.9,
       "cogvideo": 0,
-      "hunyuan": 10.8,
-      "ltx": 23.5
+      "hunyuan": 12.6,
+      "ltx": 14.5
     },
     {
       "month": "2025-06",
       "sd": 0.2,
       "animatediff": 0.2,
-      "flux": 7.3,
-      "wan": 80.3,
+      "flux": 7.9,
+      "wan": 86,
       "cogvideo": 0,
-      "hunyuan": 4.6,
-      "ltx": 7.4
+      "hunyuan": 4.9,
+      "ltx": 0.7
     },
     {
       "month": "2025-07",
       "sd": 0.2,
       "animatediff": 0.1,
-      "flux": 5.2,
-      "wan": 88.3,
+      "flux": 5.6,
+      "wan": 92.4,
       "cogvideo": 0,
-      "hunyuan": 1,
-      "ltx": 5.2
+      "hunyuan": 1.1,
+      "ltx": 0.7
     },
     {
       "month": "2025-08",
-      "sd": 0,
+      "sd": 0.1,
       "animatediff": 0.1,
-      "flux": 1.9,
-      "wan": 92.6,
+      "flux": 2,
+      "wan": 97.3,
       "cogvideo": 0,
       "hunyuan": 0.5,
-      "ltx": 4.9
+      "ltx": 0.1
     },
     {
       "month": "2025-09",
       "sd": 0,
       "animatediff": 0.1,
-      "flux": 1.1,
-      "wan": 90.1,
+      "flux": 1.2,
+      "wan": 96,
       "cogvideo": 0,
-      "hunyuan": 2.4,
-      "ltx": 6.2
+      "hunyuan": 2.5,
+      "ltx": 0.1
     },
     {
       "month": "2025-10",
       "sd": 0,
       "animatediff": 0,
       "flux": 0.4,
-      "wan": 85.9,
+      "wan": 98,
       "cogvideo": 0,
       "hunyuan": 0.8,
-      "ltx": 12.9
+      "ltx": 0.7
     },
     {
       "month": "2025-11",
       "sd": 0,
-      "animatediff": 0,
-      "flux": 9,
-      "wan": 68.5,
+      "animatediff": 0.1,
+      "flux": 10.1,
+      "wan": 73.4,
       "cogvideo": 0,
-      "hunyuan": 14.3,
-      "ltx": 8.1
+      "hunyuan": 15.9,
+      "ltx": 0.5
     },
     {
       "month": "2025-12",
       "sd": 0.1,
       "animatediff": 0,
-      "flux": 1.9,
-      "wan": 85.3,
+      "flux": 2.3,
+      "wan": 95.3,
       "cogvideo": 0,
-      "hunyuan": 2.3,
-      "ltx": 10.3
+      "hunyuan": 1.5,
+      "ltx": 0.7
     },
     {
       "month": "2026-01",
       "sd": 0,
       "animatediff": 0.1,
-      "flux": 3,
-      "wan": 13.1,
+      "flux": 3.2,
+      "wan": 12.6,
       "cogvideo": 0,
       "hunyuan": 0.2,
-      "ltx": 83.7
+      "ltx": 84
     }
   ],
   "activityHeatmap": [
@@ -1058,8 +1058,8 @@
   ],
   "funStats": {
     "longestMessage": {
-      "chars": 1987,
-      "username": "Nathan Shipley"
+      "chars": 3648,
+      "username": "Michael Carychao"
     },
     "mostRepliedThread": {
       "replies": 14,
@@ -1072,11 +1072,11 @@
     },
     "mostUsedEmoji": {
       "emoji": "😄",
-      "count": 108
+      "count": 64
     },
     "mostUsedWord": {
       "word": "it's",
-      "count": 515
+      "count": 491
     }
   },
   "millionthMessage": {
@@ -1329,18 +1329,6 @@
     },
     {
       "month": "2023-12",
-      "message_id": 1183384204722049000,
-      "author": "anime_is_real",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/756701878011691029/a_fc120d2762b38bc8f229f50a404b9378.gif?size=1024",
-      "channel": "#art_sharing",
-      "created_at": "2023-12-10T12:26:20.621+00:00",
-      "reaction_count": 45,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1183384204340363284/test1.mp4?ex=68345dec&is=68330c6c&hm=f6ade7026c15b87798ab2caa94b7548974d3af590dce8b65c8a09883dd021263&",
-      "mediaType": "image",
-      "content": ""
-    },
-    {
-      "month": "2023-12",
       "message_id": 1188125164257411000,
       "author": "Kijai",
       "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
@@ -1350,6 +1338,18 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1188125163368239114/marigold_3dprint_test.mp4?ex=683479c9&is=68332849&hm=975a498fd55673dc35c3f049388decf0541270fd5565d96c97953f0aece637bb&",
       "mediaType": "image",
       "content": "dalle3 image to marigold depth to Blender to 3D print"
+    },
+    {
+      "month": "2023-12",
+      "message_id": 1183384204722049000,
+      "author": "anime_is_real",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/756701878011691029/a_fc120d2762b38bc8f229f50a404b9378.gif?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2023-12-10T12:26:20.621+00:00",
+      "reaction_count": 45,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1183384204340363284/test1.mp4?ex=68345dec&is=68330c6c&hm=f6ade7026c15b87798ab2caa94b7548974d3af590dce8b65c8a09883dd021263&",
+      "mediaType": "image",
+      "content": ""
     },
     {
       "month": "2023-12",
@@ -1557,15 +1557,15 @@
     },
     {
       "month": "2024-03",
-      "message_id": 1222462527980699600,
-      "author": "matt3o",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/237937096717762560/608f266b080c62e0a4d218e25e6f7534.png?size=1024",
-      "channel": "#ipadapter",
-      "created_at": "2024-03-27T08:29:38.926+00:00",
+      "message_id": 1218031684147220500,
+      "author": "Fill",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/380911583074975744/a_e9d392d08b9c2b6fbc2bce81dadd5eec.gif?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-03-15T03:03:03.435+00:00",
       "reaction_count": 30,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1179522836143018125/1222462527787499591/image.png?ex=697b1a72&is=6979c8f2&hm=4b032302bd3bda70ae0a45ff6cf09a19cff6db883f3d7a69cd44c70ab38e277e&",
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1218031683400372254/Machine-_00108.mp4?ex=697a2527&is=6978d3a7&hm=965bcd4f618a911a15642a317a85d1f976602e97212beeeaa7579ec2f7d491bd&",
       "mediaType": "image",
-      "content": "fixed attn mask in tiled batch"
+      "content": ""
     },
     {
       "month": "2024-04",
@@ -1821,18 +1821,6 @@
     },
     {
       "month": "2024-08",
-      "message_id": 1278006068634452000,
-      "author": "Nathan Shipley",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
-      "channel": "#art_sharing",
-      "created_at": "2024-08-27T14:59:50.967+00:00",
-      "reaction_count": 33,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1278006067690995762/HardForkAbe_SideBySide_05_16x9_01_small.mp4?ex=69797ba6&is=69782a26&hm=a8591e57fe37e003d716009a30dba8e87e3947cad05c3e4d28369632543748dc&",
-      "mediaType": "image",
-      "content": "(also here's just the source video + result from the above tweet)"
-    },
-    {
-      "month": "2024-08",
       "message_id": 1275883547760001300,
       "author": "The Dor Brothers",
       "avatarUrl": "https://cdn.discordapp.com/avatars/594573289293217803/cf7c0f8f88d2a63dc53c4dc12f454072.png?size=1024",
@@ -1842,6 +1830,18 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1275883546078347354/Final_Instagram_Send.mp4?ex=697da066&is=697c4ee6&hm=c4e21463e5584c1850cadda79deccdff079cd5c364757a59e562f0d80b52fdc9&",
       "mediaType": "video",
       "content": "Working on some dumb sh*t"
+    },
+    {
+      "month": "2024-08",
+      "message_id": 1278006068634452000,
+      "author": "Nathan Shipley",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/614602980943069214/aaa0320d87e36e4988930aa11650bb94.png?size=1024",
+      "channel": "#art_sharing",
+      "created_at": "2024-08-27T14:59:50.967+00:00",
+      "reaction_count": 33,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1278006067690995762/HardForkAbe_SideBySide_05_16x9_01_small.mp4?ex=69797ba6&is=69782a26&hm=a8591e57fe37e003d716009a30dba8e87e3947cad05c3e4d28369632543748dc&",
+      "mediaType": "image",
+      "content": "(also here's just the source video + result from the above tweet)"
     },
     {
       "month": "2024-08",
@@ -1857,15 +1857,15 @@
     },
     {
       "month": "2024-08",
-      "message_id": 1277571956232814600,
-      "author": "NebSH",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/464322697418244096/8d8ee4a980570d2b85e5103116cef1e8.png?size=1024",
+      "message_id": 1271837429397065700,
+      "author": "Simon Lee",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/760374871791763457/1cfd52e78b8423f88380c795f4897021.png?size=1024",
       "channel": "#art_sharing",
-      "created_at": "2024-08-26T10:14:50.505+00:00",
+      "created_at": "2024-08-10T14:27:52.765+00:00",
       "reaction_count": 30,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1277571952193699922/Melancholy_Dreams.mp4?ex=6979e199&is=69789019&hm=3d6d41d184fe21637bab202d7295e46d4665c388040be9a875eee3ea8a8d9901&",
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1138865343314530324/1271837427300040844/-1.mp4?ex=697a1ce8&is=6978cb68&hm=4f69ecd185bd79bcdce7883524a96feeccfe8eb2bfd06df9a6bd66bb16c328a8&",
       "mediaType": "image",
-      "content": "This animation touches on a common human tendency: the instinct to bury our problems rather than face them head-on. Often, we hope they'll just go away, but in reality, they grow until they become overwhelming. This story isn't about giving a moral lesson, but rather a reflection on the importance of acknowledging and addressing our issues before they take up too much space in our lives."
+      "content": "Some Chinese ink painting Olympic, with <@723012780415778826>"
     },
     {
       "month": "2024-09",
@@ -2097,15 +2097,15 @@
     },
     {
       "month": "2024-12",
-      "message_id": 1323076489662562300,
-      "author": "neofuturist",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/750242555408547940/f5a433d3f795ade293698ad69fc46746.png?size=1024",
-      "channel": "#resources",
-      "created_at": "2024-12-29T23:53:36.708+00:00",
+      "message_id": 1316396331727716600,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#hunyuanvideo",
+      "created_at": "2024-12-11T13:29:02.945+00:00",
       "reaction_count": 29,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1323076489662562374/1323076490773921922/mwdu_concat_00059.mp4?ex=697b4a40&is=6979f8c0&hm=e4f77d88d3ce0231fa3e0abaa0e954e45119ff4e2bfac022eddd1203d2c6b794&",
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1313445718467284992/1316396331459285052/HunyuanVideo_00072.mp4?ex=697b609e&is=697a0f1e&hm=62bf3ad2545530280dce0af91a0948e5a5613c5ed8ddac5e12739b4ddb846a3b&",
       "mediaType": "image",
-      "content": "Hello,  I finally finished cleaning this workflow, the goal is to use LLama 3.2 11B Vision and have it act as movie directors by describing images the way one would do it. \n\nI have written a few different \"Directors\", each of them have their own style, play with them and see which one you like best.\n\n\nThis idea was borrowed from the way LTXStudio creates videos. This tool allows you to quickly create storyboards and short stories, what it also does is to generate 4 videos for every images you decide to animate.\nhttps://app.ltx.studio/\n\n\n\nNodes:\nhttps://github.com/Lightricks/ComfyUI-LTXVideo\nhttps://github.com/justUmen/Bjornulf_custom_nodes\nhttps://github.com/SeanScripts/ComfyUI-PixtralLlamaMolmoVision\nhttps://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+      "content": ""
     },
     {
       "month": "2025-01",
@@ -2301,18 +2301,6 @@
     },
     {
       "month": "2025-04",
-      "message_id": 1365778628562124800,
-      "author": "VRGameDevGirl84(RTX 5090)",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/330829305477333022/30fa6781db882a5380bdda729421d6a8.png?size=1024",
-      "channel": "#wan_chatter",
-      "created_at": "2025-04-26T19:56:39.989+00:00",
-      "reaction_count": 30,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1365778628264333473/20250426_145526.jpg?ex=697db5b7&is=697c6437&hm=0029a17610c247d3dc06461a5c46a08b2549d3845b7142498550c74970124acb&",
-      "mediaType": "image",
-      "content": "Finally"
-    },
-    {
-      "month": "2025-04",
       "message_id": 1356759633481568500,
       "author": "Sxela (Alex) GMT+2",
       "avatarUrl": "https://cdn.discordapp.com/avatars/256155058620727306/e09c3ff558b8e3b91e1d1abd5e4d59e4.png?size=1024",
@@ -2325,15 +2313,27 @@
     },
     {
       "month": "2025-04",
-      "message_id": 1364043871624892400,
-      "author": "Inner_Reflections_AI",
-      "avatarUrl": "",
-      "channel": "#wan_training",
-      "created_at": "2025-04-22T01:03:21.705+00:00",
-      "reaction_count": 26,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1344309523187368046/1364043871474028645/Video_00032.gif?ex=6814c299&is=68137119&hm=7b1c693e62f9146c14cf2ae8affaf6ae545fa8141765b20b1092bf8fc602f7f6&",
+      "message_id": 1365778628562124800,
+      "author": "VRGameDevGirl84(RTX 5090)",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/330829305477333022/30fa6781db882a5380bdda729421d6a8.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-04-26T19:56:39.989+00:00",
+      "reaction_count": 30,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1365778628264333473/20250426_145526.jpg?ex=697db5b7&is=697c6437&hm=0029a17610c247d3dc06461a5c46a08b2549d3845b7142498550c74970124acb&",
       "mediaType": "image",
-      "content": "Thank you for an amazing tool <@681483041968750711> !"
+      "content": "Finally"
+    },
+    {
+      "month": "2025-04",
+      "message_id": 1362402734862762200,
+      "author": "Kijai",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-04-17T12:22:04.21+00:00",
+      "reaction_count": 26,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1362402734363381910/image.png?ex=697d4b2c&is=697bf9ac&hm=f067be6fd513bb1918aefca6ddaf068918e9133795d8e06dd1d20e1006088ede&",
+      "mediaType": "image",
+      "content": "VERY early mockup version, but it runs"
     },
     {
       "month": "2025-04",
@@ -2505,18 +2505,6 @@
     },
     {
       "month": "2025-07",
-      "message_id": 1400227687800373500,
-      "author": "Ablejones",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/256636116763934731/762f9b4513bf17beee4069a0f8c0ae10.png?size=1024",
-      "channel": "#wan_chatter",
-      "created_at": "2025-07-30T21:24:55.744+00:00",
-      "reaction_count": 28,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1400227686575640729/test1234.mp4?ex=697dca67&is=697c78e7&hm=07988cb4745e942f7a46e07e0e0fda2d7988a387ce3d0f4a4fd067948de25500&",
-      "mediaType": "video",
-      "content": "👋 👏 👏 **Poll for your input!**\nGiven the prompt: `old man gets up and jumps into the lake`\nPlease choose the **ROW** that you prefer, considering prompt following AND quality of the output.\n\nedit: Details of parameters after poll results:\n**A. (Test 2)**\n• Sampler 1: HighNoise | CFG 1 | 3 steps | No Lora  \n• Sampler 2: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\n**B. (Test 4)**\n• Sampler 1: HighNoise | CFG 3 | 1 step  | No Lora  \n• Sampler 2: HighNoise | CFG 1 | 2 steps | No Lora  \n• Sampler 3: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\n**C. (Test 1)**\n• Sampler 1: HighNoise | CFG 1 | 3 steps | LightX2V Lora (3.0)  \n• Sampler 2: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\n**D. (Test 3)**\n• Sampler 1: HighNoise | CFG 3 | 3 steps | LightX2V Lora (3.0)  \n• Sampler 2: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\nResults:\nA:0, B: 3, C: 0, D: 20"
-    },
-    {
-      "month": "2025-07",
       "message_id": 1395331932690059300,
       "author": "Kijai",
       "avatarUrl": "https://cdn.discordapp.com/avatars/228118453062467585/2ac19c5c44d8f8d8a6de84fad038b930.png?size=1024",
@@ -2526,6 +2514,18 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1395331932740386986/WanVideoWrapper_I2V_00213.mp4?ex=697dc720&is=697c75a0&hm=f73a06644bd86273865e1f9d470712a6417cdf0be765a8693f2655114f9ed108&",
       "mediaType": "video",
       "content": "asked for a middle finger"
+    },
+    {
+      "month": "2025-07",
+      "message_id": 1400227687800373500,
+      "author": "Ablejones",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/256636116763934731/762f9b4513bf17beee4069a0f8c0ae10.png?size=1024",
+      "channel": "#wan_chatter",
+      "created_at": "2025-07-30T21:24:55.744+00:00",
+      "reaction_count": 28,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1400227686575640729/test1234.mp4?ex=697dca67&is=697c78e7&hm=07988cb4745e942f7a46e07e0e0fda2d7988a387ce3d0f4a4fd067948de25500&",
+      "mediaType": "video",
+      "content": "👋 👏 👏 **Poll for your input!**\nGiven the prompt: `old man gets up and jumps into the lake`\nPlease choose the **ROW** that you prefer, considering prompt following AND quality of the output.\n\nedit: Details of parameters after poll results:\n**A. (Test 2)**\n• Sampler 1: HighNoise | CFG 1 | 3 steps | No Lora  \n• Sampler 2: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\n**B. (Test 4)**\n• Sampler 1: HighNoise | CFG 3 | 1 step  | No Lora  \n• Sampler 2: HighNoise | CFG 1 | 2 steps | No Lora  \n• Sampler 3: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\n**C. (Test 1)**\n• Sampler 1: HighNoise | CFG 1 | 3 steps | LightX2V Lora (3.0)  \n• Sampler 2: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\n**D. (Test 3)**\n• Sampler 1: HighNoise | CFG 3 | 3 steps | LightX2V Lora (3.0)  \n• Sampler 2: LowNoise  | CFG 1 | 3 steps | LightX2V Lora (1.0)\n\nResults:\nA:0, B: 3, C: 0, D: 20"
     },
     {
       "month": "2025-08",
@@ -2613,18 +2613,6 @@
     },
     {
       "month": "2025-09",
-      "message_id": 1417710283945672700,
-      "author": "VRGameDevGirl84(RTX 5090)",
-      "avatarUrl": "https://cdn.discordapp.com/avatars/330829305477333022/30fa6781db882a5380bdda729421d6a8.png?size=1024",
-      "channel": 1417710283945672700,
-      "created_at": "2025-09-17T03:14:31.476+00:00",
-      "reaction_count": 29,
-      "mediaUrl": "https://cdn.discordapp.com/attachments/1417710283945672764/1417710284239278220/a_cinematic_square_image_representing_the_humo_comfyui_workflow_centered_glowing_text_reads_humo_wi_no189ukkdhoyymli22fk_1.png?ex=697d7397&is=697c2217&hm=b059c4ea94783c70bf5155d47c7906b9446f2b1270bd6eff1d68ed8f6ac80f63&",
-      "mediaType": "image",
-      "content": "🎬 New Workflows: HUMO & Infinite Talk\n\nI’ve built two new workflows for making infinite-length videos in ComfyUI.\nThese workflows use my custom nodes to split audio into scenes and then recombine generated clips into one seamless video.\n\n⚡ HUMO Workflow\n\nDefault: 16 scenes (≈1 minute video).\n\nEach scene = 3 seconds by default.\n\nUnlimited scenes — you can add more groups for longer videos.\n\nStrengths:\n\nMuch better motion and visual flow.\n\nFaster to generate.\n\nSupports multi-image input for variation per scene.\n\nBest for: Dynamic, visually rich videos where flow matters.\n\n🎤 Infinite Talk Workflow\n\nDefault: 6 scenes (but you can add unlimited more).\n\nFlexible scene length — each scene can be short or very long.\n\nExample: Scene 1 could be 1 min, Scene 2 could be 5 min.\n\nReference images: You can use one shared image or set a different image per scene.\n\nStrengths:\n\nPerfect for syncing video with lyrics or custom audio timing.\n\nGreat for extended videos where scene timing must match music.\n\nTradeoff: Motion is less strong compared to HUMO.\n\n🧩 Summary\n\nHUMO: Best for strong motion, cinematic flow. Default 3s per scene, but you can chain unlimited scenes for longer videos.\n\nInfinite Talk: Best for full timing control. Scene length is totally flexible, and each scene can use its own reference image if desired.\n\nBoth workflows let you create infinite-length videos aligned to your audio.\n\n✨ If you want cinematic flow → go HUMO.\nIf you want total timing control → go Infinite Talk."
-    },
-    {
-      "month": "2025-09",
       "message_id": 1421196925860057000,
       "author": "piscesbody",
       "avatarUrl": "https://cdn.discordapp.com/avatars/1092355295424028692/a51c15219682a11e9f7fe80136f406f8.png?size=1024",
@@ -2634,6 +2622,18 @@
       "mediaUrl": "https://cdn.discordapp.com/attachments/1342763350815277067/1421196925419393074/Wanimate_00001-audio_20250927_020836685.mp4?ex=697d9c87&is=697c4b07&hm=beaf870fa5a81ab47cef8613e1c66cbc907d039ab89488937cee58d69f0c284b&",
       "mediaType": "video",
       "content": "what the hell~"
+    },
+    {
+      "month": "2025-09",
+      "message_id": 1417710283945672700,
+      "author": "VRGameDevGirl84(RTX 5090)",
+      "avatarUrl": "https://cdn.discordapp.com/avatars/330829305477333022/30fa6781db882a5380bdda729421d6a8.png?size=1024",
+      "channel": 1417710283945672700,
+      "created_at": "2025-09-17T03:14:31.476+00:00",
+      "reaction_count": 29,
+      "mediaUrl": "https://cdn.discordapp.com/attachments/1417710283945672764/1417710284239278220/a_cinematic_square_image_representing_the_humo_comfyui_workflow_centered_glowing_text_reads_humo_wi_no189ukkdhoyymli22fk_1.png?ex=697d7397&is=697c2217&hm=b059c4ea94783c70bf5155d47c7906b9446f2b1270bd6eff1d68ed8f6ac80f63&",
+      "mediaType": "image",
+      "content": "🎬 New Workflows: HUMO & Infinite Talk\n\nI’ve built two new workflows for making infinite-length videos in ComfyUI.\nThese workflows use my custom nodes to split audio into scenes and then recombine generated clips into one seamless video.\n\n⚡ HUMO Workflow\n\nDefault: 16 scenes (≈1 minute video).\n\nEach scene = 3 seconds by default.\n\nUnlimited scenes — you can add more groups for longer videos.\n\nStrengths:\n\nMuch better motion and visual flow.\n\nFaster to generate.\n\nSupports multi-image input for variation per scene.\n\nBest for: Dynamic, visually rich videos where flow matters.\n\n🎤 Infinite Talk Workflow\n\nDefault: 6 scenes (but you can add unlimited more).\n\nFlexible scene length — each scene can be short or very long.\n\nExample: Scene 1 could be 1 min, Scene 2 could be 5 min.\n\nReference images: You can use one shared image or set a different image per scene.\n\nStrengths:\n\nPerfect for syncing video with lyrics or custom audio timing.\n\nGreat for extended videos where scene timing must match music.\n\nTradeoff: Motion is less strong compared to HUMO.\n\n🧩 Summary\n\nHUMO: Best for strong motion, cinematic flow. Default 3s per scene, but you can chain unlimited scenes for longer videos.\n\nInfinite Talk: Best for full timing control. Scene length is totally flexible, and each scene can use its own reference image if desired.\n\nBoth workflows let you create infinite-length videos aligned to your audio.\n\n✨ If you want cinematic flow → go HUMO.\nIf you want total timing control → go Infinite Talk."
     },
     {
       "month": "2025-09",
