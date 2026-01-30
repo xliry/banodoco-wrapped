@@ -157,11 +157,14 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
   }, [data]);
 
   const months = useMemo(() => grouped.map(([m]) => m), [grouped]);
-  const [selectedMonth, setSelectedMonth] = useState<string>(() => months[0] || '');
+  const [selectedMonth, setSelectedMonth] = useState<string>('');
+
+  // Reset to newest month when data changes
+  const effectiveMonth = months.includes(selectedMonth) && selectedMonth !== '' ? selectedMonth : months[0] || '';
 
   const currentGens = useMemo(() => {
-    return grouped.find(([m]) => m === selectedMonth)?.[1] ?? [];
-  }, [grouped, selectedMonth]);
+    return grouped.find(([m]) => m === effectiveMonth)?.[1] ?? [];
+  }, [grouped, effectiveMonth]);
 
   if (!data || data.length === 0) return null;
 
@@ -188,7 +191,7 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
               key={month}
               onClick={() => setSelectedMonth(month)}
               className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
-                selectedMonth === month
+                effectiveMonth === month
                   ? 'bg-pink-500/20 text-pink-400 border border-pink-500/30'
                   : 'bg-white/5 text-gray-400 border border-white/5 hover:bg-white/10 hover:text-gray-300'
               }`}
@@ -202,14 +205,14 @@ const TopGenerations: React.FC<TopGenerationsProps> = ({ data }) => {
       {/* Media grid for selected month */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={selectedMonth}
+          key={effectiveMonth}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
         >
           <div className="flex items-center gap-2 mb-4">
-            <h3 className="text-lg font-bold text-white">{formatMonth(selectedMonth)}</h3>
+            <h3 className="text-lg font-bold text-white">{formatMonth(effectiveMonth)}</h3>
             <span className="text-xs text-gray-500 font-medium">{currentGens.length} top posts</span>
           </div>
 
