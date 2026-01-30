@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const { data, progress, isLoading, isPhase1Done, refresh } = useDiscordData();
 
   return (
-    <div className="relative min-h-screen bg-[#0f0f0f] selection:bg-cyan-500/30 snap-y snap-proximity overflow-y-auto h-screen">
+    <div className="relative min-h-screen bg-[#0f0f0f] selection:bg-cyan-500/30 snap-y snap-mandatory overflow-y-auto h-screen">
       {/* Loading screen until data.json is fetched */}
       <LoadingScreen progress={progress} visible={!isPhase1Done} />
 
