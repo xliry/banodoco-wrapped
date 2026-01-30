@@ -51,8 +51,8 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
               transition={{ delay: idx * 0.15, type: 'spring', stiffness: 100, damping: 12 }}
               className="flex flex-col items-center w-full sm:w-36 group"
             >
-              <div className="mb-2 text-center">
-                <div className="relative mx-auto mb-1">
+              <div className="mb-2 flex flex-col items-center">
+                <div className="relative mb-1">
                   {user.avatarUrl ? (
                     <img
                       src={user.avatarUrl}
@@ -74,8 +74,8 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
                   </div>
                   <div className="absolute -top-1 -right-1 text-base sm:text-lg">{medal}</div>
                 </div>
-                <p className="font-bold text-white text-sm sm:text-base">{user.username}</p>
-                <p className="text-[10px] sm:text-xs text-gray-500 font-mono">{(user.messages / 1000).toFixed(1)}K posts</p>
+                <p className="font-bold text-white text-sm sm:text-base text-center">{user.username}</p>
+                <p className="text-[10px] sm:text-xs text-gray-500 font-mono text-center">{(user.messages / 1000).toFixed(1)}K posts</p>
               </div>
               <div
                 className={`w-full ${heightClass} rounded-t-xl flex items-center justify-center bg-gradient-to-t from-[#1a1a1a] to-white/5 border-t border-x border-white/10`}
