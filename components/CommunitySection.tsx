@@ -22,9 +22,6 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
   // Active card tracking (-1 means section not in view, no card active)
   const [activeTopicIndex, setActiveTopicIndex] = useState(-1);
 
-  // Track if section is in viewport
-  const [sectionInView, setSectionInView] = useState(false);
-
   // Desktop gradient fades
   const [topGradientOpacity, setTopGradientOpacity] = useState(0);
   const [bottomGradientOpacity, setBottomGradientOpacity] = useState(1);
@@ -65,9 +62,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const inView = entry.isIntersecting;
-        setSectionInView(inView);
-        if (!inView) {
+        if (!entry.isIntersecting) {
           // Section left viewport - deactivate all cards
           setActiveTopicIndex(-1);
         } else {
@@ -287,7 +282,6 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
                   generations={gens}
                   variant="mobile"
                   isActive={idx === activeTopicIndex}
-                  shouldPreload={idx === activeTopicIndex + 1}
                   fullWidth
                 />
               ))}
@@ -398,7 +392,6 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
                   variant="desktop"
                   scrollRoot={scrollRoot}
                   isActive={idx === activeTopicIndex}
-                  shouldPreload={idx === activeTopicIndex + 1}
                   snapToCenter={idx !== 0 && idx !== grouped.length - 1}
                 />
               ))}

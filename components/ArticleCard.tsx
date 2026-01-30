@@ -10,7 +10,6 @@ interface ArticleCardProps {
   variant: 'mobile' | 'desktop';
   scrollRoot?: HTMLElement | null;
   isActive?: boolean;
-  shouldPreload?: boolean;
   fullWidth?: boolean;
   snapToCenter?: boolean;
 }
@@ -98,7 +97,7 @@ const LightboxModal: React.FC<{ gen: TopGeneration; onClose: () => void }> = ({ 
 };
 
 const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
-  ({ month, generations, variant, scrollRoot, isActive = false, shouldPreload = false, fullWidth = false, snapToCenter = false }, ref) => {
+  ({ month, generations, variant, scrollRoot, isActive = false, fullWidth = false, snapToCenter = false }, ref) => {
     const internalRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -133,41 +132,8 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       setMediaLoaded(false);
     }, [featuredIndex]);
 
-    // Manage video src - load when active/preload, unload otherwise
-    useEffect(() => {
-      const video = videoRef.current;
-      if (!video || featured?.mediaType !== 'video') return;
 
-      const shouldLoad = isActive || shouldPreload;
-
-      if (shouldLoad) {
-        // Load the video
-        if (video.getAttribute('src') !== featured.mediaUrl) {
-          video.src = featured.mediaUrl;
-          video.load();
-        }
-      } else {
-        // Fully unload the video to free memory
-        video.pause();
-        video.removeAttribute('src');
-        video.load();
-        setMediaLoaded(false);
-        setProgress(0);
-      }
-    }, [isActive, shouldPreload, featured?.mediaUrl, featured?.mediaType]);
-
-    // Check if video is already loaded when becoming active (handles preloaded videos)
-    useEffect(() => {
-      if (isActive && featured?.mediaType === 'video' && videoRef.current) {
-        const video = videoRef.current;
-        // readyState >= 2 means HAVE_CURRENT_DATA or better
-        if (video.readyState >= 2) {
-          setMediaLoaded(true);
-        }
-      }
-    }, [isActive, featured?.mediaType]);
-
-    // Explicitly play video when active and loaded (more reliable than autoPlay attribute)
+    // Explicitly play video when active and loaded (backup for autoPlay)
     useEffect(() => {
       if (!isActive || !mediaLoaded || featured?.mediaType !== 'video') return;
 
@@ -275,17 +241,28 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
               </div>
 
               {featured.mediaType === 'video' ? (
-                <video
-                  ref={videoRef}
-                  muted
-                  loop
-                  playsInline
-                  onTimeUpdate={handleTimeUpdate}
-                  onLoadedData={() => setMediaLoaded(true)}
-                  className={`relative z-10 w-full h-full object-cover transition-opacity duration-300 ${
-                    mediaLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
-                />
+                isActive ? (
+                  <video
+                    ref={videoRef}
+                    src={featured.mediaUrl}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    onTimeUpdate={handleTimeUpdate}
+                    onLoadedData={() => setMediaLoaded(true)}
+                    className={`relative z-10 w-full h-full object-cover transition-opacity duration-300 ${
+                      mediaLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                ) : (
+                  // Placeholder when not active - no video element = no loading
+                  <div className="relative z-10 w-full h-full bg-white/5 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-white/20" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                )
               ) : (
                 <img
                   src={isVisible ? featured.mediaUrl : undefined}
