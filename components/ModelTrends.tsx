@@ -9,13 +9,13 @@ interface ModelTrendsProps {
 }
 
 const MODEL_COLORS: Record<string, { stroke: string; name: string }> = {
-  sd: { stroke: '#06B6D4', name: 'Stable Diffusion' },
-  animatediff: { stroke: '#2DD4BF', name: 'AnimateDiff' },
-  flux: { stroke: '#38BDF8', name: 'Flux' },
-  wan: { stroke: '#22D3EE', name: 'Wan' },
-  cogvideo: { stroke: '#0EA5E9', name: 'CogVideoX' },
-  hunyuan: { stroke: '#14B8A6', name: 'HunyuanVideo' },
-  ltx: { stroke: '#3B82F6', name: 'LTX' },
+  sd: { stroke: '#3B82F6', name: 'Stable Diffusion' },
+  animatediff: { stroke: '#F97316', name: 'AnimateDiff' },
+  flux: { stroke: '#A855F7', name: 'Flux' },
+  wan: { stroke: '#22C55E', name: 'Wan' },
+  cogvideo: { stroke: '#EC4899', name: 'CogVideoX' },
+  hunyuan: { stroke: '#EAB308', name: 'HunyuanVideo' },
+  ltx: { stroke: '#06B6D4', name: 'LTX' },
 };
 
 const CustomTooltip = ({ active, payload, label }: any) => {
