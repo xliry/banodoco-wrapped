@@ -13,6 +13,7 @@ import TopGenerations from './components/TopGenerations';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import { useDiscordData } from './useDiscordData';
+import { BGPattern } from './components/ui/bg-pattern';
 
 const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -79,6 +80,9 @@ const App: React.FC = () => {
 
         <Footer />
       </main>
+
+      {/* Grid background pattern */}
+      <BGPattern variant="dots" mask="fade-edges" size={32} fill="#ffffff08" className="fixed pointer-events-none" />
 
       {/* Dynamic Background Elements */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
