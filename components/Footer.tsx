@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         className="space-y-6 sm:space-y-8"
       >
         <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 items-center text-base sm:text-xl text-gray-400 font-medium">
-          Made with <Heart size={18} className="text-cyan-400 fill-current" /> by the <span className="text-white font-bold">Banodoco</span> community
+          Made with <Heart size={18} className="text-red-500 fill-current" /> by the <span className="text-white font-bold">Banodoco</span> community
         </div>
 
         <div className="flex flex-col gap-2 text-xs sm:text-sm text-gray-500">
