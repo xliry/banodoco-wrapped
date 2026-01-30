@@ -8,24 +8,38 @@ import {
 } from '../constants';
 import { GridItemData, SpriteCoords } from '../types';
 
-const GRID_COLS = 14;
-const GRID_ROWS = Math.ceil(TOTAL_ITEMS / GRID_COLS);
-
 const getRandomCoords = (): SpriteCoords => ({
   x: Math.floor(Math.random() * SPRITE_COLS),
   y: Math.floor(Math.random() * SPRITE_ROWS),
 });
 
+const useGridCols = () => {
+  const [cols, setCols] = useState(14);
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setCols(w < 480 ? 7 : w < 768 ? 10 : 14);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+  return cols;
+};
+
 export const SpriteGrid: React.FC = () => {
+  const gridCols = useGridCols();
+  const gridRows = Math.ceil(TOTAL_ITEMS / gridCols);
   const [items, setItems] = useState<GridItemData[]>([]);
 
   useEffect(() => {
-    const initialItems = Array.from({ length: GRID_COLS * GRID_ROWS }).map((_, i) => ({
+    const total = gridCols * gridRows;
+    const initialItems = Array.from({ length: total }).map((_, i) => ({
       id: i,
       coords: getRandomCoords(),
     }));
     setItems(initialItems);
-  }, []);
+  }, [gridCols, gridRows]);
 
   const shuffleItem = useCallback((id: number) => {
     setItems(prev => {
@@ -39,11 +53,10 @@ export const SpriteGrid: React.FC = () => {
 
   return (
     <div
-      className="w-full h-full"
+      className="w-full"
       style={{
         display: 'grid',
-        gridTemplateColumns: `repeat(${GRID_COLS}, 1fr)`,
-        gridTemplateRows: `repeat(${GRID_ROWS}, 1fr)`,
+        gridTemplateColumns: `repeat(${gridCols}, 1fr)`,
       }}
     >
       {items.map((item) => (
@@ -51,7 +64,8 @@ export const SpriteGrid: React.FC = () => {
           key={item.id}
           onMouseEnter={() => shuffleItem(item.id)}
           onMouseMove={() => shuffleItem(item.id)}
-          className="cursor-pointer overflow-hidden relative group/item"
+          onTouchStart={() => shuffleItem(item.id)}
+          className="cursor-pointer overflow-hidden relative group/item aspect-square"
         >
           <div
             className="w-full h-full transition-[filter,background-position] duration-150 ease-out brightness-[0.85] group-hover/item:brightness-125 group-hover/item:scale-110"
