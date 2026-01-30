@@ -13,22 +13,40 @@ const Hero: React.FC = () => {
         <SpriteGrid />
       </div>
 
+      {/* Content above center */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="space-y-2 sm:space-y-3 relative z-10 pointer-events-none -mt-16 sm:-mt-20"
+        className="relative z-10 pointer-events-none mb-2 sm:mb-3"
       >
         <div className="inline-block px-3 sm:px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm font-medium text-cyan-400 backdrop-blur-sm">
           Celebrating
         </div>
+      </motion.div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter leading-none">
-          <span className="block text-white drop-shadow-lg">🎉 1 Million 🎉</span>
-          <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">
-            POSTS
-          </span>
-        </h1>
+      {/* Emojis - this is the vertical center anchor */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 pointer-events-none"
+      >
+        <span className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter text-white drop-shadow-lg">
+          🎉 1 Million 🎉
+        </span>
+      </motion.div>
+
+      {/* Content below center */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="relative z-10 pointer-events-none mt-2 sm:mt-3 space-y-2 sm:space-y-3"
+      >
+        <p className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">
+          POSTS
+        </p>
 
         <p className="text-lg sm:text-xl md:text-2xl text-gray-400 font-medium max-w-2xl mx-auto">
           A Community in Review
