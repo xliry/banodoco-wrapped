@@ -151,7 +151,7 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
           transition={{ duration: 0.8 }}
           className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-400 text-center px-4"
         >
-          And you know
+          And now
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
