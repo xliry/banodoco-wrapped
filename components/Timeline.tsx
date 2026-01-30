@@ -155,7 +155,6 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
                 />
               </clipPath>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#333" vertical={false} />
             <XAxis
               dataKey="date"
               stroke="#666"
