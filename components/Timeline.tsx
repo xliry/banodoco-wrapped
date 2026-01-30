@@ -55,7 +55,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
   const [hasCelebrated, setHasCelebrated] = useState(false);
 
   // Find the 1M milestone point and its position as percentage of chart width
-  const { millionPoint, millionPct } = useMemo(() => {
+  const { millionPoint, millionPct, cappedData } = useMemo(() => {
     // Find the data point closest to 1M
     let closestIdx = 0;
     let closestDist = Infinity;
@@ -68,9 +68,15 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
     }
     // Calculate percentage position (where in the data array is the 1M point)
     const pct = ((closestIdx + 1) / cumulativeMessages.length) * 100;
+    // Cap data at 1M so line doesn't go over
+    const capped = cumulativeMessages.map(d => ({
+      ...d,
+      cumulative: Math.min(d.cumulative, 1000000)
+    }));
     return {
       millionPoint: cumulativeMessages[closestIdx],
       millionPct: pct,
+      cappedData: capped,
     };
   }, [cumulativeMessages]);
 
@@ -137,7 +143,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
         className="h-[300px] sm:h-[420px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden relative"
       >
         <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-          <AreaChart data={cumulativeMessages} margin={{ top: 10, right: 10, left: -5, bottom: 5 }}>
+          <AreaChart data={cappedData} margin={{ top: 10, right: 10, left: -5, bottom: 5 }}>
             <defs>
               <linearGradient id="cumulativeGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#06B6D4" stopOpacity={0.5}/>
@@ -163,7 +169,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
               tickLine={false}
               dy={10}
               tickFormatter={formatDate}
-              interval="preserveStartEnd"
+              interval={Math.floor(cappedData.length / 6)}
             />
             <YAxis
               stroke="#666"
@@ -174,6 +180,7 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
               width={45}
               domain={[0, 1000000]}
               ticks={Y_TICKS}
+              allowDataOverflow={false}
             />
             {/* Horizontal grid lines at each Y tick */}
             {Y_TICKS.map((tick) => (
