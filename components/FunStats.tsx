@@ -35,6 +35,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
           suffix="characters in one message"
           sub={`By @${stats.longestMessage.username}`}
           icon="📝"
+          index={0}
         />
 
         {/* Busiest Day */}
@@ -45,6 +46,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
           suffix="messages"
           sub={stats.busiestDay.reason}
           icon="🔥"
+          index={1}
         />
 
         {/* Most Replied */}
@@ -55,6 +57,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
           suffix="replies in one thread"
           sub={stats.mostRepliedThread.topic}
           icon="🔁"
+          index={2}
         />
 
         {/* Emoji */}
@@ -65,6 +68,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
           suffix="times used"
           sub={`The ${stats.mostUsedEmoji.emoji} emoji reigns supreme`}
           icon={stats.mostUsedEmoji.emoji}
+          index={3}
         />
 
         {/* Most Used Word */}
@@ -75,6 +79,7 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
           suffix="mentions"
           sub={`The word "${stats.mostUsedWord.word}"`}
           icon="💬"
+          index={4}
         />
       </div>
     </section>
@@ -88,8 +93,13 @@ const StatCard: React.FC<{
   suffix: string;
   sub: string;
   icon: string;
-}> = ({ className, label, value, suffix, sub, icon }) => (
+  index?: number;
+}> = ({ className, label, value, suffix, sub, icon, index = 0 }) => (
   <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
     whileHover={{ scale: 1.02 }}
     className={`p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/5 flex flex-col justify-between group cursor-default transition-all ${className}`}
   >
