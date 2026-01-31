@@ -47,6 +47,14 @@ function logLine(msg: string) {
   console.log(msg);
 }
 
+// Resolve Discord mentions like <@123456789> to @username
+function resolveMentions(content: string, memberMap: Map<string, string>): string {
+  return content.replace(/<@(\d+)>/g, (match, userId) => {
+    const username = memberMap.get(userId);
+    return username ? `@${username}` : match;
+  });
+}
+
 async function supabaseFetch<T>(params: {
   table: string;
   select?: string;
@@ -582,7 +590,7 @@ async function main() {
           reaction_count: post.reaction_count,
           mediaUrl: url,
           mediaType,
-          content: post.content || '',
+          content: resolveMentions(post.content || '', memberMap),
         });
       }
     } catch (err) {
