@@ -18,6 +18,14 @@ const BASE_HEADERS: Record<string, string> = {
 
 function sleep(ms: number) { return new Promise(r => setTimeout(r, ms)); }
 
+// Resolve Discord mentions like <@123456789> to @username
+function resolveMentions(content: string, memberMap: Map<string, string>): string {
+  return content.replace(/<@(\d+)>/g, (match, userId) => {
+    const username = memberMap.get(userId);
+    return username ? `@${username}` : match;
+  });
+}
+
 async function supaFetch<T>(table: string, query: string): Promise<T[]> {
   const url = `${SUPABASE_URL}/${table}?${query}`;
   for (let attempt = 0; attempt < 3; attempt++) {
@@ -123,7 +131,7 @@ async function main() {
           reaction_count: post.reaction_count,
           mediaUrl: url,
           mediaType,
-          content: post.content || '',
+          content: resolveMentions(post.content || '', memberMap),
         });
       }
     } catch (err) {
