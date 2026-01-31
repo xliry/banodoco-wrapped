@@ -19,6 +19,31 @@ const BASE_HEADERS: Record<string, string> = {
 const PAGE_SIZE = 1000;
 const CONCURRENCY = 5;
 
+// Screenshot IDs to exclude from top generations (ComfyUI/UI screenshots)
+const SCREENSHOT_IDS = new Set([
+  '1145130416651653100',
+  '1145918673933062300',
+  '1155840360321392600',
+  '1199468887356494000',
+  '1196177599244812500',
+  '1191670659579904000',
+  '1223884885098496000',
+  '1225500258901954600',
+  '1236415929135665200',
+  '1254104642091221000',
+  '1263125263680667600',
+  '1273680876651286500',
+  '1313232523408572700',
+  '1320321241717932000',
+  '1362402734862762200',
+  '1384931026740056000',
+  '1385091877786878000',
+  '1415103162959790000',
+  '1415103589428236300',
+  '1442307931012857900',
+  '1461374045231517700',
+]);
+
 // --- Channel-to-family mapping ---
 const CHANNEL_FAMILY_MAP: Record<string, string[]> = {
   sd: ['sd', 'sdxl-turbo', 'stable-cascade', 'stable-video-diffusion', 'stable-zero123'],
@@ -564,11 +589,14 @@ async function main() {
         select: 'message_id,author_id::text,channel_id::text,created_at,reaction_count,attachments,content',
         filters: `attachments=neq.[]&reaction_count=gte.3&created_at=gte.${monthStart}&created_at=lt.${monthEnd}&channel_id=neq.${UPDATES_CHANNEL_ID}`,
         order: 'reaction_count.desc',
-        limit: 5,
+        limit: 20,
       });
 
+      let monthCount = 0;
       for (const post of posts) {
+        if (monthCount >= 5) break;
         if (!post.attachments || post.attachments.length === 0) continue;
+        if (SCREENSHOT_IDS.has(post.message_id)) continue;
         const attachment = post.attachments[0];
         const url = attachment.url || attachment.proxy_url;
         if (!url) continue;
@@ -580,6 +608,7 @@ async function main() {
           mediaType = 'gif';
         }
 
+        monthCount++;
         topGenerations.push({
           month,
           message_id: post.message_id,
