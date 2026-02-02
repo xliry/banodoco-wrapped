@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const { data, progress, isLoading, isPhase1Done, refresh } = useDiscordData();
 
   return (
-    <div className="relative min-h-screen bg-[#0f0f0f] selection:bg-cyan-500/30 snap-y snap-mandatory overflow-y-auto h-screen">
+    <div className="relative min-h-screen bg-[#0f0f0f] selection:bg-cyan-500/30 snap-y snap-mandatory overflow-y-auto overflow-x-hidden h-screen">
       {/* Loading screen until data.json is fetched */}
       <LoadingScreen progress={progress} visible={!isPhase1Done} />
 
@@ -47,11 +47,11 @@ const App: React.FC = () => {
       )}
 
       {/* Hero spans full viewport width */}
-      <div className="snap-start">
+      <div className="snap-start snap-always h-[100svh]">
         <Hero />
       </div>
 
-      <div className="snap-start min-h-screen flex items-center">
+      <div className="snap-start snap-always h-[100svh] flex items-center justify-center">
         <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <Timeline
             milestones={data.milestones}
@@ -60,42 +60,37 @@ const App: React.FC = () => {
         </main>
       </div>
 
-      <div className="snap-start min-h-screen flex items-center">
-        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <HallOfFame
-            topContributors={data.topContributors}
-            awards={data.awards}
-          />
-        </main>
-      </div>
-
-      <div className="snap-start min-h-screen flex items-center">
+      <div className="snap-start snap-always h-[100svh] flex items-center justify-center">
         <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <ModelTrends data={data.modelTrends} />
         </main>
       </div>
 
-      <div className="snap-start min-h-screen flex items-center">
+      <div className="snap-start snap-always h-[100svh] flex items-center justify-center">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <HallOfFame
+            mostThanked={data.mostThanked}
+          />
+        </main>
+      </div>
+
+      <div className="snap-start snap-always h-[100svh] flex items-center justify-center">
         <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <Heatmap activityData={data.activityHeatmap} />
         </main>
       </div>
 
-      <div className="snap-start min-h-screen flex items-center">
+      <div className="snap-start snap-always h-[100svh] flex items-center justify-center">
         <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <FunStats stats={data.funStats} />
         </main>
       </div>
 
-      <div className="snap-start">
+      <div className="snap-start snap-always">
         <CommunitySection data={data.topGenerations} />
       </div>
 
-      <div className="snap-start">
-        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <MillionthMessage message={data.millionthMessage} />
-        </main>
-      </div>
+      <MillionthMessage message={data.millionthMessage} />
 
       {/* Dynamic Background Elements */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">

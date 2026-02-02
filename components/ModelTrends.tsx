@@ -206,7 +206,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
               <div className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }} />
               <span className="text-gray-300">{entry.name}</span>
             </div>
-            <span className="text-white font-bold">{entry.value}%</span>
+            <span className="text-white font-bold">{Number(entry.value).toFixed(1)}%</span>
           </div>
         )
       ))}
@@ -281,7 +281,7 @@ const AnimatedLegend: React.FC<{
     .sort((a, b) => (firstAppearances[a[0]] ?? 0) - (firstAppearances[b[0]] ?? 0));
 
   return (
-    <div className="flex justify-center items-center gap-x-3 px-4 min-h-[32px]">
+    <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 sm:gap-x-3 px-2 sm:px-4 min-h-[32px]">
       <AnimatePresence mode="popLayout">
         {sortedVisibleModels.map(([key, { stroke, name }]) => (
           <LegendItem key={key} modelKey={key} stroke={stroke} name={name} />
@@ -352,12 +352,12 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="mb-8 sm:mb-12"
+        className="mb-4 sm:mb-6"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
-          <span className="text-cyan-500">🤖</span> The Rise & Fall of Models
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 flex items-center gap-2 sm:gap-3">
+          <span className="text-cyan-500">🤖</span> We've Seen the Rise & Fall of Many Models
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base">Share of conversation by model family — watching the community shift as technology evolved.</p>
+        <p className="text-gray-400 text-xs sm:text-sm">Share of conversation by model family — watching the community shift as new technology emerged.</p>
       </motion.div>
 
       <motion.div
@@ -365,7 +365,7 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="h-[280px] sm:h-[400px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden relative"
+        className="h-[280px] sm:h-[350px] lg:h-[400px] w-full bg-[#1a1a1a]/50 p-3 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden relative"
       >
         {/* Play / Pause overlay */}
         <div className="absolute top-1/2 -translate-y-1/2 left-3 right-3 sm:left-5 sm:right-5 z-10 flex items-center justify-between" style={{ top: '28px' }}>
@@ -445,12 +445,6 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
               tickCount={6}
             />
             <Tooltip content={<CustomTooltip />} />
-            {/* Custom animated legend - models appear as they debut in the data */}
-            <foreignObject x="40" y="-5" width="calc(100% - 80px)" height="40">
-              <div className="w-full h-full flex items-start justify-center">
-                <AnimatedLegend visibleModels={visibleModels} firstAppearances={firstAppearances} />
-              </div>
-            </foreignObject>
             {Object.entries(MODEL_COLORS).map(([key, { stroke, name }]) => (
               <Area
                 key={key}
@@ -469,6 +463,11 @@ const ModelTrends: React.FC<ModelTrendsProps> = ({ data }) => {
           </AreaChart>
         </ResponsiveContainer>
       </motion.div>
+
+      {/* Legend below chart - two rows on mobile */}
+      <div className="mt-3 sm:mt-4">
+        <AnimatedLegend visibleModels={visibleModels} firstAppearances={firstAppearances} />
+      </div>
     </section>
   );
 };

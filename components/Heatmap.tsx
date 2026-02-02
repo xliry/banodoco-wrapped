@@ -48,9 +48,9 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
         className="mb-4 sm:mb-6"
       >
         <h2 className="text-xl sm:text-2xl font-bold mb-2 flex items-center gap-2">
-          <span className="text-teal-500">🕐</span> When Does Banodoco Come Alive?
+          <span className="text-teal-500">🕐</span> Banodocians Are Online Night and Day
         </h2>
-        <p className="text-gray-400 text-xs sm:text-sm">Our peak hours across the globe.</p>
+        <p className="text-gray-400 text-xs sm:text-sm">Activity by hour and day of week — the community never sleeps.</p>
       </motion.div>
 
       <motion.div
@@ -58,29 +58,29 @@ const Heatmap: React.FC<HeatmapProps> = ({ activityData }) => {
         whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="bg-[#1a1a1a] p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-white/5 overflow-x-auto shadow-xl">
-        <div className="min-w-[480px] sm:min-w-[600px]">
+        className="bg-[#1a1a1a] p-2 sm:p-5 rounded-xl sm:rounded-2xl border border-white/5 shadow-xl">
+        <div>
           {/* Header */}
-          <div className="grid grid-cols-[50px_1fr] sm:grid-cols-[80px_1fr] mb-3 sm:mb-4">
+          <div className="grid grid-cols-[32px_1fr] sm:grid-cols-[80px_1fr] mb-2 sm:mb-4">
             <div />
-            <div className="grid grid-cols-7 gap-1 sm:gap-2">
+            <div className="grid grid-cols-7 gap-0.5 sm:gap-2">
               {DAYS.map(day => (
-                <div key={day} className="text-center text-[9px] sm:text-xs font-bold text-gray-500 uppercase">{day}</div>
+                <div key={day} className="text-center text-[7px] sm:text-xs font-bold text-gray-500 uppercase">{day.slice(0, 1)}<span className="hidden sm:inline">{day.slice(1)}</span></div>
               ))}
             </div>
           </div>
 
           {/* Rows */}
-          <div className="space-y-1 sm:space-y-2">
+          <div className="space-y-0.5 sm:space-y-2">
             {activityData.map((row, i) => (
-              <div key={i} className="grid grid-cols-[50px_1fr] sm:grid-cols-[80px_1fr] items-center">
-                <div className="text-right pr-3 sm:pr-6 text-[10px] sm:text-xs font-bold text-gray-500">{String(row.hour).padStart(2, '0')}:00</div>
-                <div className="grid grid-cols-7 gap-1 sm:gap-2">
+              <div key={i} className="grid grid-cols-[32px_1fr] sm:grid-cols-[80px_1fr] items-center">
+                <div className="text-right pr-1 sm:pr-6 text-[8px] sm:text-xs font-bold text-gray-500">{String(row.hour).padStart(2, '0')}</div>
+                <div className="grid grid-cols-7 gap-0.5 sm:gap-2">
                   {row.data.map((val, j) => (
                     <motion.div
                       key={j}
                       whileHover={{ scale: 1.15, zIndex: 10 }}
-                      className={`h-7 sm:h-10 rounded sm:rounded-lg ${getIntensityClass(val)} transition-colors cursor-default relative group`}
+                      className={`h-5 sm:h-10 rounded-sm sm:rounded-lg ${getIntensityClass(val)} transition-colors cursor-default relative group`}
                     >
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-white text-[#0f0f0f] text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none z-20">
                         {val.toLocaleString()} posts

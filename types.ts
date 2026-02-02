@@ -57,6 +57,13 @@ export interface MillionthMessage {
   avatarUrl?: string;
 }
 
+export interface ThankedPerson {
+  rank: number;
+  username: string;
+  thanks: number;
+  avatarUrl?: string;
+}
+
 export interface TopGeneration {
   month: string;
   message_id: string;
@@ -108,6 +115,7 @@ export interface AppData {
     earlyBird: Award;
     allNighter: Award;
   };
+  mostThanked: ThankedPerson[];
   modelTrends: ModelTrend[];
   activityHeatmap: HeatmapData[];
   channelStats: ChannelStat[];

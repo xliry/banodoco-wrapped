@@ -141,9 +141,9 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
   };
 
   return (
-    <div className="h-[300svh] sm:h-[300svh]" style={{ scrollSnapAlign: 'start' }}>
-      {/* Dramatic intro - "And you know..." */}
-      <section className="h-[100svh] flex items-center justify-center sticky top-0">
+    <>
+      {/* Dramatic intro - "And now..." */}
+      <section className="h-[100svh] flex items-center justify-center snap-start snap-always bg-[#0f0f0f]">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -174,7 +174,7 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
       </section>
 
       {/* Dramatic intro - "The millionth post is..." */}
-      <section className="h-[100svh] flex items-center justify-center sticky top-0 bg-[#0c0c0c]">
+      <section className="h-[100svh] flex items-center justify-center snap-start snap-always bg-[#0c0c0c]">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -205,13 +205,15 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
       </section>
 
       {/* The actual millionth post */}
-      <section ref={containerRef} className="min-h-[100svh] flex flex-col items-center justify-center text-center px-4 py-8 sticky top-0 bg-[#0c0c0c]">
+      <section ref={containerRef} className="h-[100svh] flex flex-col items-center text-center px-3 sm:px-6 lg:px-8 snap-start snap-always bg-[#0c0c0c] overflow-y-auto">
+        {/* Wrapper with auto margins for safe centering that handles overflow */}
+        <div className="my-auto py-6 sm:py-8 flex flex-col items-center">
         <motion.p
           initial={{ scale: 0.3, opacity: 0, y: 50 }}
           whileInView={{ scale: 1, opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, type: "spring", stiffness: 300, damping: 15 }}
-          className="mb-4 sm:mb-6 text-sm sm:text-base font-bold tracking-widest uppercase text-gray-500"
+          className="mb-2 sm:mb-6 text-xs sm:text-base font-bold tracking-widest uppercase text-gray-500"
         >
           THE <span className="text-cyan-400">1,000,000th</span> POST
         </motion.p>
@@ -221,7 +223,7 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
           whileInView={{ scale: 1, opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ delay: 0.2, duration: 0.7, type: "spring", stiffness: 250, damping: 18 }}
-          className="w-full max-w-2xl bg-[#1e1f22] rounded-xl sm:rounded-2xl p-4 sm:p-8 border border-white/10 text-left shadow-2xl relative"
+          className="w-full max-w-2xl bg-[#1e1f22] rounded-xl sm:rounded-2xl p-3 sm:p-8 border border-white/10 text-left shadow-2xl relative"
         >
         <div className="flex gap-3 sm:gap-4 items-start">
           {message.avatarUrl ? (
@@ -269,9 +271,9 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-6 sm:mt-8"
+          className="mt-3 sm:mt-8"
         >
-          <div className="flex flex-wrap justify-center gap-1.5 items-center text-xs sm:text-sm text-gray-400 font-medium">
+          <div className="flex flex-wrap justify-center gap-1.5 items-center text-[10px] sm:text-sm text-gray-400 font-medium">
             Made with <span className="text-red-500">&#9829;</span> by the <span className="text-white font-bold">Banodoco</span> community
           </div>
         </motion.div>
@@ -282,7 +284,7 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-cyan-500/10 to-teal-500/10 rounded-lg border border-cyan-500/20"
+          className="mt-3 sm:mt-6 p-2 sm:p-4 bg-gradient-to-r from-cyan-500/10 to-teal-500/10 rounded-lg border border-cyan-500/20"
         >
           <p className="text-xs sm:text-sm text-white font-medium mb-1">
             🔍 Want to explore this data yourself?
@@ -304,12 +306,13 @@ const MillionthMessage: React.FC<MillionthMessageProps> = ({ message }) => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="mt-4 text-[8px] sm:text-[9px] text-gray-600 uppercase tracking-[0.15em] sm:tracking-[0.2em]"
+          className="mt-3 sm:mt-4 text-[7px] sm:text-[9px] text-gray-600 uppercase tracking-[0.1em] sm:tracking-[0.2em]"
         >
           © 2025 BANODOCO DISCORD • ALL RIGHTS RESERVED
         </motion.p>
+        </div>
       </section>
-    </div>
+    </>
   );
 };
 

@@ -51,7 +51,7 @@ const ANIMATION_DURATION = 2.5; // seconds
 
 const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) => {
   const chartRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(chartRef, { once: true, amount: 0.5 });
+  const isInView = useInView(chartRef, { once: true, amount: 0.2 });
   const [animationComplete, setAnimationComplete] = useState(false);
   const [hasCelebrated, setHasCelebrated] = useState(false);
 
@@ -122,19 +122,19 @@ const Timeline: React.FC<TimelineProps> = ({ milestones, cumulativeMessages }) =
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="mb-8 sm:mb-16"
+        className="mb-4 sm:mb-6"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
-          <span className="text-cyan-500">📈</span> Our Art Journey
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 flex items-center gap-2 sm:gap-3">
+          <span className="text-cyan-500">📈</span> Our Journey to One Million
         </h2>
-        <p className="text-gray-400 max-w-xl text-sm sm:text-base">
+        <p className="text-gray-400 max-w-xl text-xs sm:text-sm">
           From zero to one million — watch the community grow post by post.
         </p>
       </motion.div>
 
       <div
         ref={chartRef}
-        className="h-[300px] sm:h-[420px] w-full bg-[#1a1a1a]/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden relative"
+        className="h-[280px] sm:h-[350px] lg:h-[400px] w-full bg-[#1a1a1a]/50 p-3 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm shadow-2xl overflow-hidden relative"
       >
         <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <AreaChart data={cappedData} margin={{ top: 10, right: 10, left: -5, bottom: 5 }}>

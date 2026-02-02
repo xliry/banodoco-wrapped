@@ -26,21 +26,22 @@ const MediaItem: React.FC<{ gen: TopGeneration; onClick: () => void }> = ({ gen,
         {gen.mediaType === 'video' ? (
           <video
             src={gen.mediaUrl}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover pointer-events-none"
             muted
             playsInline
             preload="metadata"
-            onMouseEnter={(e) => (e.target as HTMLVideoElement).play().catch(() => {})}
-            onMouseLeave={(e) => { const v = e.target as HTMLVideoElement; v.pause(); v.currentTime = 0; }}
           />
         ) : (
           <img
             src={gen.mediaUrl}
             alt={gen.content || 'Community generation'}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover pointer-events-none"
             loading="lazy"
           />
         )}
+
+        {/* Invisible tap target - ensures touch events work on iPad */}
+        <div className="absolute inset-0 z-10" />
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">

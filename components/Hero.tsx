@@ -7,7 +7,7 @@ import SpriteGrid from './SpriteGrid';
 const Hero: React.FC = () => {
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center relative px-4 overflow-hidden">
+    <section className="h-[100svh] flex flex-col items-center justify-center text-center relative px-4 overflow-hidden">
       {/* Sprite Grid Background */}
       <div className="absolute inset-0 z-0 opacity-30 overflow-hidden">
         <SpriteGrid />

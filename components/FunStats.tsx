@@ -16,25 +16,25 @@ const FunStats: React.FC<FunStatsProps> = ({ stats }) => {
   return (
     <section>
       <motion.div
-        initial={{ opacity: 0, filter: 'blur(10px)' }}
-        whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="mb-8 sm:mb-12"
+        transition={{ duration: 0.5 }}
+        className="mb-4 sm:mb-8"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 flex items-center gap-3">
+        <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 flex items-center gap-2">
           <span className="text-sky-500">🎲</span> Random Fun Facts
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base">The weird and wonderful data of 1 million posts.</p>
+        <p className="text-gray-400 text-[10px] sm:text-sm">The weird and wonderful data of 1 million posts.</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 auto-rows-[160px] sm:auto-rows-[200px]">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 auto-rows-[120px] sm:auto-rows-[160px] lg:auto-rows-[200px]">
         {/* Longest Message */}
         <StatCard
-          className="sm:col-span-2 bg-gradient-to-br from-cyan-900/20 to-sky-900/20"
+          className="col-span-2 sm:col-span-2 bg-gradient-to-br from-cyan-900/20 to-sky-900/20"
           label="The Novel Writer"
           value={stats.longestMessage.chars.toLocaleString()}
-          suffix="characters in one post"
+          suffix="chars"
           sub={`By @${stats.longestMessage.username}`}
           icon="📝"
           index={0}
@@ -98,23 +98,23 @@ const StatCard: React.FC<{
   index?: number;
 }> = ({ className, label, value, suffix, sub, icon, index = 0 }) => (
   <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.5, delay: index * 0.1 }}
+    transition={{ duration: 0.4, delay: index * 0.05 }}
     whileHover={{ scale: 1.02 }}
-    className={`p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/5 flex flex-col justify-between group cursor-default transition-all ${className}`}
+    className={`p-3 sm:p-5 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl border border-white/5 flex flex-col justify-between group cursor-default transition-all ${className}`}
   >
     <div className="flex justify-between items-start">
-      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-500">{label}</span>
-      <span className="text-xl sm:text-2xl group-hover:scale-125 transition-transform">{icon}</span>
+      <span className="text-[8px] sm:text-[10px] lg:text-xs font-bold uppercase tracking-wider text-gray-500 leading-tight">{label}</span>
+      <span className="text-base sm:text-xl lg:text-2xl group-hover:scale-125 transition-transform">{icon}</span>
     </div>
     <div>
-      <div className="flex items-baseline gap-1.5 sm:gap-2">
-        <span className="text-2xl sm:text-4xl font-black text-white">{value}</span>
-        <span className="text-xs sm:text-sm font-medium text-gray-400">{suffix}</span>
+      <div className="flex items-baseline gap-1 sm:gap-1.5">
+        <span className="text-lg sm:text-2xl lg:text-4xl font-black text-white">{value}</span>
+        <span className="text-[8px] sm:text-xs lg:text-sm font-medium text-gray-400">{suffix}</span>
       </div>
-      <p className="text-[10px] sm:text-xs text-gray-500 mt-1 font-medium">{sub}</p>
+      <p className="text-[8px] sm:text-[10px] lg:text-xs text-gray-500 mt-0.5 font-medium line-clamp-2">{sub}</p>
     </div>
   </motion.div>
 );

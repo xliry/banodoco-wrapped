@@ -3,16 +3,16 @@ import React, { useMemo, useRef, useEffect, useState, useLayoutEffect, useCallba
 import ArticleCard from './ArticleCard';
 import { TopGeneration } from '../types';
 
-// Hook to detect if we're on desktop (xl breakpoint = 1280px)
+// Hook to detect if we're on desktop/tablet (lg breakpoint = 1024px, includes iPads)
 const useIsDesktop = () => {
   // Initialize with actual value to avoid flash/duplicate renders
   const [isDesktop, setIsDesktop] = useState(() => {
     if (typeof window === 'undefined') return false;
-    return window.matchMedia('(min-width: 1280px)').matches;
+    return window.matchMedia('(min-width: 1024px)').matches;
   });
 
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1280px)');
+    const mq = window.matchMedia('(min-width: 1024px)');
     // Update in case SSR value differs
     setIsDesktop(mq.matches);
 
@@ -234,7 +234,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
     if (!col) return;
 
     const handler = (e: WheelEvent) => {
-      if (window.innerWidth < 1280) return;
+      if (window.innerWidth < 1024) return;
 
       // Disable snap during active scrolling to prevent jitter
       col.style.scrollSnapType = 'none';
@@ -266,37 +266,37 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
     <section
       ref={sectionRef}
       id="community"
-      className="min-h-[100svh] xl:h-[100svh] xl:min-h-0 overflow-y-auto xl:overflow-hidden relative text-white bg-[rgba(12,20,32,0.95)]"
+      className="min-h-[100svh] lg:h-[100svh] lg:min-h-0 overflow-y-auto lg:overflow-hidden relative text-white bg-[rgba(12,20,32,0.95)]"
       style={{ contain: 'layout style paint' }}
     >
       {/* Mobile / Tablet layout — horizontal snap scroll */}
-      {!isDesktop && <div className="h-full px-8 md:px-20 flex flex-col pt-20 pb-20">
-        <div className="mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4">
+      {!isDesktop && <div className="h-[100svh] px-4 sm:px-6 md:px-12 flex flex-col justify-center py-8 sm:py-12">
+        <div className="mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-2 sm:mb-3">
             <span className="text-sky-400">🎨</span> Top Generations Over Time
           </h2>
-          <p className="text-base md:text-lg text-white/60 leading-relaxed mb-6 md:mb-8 max-w-2xl">
+          <p className="text-sm md:text-base text-white/60 leading-relaxed mb-3 sm:mb-4 max-w-2xl">
             The most loved creations from the community — sorted by reactions each month.
           </p>
           <a
             href="https://discord.gg/NnFxGvx94b"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sky-400 font-medium hover:text-sky-300 transition-colors border border-sky-400/20 px-4 py-2 rounded-full bg-sky-400/5"
+            className="inline-flex items-center gap-1.5 text-sky-400 text-sm font-medium hover:text-sky-300 transition-colors border border-sky-400/20 px-3 py-1.5 rounded-full bg-sky-400/5"
           >
             Visit Discord
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 7l-10 10M17 7H7m10 0v10" />
             </svg>
           </a>
         </div>
 
         {/* Horizontal scroll container with gradient fades */}
-        <div className="-ml-10 -mr-8 md:-ml-24 md:-mr-20 overflow-visible">
-          <div className="relative overflow-visible">
+        <div className="-ml-4 -mr-4 sm:-ml-6 sm:-mr-6 md:-ml-12 md:-mr-12 overflow-hidden">
+          <div className="relative overflow-hidden">
             <div
               ref={mobileScrollRef}
-              className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory pl-10 pr-8 md:pl-24 md:pr-20 pt-2 pb-4 scrollbar-hide"
+              className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory pl-4 pr-4 sm:pl-6 sm:pr-6 md:pl-12 md:pr-12 pt-2 pb-4 scrollbar-hide"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {grouped.map(([month, gens], idx) => (
@@ -314,7 +314,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
 
             {/* Left edge gradient fade */}
             <div
-              className="pointer-events-none absolute inset-y-0 left-0 w-14 md:w-24 z-10"
+              className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-12 md:w-16 z-10"
               style={{
                 background: 'linear-gradient(to right, rgba(12, 20, 32, 0.95) 0%, rgba(12, 20, 32, 0) 100%)',
                 opacity: leftGradientOpacity,
@@ -322,7 +322,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
             />
             {/* Right edge gradient fade */}
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-20 z-10"
+              className="pointer-events-none absolute inset-y-0 right-0 w-6 sm:w-10 md:w-12 z-10"
               style={{
                 background: 'linear-gradient(to left, rgba(12, 20, 32, 0.95) 0%, rgba(12, 20, 32, 0) 100%)',
                 opacity: rightGradientOpacity,
@@ -339,7 +339,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
                   const card = mobileCardRefs.current[idx];
                   if (card && mobileScrollRef.current) {
                     mobileScrollRef.current.scrollTo({
-                      left: card.offsetLeft - 40, // matches pl-10 (40px)
+                      left: card.offsetLeft - 16, // matches pl-4 (16px)
                       behavior: 'smooth',
                     });
                   }
@@ -360,7 +360,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
         {/* Left column — heading (stays fixed in place) */}
         <div className="col-span-4 flex items-center pt-24 pb-24">
           <div>
-            <h2 className="text-4xl xl:text-5xl font-bold leading-tight mb-6">
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-6">
               <span className="text-sky-400">🎨</span> Top Generations Over Time
             </h2>
             <p className="text-lg text-white/60 leading-relaxed mb-8 max-w-2xl">
@@ -388,7 +388,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
         {/* Right column — scrollable card stream with snap + gradient fades */}
         <div
           ref={scrollColumnRef}
-          className="col-span-8 overflow-y-auto scrollbar-hide relative snap-y snap-proximity"
+          className="col-span-8 overflow-y-auto scrollbar-hide relative snap-y snap-mandatory"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* Top gradient fade — fades in as you scroll down */}
@@ -417,7 +417,7 @@ const CommunitySection: React.FC<CommunitySectionProps> = ({ data }) => {
                   variant="desktop"
                   scrollRoot={scrollRoot}
                   isActive={idx === activeTopicIndex}
-                  snapToCenter={idx !== 0 && idx !== grouped.length - 1}
+                  snapToCenter
                 />
               ))}
             </div>

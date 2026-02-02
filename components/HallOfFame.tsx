@@ -1,156 +1,259 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Contributor, Award } from '../types';
-import { Trophy, Zap, Heart, Moon, Sun, Star } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ThankedPerson } from '../types';
+
+// Gold medal particles that pop off from the #1 bar
+const MedalParticle: React.FC<{ delay: number; x: number; y: number }> = ({ delay, x, y }) => (
+  <motion.span
+    className="absolute text-lg sm:text-xl pointer-events-none z-20"
+    initial={{ opacity: 0, x: 0, y: 0, scale: 0.5 }}
+    animate={{
+      opacity: [0, 1, 1, 0],
+      x: x,
+      y: y,
+      scale: [0.5, 1.2, 1, 0.8],
+      rotate: [0, x > 0 ? 20 : -20, 0],
+    }}
+    transition={{
+      duration: 1.2,
+      delay: delay,
+      ease: "easeOut",
+    }}
+  >
+    🥇
+  </motion.span>
+);
 
 interface HallOfFameProps {
-  topContributors: Contributor[];
-  awards: {
-    mostHelpful: Award;
-    mostThankful: Award;
-    nightOwl: Award;
-    earlyBird: Award;
-    allNighter: Award;
-  };
+  mostThanked: ThankedPerson[];
 }
 
-const HallOfFame: React.FC<HallOfFameProps> = ({ topContributors, awards }) => {
-  const top3 = topContributors.slice(0, 3);
+const HallOfFame: React.FC<HallOfFameProps> = ({ mostThanked }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [selectedPerson, setSelectedPerson] = useState<ThankedPerson | null>(null);
+  const [showMedals, setShowMedals] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  // Reorder for podium: [2nd, 1st, 3rd]
-  const podiumOrder = [top3[1], top3[0], top3[2]];
+  // Detect mobile for limiting bars
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Limit to top 10 on mobile, full 20 on larger screens
+  const displayData = isMobile ? mostThanked.slice(0, 10) : mostThanked;
+  // Reverse order so #1 is on the right
+  const reversedData = [...displayData].reverse();
+  const maxThanks = mostThanked[0]?.thanks || 1;
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Trigger medal animation after #1 bar finishes animating
+  useEffect(() => {
+    if (isVisible) {
+      const numBars = isMobile ? 10 : 20;
+      // #1 bar is last, delay = (numBars - 1) * 0.08 + 0.6s duration
+      const medalDelay = (numBars - 1) * 0.08 + 0.6;
+      const timer = setTimeout(() => setShowMedals(true), medalDelay * 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible, isMobile]);
+
+  // Gold/silver/bronze for top 3, then gradient for rest
+  const getBarColor = (rank: number) => {
+    if (rank === 1) return '#FFD700'; // Gold
+    if (rank === 2) return '#C0C0C0'; // Silver
+    if (rank === 3) return '#CD7F32'; // Bronze
+    // Gradient from cyan to blue for others
+    const t = (rank - 4) / 16;
+    return `hsl(${190 - t * 30}, 70%, ${55 - t * 15}%)`;
+  };
+
+  const getInitial = (name: string) => {
+    return name.charAt(0).toUpperCase();
+  };
 
   return (
-    <section>
+    <section ref={sectionRef}>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, type: 'spring', stiffness: 120 }}
-        className="mb-6 sm:mb-10 text-center"
+        className="mb-4 sm:mb-6 text-center"
       >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">🏆 Hall of Fame</h2>
-        <p className="text-gray-400 text-xs sm:text-sm">The titans of the community who kept the conversation alive.</p>
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 leading-tight">
+          <span className="mr-2">🙏</span>Throughout It All, People Helped Others Figure It Out
+        </h2>
+        <p className="text-gray-400 text-[10px] sm:text-xs">
+          The most thanked members — counted by mentions and replies in thank-you messages.
+        </p>
       </motion.div>
 
-      {/* Podium */}
-      <div className="flex flex-col sm:flex-row items-end justify-center gap-3 mb-8 sm:mb-12 px-2 sm:px-4">
-        {podiumOrder.map((user, idx) => {
-          const isWinner = user.rank === 1;
-          const heightClass = isWinner ? 'h-20 sm:h-32' : idx === 0 ? 'h-16 sm:h-24' : 'h-12 sm:h-20';
-          const medal = isWinner ? '🥇' : idx === 0 ? '🥈' : '🥉';
-          const color = user.avatar;
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="bg-[#1a1a1a]/50 p-3 sm:p-4 lg:p-6 rounded-2xl sm:rounded-3xl border border-white/5 backdrop-blur-sm"
+      >
+        {/* Chart container */}
+        <div className="h-[300px] sm:h-[340px] lg:h-[400px] w-full flex flex-col">
+          {/* Y-axis labels and bars area */}
+          <div className="flex-1 flex">
+            {/* Y-axis */}
+            <div className="w-10 sm:w-12 flex flex-col justify-between text-[10px] text-gray-500 pr-2 py-2">
+              <span>{maxThanks.toLocaleString()}</span>
+              <span>{Math.round(maxThanks * 0.75).toLocaleString()}</span>
+              <span>{Math.round(maxThanks * 0.5).toLocaleString()}</span>
+              <span>{Math.round(maxThanks * 0.25).toLocaleString()}</span>
+              <span>0</span>
+            </div>
 
-          return (
-            <motion.div
-              key={user.rank}
-              initial={{ opacity: 0, y: 40, rotateX: 15 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.15, type: 'spring', stiffness: 100, damping: 12 }}
-              className="flex flex-col items-center w-full sm:w-36 group"
-            >
-              <div className="mb-2 flex flex-col items-center">
-                <div className="relative mb-1">
-                  {user.avatarUrl ? (
-                    <img
-                      src={user.avatarUrl}
-                      alt={user.username}
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover group-hover:scale-110 transition-transform shadow-xl"
-                      style={{ border: `2px solid ${color}` }}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.nextElementSibling?.classList.remove('hidden');
-                      }}
-                    />
-                  ) : null}
+            {/* Bars */}
+            <div className="flex-1 flex items-end gap-1 sm:gap-2 border-l border-b border-white/10 pl-2 pb-2">
+              {reversedData.map((person, index) => {
+                const heightPercent = (person.thanks / maxThanks) * 100;
+                const barColor = getBarColor(person.rank);
+
+                return (
                   <div
-                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl group-hover:scale-110 transition-transform shadow-xl ${user.avatarUrl ? 'hidden' : ''}`}
-                    style={{ backgroundColor: color + '33', border: `2px solid ${color}` }}
+                    key={person.rank}
+                    className="flex-1 flex flex-col items-center justify-end h-full group relative cursor-pointer"
+                    onClick={() => setSelectedPerson(selectedPerson?.rank === person.rank ? null : person)}
                   >
-                    {String(user.username).charAt(0)}
-                  </div>
-                  <div className="absolute -top-1 -right-1 text-base sm:text-lg">{medal}</div>
-                </div>
-                <p className="font-bold text-white text-sm sm:text-base text-center">{user.username}</p>
-                <p className="text-[10px] sm:text-xs text-gray-500 font-mono text-center">{(user.messages / 1000).toFixed(1)}K posts</p>
-              </div>
-              <div
-                className={`w-full ${heightClass} rounded-t-xl flex items-center justify-center bg-gradient-to-t from-[#1a1a1a] to-white/5 border-t border-x border-white/10`}
-              >
-                <span className="text-2xl sm:text-3xl font-black text-white/10">#{user.rank}</span>
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
+                    {/* Bar wrapper - maintains height for medal positioning */}
+                    <div className="w-full relative" style={{ height: `${heightPercent}%` }}>
+                      {/* Gold medal particles for #1 - positioned at top of bar */}
+                      {person.rank === 1 && showMedals && (
+                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-20">
+                          <MedalParticle delay={0} x={-20} y={-40} />
+                          <MedalParticle delay={0.1} x={15} y={-50} />
+                          <MedalParticle delay={0.2} x={-5} y={-60} />
+                          <MedalParticle delay={0.15} x={25} y={-35} />
+                          <MedalParticle delay={0.25} x={-25} y={-45} />
+                        </div>
+                      )}
 
-      {/* Awards Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-2 sm:gap-4">
-        <AwardCard
-          icon={<Heart className="text-sky-500" />}
-          title="Most Helpful"
-          user={awards.mostHelpful.username}
-          metric={`${awards.mostHelpful.count} helpful acts`}
-          bgColor="bg-sky-500/10"
-        />
-        <AwardCard
-          icon={<Zap className="text-teal-500" />}
-          title="Most Thankful"
-          user={awards.mostThankful.username}
-          metric={`${awards.mostThankful.count} thank yous`}
-          bgColor="bg-teal-500/10"
-        />
-        <AwardCard
-          icon={<Moon className="text-cyan-500" />}
-          title="Night Owl"
-          user={awards.nightOwl.username}
-          metric={`Avg post ${awards.nightOwl.avgTime}`}
-          bgColor="bg-cyan-500/10"
-        />
-        <AwardCard
-          icon={<Sun className="text-sky-400" />}
-          title="Early Bird"
-          user={awards.earlyBird.username}
-          metric={`Avg post ${awards.earlyBird.avgTime}`}
-          bgColor="bg-sky-500/10"
-        />
-        <AwardCard
-          icon={<Star className="text-blue-400" />}
-          title="All-Nighter"
-          user={awards.allNighter.username}
-          metric={`${awards.allNighter.count} late night posts`}
-          bgColor="bg-blue-500/10"
-        />
-      </div>
+                      {/* Bar - positioned at bottom so it grows upward */}
+                      <motion.div
+                        className="w-full absolute bottom-0 left-0 rounded-t-sm sm:rounded-t-md overflow-hidden"
+                        style={{ backgroundColor: barColor }}
+                        initial={{ height: 0 }}
+                        animate={isVisible ? { height: '100%' } : { height: 0 }}
+                        transition={{
+                          duration: 0.6,
+                          delay: index * 0.08,
+                          ease: [0.22, 1, 0.36, 1]
+                        }}
+                      >
+                        {/* Shine effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-50" />
+                      </motion.div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Selected person name display */}
+          {selectedPerson && (
+            <div className="ml-10 sm:ml-12 pl-2 pt-2 text-center">
+              <p className="text-white font-bold text-xs sm:text-sm">@{selectedPerson.username}</p>
+              <p className="text-cyan-400 text-[10px] sm:text-xs">{selectedPerson.thanks.toLocaleString()} thanks</p>
+            </div>
+          )}
+
+          {/* X-axis with avatars */}
+          <div className="flex ml-10 sm:ml-12 pl-2 pt-1">
+            {reversedData.map((person, index) => {
+              const barColor = getBarColor(person.rank);
+              const isSelected = selectedPerson?.rank === person.rank;
+
+              return (
+                <motion.div
+                  key={person.rank}
+                  className="flex-1 flex justify-center cursor-pointer"
+                  initial={{ opacity: 0 }}
+                  animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: index * 0.08 + 0.3
+                  }}
+                  onClick={() => setSelectedPerson(isSelected ? null : person)}
+                >
+                  {/* Avatar */}
+                  <div className={`relative transition-transform ${isSelected ? 'scale-125' : ''}`}>
+                    {person.avatarUrl ? (
+                      <img
+                        src={person.avatarUrl}
+                        alt={person.username}
+                        className={`w-4 h-4 sm:w-6 sm:h-6 rounded-full object-cover ${isSelected ? 'border-2 border-cyan-400' : 'border border-white/20'}`}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.nextElementSibling?.classList.remove('hidden');
+                        }}
+                      />
+                    ) : null}
+                    <div
+                      className={`w-4 h-4 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-[6px] sm:text-[8px] font-bold text-white/80 ${person.avatarUrl ? 'hidden' : ''}`}
+                      style={{ backgroundColor: barColor + '66', border: isSelected ? '2px solid #22d3ee' : `1px solid ${barColor}` }}
+                    >
+                      {getInitial(person.username)}
+                    </div>
+                    {/* Medal for top 3 */}
+                    {person.rank <= 3 && (
+                      <span className="absolute -top-1 -right-1 text-[6px] sm:text-[8px]">
+                        {person.rank === 1 ? '🥇' : person.rank === 2 ? '🥈' : '🥉'}
+                      </span>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Legend for top 3 */}
+        <div className="flex justify-center gap-4 sm:gap-6 mt-2 pt-4 border-t border-white/5">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: '#FFD700' }} />
+            <span className="text-xs text-gray-400">1st Place</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: '#C0C0C0' }} />
+            <span className="text-xs text-gray-400">2nd Place</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: '#CD7F32' }} />
+            <span className="text-xs text-gray-400">3rd Place</span>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 };
-
-const AwardCard: React.FC<{
-  icon: React.ReactNode;
-  title: string;
-  user: string;
-  metric: string;
-  bgColor: string;
-}> = ({ icon, title, user, metric, bgColor }) => (
-  <motion.div
-    initial={{ opacity: 0, x: -20, rotate: -3 }}
-    whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, type: 'spring', stiffness: 150 }}
-    whileHover={{ y: -3 }}
-    className={`${bgColor} border border-white/5 rounded-lg sm:rounded-xl p-3 sm:p-4 flex flex-col items-center text-center transition-all`}
-  >
-    <div className="p-1.5 sm:p-2 bg-white/5 rounded-full mb-1.5 sm:mb-2">
-      {icon}
-    </div>
-    <h4 className="text-gray-400 text-[9px] sm:text-xs font-semibold mb-0.5">{title}</h4>
-    <p className="text-white font-bold text-xs sm:text-sm mb-0.5 truncate w-full">@{user}</p>
-    <p className="text-[9px] sm:text-[10px] text-gray-500 font-medium uppercase tracking-tighter">{metric}</p>
-  </motion.div>
-);
 
 export default HallOfFame;

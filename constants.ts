@@ -54,6 +54,14 @@ export const demoData: AppData = {
     allNighter: { username: "NocturnalArtist", count: 1542, metric: "late night messages" },
   },
 
+  mostThanked: [
+    { rank: 1, username: "Kijai", thanks: 2247 },
+    { rank: 2, username: "pom", thanks: 424 },
+    { rank: 3, username: "Kosinkadink", thanks: 363 },
+    { rank: 4, username: "mel", thanks: 319 },
+    { rank: 5, username: "Ablejones", thanks: 297 },
+  ],
+
   modelTrends: [
     { month: "2023-01", sd: 65, animatediff: 15, flux: 0, wan: 0, cogvideo: 0, hunyuan: 0, ltx: 0 },
     { month: "2023-06", sd: 55, animatediff: 20, flux: 0, wan: 0, cogvideo: 5, hunyuan: 0, ltx: 0 },

@@ -174,7 +174,7 @@ const ArticleCard = forwardRef<HTMLDivElement, ArticleCardProps>(
       : 'border-white/10';
 
     const fullWidthClasses = fullWidth
-      ? 'w-[85vw] shrink-0 snap-center'
+      ? 'w-[85vw] md:w-[65vw] lg:w-[50vw] shrink-0 snap-center'
       : '';
 
     const snapClasses = snapToCenter ? 'snap-center' : '';
