@@ -33,6 +33,9 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ mostThanked }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [selectedPerson, setSelectedPerson] = useState<ThankedPerson | null>(null);
+  const [hoveredPerson, setHoveredPerson] = useState<ThankedPerson | null>(null);
+  // Show hovered person on desktop, tapped person on mobile
+  const activePerson = isMobile ? selectedPerson : hoveredPerson;
   const [showMedals, setShowMedals] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -139,8 +142,10 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ mostThanked }) => {
                 return (
                   <div
                     key={person.rank}
-                    className="flex-1 flex flex-col items-center justify-end h-full group relative cursor-pointer"
-                    onClick={() => setSelectedPerson(selectedPerson?.rank === person.rank ? null : person)}
+                    className="flex-1 flex flex-col items-center justify-end h-full relative cursor-pointer"
+                    onClick={() => isMobile && setSelectedPerson(selectedPerson?.rank === person.rank ? null : person)}
+                    onMouseEnter={() => !isMobile && setHoveredPerson(person)}
+                    onMouseLeave={() => !isMobile && setHoveredPerson(null)}
                   >
                     {/* Bar wrapper - maintains height for medal positioning */}
                     <div className="w-full relative" style={{ height: `${heightPercent}%` }}>
@@ -177,13 +182,16 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ mostThanked }) => {
             </div>
           </div>
 
-          {/* Selected person name display */}
-          {selectedPerson && (
-            <div className="ml-10 sm:ml-12 pl-2 pt-2 text-center">
-              <p className="text-white font-bold text-xs sm:text-sm">@{selectedPerson.username}</p>
-              <p className="text-cyan-400 text-[10px] sm:text-xs">{selectedPerson.thanks.toLocaleString()} thanks</p>
-            </div>
-          )}
+          {/* Active person display - fixed height so no layout shift */}
+          <div className="ml-10 sm:ml-12 pl-2 pt-1 text-center h-8 sm:h-9 flex items-center justify-center">
+            {activePerson && (
+              <div>
+                <span className="text-white font-bold text-xs sm:text-sm">@{activePerson.username}</span>
+                <span className="text-gray-500 mx-1.5">·</span>
+                <span className="text-cyan-400 text-[10px] sm:text-xs">{activePerson.thanks.toLocaleString()} thanks</span>
+              </div>
+            )}
+          </div>
 
           {/* X-axis with avatars */}
           <div className="flex ml-10 sm:ml-12 pl-2 pt-1">
@@ -194,14 +202,16 @@ const HallOfFame: React.FC<HallOfFameProps> = ({ mostThanked }) => {
               return (
                 <motion.div
                   key={person.rank}
-                  className="flex-1 flex justify-center cursor-pointer"
+                  className="flex-1 flex justify-center cursor-pointer relative"
                   initial={{ opacity: 0 }}
                   animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
                   transition={{
                     duration: 0.4,
                     delay: index * 0.08 + 0.3
                   }}
-                  onClick={() => setSelectedPerson(isSelected ? null : person)}
+                  onClick={() => isMobile && setSelectedPerson(isSelected ? null : person)}
+                  onMouseEnter={() => !isMobile && setHoveredPerson(person)}
+                  onMouseLeave={() => !isMobile && setHoveredPerson(null)}
                 >
                   {/* Avatar */}
                   <div className={`relative transition-transform ${isSelected ? 'scale-125' : ''}`}>
